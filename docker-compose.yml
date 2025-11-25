@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: apps/api/Dockerfile
     ports:
-      - "3050:3050"
+      - "3000:3000"
     environment:
       - REDIS_HOST=redis
-      - SERVER_PORT=3050
+      - SERVER_PORT=3000
     depends_on:
       - redis
     restart: unless-stopped
