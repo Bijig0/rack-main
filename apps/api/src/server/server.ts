@@ -1,6 +1,7 @@
 // server.ts
 import { Queue } from "bullmq";
 import { Hono } from "hono";
+import { SERVER_PORT } from "../shared/config";
 import { generateFakeRentalAppraisalData } from "./generateFakeRentalAppraisalData";
 
 const app = new Hono();
@@ -28,6 +29,6 @@ app.get("/api/reports/:jobId", async (c) => {
 });
 
 export default {
-  port: 3000,
+  port: SERVER_PORT,
   fetch: app.fetch,
 };

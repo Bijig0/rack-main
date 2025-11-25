@@ -15,6 +15,8 @@ export const EnvSchema = z.object({
   CORELOGIC_USERNAME: z.string().default("megturism0"),
   CORELOGIC_PASSWORD: z.string().default("Mycariscclass1$"),
   CORELOGIC_URL: z.string().default("https://propertyhub.corelogic.asia/"),
+
+  SERVER_PORT: z.string().default("3000"),
 });
 
 export const {
@@ -25,5 +27,6 @@ export const {
   CORELOGIC_EMAIL,
   CORELOGIC_USERNAME,
   CORELOGIC_PASSWORD,
-  CORELOGIC_URL
+  CORELOGIC_URL,
+  SERVER_PORT,
 } = EnvSchema.parse(process.env);
