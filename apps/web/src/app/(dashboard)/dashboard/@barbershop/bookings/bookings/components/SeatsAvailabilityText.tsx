@@ -1,0 +1,52 @@
+import classNames from '@/app/classNames'
+
+type Props = {
+  /**
+   * Whether to show the exact number of seats available or not
+   *
+   * @default true
+   */
+  showExact: boolean
+  /**
+   * Shows available seats count as either whole number or fraction.
+   *
+   * Applies only when `showExact` is `true`
+   *
+   * @default "whole"
+   */
+  variant?: 'whole' | 'fraction'
+  /** Number of seats booked in the event */
+  bookedSeats: number
+  /** Total number of seats in the event */
+  totalSeats: number
+}
+
+export const SeatsAvailabilityText = ({
+  showExact = true,
+  bookedSeats,
+  totalSeats,
+  variant = 'whole',
+}: Props) => {
+  const availableSeats = totalSeats - bookedSeats
+  const isHalfFull = bookedSeats / totalSeats >= 0.5
+  const isNearlyFull = bookedSeats / totalSeats >= 0.83
+
+  return (
+    <span className={classNames(showExact && 'lowercase', 'truncate')}>
+      {showExact
+        ? `${availableSeats}${variant === 'fraction' ? ` / ${totalSeats}` : ''} ${t(
+            'seats_available',
+            {
+              count: availableSeats,
+            },
+          )}`
+        : isNearlyFull
+          ? t('seats_nearly_full')
+          : isHalfFull
+            ? t('seats_half_full')
+            : t('seats_available', {
+                count: availableSeats,
+              })}
+    </span>
+  )
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "type": "Feature",
+    "id": "easement.845421",
+    "properties": {
+      "ufi": 729540427,
+      "pfi": "1128316",
+      "status": "A",
+      "task_id": 388080,
+      "pfi_created": null,
+      "ufi_old": 276433256,
+      "ufi_created": "2023-03-05T03:55:35Z"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          144.965464,
+          -37.817438
+        ],
+        [
+          144.965757,
+          -37.817353
+        ]
+      ]
+    }
+  }
+]

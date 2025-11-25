@@ -1,0 +1,419 @@
+[
+  {
+    "name": "First Page (Cover Page)",
+    "tasks": [
+      {
+        "name": "Address common name",
+        "status": "not-done",
+        "description": "Display the full address",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Report date",
+        "status": "not-done",
+        "description": "Current date",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Property Info",
+    "tasks": [
+      {
+        "name": "Land Area",
+        "status": "done",
+        "description": "From corelogic",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Floor Area",
+        "status": "done",
+        "description": "",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Frontage width",
+        "status": "not-done",
+        "description": "Not required",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Property type",
+        "status": "done",
+        "description": "house, apartment, etc",
+        "note": "From corelogic",
+        "url": ""
+      },
+      {
+        "name": "Council",
+        "status": "done",
+        "description": "From corelogic",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Nearby schools (renamed from Schools property is in catchment of)",
+        "status": "done",
+        "description": "Primary, secondary, and childcare from realestate.com with discriminated union types",
+        "note": "Directory renamed to getNearbySchools with updated type system",
+        "url": ""
+      },
+      {
+        "name": "Image of the property",
+        "status": "done",
+        "description": "Fallback logic: CoreLogic (selenium-login) -> realestate.com -> Google Street View",
+        "note": "Need to implement fallback chain logic",
+        "url": ""
+      },
+      {
+        "name": "Estimated value range",
+        "status": "done",
+        "description": "From domain.com property profile page (Low/Mid/High estimates)",
+        "note": "getEstimatedValueRange created with parser and cleaner",
+        "url": ""
+      },
+      {
+        "name": "Property history (rental and sale)",
+        "status": "done",
+        "description": "Rental and sale history from property.com.au",
+        "note": "getHistory function structure created, needs parsing implementation",
+        "url": ""
+      },
+      {
+        "name": "Similar properties for rent",
+        "status": "done",
+        "description": "From realestate.com rental estimate page",
+        "note": "getSimilarProperties parser created, needs cleaner and integration",
+        "url": ""
+      },
+      {
+        "name": "Similar properties for Sale",
+        "status": "done",
+        "description": "From realestate.com sales estimate page",
+        "note": "getSimilarProperties parser created, needs cleaner and integration",
+        "url": ""
+      },
+
+      {
+        "name": "Distance to CBD",
+        "status": "done",
+        "description": "Extracted from corelogic propertyPage.html",
+        "note": "getDistanceFromCBD completed with tests",
+        "url": ""
+      },
+      {
+        "name": "Appraisal Summary",
+        "status": "done",
+        "description": "Demographic summary text from corelogic",
+        "note": "getAppraisalSummary completed with tests",
+        "url": ""
+      },
+      {
+        "name": "Year Built",
+        "status": "done",
+        "description": "From corelogic propertyPage.html",
+        "note": "getYearBuilt completed",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Planning and Zoning",
+    "tasks": [
+      {
+        "name": "Regional Plan",
+        "status": "done",
+        "description": "Derived from LGA - Plan Melbourne 2017-2050 for Greater Melbourne LGAs",
+        "note": "Automatically determined based on LGA location",
+        "url": ""
+      },
+      {
+        "name": "Land Use",
+        "status": "done",
+        "description": "Inferred from planning zone code (Residential, Commercial, Industrial, etc.)",
+        "note": "Derived from Vicmap Planning zone classification",
+        "url": ""
+      },
+      {
+        "name": "Planning Scheme",
+        "status": "done",
+        "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
+        "note": "Retrieved from Vicmap Planning WFS data",
+        "url": ""
+      },
+      {
+        "name": "Zone",
+        "status": "done",
+        "description": "From Vicmap Planning plan_zone WFS layer",
+        "note": "Includes zone code, description, and schedule number (e.g., 'TRANSPORT ZONE 2 - PRINCIPAL ROAD NETWORK - Schedule 7151')",
+        "url": ""
+      },
+      {
+        "name": "Planning Overlays",
+        "status": "done",
+        "description": "From Vicmap Planning plan_overlay WFS layer - includes Heritage (HO), Design & Development (DDO), Vegetation Protection (VPO), Significant Landscape (SLO), Development Plan (DPO), Development Contributions (DCPO), etc.",
+        "note": "Automatically fetched and deduplicated. Example: Found 9 unique overlays including HO485, HO109, VPO1, VPO2, DDO1, DDO2, DPO3, SLO1, DCPO1",
+        "url": ""
+      },
+      {
+        "name": "Heritage Overlays",
+        "status": "done",
+        "description": "Extracted from planning overlays - specifically HO (Heritage Overlay) codes",
+        "note": "Automatically filtered from overlay data. Example: HO485, HO109",
+        "url": ""
+      },
+      {
+        "name": "Zone Precinct",
+        "status": "done",
+        "description": "Derived from specific overlay combinations - analyzes planning overlay patterns to determine precinct classification",
+        "note": "getZonePrecinct function created with 6 precinct types (Heritage, Design & Development, Environmental, Mixed Use, Activity Centre, Special Use) with 24+ comprehensive unit tests",
+        "url": ""
+      },
+      {
+        "name": "Local Plan",
+        "status": "done",
+        "description": "Municipal Strategic Statement lookup using comprehensive LGA/suburb mapping table",
+        "note": "getLocalPlan function created with 50+ Victorian council mappings covering Melbourne metro and regional areas with 19+ comprehensive unit tests",
+        "url": ""
+      },
+      {
+        "name": "Local Plan Precinct",
+        "status": "not-done",
+        "description": "Would require detailed local planning policy framework data",
+        "note": "Future enhancement",
+        "url": ""
+      },
+      {
+        "name": "Local Plan Subprecinct",
+        "status": "not-done",
+        "description": "Would require detailed local planning policy framework data",
+        "note": "Future enhancement",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Environmental and Planning Considerations",
+    "tasks": [
+      {
+        "name": "Easements",
+        "status": "done",
+        "description": "Got data from WFS all good",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Heritage",
+        "status": "done",
+        "description": "Make use of Vicmap Planning Scheme Overlay Polygon also, currently just uses heritage_inventory",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Character",
+        "status": "done",
+        "description": "Uses Neighbourhood Character Overlay (NCO) and Significant Landscape Overlay (SLO) from plan_overlay WFS",
+        "note": "getCharacterData module created with significance analysis and planning recommendations",
+        "url": ""
+      },
+      {
+        "name": "Flood risk",
+        "status": "done",
+        "description": "Got data ready ish just need cool down from AI to be done",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Biodiversity",
+        "status": "done",
+        "description": "Uses flora and fauna info from vba wfs usual normal link",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Coastal Hazards",
+        "status": "done",
+        "description": "Uses Land Subject to Inundation Overlay (LSIO) and Special Building Overlay (SBO) from plan_overlay WFS, plus coastal area detection",
+        "note": "getCoastalHazardData module created with risk analysis for coastal properties",
+        "url": ""
+      },
+      {
+        "name": "Waterways & Wetlands",
+        "status": "done",
+        "description": "Uses Floodway Overlay (FO), Public Acquisition Overlay (PAO), and Environmental Significance Overlay (ESO) from plan_overlay WFS to identify waterway buffers",
+        "note": "getWaterwayData module created with waterway proximity and protection requirements",
+        "url": ""
+      },
+      {
+        "name": "Bushfire Risk",
+        "status": "done",
+        "description": "Looks good ish dont know about the actual analysis functionality but for the most part is fine",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Steep Land",
+        "status": "done",
+        "description": "Landslide risk - Uses Landslip Overlay (LSO) and Erosion Management Overlay (EMO) from plan_overlay WFS",
+        "note": "getSteepLandData module created with geotechnical risk analysis and slope stability recommendations",
+        "url": ""
+      },
+      {
+        "name": "Noise Pollution",
+        "status": "done",
+        "description": "Got the data ready just need AI to collate when Claude is done cooling down",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Odours",
+        "status": "done",
+        "description": "Demo odour analysis using different techniques, will see how it works in practice, will possibly need to tweak analysis functions",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Infrastructure Considerations",
+    "tasks": [
+      {
+        "name": "Sewer",
+        "status": "done",
+        "description": "Uses Melbourne Water sewerage network main pipelines GeoJSON data. Calculates distance to nearest pipeline and determines if property has sewage connection (within 50m threshold).",
+        "note": "Implementation complete with point-to-LineString/MultiLineString distance calculations",
+        "url": ""
+      },
+      {
+        "name": "Water",
+        "status": "not-done",
+        "description": "Currently returns null for all because don't have YVW permissions fix later on after MVP",
+        "note": "getWaterData module created with multi-provider support (YVW, SEW, CWW), 56 unit tests covering service area detection, WFS queries, and distance analysis. Includes comprehensive error handling for API restrictions.",
+        "url": ""
+      },
+      {
+        "name": "Stormwater",
+        "status": "done",
+        "description": "Uses Melbourne Water drainage catchments (3,409 polygons) and Vicmap retarding basins (1,538 features) WFS. Identifies property's drainage catchment and nearby flood retention infrastructure. Analyzes stormwater risk level based on basin proximity and capacity.",
+        "note": "getStormwaterData module created with 51 tests (38 unit, 13 integration). Implements intelligent risk assessment (LOW/MODERATE/HIGH/VERY_HIGH) with context-aware recommendations. Includes filesystem caching for performance.",
+        "url": ""
+      },
+      {
+        "name": "Electricity",
+        "status": "done",
+        "description": "Pretty much all done but need to make electricity transmission lines specific to property\nand do some logic on it to make it actually act on property specifically",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Public Transport",
+        "status": "done",
+        "description": "Looks good with the data given, consider moving to PTV API if better/faster and if actually given API key",
+        "note": "Current PTV data retrieved from:https://opendata.transport.vic.gov.au/organization/about/public-transport",
+        "url": ""
+      },
+      {
+        "name": "Shopping Center",
+        "status": "done",
+        "description": "Maybe change up a couple parameters like radius or wtv but for most part data is all good and ther",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Park and Playground",
+        "status": "done",
+        "description": "Got data fetched, for extra data can modify easily per requirement on pdf",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Emergency Services",
+        "status": "done",
+        "description": "Ok cool, got the data it works",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Floor Plan",
+    "tasks": [
+      {
+        "name": "Floor Plan",
+        "status": "not-done",
+        "description": "",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Location and Suburb",
+    "tasks": [
+      {
+        "name": "Distance to CBD",
+        "status": "done",
+        "description": "Birds eye distance, can also estimate ETA via Google or navigation API",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Population",
+        "status": "done",
+        "description": "",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Growth in population",
+        "status": "done",
+        "description": "5 year population change",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Occupancy Pie Chart",
+        "status": "done",
+        "description": "e.g. purchaser, renting",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Growth of rental yield estimate",
+        "status": "not-done",
+        "description": "",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Maps",
+    "tasks": [
+      {
+        "name": "birdse eye view view",
+        "status": "not-done",
+        "description": "Not required for MVP",
+        "note": "",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Pricelabs Estimate",
+    "tasks": [
+      {
+        "name": "Pricelabs estimate",
+        "status": "not-done",
+        "description": "Sheet mentioned before",
+        "note": "",
+        "url": ""
+      }
+    ]
+  }
+]

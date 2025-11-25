@@ -1,0 +1,4234 @@
+{
+  "schemas": [
+    {
+      "43": {
+        "type": "text",
+        "position": {
+          "x": 206.89602876562498,
+          "y": 4027.2226974218747
+        },
+        "width": 10.936117999999999,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "2018": {
+        "type": "text",
+        "position": {
+          "x": 206.54325076562498,
+          "y": 598.66977815625
+        },
+        "width": 13.052786,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "2020": {
+        "type": "text",
+        "position": {
+          "x": 49.948403859375,
+          "y": 4310.333932617187
+        },
+        "width": 10.58334,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "2021": {
+        "type": "text",
+        "position": {
+          "x": 88.47176576574707,
+          "y": 4310.333932617187
+        },
+        "width": 9.877784,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "2022": {
+        "type": "text",
+        "position": {
+          "x": 126.28957167211914,
+          "y": 4310.333932617187
+        },
+        "width": 10.58334,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "2023": {
+        "type": "text",
+        "position": {
+          "x": 164.46013404663086,
+          "y": 4310.333932617187
+        },
+        "width": 10.58334,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "2024": {
+        "type": "text",
+        "position": {
+          "x": 202.63073948486328,
+          "y": 4310.333932617187
+        },
+        "width": 10.58334,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "2025": {
+        "type": "text",
+        "position": {
+          "x": 235.856897703125,
+          "y": 4310.333932617187
+        },
+        "width": 10.58334,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Premium Realty": {
+        "type": "text",
+        "position": {
+          "x": 45.009511859374996,
+          "y": 37.953951859374996
+        },
+        "width": 62.794484,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#0f172b",
+        "alignment": "left"
+      },
+      "Property Reports": {
+        "type": "text",
+        "position": {
+          "x": 45.009511859374996,
+          "y": 49.419236859375
+        },
+        "width": 39.511136,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "PROPERTY": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 105.571572578125
+        },
+        "width": 111.12507,
+        "height": 21.16668,
+        "fontSize": 60,
+        "fontColor": "#0f172b",
+        "alignment": "left"
+      },
+      "REPORT": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 130.971588578125
+        },
+        "width": 83.608386,
+        "height": 21.16668,
+        "fontSize": 60,
+        "fontColor": "#0f172b",
+        "alignment": "left"
+      },
+      "2847 Oakwood Boulevard, Beverly Hills, CA 90210": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 190.061903578125
+        },
+        "width": 160.16121199999998,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Property Type": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 590.5558841562499
+        },
+        "width": 32.808354,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "House": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 598.66977815625
+        },
+        "width": 16.933343999999998,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Council": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 627.24479615625
+        },
+        "width": 17.286122,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "City of Beverly Hills": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 635.35869015625
+        },
+        "width": 49.741698,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Land Area": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 590.5558841562499
+        },
+        "width": 23.283348,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "18,295 sq ft": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 598.66977815625
+        },
+        "width": 30.691685999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Est. Value": {
+        "type": "text",
+        "position": {
+          "x": 124.031783859375,
+          "y": 244.036937578125
+        },
+        "width": 19.755568,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$2.65M - $3.05M": {
+        "type": "text",
+        "position": {
+          "x": 124.031783859375,
+          "y": 249.15221857812497
+        },
+        "width": 45.155584,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Premium Realty Group": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 320.12123029687496
+        },
+        "width": 51.152809999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "9876 Wilshire Boulevard, Suite 400": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 328.587902296875
+        },
+        "width": 80.08060599999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Hills, CA 90210": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 337.054574296875
+        },
+        "width": 52.9167,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "+1 (310) 555-0100": {
+        "type": "text",
+        "position": {
+          "x": 145.6421924375,
+          "y": 320.12123029687496
+        },
+        "width": 42.686138,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "reports@premiumrealty.com": {
+        "type": "text",
+        "position": {
+          "x": 145.6421924375,
+          "y": 328.587902296875
+        },
+        "width": 64.911152,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "www.premiumrealty.com": {
+        "type": "text",
+        "position": {
+          "x": 145.6421924375,
+          "y": 337.054574296875
+        },
+        "width": 56.797258,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Report Date:": {
+        "type": "text",
+        "position": {
+          "x": 35.131727859375,
+          "y": 351.16569429687496
+        },
+        "width": 28.927795999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "November 17, 2025": {
+        "type": "text",
+        "position": {
+          "x": 66.69984670312499,
+          "y": 351.16569429687496
+        },
+        "width": 44.097249999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Report ID:": {
+        "type": "text",
+        "position": {
+          "x": 127.59814895312499,
+          "y": 351.16569429687496
+        },
+        "width": 22.93057,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "RPT-2025-11-0847": {
+        "type": "text",
+        "position": {
+          "x": 153.28755315625,
+          "y": 351.16569429687496
+        },
+        "width": 43.744471999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Property Information (Page 1 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 422.663873015625
+        },
+        "width": 152.047318,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Floor Area": {
+        "type": "text",
+        "position": {
+          "x": 90.385582109375,
+          "y": 590.5558841562499
+        },
+        "width": 23.636125999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "4,250 sq ft": {
+        "type": "text",
+        "position": {
+          "x": 187.184558015625,
+          "y": 3850.8281852656246
+        },
+        "width": 28.22224,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Year Built": {
+        "type": "text",
+        "position": {
+          "x": 206.54325076562498,
+          "y": 590.5558841562499
+        },
+        "width": 21.872235999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Distance to CBD": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 4018.932414421875
+        },
+        "width": 37.747246,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "12.5 km": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 4027.2226974218747
+        },
+        "width": 31.044463999999998,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Estimated Value Range": {
+        "type": "text",
+        "position": {
+          "x": 33.015059859375,
+          "y": 664.2864861562499
+        },
+        "width": 59.266704,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Low": {
+        "type": "text",
+        "position": {
+          "x": 33.015059859375,
+          "y": 678.04482815625
+        },
+        "width": 9.877784,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$2.65M": {
+        "type": "text",
+        "position": {
+          "x": 33.015059859375,
+          "y": 684.9239991562499
+        },
+        "width": 25.047238,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Mid": {
+        "type": "text",
+        "position": {
+          "x": 125.4249813515625,
+          "y": 677.33927215625
+        },
+        "width": 8.81945,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$2.85M": {
+        "type": "text",
+        "position": {
+          "x": 125.4249813515625,
+          "y": 684.2184431562499
+        },
+        "width": 30.691685999999997,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "High": {
+        "type": "text",
+        "position": {
+          "x": 222.92537914062498,
+          "y": 678.04482815625
+        },
+        "width": 10.936117999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$3.05M": {
+        "type": "text",
+        "position": {
+          "x": 222.92537914062498,
+          "y": 684.9239991562499
+        },
+        "width": 25.047238,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Nearby Schools": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 710.14762615625
+        },
+        "width": 40.922247999999996,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Beverly Hills Elementary": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 727.0809701562499
+        },
+        "width": 61.736149999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "0.5 km": {
+        "type": "text",
+        "position": {
+          "x": 232.11138753125,
+          "y": 3089.8750149531247
+        },
+        "width": 15.522231999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Primary": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 736.9587541562499
+        },
+        "width": 20.108345999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Hills High School": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 756.71432215625
+        },
+        "width": 63.50004,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "0.8 km": {
+        "type": "text",
+        "position": {
+          "x": 114.5632774609375,
+          "y": 757.94904515625
+        },
+        "width": 13.758341999999999,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#1447e6",
+        "alignment": "left"
+      },
+      "Secondary": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 766.59210615625
+        },
+        "width": 27.869462,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Little Learners Childcare": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 786.3476741562499
+        },
+        "width": 62.794484,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "0.3 km": {
+        "type": "text",
+        "position": {
+          "x": 114.58257000781249,
+          "y": 787.58239715625
+        },
+        "width": 13.758341999999999,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#1447e6",
+        "alignment": "left"
+      },
+      "Childcare": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 796.2254581562499
+        },
+        "width": 24.69446,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Similar Properties for Rent": {
+        "type": "text",
+        "position": {
+          "x": 144.2310804375,
+          "y": 710.5004041562499
+        },
+        "width": 75.494492,
+        "height": 9.525006,
+        "fontSize": 18,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "2901 Maple Drive": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 728.13930415625
+        },
+        "width": 44.802806,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "$8,200/mo": {
+        "type": "text",
+        "position": {
+          "x": 221.07605071875,
+          "y": 728.13930415625
+        },
+        "width": 28.575018,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "5 bed • 4 bath": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 738.01708815625
+        },
+        "width": 37.041689999999996,
+        "height": 16.933343999999998,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "3142 Pine Street": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 757.7726561562499
+        },
+        "width": 42.686138,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "$7,800/mo": {
+        "type": "text",
+        "position": {
+          "x": 221.76507024999998,
+          "y": 757.7726561562499
+        },
+        "width": 27.516683999999998,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "4 bed • 4 bath": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 767.6504401562499
+        },
+        "width": 37.041689999999996,
+        "height": 16.933343999999998,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "2756 Cedar Avenue": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 787.40600815625
+        },
+        "width": 50.800031999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "$9,100/mo": {
+        "type": "text",
+        "position": {
+          "x": 221.95799571875,
+          "y": 787.40600815625
+        },
+        "width": 27.163905999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "5 bed • 5 bath": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 797.28379215625
+        },
+        "width": 36.688911999999995,
+        "height": 16.933343999999998,
+        "fontSize": 16,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Continues on next page...": {
+        "type": "text",
+        "position": {
+          "x": 110.54629359375,
+          "y": 3153.0222769531247
+        },
+        "width": 58.561147999999996,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "center"
+      },
+      "Property Information (Page 2 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 818.6626901718749
+        },
+        "width": 153.45843,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Continued from previous page...": {
+        "type": "text",
+        "position": {
+          "x": 103.36946615625,
+          "y": 3226.582002109375
+        },
+        "width": 73.37782399999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "center"
+      },
+      "Property History": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 865.758553171875
+        },
+        "width": 42.33336,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Mar 2023": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 883.0446751718749
+        },
+        "width": 22.577792,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Sale": {
+        "type": "text",
+        "position": {
+          "x": 184.830867296875,
+          "y": 890.2766241718749
+        },
+        "width": 8.81945,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "$2,650,000": {
+        "type": "text",
+        "position": {
+          "x": 30.898391859375,
+          "y": 895.3919051718749
+        },
+        "width": 29.98613,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Jan 2020": {
+        "type": "text",
+        "position": {
+          "x": 107.86462957812499,
+          "y": 883.0446751718749
+        },
+        "width": 21.872235999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Rental": {
+        "type": "text",
+        "position": {
+          "x": 107.86462957812499,
+          "y": 890.2766241718749
+        },
+        "width": 12.700007999999999,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "$8,500/mo": {
+        "type": "text",
+        "position": {
+          "x": 107.86462957812499,
+          "y": 895.3919051718749
+        },
+        "width": 28.575018,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Aug 2018": {
+        "type": "text",
+        "position": {
+          "x": 184.830867296875,
+          "y": 883.0446751718749
+        },
+        "width": 21.872235999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "$2,100,000": {
+        "type": "text",
+        "position": {
+          "x": 184.830867296875,
+          "y": 895.3919051718749
+        },
+        "width": 28.927795999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Appraisal Summary": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 923.614145171875
+        },
+        "width": 50.094476,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "This premium property is located in one of Beverly": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 935.2558191718749
+        },
+        "width": 213.43069,
+        "height": 28.22224,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Interior Views": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 977.236401171875
+        },
+        "width": 35.2778,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Living Room": {
+        "type": "text",
+        "position": {
+          "x": 50.350791265625,
+          "y": 1047.130542421875
+        },
+        "width": 24.69446,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Kitchen": {
+        "type": "text",
+        "position": {
+          "x": 132.101580609375,
+          "y": 1047.130542421875
+        },
+        "width": 15.522231999999999,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Bedroom": {
+        "type": "text",
+        "position": {
+          "x": 208.417383890625,
+          "y": 1047.130542421875
+        },
+        "width": 18.344455999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Planning and Zoning (Page 1 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 1214.661507328125
+        },
+        "width": 152.400096,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Regional Plan": {
+        "type": "text",
+        "position": {
+          "x": 37.953951859374996,
+          "y": 1240.590690328125
+        },
+        "width": 34.572244,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Greater Los Angeles Regional Plan 2045": {
+        "type": "text",
+        "position": {
+          "x": 43.598399859375,
+          "y": 1257.524034328125
+        },
+        "width": 103.36395399999999,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Strategic framework for sustainable growth and dev": {
+        "type": "text",
+        "position": {
+          "x": 43.598399859375,
+          "y": 1267.754596328125
+        },
+        "width": 140.052866,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Land Use": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 1294.918502328125
+        },
+        "width": 21.872235999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Residential": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 1303.0323963281248
+        },
+        "width": 28.22224,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Planning Scheme": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 1294.918502328125
+        },
+        "width": 39.511136,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Hills Planning Scheme": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 1303.0323963281248
+        },
+        "width": 77.258382,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Zone": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 1325.9629663281248
+        },
+        "width": 13.405564,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Residential Zone 1 (R1)": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 1344.4838113281248
+        },
+        "width": 64.558374,
+        "height": 9.877784,
+        "fontSize": 18,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Single Family Residential": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 1354.5379843281248
+        },
+        "width": 56.44448,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Schedule 7151": {
+        "type": "text",
+        "position": {
+          "x": 215.33238390625,
+          "y": 1345.542145328125
+        },
+        "width": 29.280573999999998,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#ffffff",
+        "alignment": "left"
+      },
+      "Purpose: To provide for residential development at": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 1365.8268803281248
+        },
+        "width": 209.90291,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Zone Precinct": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 1399.693568328125
+        },
+        "width": 31.75002,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Heritage Precinct": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 1407.807462328125
+        },
+        "width": 44.802806,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Local Plan": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 1399.693568328125
+        },
+        "width": 23.636125999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Hills Municipal Strategic Statement": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 1407.807462328125
+        },
+        "width": 81.84449599999999,
+        "height": 16.933343999999998,
+        "fontSize": 16,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Planning and Zoning (Page 2 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 1610.660324484375
+        },
+        "width": 153.811208,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Planning Overlays": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 1657.756187484375
+        },
+        "width": 45.86114,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "HO485": {
+        "type": "text",
+        "position": {
+          "x": 47.126179859375,
+          "y": 1787.5784914843748
+        },
+        "width": 14.816676,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Heritage Overlay 485": {
+        "type": "text",
+        "position": {
+          "x": 67.86015559375,
+          "y": 1786.872935484375
+        },
+        "width": 49.036142,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Heritage": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2219.913442640625
+        },
+        "width": 22.225013999999998,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "DDO1": {
+        "type": "text",
+        "position": {
+          "x": 35.7807842578125,
+          "y": 1708.7326084843749
+        },
+        "width": 11.641674,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Design & Development Overlay 1": {
+        "type": "text",
+        "position": {
+          "x": 53.36318465625,
+          "y": 1708.203441484375
+        },
+        "width": 74.43615799999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Design": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 1717.1992804843749
+        },
+        "width": 14.11112,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "VPO2": {
+        "type": "text",
+        "position": {
+          "x": 35.795942687499995,
+          "y": 1739.777072484375
+        },
+        "width": 11.641674,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Vegetation Protection Overlay 2": {
+        "type": "text",
+        "position": {
+          "x": 53.393501515625,
+          "y": 1739.247905484375
+        },
+        "width": 72.672268,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Environmental": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 1748.243744484375
+        },
+        "width": 28.575018,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Heritage Overlays": {
+        "type": "text",
+        "position": {
+          "x": 37.953951859374996,
+          "y": 1767.822923484375
+        },
+        "width": 46.213918,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "This property is subject to heritage controls. Pla": {
+        "type": "text",
+        "position": {
+          "x": 43.951177859375,
+          "y": 1796.927108484375
+        },
+        "width": 195.79179,
+        "height": 21.16668,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Planning Note:": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 1842.788248484375
+        },
+        "width": 34.219466,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "All planning information is based on current plann": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 1842.435470484375
+        },
+        "width": 205.31679599999998,
+        "height": 21.16668,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Environmental & Planning Considerations (Page 1 of": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2006.659141640625
+        },
+        "width": 222.955696,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Environmental Risk Assessment": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2045.288332640625
+        },
+        "width": 81.49171799999999,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Flood Risk": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2065.396678640625
+        },
+        "width": 26.45835,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "LOW": {
+        "type": "text",
+        "position": {
+          "x": 161.8699804375,
+          "y": 2077.743908640625
+        },
+        "width": 9.877784,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#030213",
+        "alignment": "left"
+      },
+      "Property is outside flood zones": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2087.092525640625
+        },
+        "width": 71.261156,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Bushfire Risk": {
+        "type": "text",
+        "position": {
+          "x": 158.6949784375,
+          "y": 2065.396678640625
+        },
+        "width": 33.161131999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Not in bushfire prone area": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2087.092525640625
+        },
+        "width": 59.619482,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Landslip Risk": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2111.4342076406247
+        },
+        "width": 33.513909999999996,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "MODERATE": {
+        "type": "text",
+        "position": {
+          "x": 45.715067859375,
+          "y": 2123.781437640625
+        },
+        "width": 23.636125999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#030213",
+        "alignment": "left"
+      },
+      "Gentle slope, standard foundations recommended": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2133.130054640625
+        },
+        "width": 80.08060599999999,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Coastal Hazards": {
+        "type": "text",
+        "position": {
+          "x": 158.6949784375,
+          "y": 2111.4342076406247
+        },
+        "width": 42.33336,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "NONE": {
+        "type": "text",
+        "position": {
+          "x": 161.8699804375,
+          "y": 2123.781437640625
+        },
+        "width": 12.34723,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#030213",
+        "alignment": "left"
+      },
+      "Property not in coastal zone": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2133.130054640625
+        },
+        "width": 64.558374,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Easements": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2161.3522946406247
+        },
+        "width": 28.575018,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Drainage Easement": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2180.402306640625
+        },
+        "width": 44.802806,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "2.5m along rear boundary": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2188.868978640625
+        },
+        "width": 58.913926,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Utility Easement": {
+        "type": "text",
+        "position": {
+          "x": 142.8199684375,
+          "y": 2180.402306640625
+        },
+        "width": 37.394467999999996,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "1.5m along side boundary": {
+        "type": "text",
+        "position": {
+          "x": 142.8199684375,
+          "y": 2188.868978640625
+        },
+        "width": 58.561147999999996,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Easements may restrict building or landscaping in ": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2200.334263640625
+        },
+        "width": 130.880638,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Heritage Overlay HO485 applies": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2238.6106766406247
+        },
+        "width": 82.90283,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Property is within a heritage area. Planning permi": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2248.841238640625
+        },
+        "width": 145.344536,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "• External alterations or additions": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2258.719022640625
+        },
+        "width": 76.552826,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "• Demolition or removal of buildings": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2267.1856946406247
+        },
+        "width": 81.84449599999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "• Subdivision of land": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2275.6523666406247
+        },
+        "width": 47.625029999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "• Removal of significant trees": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2284.1190386406247
+        },
+        "width": 67.38059799999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Neighborhood Character": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2305.285718640625
+        },
+        "width": 64.205596,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Significant Landscape Overlay (SLO) applies": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2323.9829526406247
+        },
+        "width": 113.241738,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Area characterized by established gardens, mature ": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2335.6246266406247
+        },
+        "width": 206.02235199999998,
+        "height": 21.16668,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Environmental & Planning Considerations (Page 2 of": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2402.657958796875
+        },
+        "width": 224.366808,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Biodiversity": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2462.4538297968747
+        },
+        "width": 29.98613,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Native Oak Trees": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2481.503841796875
+        },
+        "width": 39.511136,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Count: 3": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2488.735790796875
+        },
+        "width": 17.286122,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Protected": {
+        "type": "text",
+        "position": {
+          "x": 224.1669923359375,
+          "y": 2484.855232796875
+        },
+        "width": 20.108345999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Bird Habitat Area": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2498.437185796875
+        },
+        "width": 39.158358,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Count: 1": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2505.669134796875
+        },
+        "width": 16.580565999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Moderate": {
+        "type": "text",
+        "position": {
+          "x": 224.63690365624998,
+          "y": 2501.788576796875
+        },
+        "width": 19.755568,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Protected vegetation may require permits for remov": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2515.5469187968747
+        },
+        "width": 128.411192,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Waterways & Wetlands": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2535.126097796875
+        },
+        "width": 58.913926,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "No significant waterways or wetlands within 100m o": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2554.1761097968747
+        },
+        "width": 166.158438,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Noise & Odours": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2575.342789796875
+        },
+        "width": 40.216691999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Noise Sources": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 2594.0400237968747
+        },
+        "width": 33.161131999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Residential area - low noise levels": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 2602.5066957968747
+        },
+        "width": 76.905604,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Odour Sources": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 2594.0400237968747
+        },
+        "width": 34.219466,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "No industrial or commercial odour sources nearby": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 2602.5066957968747
+        },
+        "width": 96.661172,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Environmental Summary:": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 2636.7261617968747
+        },
+        "width": 58.913926,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "The property presents low environmental risk with ": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 2636.373383796875
+        },
+        "width": 213.077912,
+        "height": 28.22224,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Infrastructure Considerations (Page 1 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2798.656775953125
+        },
+        "width": 191.55845399999998,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Utilities & Services": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2824.5859589531246
+        },
+        "width": 47.625029999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Sewer": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2844.6943049531246
+        },
+        "width": 16.580565999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "connected": {
+        "type": "text",
+        "position": {
+          "x": 222.41826076562498,
+          "y": 2890.379055953125
+        },
+        "width": 21.872235999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#016630",
+        "alignment": "left"
+      },
+      "Distance: 12m": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2856.335978953125
+        },
+        "width": 32.102798,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Provider: Municipal Water Services": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2864.802650953125
+        },
+        "width": 79.37505,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Water": {
+        "type": "text",
+        "position": {
+          "x": 158.6949784375,
+          "y": 2844.6943049531246
+        },
+        "width": 15.522231999999999,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Distance: 8m": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2856.335978953125
+        },
+        "width": 30.338908,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Stormwater": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2889.144332953125
+        },
+        "width": 30.338908,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Distance: 15m": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2900.786006953125
+        },
+        "width": 32.455576,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Provider: Municipal Drainage": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 2909.252678953125
+        },
+        "width": 65.616708,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Electricity": {
+        "type": "text",
+        "position": {
+          "x": 158.6949784375,
+          "y": 2889.144332953125
+        },
+        "width": 25.400015999999997,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Distance: 5m": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2900.786006953125
+        },
+        "width": 29.98613,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Provider: Power Grid Co": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 2909.252678953125
+        },
+        "width": 54.680589999999995,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Public Transport": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 2930.4193589531246
+        },
+        "width": 42.33336,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Oakwood & Sunset": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2950.5277049531246
+        },
+        "width": 49.036142,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Bus Stop": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2959.347154953125
+        },
+        "width": 20.813902,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "0.2 km": {
+        "type": "text",
+        "position": {
+          "x": 232.12516792187498,
+          "y": 2950.880482953125
+        },
+        "width": 15.522231999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Route 4": {
+        "type": "text",
+        "position": {
+          "x": 35.809723078124996,
+          "y": 2970.106883953125
+        },
+        "width": 15.87501,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Route 12": {
+        "type": "text",
+        "position": {
+          "x": 60.848692843749994,
+          "y": 2970.106883953125
+        },
+        "width": 17.6389,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Beverly Hills Station": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 2992.8610649531247
+        },
+        "width": 50.800031999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Train Station": {
+        "type": "text",
+        "position": {
+          "x": 42.540065859375,
+          "y": 3001.6805149531247
+        },
+        "width": 28.927795999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "1.5 km": {
+        "type": "text",
+        "position": {
+          "x": 232.75079765625,
+          "y": 2993.2138429531246
+        },
+        "width": 14.816676,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Metro Red Line": {
+        "type": "text",
+        "position": {
+          "x": 35.84555209375,
+          "y": 3012.440243953125
+        },
+        "width": 30.691685999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Nearby Amenities": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 3033.4305349531246
+        },
+        "width": 45.86114,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Shopping Center": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3053.891658953125
+        },
+        "width": 38.80558,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Center": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3060.594440953125
+        },
+        "width": 38.100024,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "1.8 km": {
+        "type": "text",
+        "position": {
+          "x": 232.770090203125,
+          "y": 3058.1249949531248
+        },
+        "width": 14.816676,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Park": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3085.641678953125
+        },
+        "width": 10.58334,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Gardens Park": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3092.344460953125
+        },
+        "width": 55.386146,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Playground": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3117.391698953125
+        },
+        "width": 25.752793999999998,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "La Cienega Park": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3124.0944809531247
+        },
+        "width": 41.980582,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "0.9 km": {
+        "type": "text",
+        "position": {
+          "x": 232.05626596874998,
+          "y": 3121.6250349531247
+        },
+        "width": 15.522231999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Infrastructure Considerations (Page 2 of 2)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 3194.655593109375
+        },
+        "width": 192.61678799999999,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Emergency Services": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 3241.751456109375
+        },
+        "width": 52.563922,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Police Station": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3262.212580109375
+        },
+        "width": 31.397242,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Beverly Hills PD": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3268.9153621093747
+        },
+        "width": 40.216691999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "2.1 km": {
+        "type": "text",
+        "position": {
+          "x": 232.87206509375,
+          "y": 3266.4459161093746
+        },
+        "width": 14.463897999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Fire Station": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3293.9626001093748
+        },
+        "width": 26.105572,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Fire Station 1": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3300.6653821093746
+        },
+        "width": 33.513909999999996,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "1.3 km": {
+        "type": "text",
+        "position": {
+          "x": 232.80316314062497,
+          "y": 3298.195936109375
+        },
+        "width": 14.816676,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Hospital": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3325.7126201093747
+        },
+        "width": 19.050012,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Cedars-Sinai Medical Center": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3332.415402109375
+        },
+        "width": 73.73060199999999,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "2.8 km": {
+        "type": "text",
+        "position": {
+          "x": 232.03146126562498,
+          "y": 3329.945956109375
+        },
+        "width": 15.522231999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Infrastructure Summary:": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 3361.695976109375
+        },
+        "width": 57.502813999999994,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "The property has excellent access to all essential": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 3361.343198109375
+        },
+        "width": 210.961244,
+        "height": 28.22224,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Floor Plan": {
+        "type": "text",
+        "position": {
+          "x": 124.0662348359375,
+          "y": 3726.826718265625
+        },
+        "width": 31.75002,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Floor plan image will be displayed here": {
+        "type": "text",
+        "position": {
+          "x": 96.0865297109375,
+          "y": 3739.703115265625
+        },
+        "width": 88.54727799999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "center"
+      },
+      "Ground Floor": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 3842.714291265625
+        },
+        "width": 29.98613,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "2,250 sq ft": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 3850.8281852656246
+        },
+        "width": 28.22224,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Upper Floor": {
+        "type": "text",
+        "position": {
+          "x": 109.7470309375,
+          "y": 3842.714291265625
+        },
+        "width": 27.163905999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "2,000 sq ft": {
+        "type": "text",
+        "position": {
+          "x": 109.7470309375,
+          "y": 3850.8281852656246
+        },
+        "width": 28.22224,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Total Living Area": {
+        "type": "text",
+        "position": {
+          "x": 187.184558015625,
+          "y": 3842.714291265625
+        },
+        "width": 38.100024,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Note:": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3880.108759265625
+        },
+        "width": 12.700007999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Floor plans are indicative only and may not be to ": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 3879.755981265625
+        },
+        "width": 206.72790799999999,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Location and Suburb": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 3986.653227421875
+        },
+        "width": 226.77562028124999,
+        "height": 12.700007999999999,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "~18 min drive": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 4040.275483421875
+        },
+        "width": 27.163905999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "Population": {
+        "type": "text",
+        "position": {
+          "x": 90.738360109375,
+          "y": 4018.932414421875
+        },
+        "width": 24.341682,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "34,109": {
+        "type": "text",
+        "position": {
+          "x": 90.738360109375,
+          "y": 4027.2226974218747
+        },
+        "width": 26.811128,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Beverly Hills": {
+        "type": "text",
+        "position": {
+          "x": 90.738360109375,
+          "y": 4040.275483421875
+        },
+        "width": 24.69446,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "Population Growth": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 4018.932414421875
+        },
+        "width": 24.341682,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "+8.2%": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 4034.278257421875
+        },
+        "width": 25.047238,
+        "height": 11.288896,
+        "fontSize": 24,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "5 year change": {
+        "type": "text",
+        "position": {
+          "x": 148.81719443749998,
+          "y": 4047.3310434218747
+        },
+        "width": 28.575018,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "Median Age": {
+        "type": "text",
+        "position": {
+          "x": 206.89602876562498,
+          "y": 4018.932414421875
+        },
+        "width": 27.516683999999998,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "years": {
+        "type": "text",
+        "position": {
+          "x": 206.89602876562498,
+          "y": 4040.275483421875
+        },
+        "width": 10.936117999999999,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#62748e",
+        "alignment": "left"
+      },
+      "Occupancy Distribution": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 4066.9102224218746
+        },
+        "width": 60.325038,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Owner Occupied: 68%": {
+        "type": "text",
+        "position": {
+          "x": 17.463652188598633,
+          "y": 4096.9201235957025
+        },
+        "width": 44.802806,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#0f172a",
+        "alignment": "right"
+      },
+      "Renting: 28%": {
+        "type": "text",
+        "position": {
+          "x": 96.1897965131836,
+          "y": 4158.626301246093
+        },
+        "width": 26.45835,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#64748b",
+        "alignment": "left"
+      },
+      "Other: 4%": {
+        "type": "text",
+        "position": {
+          "x": 116.1688652236328,
+          "y": 4131.127531753906
+        },
+        "width": 20.108345999999997,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#cbd5e1",
+        "alignment": "left"
+      },
+      "Owner Occupied": {
+        "type": "text",
+        "position": {
+          "x": 39.365063859375,
+          "y": 4180.857516421875
+        },
+        "width": 38.452802,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "68%": {
+        "type": "text",
+        "position": {
+          "x": 119.31889026562499,
+          "y": 4180.857516421875
+        },
+        "width": 10.936117999999999,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Renting": {
+        "type": "text",
+        "position": {
+          "x": 39.365063859375,
+          "y": 4190.735300421875
+        },
+        "width": 17.6389,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "28%": {
+        "type": "text",
+        "position": {
+          "x": 119.481498875,
+          "y": 4190.735300421875
+        },
+        "width": 10.58334,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Other": {
+        "type": "text",
+        "position": {
+          "x": 39.365063859375,
+          "y": 4200.613084421875
+        },
+        "width": 13.052786,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "4%": {
+        "type": "text",
+        "position": {
+          "x": 46.067845859375,
+          "y": 4273.200603019531
+        },
+        "width": 6.350003999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "Demographic Highlights": {
+        "type": "text",
+        "position": {
+          "x": 144.2310804375,
+          "y": 4066.9102224218746
+        },
+        "width": 61.736149999999995,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Median Household Income": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4087.018568421875
+        },
+        "width": 61.030593999999994,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$142,500": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4095.308851421875
+        },
+        "width": 30.691685999999997,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Education Level": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4120.885256421875
+        },
+        "width": 36.336134,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "76% Tertiary": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4129.175539421874
+        },
+        "width": 40.216691999999995,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Average Household Size": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4154.751944421875
+        },
+        "width": 55.738924,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "2.3 persons": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4163.0422274218745
+        },
+        "width": 37.747246,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Employment Rate": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4188.618632421875
+        },
+        "width": 40.216691999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "94.2%": {
+        "type": "text",
+        "position": {
+          "x": 149.87552843749998,
+          "y": 4196.908915421875
+        },
+        "width": 20.108345999999997,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Rental Yield Growth Estimate": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 4221.426986421875
+        },
+        "width": 74.43615799999999,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "0%": {
+        "type": "text",
+        "position": {
+          "x": 224.926291859375,
+          "y": 4981.589851332031
+        },
+        "width": 6.350003999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "left"
+      },
+      "2%": {
+        "type": "text",
+        "position": {
+          "x": 46.067845859375,
+          "y": 4289.604780019531
+        },
+        "width": 6.350003999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "6%": {
+        "type": "text",
+        "position": {
+          "x": 46.067845859375,
+          "y": 4256.796426019531
+        },
+        "width": 6.350003999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "8%": {
+        "type": "text",
+        "position": {
+          "x": 46.067845859375,
+          "y": 4242.861695019531
+        },
+        "width": 6.350003999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "Rental Yield %": {
+        "type": "text",
+        "position": {
+          "x": 123.10298553125,
+          "y": 4320.204826421875
+        },
+        "width": 36.336134,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0f172a",
+        "alignment": "center"
+      },
+      "Suburb Summary": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 4349.132622421875
+        },
+        "width": 44.802806,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Beverly Hills is a highly sought-after suburb char": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 4360.774296421875
+        },
+        "width": 213.43069,
+        "height": 42.33336,
+        "fontSize": 14,
+        "fontColor": "#314158",
+        "alignment": "left"
+      },
+      "Maps": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 4382.652044578124
+        },
+        "width": 226.77562028124999,
+        "height": 12.700007999999999,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Planning Zones Map": {
+        "type": "text",
+        "position": {
+          "x": 107.53803432031249,
+          "y": 4515.296572578125
+        },
+        "width": 64.911152,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Interactive map showing planning zones will be dis": {
+        "type": "text",
+        "position": {
+          "x": 69.01357428906249,
+          "y": 4528.172969578125
+        },
+        "width": 142.169534,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#62748e",
+        "alignment": "center"
+      },
+      "Map Legend": {
+        "type": "text",
+        "position": {
+          "x": 35.131727859375,
+          "y": 4616.014691578125
+        },
+        "width": 32.455576,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Residential Zone": {
+        "type": "text",
+        "position": {
+          "x": 50.653959859375,
+          "y": 4630.478589578125
+        },
+        "width": 38.100024,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "R1, R2, R3": {
+        "type": "text",
+        "position": {
+          "x": 50.653959859375,
+          "y": 4637.710538578125
+        },
+        "width": 20.108345999999997,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Commercial Zone": {
+        "type": "text",
+        "position": {
+          "x": 122.4470389375,
+          "y": 4630.478589578125
+        },
+        "width": 40.216691999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "C1, C2": {
+        "type": "text",
+        "position": {
+          "x": 122.4470389375,
+          "y": 4637.710538578125
+        },
+        "width": 13.052786,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Mixed Use Zone": {
+        "type": "text",
+        "position": {
+          "x": 194.240118015625,
+          "y": 4630.478589578125
+        },
+        "width": 37.394467999999996,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "MU1, MU2": {
+        "type": "text",
+        "position": {
+          "x": 194.240118015625,
+          "y": 4637.710538578125
+        },
+        "width": 20.813902,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Public Open Space": {
+        "type": "text",
+        "position": {
+          "x": 50.653959859375,
+          "y": 4648.823045578125
+        },
+        "width": 43.391694,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Parks, Recreation": {
+        "type": "text",
+        "position": {
+          "x": 50.653959859375,
+          "y": 4656.054994578125
+        },
+        "width": 35.2778,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Special Use Zone": {
+        "type": "text",
+        "position": {
+          "x": 122.4470389375,
+          "y": 4648.823045578125
+        },
+        "width": 39.863914,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Institutional": {
+        "type": "text",
+        "position": {
+          "x": 122.4470389375,
+          "y": 4656.054994578125
+        },
+        "width": 23.283348,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Heritage Overlay": {
+        "type": "text",
+        "position": {
+          "x": 194.240118015625,
+          "y": 4648.823045578125
+        },
+        "width": 38.452802,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Protected Areas": {
+        "type": "text",
+        "position": {
+          "x": 194.240118015625,
+          "y": 4656.054994578125
+        },
+        "width": 32.455576,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Map Information:": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 4684.806401578125
+        },
+        "width": 39.863914,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Planning zone maps are indicative only and should ": {
+        "type": "text",
+        "position": {
+          "x": 32.662281859375,
+          "y": 4684.453623578125
+        },
+        "width": 213.43069,
+        "height": 21.16668,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Revenue Estimate (PriceLabs)": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 4778.650861734374
+        },
+        "width": 226.77562028124999,
+        "height": 12.700007999999999,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Annual Revenue Estimate": {
+        "type": "text",
+        "position": {
+          "x": 44.188200578125,
+          "y": 4814.105050734374
+        },
+        "width": 36.688911999999995,
+        "height": 21.16668,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$162,300": {
+        "type": "text",
+        "position": {
+          "x": 35.837283859375,
+          "y": 4830.862005734375
+        },
+        "width": 46.213918,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Short-term rental potential": {
+        "type": "text",
+        "position": {
+          "x": 35.837283859375,
+          "y": 4846.560626734375
+        },
+        "width": 39.511136,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#00a63e",
+        "alignment": "left"
+      },
+      "Average Occupancy": {
+        "type": "text",
+        "position": {
+          "x": 122.87974320312499,
+          "y": 4814.105050734374
+        },
+        "width": 26.105572,
+        "height": 14.11112,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "89%": {
+        "type": "text",
+        "position": {
+          "x": 113.27481093749999,
+          "y": 4830.862005734375
+        },
+        "width": 21.872235999999997,
+        "height": 25.400015999999997,
+        "fontSize": 30,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Annual average": {
+        "type": "text",
+        "position": {
+          "x": 113.27481093749999,
+          "y": 4846.560626734375
+        },
+        "width": 35.630578,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#155dfc",
+        "alignment": "left"
+      },
+      "Avg. Nightly Rate": {
+        "type": "text",
+        "position": {
+          "x": 200.59012201562498,
+          "y": 4814.105050734374
+        },
+        "width": 39.158358,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$485": {
+        "type": "text",
+        "position": {
+          "x": 131.500755578125,
+          "y": 5155.064987734375
+        },
+        "width": 17.286122,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#00a63e",
+        "alignment": "center"
+      },
+      "Optimized pricing": {
+        "type": "text",
+        "position": {
+          "x": 190.712338015625,
+          "y": 4839.505066734375
+        },
+        "width": 40.216691999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#9810fa",
+        "alignment": "left"
+      },
+      "Monthly Revenue & Occupancy Forecast": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 4876.546756734375
+        },
+        "width": 104.06951,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Jan": {
+        "type": "text",
+        "position": {
+          "x": 61.193202609375,
+          "y": 4985.9148269296875
+        },
+        "width": 7.408338,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Feb": {
+        "type": "text",
+        "position": {
+          "x": 74.86335010937499,
+          "y": 4985.9148269296875
+        },
+        "width": 7.408338,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Mar": {
+        "type": "text",
+        "position": {
+          "x": 88.35710860937499,
+          "y": 4985.9148269296875
+        },
+        "width": 7.7611159999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Apr": {
+        "type": "text",
+        "position": {
+          "x": 102.38003410937499,
+          "y": 4985.9148269296875
+        },
+        "width": 7.05556,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "May": {
+        "type": "text",
+        "position": {
+          "x": 115.34462560937499,
+          "y": 4985.9148269296875
+        },
+        "width": 8.466671999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Jun": {
+        "type": "text",
+        "position": {
+          "x": 129.543940109375,
+          "y": 4985.9148269296875
+        },
+        "width": 7.408338,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Jul": {
+        "type": "text",
+        "position": {
+          "x": 143.919643609375,
+          "y": 4985.9148269296875
+        },
+        "width": 5.9972259999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Aug": {
+        "type": "text",
+        "position": {
+          "x": 156.531457109375,
+          "y": 4985.9148269296875
+        },
+        "width": 8.113894,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Sep": {
+        "type": "text",
+        "position": {
+          "x": 170.37799360937498,
+          "y": 4985.9148269296875
+        },
+        "width": 7.7611159999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Oct": {
+        "type": "text",
+        "position": {
+          "x": 184.224530109375,
+          "y": 4985.9148269296875
+        },
+        "width": 7.408338,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Nov": {
+        "type": "text",
+        "position": {
+          "x": 197.54189960937498,
+          "y": 4985.9148269296875
+        },
+        "width": 8.113894,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "Dec": {
+        "type": "text",
+        "position": {
+          "x": 211.212047109375,
+          "y": 4985.9148269296875
+        },
+        "width": 8.113894,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "center"
+      },
+      "$0k": {
+        "type": "text",
+        "position": {
+          "x": 47.478957859375,
+          "y": 4981.589851332031
+        },
+        "width": 7.7611159999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "$4k": {
+        "type": "text",
+        "position": {
+          "x": 47.478957859375,
+          "y": 4960.775949332031
+        },
+        "width": 7.7611159999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "$8k": {
+        "type": "text",
+        "position": {
+          "x": 47.478957859375,
+          "y": 4939.962047332031
+        },
+        "width": 7.7611159999999995,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "$12k": {
+        "type": "text",
+        "position": {
+          "x": 45.362289859375,
+          "y": 4919.148145332031
+        },
+        "width": 9.877784,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "$16k": {
+        "type": "text",
+        "position": {
+          "x": 45.362289859375,
+          "y": 4900.803689332031
+        },
+        "width": 9.877784,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "right"
+      },
+      "25%": {
+        "type": "text",
+        "position": {
+          "x": 224.926291859375,
+          "y": 4960.775949332031
+        },
+        "width": 8.81945,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "left"
+      },
+      "50%": {
+        "type": "text",
+        "position": {
+          "x": 224.926291859375,
+          "y": 4939.962047332031
+        },
+        "width": 8.81945,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "left"
+      },
+      "75%": {
+        "type": "text",
+        "position": {
+          "x": 224.926291859375,
+          "y": 4919.148145332031
+        },
+        "width": 8.466671999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "left"
+      },
+      "100%": {
+        "type": "text",
+        "position": {
+          "x": 224.926291859375,
+          "y": 4900.803689332031
+        },
+        "width": 10.936117999999999,
+        "height": 5.29167,
+        "fontSize": 12,
+        "fontColor": "#666666",
+        "alignment": "left"
+      },
+      "Occupancy (%)": {
+        "type": "text",
+        "position": {
+          "x": 101.189408359375,
+          "y": 4995.785720734375
+        },
+        "width": 39.158358,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#64748b",
+        "alignment": "center"
+      },
+      "Revenue ($)": {
+        "type": "text",
+        "position": {
+          "x": 150.79605853125,
+          "y": 4995.785720734375
+        },
+        "width": 31.397242,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0f172a",
+        "alignment": "center"
+      },
+      "Pricing Strategy Recommendations": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 5021.8912927343745
+        },
+        "width": 90.311168,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Peak Season (Jun-Aug)": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5041.9996387343745
+        },
+        "width": 53.975033999999994,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$550-650/night": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5051.7010337343745
+        },
+        "width": 51.152809999999995,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Expected occupancy: 90-95%": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5064.753819734375
+        },
+        "width": 60.325038,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Off-Season (Nov-Feb)": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5041.9996387343745
+        },
+        "width": 51.152809999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "$380-450/night": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5051.7010337343745
+        },
+        "width": 51.858366,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Expected occupancy: 82-86%": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5064.753819734375
+        },
+        "width": 60.325038,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Weekend Premium": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5085.744110734375
+        },
+        "width": 42.686138,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "+25-35%": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5095.445505734375
+        },
+        "width": 29.98613,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Friday-Sunday rate adjustment": {
+        "type": "text",
+        "position": {
+          "x": 32.309503859375,
+          "y": 5108.498291734375
+        },
+        "width": 62.088927999999996,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Minimum Stay": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5085.744110734375
+        },
+        "width": 32.455576,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "3 nights": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5095.445505734375
+        },
+        "width": 26.105572,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Recommended during peak": {
+        "type": "text",
+        "position": {
+          "x": 148.4644164375,
+          "y": 5108.498291734375
+        },
+        "width": 55.033367999999996,
+        "height": 5.644448,
+        "fontSize": 12,
+        "fontColor": "#45556c",
+        "alignment": "left"
+      },
+      "Competitive Analysis": {
+        "type": "text",
+        "position": {
+          "x": 26.665055859375,
+          "y": 5126.313580734375
+        },
+        "width": 53.975033999999994,
+        "height": 8.466671999999999,
+        "fontSize": 16,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Market Average Rate": {
+        "type": "text",
+        "position": {
+          "x": 42.589675265625,
+          "y": 5146.774704734375
+        },
+        "width": 47.977807999999996,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "$425": {
+        "type": "text",
+        "position": {
+          "x": 58.183565296874995,
+          "y": 5155.064987734375
+        },
+        "width": 17.286122,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#0a0a0a",
+        "alignment": "center"
+      },
+      "Your Projected Rate": {
+        "type": "text",
+        "position": {
+          "x": 117.428220671875,
+          "y": 5146.774704734375
+        },
+        "width": 45.508362,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "Premium": {
+        "type": "text",
+        "position": {
+          "x": 203.390297390625,
+          "y": 5146.774704734375
+        },
+        "width": 20.108345999999997,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#45556c",
+        "alignment": "center"
+      },
+      "+14%": {
+        "type": "text",
+        "position": {
+          "x": 204.553362359375,
+          "y": 5155.064987734375
+        },
+        "width": 17.991678,
+        "height": 9.877784,
+        "fontSize": 20,
+        "fontColor": "#00a63e",
+        "alignment": "center"
+      },
+      "Revenue Disclaimer:": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 5185.580284734375
+        },
+        "width": 47.625029999999995,
+        "height": 7.05556,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      },
+      "Revenue estimates are based on PriceLabs market an": {
+        "type": "text",
+        "position": {
+          "x": 33.720615859374995,
+          "y": 5185.227506734374
+        },
+        "width": 207.786242,
+        "height": 35.2778,
+        "fontSize": 14,
+        "fontColor": "#0a0a0a",
+        "alignment": "left"
+      }
+    }
+  ],
+  "basePdf": "JVBERi0xLjcKJYGBgYEKCjUgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCA4OQo+PgpzdHJlYW0KeJwr5DJUAMGidC4DhXKu6FgFA4UUoJgBEELI5FwCXBAFIg1NTC2N9QyMDU0szI0NzQwsLRVyuMwtTfQMDAzNDY2NDI3NLYFiRCozAIpmcKVxBXIBADFCH/0KZW5kc3RyZWFtCmVuZG9iagoKNiAwIG9iago8PAovRmlsdGVyIC9GbGF0ZURlY29kZQovVHlwZSAvT2JqU3RtCi9OIDQKL0ZpcnN0IDIwCi9MZW5ndGggMzIzCj4+CnN0cmVhbQp4nNVSTU/DMAy951f4CJfF+WjToGrSWFsOaGLaOCAQh7JG0xBqUJdJ49/jNGOIA+KMoqfE9nPsxE8AggStQYEpQEOmJJQl4/cf7w74st26PeO3u24PTxRFWMEz43N/6AMINp2yb+68De2b37KUBCKSvxjLwXeHjRugbOqmQTSImGtCjigr2ucES5BkU0wWdCYYfQL5jEJUM4o1CblJOTE+crNTfk07cfPIqRJXF8k+14216nSH/KsfO2V84buqDQ4uqiuJMhNCFAIzLfPHS/qOwbXB/9/Hjf3vfP/rC3/MOY43DnlwUQPjlPnK7f1h2NDYI6/xFKEDpfGHu5dXtzmb9THcrEOskxzRt3Ddrr32R1IY0jJWTxCFEUoKZay1IHRm1QSV0IVRIkdykQhnfe9DlOUoyD5QO9HKTiKlmz8BStyowwplbmRzdHJlYW0KZW5kb2JqCgo3IDAgb2JqCjw8Ci9TaXplIDgKL1Jvb3QgMiAwIFIKL0luZm8gMyAwIFIKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL1R5cGUgL1hSZWYKL0xlbmd0aCAzNwovVyBbIDEgMiAyIF0KL0luZGV4IFsgMCA4IF0KPj4Kc3RyZWFtCnicFcSxDQAgCACwgomz9/klF6J0KLrTZooppxUOoX55eVQfA0UKZW5kc3RyZWFtCmVuZG9iagoKc3RhcnR4cmVmCjYwMgolJUVPRg==",
+  "sampleData": {
+    "43": "43",
+    "2018": "2018",
+    "2020": "2020",
+    "2021": "2021",
+    "2022": "2022",
+    "2023": "2023",
+    "2024": "2024",
+    "2025": "2025",
+    "Premium Realty": "Premium Realty",
+    "Property Reports": "Property Reports",
+    "PROPERTY": "PROPERTY",
+    "REPORT": "REPORT",
+    "2847 Oakwood Boulevard, Beverly Hills, CA 90210": "2847 Oakwood Boulevard, Beverly Hills, CA 90210",
+    "Property Type": "Property Type",
+    "House": "House",
+    "Council": "Council",
+    "City of Beverly Hills": "City of Beverly Hills",
+    "Land Area": "Land Area",
+    "18,295 sq ft": "18,295 sq ft",
+    "Est. Value": "Est. Value",
+    "$2.65M - $3.05M": "$2.65M - $3.05M",
+    "Premium Realty Group": "Premium Realty Group",
+    "9876 Wilshire Boulevard, Suite 400": "9876 Wilshire Boulevard, Suite 400",
+    "Beverly Hills, CA 90210": "Beverly Hills, CA 90210",
+    "+1 (310) 555-0100": "+1 (310) 555-0100",
+    "reports@premiumrealty.com": "reports@premiumrealty.com",
+    "www.premiumrealty.com": "www.premiumrealty.com",
+    "Report Date:": "Report Date:",
+    "November 17, 2025": "November 17, 2025",
+    "Report ID:": "Report ID:",
+    "RPT-2025-11-0847": "RPT-2025-11-0847",
+    "Property Information (Page 1 of 2)": "Property Information (Page 1 of 2)",
+    "Floor Area": "Floor Area",
+    "4,250 sq ft": "4,250 sq ft",
+    "Year Built": "Year Built",
+    "Distance to CBD": "Distance to CBD",
+    "12.5 km": "12.5 km",
+    "Estimated Value Range": "Estimated Value Range",
+    "Low": "Low",
+    "$2.65M": "$2.65M",
+    "Mid": "Mid",
+    "$2.85M": "$2.85M",
+    "High": "High",
+    "$3.05M": "$3.05M",
+    "Nearby Schools": "Nearby Schools",
+    "Beverly Hills Elementary": "Beverly Hills Elementary",
+    "0.5 km": "0.5 km",
+    "Primary": "Primary",
+    "Beverly Hills High School": "Beverly Hills High School",
+    "0.8 km": "0.8 km",
+    "Secondary": "Secondary",
+    "Little Learners Childcare": "Little Learners Childcare",
+    "0.3 km": "0.3 km",
+    "Childcare": "Childcare",
+    "Similar Properties for Rent": "Similar Properties for Rent",
+    "2901 Maple Drive": "2901 Maple Drive",
+    "$8,200/mo": "$8,200/mo",
+    "5 bed • 4 bath": "5 bed • 4 bath",
+    "3142 Pine Street": "3142 Pine Street",
+    "$7,800/mo": "$7,800/mo",
+    "4 bed • 4 bath": "4 bed • 4 bath",
+    "2756 Cedar Avenue": "2756 Cedar Avenue",
+    "$9,100/mo": "$9,100/mo",
+    "5 bed • 5 bath": "5 bed • 5 bath",
+    "Continues on next page...": "Continues on next page...",
+    "Property Information (Page 2 of 2)": "Property Information (Page 2 of 2)",
+    "Continued from previous page...": "Continued from previous page...",
+    "Property History": "Property History",
+    "Mar 2023": "Mar 2023",
+    "Sale": "Sale",
+    "$2,650,000": "$2,650,000",
+    "Jan 2020": "Jan 2020",
+    "Rental": "Rental",
+    "$8,500/mo": "$8,500/mo",
+    "Aug 2018": "Aug 2018",
+    "$2,100,000": "$2,100,000",
+    "Appraisal Summary": "Appraisal Summary",
+    "This premium property is located in one of Beverly": "This premium property is located in one of Beverly Hills' most prestigious neighborhoods. The area features excellent schools, low crime rates, and strong property value appreciation. Recent market analysis shows consistent growth in property values, with strong demand for luxury single-family homes in this location.",
+    "Interior Views": "Interior Views",
+    "Living Room": "Living Room",
+    "Kitchen": "Kitchen",
+    "Bedroom": "Bedroom",
+    "Planning and Zoning (Page 1 of 2)": "Planning and Zoning (Page 1 of 2)",
+    "Regional Plan": "Regional Plan",
+    "Greater Los Angeles Regional Plan 2045": "Greater Los Angeles Regional Plan 2045",
+    "Strategic framework for sustainable growth and dev": "Strategic framework for sustainable growth and development",
+    "Land Use": "Land Use",
+    "Residential": "Residential",
+    "Planning Scheme": "Planning Scheme",
+    "Beverly Hills Planning Scheme": "Beverly Hills Planning Scheme",
+    "Zone": "Zone",
+    "Residential Zone 1 (R1)": "Residential Zone 1 (R1)",
+    "Single Family Residential": "Single Family Residential",
+    "Schedule 7151": "Schedule 7151",
+    "Purpose: To provide for residential development at": "Purpose: To provide for residential development at low densities, ensuring compatibility with neighborhood character and heritage values.",
+    "Zone Precinct": "Zone Precinct",
+    "Heritage Precinct": "Heritage Precinct",
+    "Local Plan": "Local Plan",
+    "Beverly Hills Municipal Strategic Statement": "Beverly Hills Municipal Strategic Statement",
+    "Planning and Zoning (Page 2 of 2)": "Planning and Zoning (Page 2 of 2)",
+    "Planning Overlays": "Planning Overlays",
+    "HO485": "HO485",
+    "Heritage Overlay 485": "Heritage Overlay 485",
+    "Heritage": "Heritage",
+    "DDO1": "DDO1",
+    "Design & Development Overlay 1": "Design & Development Overlay 1",
+    "Design": "Design",
+    "VPO2": "VPO2",
+    "Vegetation Protection Overlay 2": "Vegetation Protection Overlay 2",
+    "Environmental": "Environmental",
+    "Heritage Overlays": "Heritage Overlays",
+    "This property is subject to heritage controls. Pla": "This property is subject to heritage controls. Planning permits may be required for alterations, demolition, or new buildings. Consult with council before commencing any works.",
+    "Planning Note:": "Planning Note:",
+    "All planning information is based on current plann": "All planning information is based on current planning schemes and may be subject to change. Always verify with local council before making development decisions. Planning permits may be required for building works, subdivisions, or changes of use.",
+    "Environmental & Planning Considerations (Page 1 of": "Environmental & Planning Considerations (Page 1 of 2)",
+    "Environmental Risk Assessment": "Environmental Risk Assessment",
+    "Flood Risk": "Flood Risk",
+    "LOW": "LOW",
+    "Property is outside flood zones": "Property is outside flood zones",
+    "Bushfire Risk": "Bushfire Risk",
+    "Not in bushfire prone area": "Not in bushfire prone area",
+    "Landslip Risk": "Landslip Risk",
+    "MODERATE": "MODERATE",
+    "Gentle slope, standard foundations recommended": "Gentle slope, standard foundations recommended",
+    "Coastal Hazards": "Coastal Hazards",
+    "NONE": "NONE",
+    "Property not in coastal zone": "Property not in coastal zone",
+    "Easements": "Easements",
+    "Drainage Easement": "Drainage Easement",
+    "2.5m along rear boundary": "2.5m along rear boundary",
+    "Utility Easement": "Utility Easement",
+    "1.5m along side boundary": "1.5m along side boundary",
+    "Easements may restrict building or landscaping in ": "Easements may restrict building or landscaping in specified areas",
+    "Heritage Overlay HO485 applies": "Heritage Overlay HO485 applies",
+    "Property is within a heritage area. Planning permi": "Property is within a heritage area. Planning permits required for:",
+    "• External alterations or additions": "• External alterations or additions",
+    "• Demolition or removal of buildings": "• Demolition or removal of buildings",
+    "• Subdivision of land": "• Subdivision of land",
+    "• Removal of significant trees": "• Removal of significant trees",
+    "Neighborhood Character": "Neighborhood Character",
+    "Significant Landscape Overlay (SLO) applies": "Significant Landscape Overlay (SLO) applies",
+    "Area characterized by established gardens, mature ": "Area characterized by established gardens, mature trees, and low-density residential development. New development should respect existing landscape character and maintain canopy cover.",
+    "Environmental & Planning Considerations (Page 2 of": "Environmental & Planning Considerations (Page 2 of 2)",
+    "Biodiversity": "Biodiversity",
+    "Native Oak Trees": "Native Oak Trees",
+    "Count: 3": "Count: 3",
+    "Protected": "Protected",
+    "Bird Habitat Area": "Bird Habitat Area",
+    "Count: 1": "Count: 1",
+    "Moderate": "Moderate",
+    "Protected vegetation may require permits for remov": "Protected vegetation may require permits for removal or pruning",
+    "Waterways & Wetlands": "Waterways & Wetlands",
+    "No significant waterways or wetlands within 100m o": "No significant waterways or wetlands within 100m of property boundary.",
+    "Noise & Odours": "Noise & Odours",
+    "Noise Sources": "Noise Sources",
+    "Residential area - low noise levels": "Residential area - low noise levels",
+    "Odour Sources": "Odour Sources",
+    "No industrial or commercial odour sources nearby": "No industrial or commercial odour sources nearby",
+    "Environmental Summary:": "Environmental Summary:",
+    "The property presents low environmental risk with ": "The property presents low environmental risk with minimal hazards identified. Heritage and landscape overlays apply, requiring consideration for development. Protected vegetation and biodiversity areas are present. All environmental information should be verified with local authorities before undertaking any development or significant works.",
+    "Infrastructure Considerations (Page 1 of 2)": "Infrastructure Considerations (Page 1 of 2)",
+    "Utilities & Services": "Utilities & Services",
+    "Sewer": "Sewer",
+    "connected": "connected",
+    "Distance: 12m": "Distance: 12m",
+    "Provider: Municipal Water Services": "Provider: Municipal Water Services",
+    "Water": "Water",
+    "Distance: 8m": "Distance: 8m",
+    "Stormwater": "Stormwater",
+    "Distance: 15m": "Distance: 15m",
+    "Provider: Municipal Drainage": "Provider: Municipal Drainage",
+    "Electricity": "Electricity",
+    "Distance: 5m": "Distance: 5m",
+    "Provider: Power Grid Co": "Provider: Power Grid Co",
+    "Public Transport": "Public Transport",
+    "Oakwood & Sunset": "Oakwood & Sunset",
+    "Bus Stop": "Bus Stop",
+    "0.2 km": "0.2 km",
+    "Route 4": "Route 4",
+    "Route 12": "Route 12",
+    "Beverly Hills Station": "Beverly Hills Station",
+    "Train Station": "Train Station",
+    "1.5 km": "1.5 km",
+    "Metro Red Line": "Metro Red Line",
+    "Nearby Amenities": "Nearby Amenities",
+    "Shopping Center": "Shopping Center",
+    "Beverly Center": "Beverly Center",
+    "1.8 km": "1.8 km",
+    "Park": "Park",
+    "Beverly Gardens Park": "Beverly Gardens Park",
+    "Playground": "Playground",
+    "La Cienega Park": "La Cienega Park",
+    "0.9 km": "0.9 km",
+    "Infrastructure Considerations (Page 2 of 2)": "Infrastructure Considerations (Page 2 of 2)",
+    "Emergency Services": "Emergency Services",
+    "Police Station": "Police Station",
+    "Beverly Hills PD": "Beverly Hills PD",
+    "2.1 km": "2.1 km",
+    "Fire Station": "Fire Station",
+    "Fire Station 1": "Fire Station 1",
+    "1.3 km": "1.3 km",
+    "Hospital": "Hospital",
+    "Cedars-Sinai Medical Center": "Cedars-Sinai Medical Center",
+    "2.8 km": "2.8 km",
+    "Infrastructure Summary:": "Infrastructure Summary:",
+    "The property has excellent access to all essential": "The property has excellent access to all essential utilities and services. All major utilities are connected and operational. Public transport options are within walking distance, and the area is well-served by amenities and emergency services. The infrastructure in this area is well-maintained and reliable.",
+    "Floor Plan": "Floor Plan",
+    "Floor plan image will be displayed here": "Floor plan image will be displayed here",
+    "Ground Floor": "Ground Floor",
+    "2,250 sq ft": "2,250 sq ft",
+    "Upper Floor": "Upper Floor",
+    "2,000 sq ft": "2,000 sq ft",
+    "Total Living Area": "Total Living Area",
+    "Note:": "Note:",
+    "Floor plans are indicative only and may not be to ": "Floor plans are indicative only and may not be to scale. Actual dimensions and layout should be verified through physical inspection.",
+    "Location and Suburb": "Location and Suburb",
+    "~18 min drive": "~18 min drive",
+    "Population": "Population",
+    "34,109": "34,109",
+    "Beverly Hills": "Beverly Hills",
+    "Population Growth": "Population Growth",
+    "+8.2%": "+8.2%",
+    "5 year change": "5 year change",
+    "Median Age": "Median Age",
+    "years": "years",
+    "Occupancy Distribution": "Occupancy Distribution",
+    "Owner Occupied: 68%": "Owner Occupied: 68%",
+    "Renting: 28%": "Renting: 28%",
+    "Other: 4%": "Other: 4%",
+    "Owner Occupied": "Owner Occupied",
+    "68%": "68%",
+    "Renting": "Renting",
+    "28%": "28%",
+    "Other": "Other",
+    "4%": "4%",
+    "Demographic Highlights": "Demographic Highlights",
+    "Median Household Income": "Median Household Income",
+    "$142,500": "$142,500",
+    "Education Level": "Education Level",
+    "76% Tertiary": "76% Tertiary",
+    "Average Household Size": "Average Household Size",
+    "2.3 persons": "2.3 persons",
+    "Employment Rate": "Employment Rate",
+    "94.2%": "94.2%",
+    "Rental Yield Growth Estimate": "Rental Yield Growth Estimate",
+    "0%": "0%",
+    "2%": "2%",
+    "6%": "6%",
+    "8%": "8%",
+    "Rental Yield %": "Rental Yield %",
+    "Suburb Summary": "Suburb Summary",
+    "Beverly Hills is a highly sought-after suburb char": "Beverly Hills is a highly sought-after suburb characterized by affluent residents, excellent amenities, and strong property market performance. The area has experienced steady population growth over the past 5 years, driven by its premium location, quality schools, and lifestyle offerings. The suburb maintains a strong owner-occupier market with 68% of properties owner-occupied, indicating a stable and established community. Rental yields have shown consistent growth, reflecting strong investment appeal.",
+    "Maps": "Maps",
+    "Planning Zones Map": "Planning Zones Map",
+    "Interactive map showing planning zones will be dis": "Interactive map showing planning zones will be displayed here",
+    "Map Legend": "Map Legend",
+    "Residential Zone": "Residential Zone",
+    "R1, R2, R3": "R1, R2, R3",
+    "Commercial Zone": "Commercial Zone",
+    "C1, C2": "C1, C2",
+    "Mixed Use Zone": "Mixed Use Zone",
+    "MU1, MU2": "MU1, MU2",
+    "Public Open Space": "Public Open Space",
+    "Parks, Recreation": "Parks, Recreation",
+    "Special Use Zone": "Special Use Zone",
+    "Institutional": "Institutional",
+    "Heritage Overlay": "Heritage Overlay",
+    "Protected Areas": "Protected Areas",
+    "Map Information:": "Map Information:",
+    "Planning zone maps are indicative only and should ": "Planning zone maps are indicative only and should be verified with the local planning authority. Overlays and planning controls may apply in addition to the base zone. Always consult with council before making development decisions.",
+    "Revenue Estimate (PriceLabs)": "Revenue Estimate (PriceLabs)",
+    "Annual Revenue Estimate": "Annual Revenue Estimate",
+    "$162,300": "$162,300",
+    "Short-term rental potential": "Short-term rental potential",
+    "Average Occupancy": "Average Occupancy",
+    "89%": "89%",
+    "Annual average": "Annual average",
+    "Avg. Nightly Rate": "Avg. Nightly Rate",
+    "$485": "$485",
+    "Optimized pricing": "Optimized pricing",
+    "Monthly Revenue & Occupancy Forecast": "Monthly Revenue & Occupancy Forecast",
+    "Jan": "Jan",
+    "Feb": "Feb",
+    "Mar": "Mar",
+    "Apr": "Apr",
+    "May": "May",
+    "Jun": "Jun",
+    "Jul": "Jul",
+    "Aug": "Aug",
+    "Sep": "Sep",
+    "Oct": "Oct",
+    "Nov": "Nov",
+    "Dec": "Dec",
+    "$0k": "$0k",
+    "$4k": "$4k",
+    "$8k": "$8k",
+    "$12k": "$12k",
+    "$16k": "$16k",
+    "25%": "25%",
+    "50%": "50%",
+    "75%": "75%",
+    "100%": "100%",
+    "Occupancy (%)": "Occupancy (%)",
+    "Revenue ($)": "Revenue ($)",
+    "Pricing Strategy Recommendations": "Pricing Strategy Recommendations",
+    "Peak Season (Jun-Aug)": "Peak Season (Jun-Aug)",
+    "$550-650/night": "$550-650/night",
+    "Expected occupancy: 90-95%": "Expected occupancy: 90-95%",
+    "Off-Season (Nov-Feb)": "Off-Season (Nov-Feb)",
+    "$380-450/night": "$380-450/night",
+    "Expected occupancy: 82-86%": "Expected occupancy: 82-86%",
+    "Weekend Premium": "Weekend Premium",
+    "+25-35%": "+25-35%",
+    "Friday-Sunday rate adjustment": "Friday-Sunday rate adjustment",
+    "Minimum Stay": "Minimum Stay",
+    "3 nights": "3 nights",
+    "Recommended during peak": "Recommended during peak",
+    "Competitive Analysis": "Competitive Analysis",
+    "Market Average Rate": "Market Average Rate",
+    "$425": "$425",
+    "Your Projected Rate": "Your Projected Rate",
+    "Premium": "Premium",
+    "+14%": "+14%",
+    "Revenue Disclaimer:": "Revenue Disclaimer:",
+    "Revenue estimates are based on PriceLabs market an": "Revenue estimates are based on PriceLabs market analysis and historical data for comparable properties. Actual results may vary based on property condition, amenities, management quality, seasonality, and market conditions. These estimates do not account for operating expenses, platform fees, cleaning costs, or vacancy periods. Always conduct thorough due diligence before making investment decisions."
+  }
+}

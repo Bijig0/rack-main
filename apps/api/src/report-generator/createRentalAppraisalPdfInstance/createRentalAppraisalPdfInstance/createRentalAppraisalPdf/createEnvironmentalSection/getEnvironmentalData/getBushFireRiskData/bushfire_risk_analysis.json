@@ -1,0 +1,5502 @@
+{
+  "bushfireProneAreas": [
+    {
+      "lga": "BANYULE (Code: 303)",
+      "bushfirePlanReference": "LEGL./24-174",
+      "gazettalDate": "10/09/2024",
+      "areaKm2": 8.81741883164
+    }
+  ],
+  "fireHistory": [
+    {
+      "fireId": "R24",
+      "fireType": "Burn",
+      "fireSeason": "2011",
+      "ignitionDate": "2010-10-21T00:00:00Z",
+      "area": {
+        "measurement": 1.0261726062040062,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 1.339131512978399,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.009865781478771441,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.409721480953785,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.9527661949661546,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.544843601946827,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.06481220047049414,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.666928222608871,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "5",
+      "fireName": "METROPOLITAN 5 - MARIBYRNONG - RALEIGH RD",
+      "fireType": "Bushfire",
+      "fireSeason": "2022",
+      "ignitionDate": "2022-01-01T00:00:00Z",
+      "area": {
+        "measurement": 26.203051227970246,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 9.681136336656852,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "06G01",
+      "fireType": "Burn",
+      "fireSeason": "2006",
+      "area": {
+        "measurement": 8.249793855374385,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 10.483468328496304,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "28",
+      "fireName": "METROPOLITAN 28 - AVONDALE HEIGHTS - LOWER MARIBRYNONG PARKLANDS",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2025-01-11T00:00:00Z",
+      "area": {
+        "measurement": 1.5884567980860875,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 10.58423064442077,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "B03",
+      "fireType": "Burn",
+      "fireSeason": "2003",
+      "ignitionDate": "2003-03-12T00:00:00Z",
+      "area": {
+        "measurement": 5.121979360634582,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 13.715040279146312,
+        "unit": "km"
+      }
+    }
+  ],
+  "fireManagementZones": [
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 0,
+        "unit": "km"
+      },
+      "isWithinZone": true
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 0.061814217024096944,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 2.969315081254303,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 3.164710017866089,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 3.2065171169560114,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 3.6218472772311383,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 3.7290977699640657,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 3.983595979341936,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 4.148684616138368,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 4.156241270484324,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 4.161505026581052,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 4.2097037359477785,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 4.814433031383935,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 4.94833946670106,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 5.083873761804764,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 5.086622404461603,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 9.454061997762425,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 9.665888824548277,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 9.790093832377487,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 10.681559178872526,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 11.30512148117707,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 11.602959443337117,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 11.72277746032368,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 12.556551564425243,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 12.934905523912398,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 13.494481929377597,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 13.779980298142222,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 14.253294907535741,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 14.598811057763248,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 14.712338061307628,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 14.92885556077168,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 14.997221667266109,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 15.140336677660784,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 15.728400685355588,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 16.16143095040152,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.282260958199036,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.305479235188894,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.45517053866188,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.557355214048588,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.712190420060605,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.765512543219533,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 16.84583309368768,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 17.04937360588265,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 17.198785151833572,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 17.308885806950844,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 17.363588610950604,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 17.74247120492069,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 17.78527736796486,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 17.833453610867615,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 18.20872672604977,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 18.3346790368253,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 18.485464875070598,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 19.00123069347343,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 19.008042313705364,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 19.1795553909872,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 19.41860636698549,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 19.482103865599704,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 19.699737076468768,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 19.8203001077544,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.211235771253612,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.24839905903834,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 20.2500155965018,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 20.33499456741862,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.55705372762099,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.799877651424474,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.80721420580994,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 20.948794590740366,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 20.974382156262433,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.035737994332,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.146762462098362,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.207800729583738,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.246485733338663,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.2870164710872,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.29621864400785,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.426895389536206,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.43876001677926,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.444764855555484,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.54377891325657,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.559806984023083,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.563667078666473,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 21.645741441984324,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.7250101232687,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.74047255884604,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.831732296408642,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 21.86261104480192,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 22.104695186363617,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 22.23419520394252,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 22.351120693218736,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 22.580782831617537,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 22.71098276366677,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 22.827297678697658,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 22.88450318939902,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 22.984265961701226,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 23.090684097026955,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 23.141152711668518,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 23.54499919734351,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 23.680923540628942,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 23.72815690727254,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 23.829005644861116,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 23.912707799973663,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 24.073770085722987,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 24.0846610891037,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 24.232308165461497,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 24.309855500753542,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 25.011622576098706,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 25.013474626128822,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 25.24059402972893,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 25.537979415784346,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 25.774801083291628,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 25.83513116135685,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 26.043640123489666,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 26.18460210236199,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 26.921562076910934,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 27.214906711597237,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 28.027939208269363,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 28.214846846630145,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 28.404235308283706,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.004228762277794,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.238833727193782,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.334703612904267,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.40213737371859,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 29.448773759935712,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.505884174206965,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.614557153941682,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 29.708686230396804,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 29.89929872279208,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 29.94913952057819,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 30.036967459970832,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.16266090992504,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.2220521729386,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 30.26457203602477,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 30.271708892123836,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.282706915578814,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.35652358455305,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.453857703954572,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.740925495143138,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.85118970457131,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.993675911984568,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.04400418396614,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.138898566069113,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 31.28515358752892,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.307403701362645,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 31.309725226767476,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.35143054018902,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.403553533694243,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.418575732609035,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 31.455135656451553,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 31.510960477321856,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.86911178964548,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 32.22847417216841,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 32.25545029210649,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 32.323969963443936,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 32.41013376361022,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 32.44683672480017,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 32.48641069726915,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 32.555851573631614,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 32.67367946559559,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 32.6824319915943,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 32.70464194380132,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 32.746018283151585,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 32.8239815324747,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 32.8536340617361,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 33.01527564460957,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.02981744078103,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.16563904435477,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 33.18070213089737,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.22493371146223,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.234901560701005,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.34422916691085,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.3545218450567,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.37273977079218,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.38346592416694,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.385001583841984,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.446588767117554,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.48487271358581,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 33.506160017024555,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 33.520783611993,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 33.52135057140209,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.5576286399727,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.57483664216763,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.67671205350611,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.69518799579643,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 33.735384504206046,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.73760505355156,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.74079800809737,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.74480932232113,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.86189570546345,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.878403037675355,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.88630123167795,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.889432023698006,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.928893240789066,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.96395941566209,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.968150450924874,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 33.97882679580044,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.14504027442087,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.21352031945619,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 34.217644923825866,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.22259027363777,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.256864576957966,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.37486534116058,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.379505566478485,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.44989221419716,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 34.450953830738996,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.51939267935186,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.53447870087558,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.53839238260536,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.66026998161562,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 34.70569637177716,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.73185968680882,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.737745156442074,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.74523265819113,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 34.79129048458753,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.84723680146069,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.874663172056856,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.884098872047566,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 34.888300467947836,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.92716643803471,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 34.95514974967779,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.066957559111536,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 35.10560997246865,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.22666750228697,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.23285606099946,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.23368749962671,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.31284730919128,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.33641416834348,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 35.3365272059114,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.353686966195504,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.46625624162711,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.72118650686556,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.73069002694017,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.7526452376809,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 35.9087305577474,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.93957710195639,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.94175670951655,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.94744264169828,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.96278483031032,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 36.017342706579655,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.01910767181843,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 36.06680057880962,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.10391079149886,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.11673399791073,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 36.13253341844822,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.18437146627856,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 36.23122976229787,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 36.238025508474614,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.335356653300735,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.342170073367285,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.372300708343694,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.448064698007265,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.46311136105335,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 36.47940788619852,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.48141758579151,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.490868152667495,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 36.53689608201437,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.57229037684119,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.72789660022992,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.83523001003635,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 36.90040600524285,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 36.94455477928407,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.001258049801784,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 37.050439550265665,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.06562796859056,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.06600224309427,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.073896146858004,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 37.15953983132316,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.181754007259585,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.238683680834676,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.430060466368516,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.43705732656561,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.487676485498895,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.529674885110175,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.594137879308576,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.60766952344825,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.62519881104741,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 37.81523957011099,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 37.87206763754866,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 38.01848624717313,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.038135641199275,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 38.12971362733911,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.23679443266441,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.32796734686176,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.44880675886891,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.459508121015745,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 38.467559763693,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.5525915327034,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.56029042000717,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.57512931173517,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.58431256341698,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 38.66374957141024,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.686953980872985,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.70620424458353,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 38.70859058643434,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 38.7815501627961,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.884149360655044,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.90935538952054,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.95335172734188,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.97447912551731,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 39.03286285361451,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 39.12674128607439,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 39.468722132850196,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 39.51757333316119,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 39.52088574159697,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 39.613752106647695,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 39.918788864373745,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.042569927304925,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 40.14452804303747,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.18308191429092,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.265527652253695,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.477715776298766,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.61107431052935,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 40.63422463837326,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.765415267312086,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.7714415146046,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.8589355844606,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 40.9339569739858,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.07424287160251,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.07966663884299,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 41.21623814737969,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 41.28768946052287,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.288987852001945,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.322905404203325,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.36617902216324,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.38081699334925,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.39511132332132,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.420616186313815,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.45948800909476,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 41.460397477920324,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 41.50832189207564,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 41.58755459367679,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 41.88640034923829,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.97851663644306,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.978580499663295,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.991885517031875,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.02682921775987,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.10351908466583,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.104808859831735,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.12610557753172,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 42.276224541365224,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.36724658234425,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.40190123205441,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.427651979011095,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 42.46779060054198,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.47969323341256,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 42.48175638943714,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.48542595221766,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.49207467391468,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.592814687564854,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.62900899099943,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.65679817229053,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.66872806203987,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.669630212533924,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 42.67186456232122,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.67621684174545,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.69419749025493,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.69555104326405,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.719626907297766,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.7264524765586,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 42.761649730150374,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.78440796738092,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.78502581349279,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.79294582918816,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.879927807307894,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.94500722207808,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.952710941477164,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.96844077101698,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.03773133691545,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.21993596078927,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.23495412055495,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.266152886426234,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.286893945132185,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.32866220614472,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.3563968616718,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.37938273929763,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.42787826589181,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.476291640534384,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.53608084121687,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.54780483737178,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.56319929205403,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.65860546047011,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.66002223749611,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.71160423905394,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.81589871390236,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.85224315978928,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.86039914249185,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.92374160995841,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.92551675205106,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.94167207770475,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.987605679632885,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 43.99906916957272,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.01643671706018,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.04148425865427,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.12599054100854,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.42477968032393,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.57322302477213,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.61680189921114,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.64844971763961,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.76765347377083,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.9247360642807,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.95571743662212,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.08011147576137,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.0818534566016,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 45.14865799542547,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.18566229890089,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.22475123415263,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.25071478737068,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.38546283090743,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 45.45762746027013,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.48356806714077,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 45.61084591446769,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 45.677481220766815,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.769562062855016,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 4,
+      "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
+      "distance": {
+        "measurement": 45.7849377395685,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.821026410380185,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.84448300432977,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.8469467786643,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 45.85015163095644,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 45.90574573842635,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 45.95471691175974,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.05387787797298,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 46.08772110312598,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.21008514603591,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 46.22930779729355,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 46.45723907496689,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 46.462373152409675,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.80526232761756,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.83739306600143,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 46.84443441073151,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.94424144049439,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 46.98869439140523,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.07691364907553,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.0934379013172,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.188795673587784,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.219484097717405,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "BARWON SOUTH WEST",
+      "districtName": "OTWAY",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.30656134417666,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.433862360419646,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 47.46579794867626,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.66258980436629,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.66949427742761,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.69638912646245,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 47.86174000017569,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.89517209956784,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.9056771512234,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.062831272848754,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.06862059815568,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.11824553481707,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.14225788413958,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.16956531338045,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.17675867049502,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.18203043199414,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.18203043199414,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.37422769668929,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.382588841060624,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.41215817390343,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.532406803333956,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.56289220535733,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 48.6145044747254,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.65876340783368,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.665737694221036,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.67817480193565,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.855441324018415,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.863798175436905,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.87004249942981,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.94151245169339,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.95669356792211,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.00214985400195,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.04865467802331,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.15570226236318,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.31446407779613,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 49.36235480795222,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.401813062808394,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 49.48582273558566,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.49659280190648,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.519261002933945,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 1,
+      "zoneTypeDescription": "1 - Asset Protection Zone",
+      "distance": {
+        "measurement": 49.579372512252434,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.64463222103742,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.654746316949826,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "LODDON MALLEE",
+      "districtName": "MURRAY GOLDFIELDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.675418409572,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 49.89097730710714,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.90818565844813,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.9240393791114,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.92649886061312,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 49.94277289599774,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 49.94556062970126,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.96101600497527,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.99723389782089,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    }
+  ],
+  "riskAnalysis": {
+    "overallRisk": "EXTREME",
+    "riskFactors": {
+      "inBushfireProneArea": true,
+      "historicalFiresNearby": 5,
+      "recentFiresNearby": 4,
+      "fireManagementZone": {
+        "zoneTypeDescription": "0 - Not Zoned",
+        "isWithinZone": true,
+        "distance": {
+          "measurement": 0,
+          "unit": "km"
+        }
+      },
+      "closestHistoricalFire": {
+        "distance": {
+          "measurement": 1.339131512978399,
+          "unit": "km"
+        },
+        "fireSeason": "2011",
+        "fireType": "Burn"
+      }
+    },
+    "summary": "This property has a EXTREME bushfire risk rating. The property is located within a designated bushfire prone area. The property is within a 0 - Not Zoned. There have been 1 recorded fire within 5km of the property. 4 fires have occurred in the area within the last 10 years.",
+    "recommendations": [
+      "Develop and maintain a comprehensive bushfire survival plan",
+      "Ensure property has adequate defendable space and fuel load management",
+      "Install ember-proof screens on windows and vents",
+      "Consider bushfire-rated construction materials for any renovations",
+      "Check building regulations for bushfire prone areas (AS 3959)",
+      "Verify bushfire attack level (BAL) rating for the property",
+      "Review fire management zone requirements and restrictions for the property",
+      "Review CFA (Country Fire Authority) fire history and learn from recent incidents",
+      "Register for emergency alerts with VicEmergency",
+      "Prepare an emergency evacuation kit and know evacuation routes"
+    ]
+  }
+}

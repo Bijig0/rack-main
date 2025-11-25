@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🧪 Running all tests (including integration tests)..."
+npm run test:all
+
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the failing tests before pushing."
+  exit 1
+fi
+
+echo "✅ All tests passed!"
+echo ""
+
+# Automatically zip large data files before pushing
+echo "🔍 Checking data files before push..."
+
+# Run the zip script
+./scripts/zip-data-files.sh
+
+# Check if any .geojson files are staged that should be zipped
+LARGE_GEOJSON_FILES=$(git diff --name-only --cached | grep -E '\.geojson$' | grep -E '(public_transport_lines|public_transport_stops|Sewerage_Network_Main_Pipelines|fire_management_zones)' || true)
+
+if [ -n "$LARGE_GEOJSON_FILES" ]; then
+  echo ""
+  echo "⚠️  Warning: Large .geojson files are staged for commit:"
+  echo "$LARGE_GEOJSON_FILES"
+  echo ""
+  echo "💡 These files should be committed as .geojson.gz instead."
+  echo "   The .geojson files are in .gitignore and only .gz versions should be committed."
+  echo ""
+  read -p "Continue with push anyway? (y/N): " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Push cancelled."
+    exit 1
+  fi
+fi
+
+echo "✓ Data files check passed"

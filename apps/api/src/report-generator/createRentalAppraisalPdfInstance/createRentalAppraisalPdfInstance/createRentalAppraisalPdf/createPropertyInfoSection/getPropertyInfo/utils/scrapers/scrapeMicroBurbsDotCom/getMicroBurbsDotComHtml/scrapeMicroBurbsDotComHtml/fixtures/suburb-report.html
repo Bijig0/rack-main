@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kew (Vic.) - Suburb Report - MicroBurbs</title>
+    <style>
+        .popup-modal {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            z-index: 9999;
+        }
+        .popup-modal.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup Modal -->
+    <div class="popup-modal" id="upgrade-modal">
+        <h2>Upgrade to Premium</h2>
+        <p>Get full access to all suburb reports</p>
+        <a class="report-overlay-button-outline" id="free-version-btn">Stay on Free Version</a>
+        <a class="report-overlay-button-primary">Upgrade Now</a>
+    </div>
+
+    <div class="suburb-report">
+        <h1>Kew (Vic.) Suburb Report</h1>
+
+        <div class="suburb-overview">
+            <div class="overview-item">
+                <span class="label">Suburb:</span>
+                <span class="value">Kew</span>
+            </div>
+            <div class="overview-item">
+                <span class="label">State:</span>
+                <span class="value">Victoria</span>
+            </div>
+            <div class="overview-item">
+                <span class="label">Postcode:</span>
+                <span class="value">3101</span>
+            </div>
+        </div>
+
+        <div class="demographics">
+            <h2>Demographics</h2>
+            <div class="demographic-item">
+                <span class="label">Population:</span>
+                <span class="value">25,123</span>
+            </div>
+            <div class="demographic-item">
+                <span class="label">Median Age:</span>
+                <span class="value">42 years</span>
+            </div>
+            <div class="demographic-item">
+                <span class="label">Median Household Income:</span>
+                <span class="value">$95,000</span>
+            </div>
+        </div>
+
+        <div class="property-market">
+            <h2>Property Market</h2>
+            <div class="market-item">
+                <span class="label">Median House Price:</span>
+                <span class="value">$2,450,000</span>
+            </div>
+            <div class="market-item">
+                <span class="label">Median Unit Price:</span>
+                <span class="value">$850,000</span>
+            </div>
+            <div class="market-item">
+                <span class="label">Annual Growth:</span>
+                <span class="value">8.5%</span>
+            </div>
+        </div>
+
+        <div class="lifestyle">
+            <h2>Lifestyle & Amenities</h2>
+            <ul>
+                <li>Parks & Recreation: Excellent</li>
+                <li>Public Transport: Very Good</li>
+                <li>Schools: Outstanding</li>
+                <li>Shopping: Very Good</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Simulate modal closing when "Stay on Free Version" button is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const freeVersionBtn = document.getElementById('free-version-btn');
+            const modal = document.getElementById('upgrade-modal');
+
+            if (freeVersionBtn && modal) {
+                freeVersionBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('hidden');
+                    console.log('Modal closed');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

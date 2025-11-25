@@ -1,0 +1,12 @@
+!table
+!version 300
+!charset WindowsLatin1
+!edit_version 450
+
+Definition Table
+  Type NATIVE Charset "WindowsLatin1"
+  Fields 4
+    REGION_NAME Char (20) ;
+    DISTRICT_NAME Char (20) ;
+    ZONETYPE Float ;
+    X_ZONETYPE Char (50) ;

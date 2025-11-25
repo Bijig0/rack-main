@@ -1,0 +1,436 @@
+{
+  "landfills": [
+    {
+      "landfillRegisterNumber": 11146,
+      "referenceNumber": "null",
+      "address": "438 Burnley Street, Burnley, VIC 3121",
+      "suburb": "Richmond",
+      "council": "Yarra City Council",
+      "latitude": -37.82856,
+      "extraAddressInformation": "Not available",
+      "longitude": 145.00539,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Putrescible waste",
+      "estimatedYearOfClosure": "1970",
+      "provenance": "Council records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 3.580030079961381,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 11148,
+      "referenceNumber": "null",
+      "address": "St. Georges Road, Fitzroy North, VIC 3068",
+      "suburb": "Fitzroy North",
+      "council": "Yarra City Council",
+      "latitude": -37.78698,
+      "extraAddressInformation": "Edinburgh Gardens",
+      "longitude": 144.98198,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Putrescible waste",
+      "estimatedYearOfClosure": "1800",
+      "provenance": "Council records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 3.734946170938703,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 11147,
+      "referenceNumber": "null",
+      "address": "Rushall Crescent, Fitzroy North, VIC 3068",
+      "suburb": "Fitzroy North",
+      "council": "Yarra City Council",
+      "latitude": -37.78139,
+      "extraAddressInformation": "Thomas Kidney Reserve ",
+      "longitude": 144.99004,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Putrescible waste",
+      "estimatedYearOfClosure": "1950",
+      "provenance": "Council records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 4.590075106769344,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 10965,
+      "referenceNumber": "null",
+      "address": "Not available",
+      "suburb": "Brunswick East",
+      "council": "Moreland City Council",
+      "latitude": -37.76597,
+      "extraAddressInformation": "Not available",
+      "longitude": 144.983,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Solid inert waste, Putrescible waste",
+      "estimatedYearOfClosure": "1979",
+      "provenance": "EPA legacy records",
+      "estimatedTotalWasteVolume": "51m3 to 500,000m3",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 5.9956267972563975,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 11112,
+      "referenceNumber": "90005411",
+      "address": "5-9 Justin Road, Tottenham, VIC 3012",
+      "suburb": "Tottenham",
+      "council": "Maribyrnong City Council",
+      "latitude": -37.80249,
+      "extraAddressInformation": "Not available",
+      "longitude": 144.8514,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Not available",
+      "estimatedYearOfClosure": "Not available",
+      "provenance": "EPA electronic records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 10.284565243223422,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 10381,
+      "referenceNumber": "90001747",
+      "address": "55 Mcarthurs Road, Altona North, VIC 3025",
+      "suburb": "Altona North",
+      "council": "Hobsons Bay City Council",
+      "latitude": -37.84167,
+      "extraAddressInformation": "Not available",
+      "longitude": 144.83728,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Not available",
+      "estimatedYearOfClosure": "Not available",
+      "provenance": "EPA electronic records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "ES26227",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 11.662176368972963,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 10412,
+      "referenceNumber": "90002476",
+      "address": "Hulett Street, Sunshine, VIC 3020",
+      "suburb": "Albion",
+      "council": "Brimbank City Council",
+      "latitude": -37.77283,
+      "extraAddressInformation": "Carrington Reserve ",
+      "longitude": 144.81128,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Not available",
+      "estimatedYearOfClosure": "Not available",
+      "provenance": "EPA electronic records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 14.566840859048337,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 10399,
+      "referenceNumber": "90004273",
+      "address": "108-112 Ferntree Gully Road, Oakleigh East, VIC 3166",
+      "suburb": "Oakleigh East",
+      "council": "Monash City Council",
+      "latitude": -37.89791,
+      "extraAddressInformation": "Reg Harris Reserve",
+      "longitude": 145.11284,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Putrescible waste",
+      "estimatedYearOfClosure": "1972",
+      "provenance": "EPA electronic records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 15.582251884336188,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 11195,
+      "referenceNumber": "null",
+      "address": "Johnstone Street, Broameadows, VIC 3047",
+      "suburb": "Jacana",
+      "council": "Hume City Council",
+      "latitude": -37.684,
+      "extraAddressInformation": "Not available",
+      "longitude": 144.911,
+      "landfillName": "Not available",
+      "siteName": "Not available",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Not available",
+      "estimatedYearOfClosure": "1974",
+      "provenance": "Council records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "Not available",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 15.720893417402044,
+        "unit": "km"
+      }
+    },
+    {
+      "landfillRegisterNumber": 10394,
+      "referenceNumber": "90003730",
+      "address": "Annandale Road, Keilor, VIC 3036",
+      "suburb": "Keilor",
+      "council": "Hume City Council",
+      "latitude": -37.70125,
+      "extraAddressInformation": "Not available",
+      "longitude": 144.83685,
+      "landfillName": "Keilor Landfill",
+      "siteName": "Keilor Landfill",
+      "status": "Closed",
+      "operatingStatus": "Closed",
+      "wasteTypeAccepted": "Not available",
+      "estimatedYearOfClosure": "2006",
+      "provenance": "EPA electronic records",
+      "estimatedTotalWasteVolume": "Not available",
+      "licenceNumber": "Not available",
+      "historicLicenceNumber": "ES432",
+      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "distance": {
+        "measurement": 17.31727465348313,
+        "unit": "km"
+      }
+    }
+  ],
+  "wastewaterPlants": [],
+  "industrialFacilities": [
+    {
+      "licenceNumber": "OL000009573",
+      "facilityName": "VEOLIA ENVIRONMENTAL SERVICES [DANDENONG SOUTH]",
+      "address": "15 Berends Drive Dandenong South 3175",
+      "suburb": "Dandenong South",
+      "activity": "A01 (Reportable priority waste management), A07a (Organic waste processing - large)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 1.3042433105038687,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000300039",
+      "facilityName": "WEST MELBOURNE RECYCLING PTY LTD [WEST MELBOURNE] - 372-374 Dynon Road West Melbourne 3003",
+      "address": "372-374 Dynon Road West Melbourne 3003",
+      "suburb": "West Melbourne",
+      "activity": "A13a (Waste and resource recovery - large)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 4.609807889803044,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000300065",
+      "facilityName": "CITYWIDE SERVICE SOLUTIONS PTY LTD [WEST MELBOURNE]",
+      "address": "391-395 Dynon Road, West Melbourne, Victoria, 3003, Australia",
+      "suburb": "West Melbourne",
+      "activity": "A13a (Waste and resource recovery - large)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 5.019889193643784,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000046563",
+      "facilityName": "SUGAR AUST PTY LTD [YARRAVILLE]",
+      "address": "265 Whitehall St Yarraville VIC 3013 AU",
+      "suburb": "Yarraville",
+      "activity": "D06 (Food processing)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 5.476256291501145,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000002122",
+      "facilityName": "VISY GLASS OPERATIONS (AUSTRALIA) PTY LTD",
+      "address": "2 Booker St Spotswood VIC 3015 AU",
+      "suburb": "Spotswood",
+      "activity": "H05a (Glass works - manufacturing)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 6.651920365162627,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000002314",
+      "facilityName": "GRAINCORP FOODS AUSTRALIA PTY LTD [WEST FOOTSCRAY]",
+      "address": "1 Roberts St West Footscray VIC 3012 AU",
+      "suburb": "West Footscray",
+      "activity": "D08 (Edible oil or fat processing)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 8.54568114925015,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000300092",
+      "facilityName": "UCC COFFEE AUSTRALIA LIMITED [PRESTON]",
+      "address": "52-60 Albert Street, Preston, Victoria, 3072, Australia",
+      "suburb": "Preston",
+      "activity": "D06 (Food processing)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 9.105803905855364,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000300055",
+      "facilityName": "VISY PAPER PTY LTD [BELLFIELD] - 307-325 Waterdale Road, Bellfield VIC 3081",
+      "address": "307-325 Waterdale Road Bellfield (greater Melbourne) 3081",
+      "suburb": "Bellfield",
+      "activity": "A13a (Waste and resource recovery - large)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 9.590205334602068,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000010605",
+      "facilityName": "WORLDTEAM PTY LTD",
+      "address": "1 - 3 Guilfoyle Av Coburg North VIC 3058 AU",
+      "suburb": "Coburg North",
+      "activity": "A01 (Reportable priority waste management)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 10.155547685586999,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000009719",
+      "facilityName": "SELARAS KECHIL NOMINEES PTY LTD [COBURG NORTH]",
+      "address": "137-139 Bakers Rd Coburg North VIC 3058 AU",
+      "suburb": "Coburg North",
+      "activity": "A01 (Reportable priority waste management)",
+      "status": "Surrendered",
+      "distance": {
+        "measurement": 10.292969031467921,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000300082",
+      "facilityName": "Coburg transfer station",
+      "address": "172-182 Newlands Road Coburg North 3058",
+      "suburb": "Coburg North",
+      "activity": "A13a (Waste and resource recovery - large)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 10.571980608224015,
+        "unit": "km"
+      }
+    },
+    {
+      "licenceNumber": "OL000204407",
+      "facilityName": "OUTLOOK (VIC) INC [RESERVOIR] Outlook Environmental",
+      "address": "30 Kurnai Av Reservoir VIC 3073 AU",
+      "suburb": "Reservoir",
+      "activity": "A02b (Other waste treatment – e-waste >500 tonnes)",
+      "status": "Issued",
+      "distance": {
+        "measurement": 10.98008983950386,
+        "unit": "km"
+      }
+    }
+  ],
+  "odourRiskAnalysis": {
+    "overallRisk": "EXTREME",
+    "riskFactors": {
+      "closestLandfill": {
+        "distance": {
+          "measurement": 3.580030079961381,
+          "unit": "km"
+        },
+        "name": "Not available",
+        "status": "Closed"
+      },
+      "closestIndustrialFacility": {
+        "distance": {
+          "measurement": 1.3042433105038687,
+          "unit": "km"
+        },
+        "name": "VEOLIA ENVIRONMENTAL SERVICES [DANDENONG SOUTH]",
+        "activity": "A01 (Reportable priority waste management), A07a (Organic waste processing - large)"
+      },
+      "landfillsWithin10km": 4,
+      "wastewaterPlantsWithin10km": 0,
+      "industrialFacilitiesWithin5km": 2
+    },
+    "summary": "This property has a EXTREME odour risk rating. The nearest landfill (Not available) is 3.6km away. Occasional odour from the landfill may be detected under certain wind conditions. The nearest odour-emitting industrial facility is 1.3km away (A01 (Reportable priority waste management), A07a (Organic waste processing - large)). There are 4 landfills within 10km of the property. There are 2 odour-emitting industrial facilities within 5km.",
+    "recommendations": [
+      "Consider the property's location relative to prevailing winds",
+      "Inspect the property on different days and times, especially during hot weather",
+      "Speak with neighbors about their experience with odours",
+      "Check EPA Victoria records for odour complaints in the area",
+      "Review the landfill's operating hours and EPA license conditions",
+      "Check if the landfill has an odour management plan",
+      "Consider installing air conditioning to minimize the need to open windows",
+      "Visit EPA Victoria's website for information on odour management in your area"
+    ]
+  }
+}

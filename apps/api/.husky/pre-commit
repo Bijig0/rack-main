@@ -1,0 +1,10 @@
+# Run fast tests (excludes integration tests) on commit
+echo ">� Running fast tests (excluding integration tests)..."
+~/.bun/bin/bun run test:fast
+
+if [ $? -ne 0 ]; then
+  echo "L Tests failed. Please fix the failing tests before committing."
+  exit 1
+fi
+
+echo " Fast tests passed!"

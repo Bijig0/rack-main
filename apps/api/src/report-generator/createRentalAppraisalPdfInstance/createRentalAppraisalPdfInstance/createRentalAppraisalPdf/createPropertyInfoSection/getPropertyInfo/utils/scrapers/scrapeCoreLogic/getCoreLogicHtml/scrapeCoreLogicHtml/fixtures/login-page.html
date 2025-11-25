@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreLogic PropertyHub - Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>CoreLogic PropertyHub</h1>
+
+        <!-- First login form -->
+        <input type="email" name="email" placeholder="Email" required>
+        <button id="logIn" type="submit">Login</button>
+
+        <!-- Second login form (appears after first login) -->
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="signOnButton" type="button">Sign On</button>
+
+        <!-- Search bar (appears after authentication) -->
+        <div class="search-container">
+            <input type="text"
+                   aria-activedescendant="react-select-1-option-0"
+                   role="combobox"
+                   placeholder="Search for property...">
+            <div style="position: absolute; visibility: hidden; height: 0px;"></div>
+            <div class="Select-menu-outer">
+                <!-- Dropdown menu that appears when searching -->
+                <div id="suggest-propertyId-123">6 English Place, Kew VIC 3101</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click handler to simulate navigation when property is selected
+        document.addEventListener('DOMContentLoaded', function() {
+            const propertySuggestion = document.querySelector('[id^="suggest-propertyId-"]');
+            if (propertySuggestion) {
+                propertySuggestion.addEventListener('click', function() {
+                    // Simulate navigation to property page
+                    window.location.href = 'https://propertyhub.corelogic.asia/property/123';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

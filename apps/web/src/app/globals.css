@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.3rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.edit-mode-scalable-component-styles {
+  @apply relative z-50 shadow-xl transition-all duration-300 group-hover:scale-105;
+}
+
+/* Futura Font (Logo Font */
+
+/* Light */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA45LIGHT.TTF');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Light Italic */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA46LIGHTITALIC.TTF');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA55REGULAR.TTF');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA56ITALIC.TTF');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA65MEDIUM.TTF');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA66MEDIUMITALIC.TTF');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA75BOLD.TTF');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/fonts/FUTURA76BOLDITALIC.TTF');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Roobert font (like a s econdary consideration font not too sure yet) */
+
+/* Light */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertLight.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Light Italic */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertLightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertRegular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertRegularItalic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertMedium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertMediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertBold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: 'Roobert';
+  src: url('../../public/fonts/RoobertBoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+.pac-container {
+  background-color: #fff;
+  z-index: 1050;
+  position: fixed;
+  display: inline-block;
+}

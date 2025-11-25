@@ -1,0 +1,18 @@
+[
+  {
+    "status": "Current",
+    "distance": 9.71077831003342,
+    "coordinates": {
+      "lat": -37.890793,
+      "lon": 145.068062
+    }
+  },
+  {
+    "status": "Current",
+    "distance": 3.2296294704436703,
+    "coordinates": {
+      "lat": -37.813972,
+      "lon": 145.118973
+    }
+  }
+]

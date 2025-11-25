@@ -1,0 +1,1102 @@
+[
+  {
+    "id": "Electricity_Transmission_Lines.1",
+    "name": "Taree to Stroud",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 86010.47945805,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 893.9815974808101,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -32.06449839,
+      "lon": 151.9918888
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.2",
+    "name": "Cooma to Williamsdale",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 73940.19796231,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 418.40219462755965,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.8690158,
+      "lon": 149.16195953
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.3",
+    "name": "Williamsdale to Cooma",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 79961.0569,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 424.83269643493026,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.83634498,
+      "lon": 149.22087235
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.4",
+    "name": "Sydney West to Bannaby",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 330,
+    "length": {
+      "measurement": 115002.9332853,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 640.0675812074206,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -34.1125122,
+      "lon": 150.58122361
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.5",
+    "name": "Mulwala to Finley",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 62886.25422607,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 229.25202249626813,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.83346488,
+      "lon": 145.78633101
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.6",
+    "name": "Corowa to Mulwala",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 40450.23781886,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 223.11417156367267,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.9589769,
+      "lon": 146.05181596
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.7",
+    "name": "Corowa to Albury",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 59270.409803,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 248.10675048077627,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -36.01970905,
+      "lon": 146.7788092
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.8",
+    "name": "Williamsdale to Canberra",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 330,
+    "length": {
+      "measurement": 49034.94994767,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 438.4860159031541,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.40246181,
+      "lon": 149.02051526
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.9",
+    "name": "Lennox Head to Ballina",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 12819.73334864,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1267.5481305859632,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.81895422,
+      "lon": 153.52506048
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.10",
+    "name": "Ewingsdale to Suffolk Park",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 7409.26788018,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1285.5140439817367,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.65752149,
+      "lon": 153.58419584
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.11",
+    "name": "Suffolk Park to Lennox Head",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 13574.27978715,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1279.7440059493638,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.71853944,
+      "lon": 153.57995818
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.12",
+    "name": "Lismore Substation to Lismore 132 (North)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 3536.87629675,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1252.5353791447594,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.83010489,
+      "lon": 153.27595677
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.13",
+    "name": "Lismore Substation to Lismore 132 (South)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 6249.46563769,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1252.4651371667032,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.82036086,
+      "lon": 153.25870494
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.14",
+    "name": "Glen Innes to Inverell",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 68488.60985188,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1069.6851419142893,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.77283112,
+      "lon": 151.48516315
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.15",
+    "name": "Nyngan Solar Farm",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 15531.2896035,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 716.5186862730359,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -31.58818191,
+      "lon": 147.09343966
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.16",
+    "name": "Williamsdale to Googong Town",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 19889.31992875,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 440.66788369315987,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -35.51237011,
+      "lon": 149.15678468
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.17",
+    "name": "Millingandi to Eden",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 26855.34603451,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 421.44013844970175,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -36.99100303,
+      "lon": 149.80227734
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.18",
+    "name": "Eden to Edrom",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 17428.70561631,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 425.0093644865363,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.12014537,
+      "lon": 149.88147977
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.19",
+    "name": "Brandy Hill to Stroud",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 132,
+    "length": {
+      "measurement": 48539.34125672,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 843.7443643888414,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -32.48516036,
+      "lon": 151.74260204
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.20",
+    "name": "Narrabri to Walgett",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 184120.53365772,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 918.3676951967457,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -30.19344317,
+      "lon": 148.94751593
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.21",
+    "name": "Bungalora to Terranora",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Underground",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 110,
+    "length": {
+      "measurement": 4108.01866825,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1317.6292668664746,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.24663046,
+      "lon": 153.48527401
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.22",
+    "name": "Black Range to Millingandi",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 23806.95635792,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 429.4107038846113,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -36.79323395,
+      "lon": 149.82624634
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.23",
+    "name": "Lismore 132 to Kyolgle",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 34746.22153584,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1247.8207194163174,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.76763736,
+      "lon": 153.08667359
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.24",
+    "name": "Lismore 132 to Woodburn",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 36970.62944873,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1243.7144759776213,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.96299129,
+      "lon": 153.33415214
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.25",
+    "name": "Broadwater to tee",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 9984.18593393,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1244.3141057880296,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -28.99787407,
+      "lon": 153.4004734
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.26",
+    "name": "Glen innes to Guyra",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 52827.60350314,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1061.3945070632892,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.95253633,
+      "lon": 151.6541377
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.27",
+    "name": "Strathnairn to Texas",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 51632.3060053,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1114.4360543715638,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.15455636,
+      "lon": 151.17839543
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.28",
+    "name": "Strathnairn to Coolatai",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 36792.45388572,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1088.756240770304,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.2525902,
+      "lon": 150.82522421
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.29",
+    "name": "Coolatai to Goondiwindi",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 99808.89985869,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1087.0578570603077,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.17557986,
+      "lon": 150.61188727
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.30",
+    "name": "Coolatai to Warialda",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 37381.87979329,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1067.8609403564258,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.37727593,
+      "lon": 150.63166694
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.31",
+    "name": "Strathnairn to Emmaville",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 57756.79833992,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1101.3040844136463,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.40972896,
+      "lon": 151.42311578
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.32",
+    "name": "Pindari to tee",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 8251.93947465,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1095.2212221507598,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.37591485,
+      "lon": 151.22834798
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.33",
+    "name": "Glen Innis to Emmaville",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 38952.52578885,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1095.551572722518,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.59702692,
+      "lon": 151.6673685
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.34",
+    "name": "Glen innes to tee (North)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 13113.65781986,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1089.0158007123719,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.69829478,
+      "lon": 151.72670492
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.35",
+    "name": "Glen innes to tee",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 9201.98465675,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1088.0481496250925,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.71259164,
+      "lon": 151.73405586
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.36",
+    "name": "Borthwick to Strathnairn",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 74862.13398243,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1074.8404164189737,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.53853395,
+      "lon": 151.13101436
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.37",
+    "name": "Borthwick to Warialda",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 62063.66037434,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1048.422220687948,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.66661851,
+      "lon": 150.83275714
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.38",
+    "name": "Borthwick to Bundarra",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 44107.5569645,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1031.1446738052284,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.98373176,
+      "lon": 151.11407984
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.39",
+    "name": "Warialda to Bingara",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 40711.39765032,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1032.5012580521136,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.6881082,
+      "lon": 150.52748549
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.40",
+    "name": "Moree to Moree Solar",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 13279.67440663,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1018.8757622955993,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.54001289,
+      "lon": 149.8470655
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.41",
+    "name": "Moree Solar to Bellata",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 46805.42100052,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 998.0998169175273,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.72584706,
+      "lon": 149.79858794
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.42",
+    "name": "Burren Junction to Merrywinebone",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 58603.61158249,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 955.4797872276156,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.84924787,
+      "lon": 148.98777014
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.43",
+    "name": "Walgett to Brewarrina",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 127881.67264702,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 891.9686467216817,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -30.04737281,
+      "lon": 147.49084157
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.44",
+    "name": "Walgett to Lightning Ridge",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 76194.25334823,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 945.460712184586,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.69034545,
+      "lon": 148.1072917
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.45",
+    "name": "Maclean to Yamba",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 18470.40616029,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1196.3703229171956,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.43281144,
+      "lon": 153.245137
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.46",
+    "name": "Maclean to Koolkhan",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 36655.3554706,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1177.7601365332391,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.53894505,
+      "lon": 153.08665287
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.47",
+    "name": "Maclean to Koolkhan (South East)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 40150.96919114,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1179.9347793573747,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.54499226,
+      "lon": 153.13385657
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.48",
+    "name": "Koolkham to Grafton (East)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 7155.03120103,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1159.8828144346835,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.64022851,
+      "lon": 152.93292464
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.49",
+    "name": "Koolkham to Grafton (West)",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 6253.83345223,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1159.0635009986117,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.64205134,
+      "lon": 152.92143639
+    }
+  },
+  {
+    "id": "Electricity_Transmission_Lines.50",
+    "name": "South Grafton to Nymboida",
+    "description": "A network of wires and insulators used to connect and transport high voltage electricity from generators to large demand customers and the lower voltage electricity distribution network",
+    "featureType": "Transmission Line",
+    "class": "Overhead",
+    "operationalStatus": "Operational",
+    "state": "New South Wales",
+    "capacityKv": 66,
+    "length": {
+      "measurement": 33521.53512006,
+      "unit": "m"
+    },
+    "distance": {
+      "measurement": 1128.467143522928,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -29.89863998,
+      "lon": 152.7882342
+    }
+  }
+]
