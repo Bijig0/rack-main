@@ -16,8 +16,12 @@ export const EnvSchema = z.object({
   CORELOGIC_PASSWORD: z.string().default("Mycariscclass1$"),
   CORELOGIC_URL: z.string().default("https://propertyhub.corelogic.asia/"),
 
+  // Railway uses PORT, locally we use SERVER_PORT
+  PORT: z.string().optional(),
   SERVER_PORT: z.string().default("3000"),
 });
+
+const env = EnvSchema.parse(process.env);
 
 export const {
   GOOGLE_MAPS_API_KEY,
@@ -28,5 +32,7 @@ export const {
   CORELOGIC_USERNAME,
   CORELOGIC_PASSWORD,
   CORELOGIC_URL,
-  SERVER_PORT,
-} = EnvSchema.parse(process.env);
+} = env;
+
+// Railway injects PORT, fallback to SERVER_PORT for local dev
+export const SERVER_PORT = env.PORT || env.SERVER_PORT;

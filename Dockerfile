@@ -1,20 +1,30 @@
-# Dockerfile
-FROM mcr.microsoft.com/playwright:v1.40.0-jammy
-
+# Dockerfile for Railway deployment
+FROM oven/bun:1.1.18-debian AS base
 WORKDIR /app
 
-# Install Bun
-RUN curl -fsSL https://bun.sh/install | bash
-ENV PATH="/root/.bun/bin:$PATH"
+# Install build tools for native modules
+RUN apt-get update && apt-get install -y --fix-missing \
+    python3 \
+    make \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy dependency files
+# Copy workspace config and lockfile
 COPY package.json bun.lockb ./
+COPY apps/api/package.json ./apps/api/
+COPY packages/shared/package.json ./packages/shared/
 
-# Install dependencies
-RUN bun install --frozen-lockfile
+# Install dependencies (ignore scripts to skip canvas compilation)
+RUN bun install --ignore-scripts
 
 # Copy source code
-COPY . .
+COPY packages/shared ./packages/shared
+COPY apps/api ./apps/api
 
-# The actual start command will be overridden by Railway service config
-CMD ["bun", "run", "start:api"]
+WORKDIR /app/apps/api
+
+# Expose the server port (Railway uses PORT env var)
+EXPOSE ${PORT:-3000}
+
+# Run the server
+CMD ["bun", "run", "src/server/server.ts"]

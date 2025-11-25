@@ -1,0 +1,15 @@
+# Railway ignore file
+node_modules
+**/node_modules
+.git
+**/.git
+*.md
+.env*
+.DS_Store
+**/coverage
+**/.next
+**/dist
+apps/web
+.storybook
+**/*.test.ts
+**/*.spec.ts
