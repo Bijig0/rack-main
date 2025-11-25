@@ -1,4 +1,3 @@
-
 import { Address } from "../../../../../shared/types";
 import getCoverPageData from "../createCoverPageSection/getCoverPageData/getCoverPageData";
 import getEnvironmentalData from "../createEnvironmentalSection/getEnvironmentalData/getEnvironmentalData";

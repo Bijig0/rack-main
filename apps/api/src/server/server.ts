@@ -6,6 +6,9 @@ import { generateFakeRentalAppraisalData } from "./generateFakeRentalAppraisalDa
 
 const app = new Hono();
 
+// Health check endpoint
+app.get("/health", (c) => c.json({ status: "ok" }));
+
 // Lazy-initialize queue only when needed
 let reportQueue: Queue | null = null;
 function getReportQueue() {
@@ -44,7 +47,10 @@ app.get("/api/reports/jobs/:jobId", async (c) => {
   });
 });
 
+console.log(`Starting server on port ${SERVER_PORT}...`);
+
 export default {
   port: SERVER_PORT,
+  hostname: "0.0.0.0", // Required for Docker/Railway to accept external connections
   fetch: app.fetch,
 };

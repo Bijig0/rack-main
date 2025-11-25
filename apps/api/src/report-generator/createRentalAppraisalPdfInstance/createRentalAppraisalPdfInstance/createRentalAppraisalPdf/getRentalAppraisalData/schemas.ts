@@ -7,7 +7,7 @@ import { PropertyInfoSchema } from "../createPropertyInfoSection/getPropertyInfo
 
 export const CoverPageDataSchema = z.object({
   addressCommonName: z.string(),
-  reportDate: z.date(),
+  reportDate: z.string().date(),
 });
 
 export type CoverPageData = z.infer<typeof CoverPageDataSchema>;
