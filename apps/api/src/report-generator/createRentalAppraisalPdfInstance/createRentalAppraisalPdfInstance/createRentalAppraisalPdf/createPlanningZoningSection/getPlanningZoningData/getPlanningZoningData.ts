@@ -1,8 +1,10 @@
 import { Address } from "../../../../../../shared/types";
+import { LandUse } from "./getLandUse/types";
 import { getLocalPlan } from "./getLocalPlan/getLocalPlan";
+import { LocalPlanData } from "./getLocalPlan/types";
 import { getPlanningOverlay } from "./getPlanningOverlay/getPlanningOverlay";
 import { PlanningOverlayItem } from "./getPlanningOverlay/types";
-import { getPlanningSchemeZone } from "./getPlanningZoneData/getPlanningZoneData";
+import { RegionalPlan } from "./getRegionalPlan/types";
 import { getZonePrecinct } from "./getZonePrecinct/getZonePrecinct";
 
 type Args = {
@@ -10,15 +12,15 @@ type Args = {
 };
 
 export type PlanningZoningData = {
-  regionalPlan?: string;
-  landUse?: string;
+  regionalPlan?: RegionalPlan;
+  landUse?: LandUse;
+  localPlan?: LocalPlanData;
   planningScheme?: string;
   zone?: string;
   zoneCode?: string;
   overlays?: PlanningOverlayItem[];
   heritageOverlays?: string[];
   zonePrecinct?: string;
-  localPlan?: string;
   localPlanPrecinct?: string;
   localPlanSubprecinct?: string;
 } | null;

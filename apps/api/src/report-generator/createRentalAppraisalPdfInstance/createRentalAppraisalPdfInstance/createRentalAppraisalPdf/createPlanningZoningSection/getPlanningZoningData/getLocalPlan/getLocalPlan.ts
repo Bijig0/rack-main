@@ -3,14 +3,10 @@
 import { Effect } from "effect";
 import { Address } from "../../../../../../../shared/types";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
+import { LocalPlanData } from "./types";
 
 type Args = {
   address: Address;
-};
-
-type LocalPlanResult = {
-  localPlan: string | null;
-  lgaName: string | null;
 };
 
 /**
@@ -148,7 +144,8 @@ const fetchLgaFromAddress = (
     try {
       const { planningZoneData } = yield* Effect.tryPromise({
         try: () => getPlanningZoneData({ address }),
-        catch: (error) => new Error(`Planning zone data fetch failed: ${error}`),
+        catch: (error) =>
+          new Error(`Planning zone data fetch failed: ${error}`),
       });
 
       return planningZoneData?.lgaName || null;
@@ -168,7 +165,7 @@ const fetchLgaFromAddress = (
  */
 export const getLocalPlan = ({
   address,
-}: Args): Effect.Effect<LocalPlanResult, never> =>
+}: Args): Effect.Effect<LocalPlanData, never> =>
   Effect.gen(function* () {
     yield* Effect.log("📋 Determining local planning policy...");
 
@@ -269,8 +266,8 @@ if (import.meta.main) {
       getLocalPlan({ address: testCase.address })
     );
 
-    console.log(`LGA: ${result.lgaName || "Not found"}`);
-    console.log(`Local Plan: ${result.localPlan || "Not found"}`);
+    console.log(`LGA: ${result?.lgaName || "Not found"}`);
+    console.log(`Local Plan: ${result?.localPlan || "Not found"}`);
   }
 
   console.log("\n" + "=".repeat(80));

@@ -1,5 +1,6 @@
 import type { Address } from "../../../../../../../shared/types";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
+import { RegionalPlan } from "./types";
 
 type Args = {
   address: Address;
@@ -174,9 +175,7 @@ function getRegionalPlanForLga(lgaName: string): string | null {
   }
 
   // Check Gippsland
-  if (
-    GIPPSLAND_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))
-  ) {
+  if (GIPPSLAND_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))) {
     return "Gippsland Regional Growth Plan";
   }
 
@@ -200,14 +199,16 @@ function getRegionalPlanForLga(lgaName: string): string | null {
  */
 export const getRegionalPlan = async ({
   address,
-}: Args): Promise<string | null> => {
+}: Args): Promise<RegionalPlan | null> => {
   const { planningZoneData } = await getPlanningZoneData({ address });
 
   if (!planningZoneData?.lgaName) {
     return null;
   }
 
-  return getRegionalPlanForLga(planningZoneData.lgaName);
+  const regionalPlan = getRegionalPlanForLga(planningZoneData.lgaName);
+
+  return { regionalPlan };
 };
 
 export default getRegionalPlan;

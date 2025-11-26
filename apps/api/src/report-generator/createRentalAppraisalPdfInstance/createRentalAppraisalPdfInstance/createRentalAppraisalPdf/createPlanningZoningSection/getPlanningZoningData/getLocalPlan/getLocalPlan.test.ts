@@ -1,6 +1,6 @@
 #!/Users/a61403/.bun/bin/bun
+import { describe, expect, mock, test } from "bun:test";
 import { Effect } from "effect";
-import { describe, expect, test, mock } from "bun:test";
 import type { Address } from "../../../../../../../shared/types";
 
 // Mock getPlanningZoneData to return LGA based on suburb
@@ -60,8 +60,10 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Melbourne");
-    expect(result.localPlan).toBe("City of Melbourne Central City Local Policy");
+    expect(result?.lgaName).toBe("Melbourne");
+    expect(result?.localPlan).toBe(
+      "City of Melbourne Central City Local Policy"
+    );
   });
 
   test("should return Boroondara local plan for Kew address", async () => {
@@ -74,8 +76,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Boroondara");
-    expect(result.localPlan).toBe("Boroondara Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Boroondara");
+    expect(result?.localPlan).toBe("Boroondara Neighbourhood Character Study");
   });
 
   test("should return Yarra local plan for Collingwood address", async () => {
@@ -88,8 +90,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Yarra");
-    expect(result.localPlan).toBe("Yarra Neighbourhood Character Policy");
+    expect(result?.lgaName).toBe("Yarra");
+    expect(result?.localPlan).toBe("Yarra Neighbourhood Character Policy");
   });
 
   test("should return Port Phillip local plan for Port Melbourne address", async () => {
@@ -102,8 +104,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Port Phillip");
-    expect(result.localPlan).toBe(
+    expect(result?.lgaName).toBe("Port Phillip");
+    expect(result?.localPlan).toBe(
       "Port Phillip Neighbourhood Character and Heritage Policy"
     );
   });
@@ -118,8 +120,10 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Greater Geelong");
-    expect(result.localPlan).toBe("Greater Geelong Housing Diversity Strategy");
+    expect(result?.lgaName).toBe("Greater Geelong");
+    expect(result?.localPlan).toBe(
+      "Greater Geelong Housing Diversity Strategy"
+    );
   });
 
   test("should return Ballarat local plan", async () => {
@@ -132,8 +136,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Ballarat");
-    expect(result.localPlan).toBe("Ballarat Strategy Plan");
+    expect(result?.lgaName).toBe("Ballarat");
+    expect(result?.localPlan).toBe("Ballarat Strategy Plan");
   });
 
   test("should return Bendigo local plan for Greater Bendigo", async () => {
@@ -146,8 +150,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Greater Bendigo");
-    expect(result.localPlan).toBe("Greater Bendigo Housing Strategy");
+    expect(result?.lgaName).toBe("Greater Bendigo");
+    expect(result?.localPlan).toBe("Greater Bendigo Housing Strategy");
   });
 
   test("should return Frankston local plan for Frankston address", async () => {
@@ -160,8 +164,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Frankston");
-    expect(result.localPlan).toBe("Frankston Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Frankston");
+    expect(result?.localPlan).toBe("Frankston Neighbourhood Character Study");
   });
 
   test("should return Whitehorse local plan", async () => {
@@ -174,8 +178,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Whitehorse");
-    expect(result.localPlan).toBe("Whitehorse Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Whitehorse");
+    expect(result?.localPlan).toBe("Whitehorse Neighbourhood Character Study");
   });
 
   test("should return Stonnington local plan for Armadale address", async () => {
@@ -188,8 +192,10 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Stonnington");
-    expect(result.localPlan).toBe("Stonnington Built Form and Heritage Policy");
+    expect(result?.lgaName).toBe("Stonnington");
+    expect(result?.localPlan).toBe(
+      "Stonnington Built Form and Heritage Policy"
+    );
   });
 
   test("should return Monash local plan for Oakleigh address", async () => {
@@ -202,8 +208,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Monash");
-    expect(result.localPlan).toBe("Monash Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Monash");
+    expect(result?.localPlan).toBe("Monash Neighbourhood Character Study");
   });
 
   test("should return Knox local plan for Wantirna address", async () => {
@@ -216,8 +222,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Knox");
-    expect(result.localPlan).toBe("Knox Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Knox");
+    expect(result?.localPlan).toBe("Knox Neighbourhood Character Study");
   });
 
   test("should return Darebin local plan for Preston address", async () => {
@@ -230,8 +236,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Darebin");
-    expect(result.localPlan).toBe("Darebin Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Darebin");
+    expect(result?.localPlan).toBe("Darebin Neighbourhood Character Study");
   });
 
   test("should return Moreland local plan for Brunswick address", async () => {
@@ -244,8 +250,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Moreland");
-    expect(result.localPlan).toBe("Moreland Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Moreland");
+    expect(result?.localPlan).toBe("Moreland Neighbourhood Character Study");
   });
 
   test("should return Bayside local plan for Brighton address", async () => {
@@ -258,8 +264,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Bayside");
-    expect(result.localPlan).toBe("Bayside Neighbourhood Character Study");
+    expect(result?.lgaName).toBe("Bayside");
+    expect(result?.localPlan).toBe("Bayside Neighbourhood Character Study");
   });
 
   test("should return Mornington Peninsula local plan", async () => {
@@ -272,8 +278,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Mornington Peninsula");
-    expect(result.localPlan).toBe(
+    expect(result?.lgaName).toBe("Mornington Peninsula");
+    expect(result?.localPlan).toBe(
       "Mornington Peninsula Localised Planning Statement"
     );
   });
@@ -288,8 +294,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBe("Unknown Council");
-    expect(result.localPlan).toBeNull();
+    expect(result?.lgaName).toBe("Unknown Council");
+    expect(result?.localPlan).toBeNull();
   });
 
   test("should return null when LGA cannot be determined and suburb not found", async () => {
@@ -302,8 +308,8 @@ describe("getLocalPlan", () => {
 
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.lgaName).toBeNull();
-    expect(result.localPlan).toBeNull();
+    expect(result?.lgaName).toBeNull();
+    expect(result?.localPlan).toBeNull();
   });
 });
 
@@ -336,6 +342,6 @@ describe("getLocalPlan - Effect behavior", () => {
     // This should not throw, even for unknown addresses
     const result = await Effect.runPromise(getLocalPlan({ address }));
 
-    expect(result.localPlan).toBeNull();
+    expect(result?.localPlan).toBeNull();
   });
 });
