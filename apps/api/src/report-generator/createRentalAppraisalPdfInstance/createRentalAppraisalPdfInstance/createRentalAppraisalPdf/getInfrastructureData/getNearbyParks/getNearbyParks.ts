@@ -1,6 +1,6 @@
 import { Address } from "../../../../../../shared/types";
 import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { fetchNearbyParks } from "./fetchNearbyPlaygrounds";
+import { fetchNearbyParks } from "./fetchNearbyParks";
 import { Parks } from "./types";
 
 type Args = {
@@ -28,10 +28,10 @@ export async function getNearbyParksData(
 // ----------------------------
 if (import.meta.main) {
   const address = {
-    addressLine: "Flinders Street Station",
-    suburb: "Melbourne",
+    addressLine: "7 English Place",
+    suburb: "Kew",
     state: "VIC",
-    postcode: "3000",
+    postcode: "3101",
   } satisfies Address;
 
   getNearbyParksData({ address })

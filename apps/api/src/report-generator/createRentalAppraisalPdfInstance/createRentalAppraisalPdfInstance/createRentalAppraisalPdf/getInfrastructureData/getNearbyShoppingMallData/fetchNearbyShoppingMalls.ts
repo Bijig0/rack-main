@@ -1,8 +1,6 @@
-import z from "zod";
+import { GOOGLE_MAPS_API_KEY } from "../../../../../../shared/config";
 import { createFetchNearbyShoppingMallsEndpoint } from "./createFetchNearbyShoppingMallsEndpoint";
 import { ShoppingMall, ShoppingMallSchema } from "./types";
-
-const GOOGLE_MAPS_API_KEY = z.string().parse(process.env.GOOGLE_PLACES_API_KEY);
 
 type Args = {
   lat: number;

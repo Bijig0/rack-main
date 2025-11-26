@@ -1,8 +1,6 @@
-import z from "zod";
-import { createFetchNearbyPlaygroundsEndpoint } from "./createFetchNearbyPlaygroundsEndpoint";
+import { GOOGLE_MAPS_API_KEY } from "../../../../../../shared/config";
+import { createFetchNearbyParksEndpoint } from "./createFetchNearbyParksEndpoint";
 import { Park, ParkSchema } from "./types";
-
-const GOOGLE_MAPS_API_KEY = z.string().parse(process.env.GOOGLE_PLACES_API_KEY);
 
 type Args = {
   lat: number;
@@ -15,12 +13,14 @@ export const fetchNearbyParks = async ({
   lon,
   radius,
 }: Args): Promise<Park[]> => {
-  const { endpoint } = createFetchNearbyPlaygroundsEndpoint({
+  const { endpoint } = createFetchNearbyParksEndpoint({
     lat,
     lon,
     radius,
     apiKey: GOOGLE_MAPS_API_KEY,
   });
+
+  console.log("endpoint", endpoint.href);
 
   const nearbyRes = await fetch(endpoint.href);
   const nearbyData = await nearbyRes.json();

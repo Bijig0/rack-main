@@ -6,10 +6,10 @@ dotenvConfig();
 
 // Validate environment variables using Zod
 export const EnvSchema = z.object({
-  GOOGLE_MAPS_API_KEY: z.string().optional().default(""),
-  GOOGLE_STREET_VIEW_API_KEY: z.string().optional().default(""),
-  FIGMA_ACCESS_TOKEN: z.string().optional().default(""),
-  FIGMA_PDF_DESIGN_FILE_URL: z.string().optional().default(""),
+  GOOGLE_MAPS_API_KEY: z.string(),
+  GOOGLE_STREET_VIEW_API_KEY: z.string(),
+  FIGMA_ACCESS_TOKEN: z.string().optional(),
+  FIGMA_PDF_DESIGN_FILE_URL: z.string().optional(),
 
   CORELOGIC_EMAIL: z.string().default("bradysuryasie@gmail.com"),
   CORELOGIC_USERNAME: z.string().default("megturism0"),
@@ -20,7 +20,7 @@ export const EnvSchema = z.object({
   PORT: z.string().optional(),
   SERVER_PORT: z.string().default("3000"),
 
-  GOOGLE_GEMINI_API_KEY: z.string().optional(),
+  GOOGLE_GEMINI_API_KEY: z.string(),
 });
 
 const env = EnvSchema.parse(process.env);

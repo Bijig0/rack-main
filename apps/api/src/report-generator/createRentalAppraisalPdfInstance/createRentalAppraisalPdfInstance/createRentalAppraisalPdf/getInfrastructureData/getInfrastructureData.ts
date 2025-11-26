@@ -3,6 +3,7 @@ import { InfrastructureData } from "../getRentalAppraisalData/schemas";
 import { getElectricityData } from "./getElectricityData/getElectricityData";
 import { getNearbyEmergencyServicesData } from "./getNearbyEmergencyServices/getNearbyEmergencyServices";
 import { getNearbyParksData } from "./getNearbyParks/getNearbyParks";
+import { getNearbyPlaygroundsData } from "./getNearbyPlaygrounds/getNearbyPlaygrounds";
 import { getNearbyShoppingMallsData } from "./getNearbyShoppingMallData/getNearbyShoppingMallData";
 import { getSewageData } from "./getSewageData/getSewageData";
 import { getStormwaterData } from "./getStormwaterData/getStormwaterData";
@@ -22,7 +23,7 @@ const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
     electricityData: getElectricityData({ address }),
     nearbyEmergencyServicesData: getNearbyEmergencyServicesData({ address }),
     nearbyParksData: getNearbyParksData({ address }),
-    nearbyPlaygroundsData: getNearbyPlagr({ address }),
+    nearbyPlaygroundsData: getNearbyPlaygroundsData({ address }),
     nearbyShoppingMallsData: getNearbyShoppingMallsData({ address }),
     sewageData: getSewageData({ address }),
     stormwaterData: getStormwaterData({ address }),
@@ -33,8 +34,28 @@ const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
   const entries = Object.entries(promises);
   const results = await Promise.all(entries.map(([, promise]) => promise));
 
-  return Object.fromEntries(
+  const infrastructureData = Object.fromEntries(
     entries.map(([key], i) => [key, results[i]])
-  ) as Return;
+  );
+
+  return { infrastructureData };
 };
+
+if (import.meta.main) {
+  const address: Address = {
+    addressLine: "7 English Kew",
+    suburb: "Kew",
+    state: "VIC",
+    postcode: "3101",
+  };
+
+  getInfrastructureData({ address })
+    .then(({ infrastructureData }) => {
+      console.log(infrastructureData);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 export default getInfrastructureData;

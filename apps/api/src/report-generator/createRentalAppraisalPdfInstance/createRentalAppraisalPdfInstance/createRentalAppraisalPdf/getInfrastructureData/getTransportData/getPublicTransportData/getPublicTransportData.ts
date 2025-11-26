@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { gunzipSync } from "zlib";
 import type { Address } from "../../../../../../../shared/types";
 import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
@@ -94,12 +95,15 @@ export const getPublicTransportData = async ({
   // Geocode the address
   const { lat, lon } = await geocodeAddress({ address });
 
-  // Load and parse the GeoJSON files
-  const stopsPath = path.join(__dirname, "../public_transport_stops.geojson");
-  const linesPath = path.join(__dirname, "../public_transport_lines.geojson");
+  // Load and parse the gzipped GeoJSON files
+  const stopsPath = path.join(__dirname, "../public_transport_stops.geojson.gz");
+  const linesPath = path.join(__dirname, "../public_transport_lines.geojson.gz");
 
-  const stopsData = JSON.parse(fs.readFileSync(stopsPath, "utf-8"));
-  const linesData = JSON.parse(fs.readFileSync(linesPath, "utf-8"));
+  const stopsCompressed = fs.readFileSync(stopsPath);
+  const linesCompressed = fs.readFileSync(linesPath);
+
+  const stopsData = JSON.parse(gunzipSync(stopsCompressed).toString("utf-8"));
+  const linesData = JSON.parse(gunzipSync(linesCompressed).toString("utf-8"));
 
   const stopsCollection = TransportStopsCollectionSchema.parse(stopsData);
   const linesCollection = TransportLinesCollectionSchema.parse(linesData);
