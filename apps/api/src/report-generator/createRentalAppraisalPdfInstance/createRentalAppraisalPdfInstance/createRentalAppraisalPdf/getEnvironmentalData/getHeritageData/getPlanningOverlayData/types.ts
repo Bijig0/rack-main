@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GeometrySchema } from "../../../../../../wfsDataToolkit/types";
+import { GeometrySchema } from "../../../../../wfsDataToolkit/types";
 
 // Planning Scheme Overlay properties from open-data-platform:plan_overlay
 export const PlanningOverlayPropertiesSchema = z.object({

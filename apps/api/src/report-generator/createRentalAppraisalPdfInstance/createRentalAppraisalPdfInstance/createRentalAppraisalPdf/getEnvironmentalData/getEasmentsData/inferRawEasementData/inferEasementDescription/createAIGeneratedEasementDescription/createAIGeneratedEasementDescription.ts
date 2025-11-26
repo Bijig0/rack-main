@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { GOOGLE_GEMINI_API_KEY } from "../../../../../../../../../shared/config";
 import { EasementFeature } from "../../../types";
 import { InferredEasementDataWithoutDescription } from "../inferEasementDescription";
 import { createAIEasementTaskText } from "./createAIEasementTaskText";
@@ -12,7 +13,7 @@ type Return = {
   aiGeneratedDescription: string | undefined;
 };
 
-const apiKey = "AIzaSyAJpT3HPdbkQY5mgVkgcledgarmaAdxRFA";
+const apiKey = GOOGLE_GEMINI_API_KEY;
 
 const ai = new GoogleGenAI({ apiKey });
 

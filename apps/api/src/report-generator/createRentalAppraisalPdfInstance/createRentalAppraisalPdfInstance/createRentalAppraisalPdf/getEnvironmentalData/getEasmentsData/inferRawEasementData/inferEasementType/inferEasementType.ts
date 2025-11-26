@@ -1,4 +1,4 @@
-import { Geometry } from "../../../../../../../wfsDataToolkit/types";
+import { Geometry } from "../../../../../../wfsDataToolkit/types";
 
 type Args = {
   geometry: Geometry;

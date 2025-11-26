@@ -1,4 +1,4 @@
-import { numberToString } from "../../../../../../../../utils/numberToString/numberToString";
+import { numberToString } from "../../../../../../../utils/numberToString/numberToString";
 import {
   FaunaFeatures,
   FloraFeatures,

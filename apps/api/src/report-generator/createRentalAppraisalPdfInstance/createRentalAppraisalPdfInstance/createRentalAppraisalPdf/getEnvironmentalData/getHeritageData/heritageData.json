@@ -1,14 +1,5 @@
 [
   {
-    "dateRegistered": "2020-04-23T12:25:56.000Z",
-    "heritageObject": "N",
-    "siteName": "256-268 FLINDERS STREET",
-    "vhiNumber": "H7822-1902",
-    "heritageManagementNumber": "121289",
-    "ufiNumber": "1449409",
-    "vdpId": "9302"
-  },
-  {
     "dateRegistered": "2020-04-23T12:26:08.000Z",
     "heritageObject": "N",
     "siteName": "250-254 FLINDERS STREET",
@@ -27,31 +18,13 @@
     "vdpId": "12837"
   },
   {
-    "dateRegistered": "2020-04-23T12:26:10.000Z",
+    "dateRegistered": "2020-04-23T12:26:07.000Z",
     "heritageObject": "N",
-    "siteName": "17-21 DEGRAVES STREET",
-    "vhiNumber": "H7822-1903",
-    "heritageManagementNumber": "126351",
-    "ufiNumber": "1454495",
-    "vdpId": "14609"
-  },
-  {
-    "dateRegistered": "2020-04-23T12:25:32.000Z",
-    "heritageObject": "N",
-    "siteName": "FLINDERS STREET (NEAR BATMAN'S HILL TO EXHIBITION",
-    "vhiNumber": "H7822-1959",
-    "heritageManagementNumber": "113698",
-    "ufiNumber": "1441775",
-    "vdpId": "1306"
-  },
-  {
-    "dateRegistered": "2020-04-23T12:26:15.000Z",
-    "heritageObject": "N",
-    "siteName": "224-226 FLINDERS STREET",
-    "vhiNumber": "H7822-1899",
-    "heritageManagementNumber": "127791",
-    "ufiNumber": "1455939",
-    "vdpId": "16614"
+    "siteName": "TOMASETTI BUILDING",
+    "vhiNumber": "H7822-1896",
+    "heritageManagementNumber": "125250",
+    "ufiNumber": "1453390",
+    "vdpId": "13476"
   },
   {
     "dateRegistered": "2020-04-23T12:26:08.000Z",
@@ -63,13 +36,13 @@
     "vdpId": "13906"
   },
   {
-    "dateRegistered": "2025-03-21T08:58:42.000Z",
+    "dateRegistered": "2020-04-23T12:25:56.000Z",
     "heritageObject": "N",
-    "siteName": "SWANSTON STREET",
-    "vhiNumber": "H7822-1966",
-    "heritageManagementNumber": "113994",
-    "ufiNumber": "1467300",
-    "vdpId": "1938"
+    "siteName": "256-268 FLINDERS STREET",
+    "vhiNumber": "H7822-1902",
+    "heritageManagementNumber": "121289",
+    "ufiNumber": "1449409",
+    "vdpId": "9302"
   },
   {
     "dateRegistered": "2025-03-25T07:54:01.000Z",
@@ -78,7 +51,25 @@
     "vhiNumber": "H7822-1960",
     "heritageManagementNumber": "113815",
     "ufiNumber": "1467304",
-    "vdpId": "1702"
+    "vdpId": "1704"
+  },
+  {
+    "dateRegistered": "2025-03-21T08:58:42.000Z",
+    "heritageObject": "N",
+    "siteName": "SWANSTON STREET",
+    "vhiNumber": "H7822-1966",
+    "heritageManagementNumber": "113994",
+    "ufiNumber": "1467300",
+    "vdpId": "1940"
+  },
+  {
+    "dateRegistered": "2020-04-23T12:25:32.000Z",
+    "heritageObject": "N",
+    "siteName": "FLINDERS STREET (NEAR BATMAN'S HILL TO EXHIBITION",
+    "vhiNumber": "H7822-1959",
+    "heritageManagementNumber": "113698",
+    "ufiNumber": "1441775",
+    "vdpId": "1308"
   },
   {
     "dateRegistered": "2023-06-26T01:48:20.000Z",
@@ -87,6 +78,15 @@
     "vhiNumber": "H7822-1968",
     "heritageManagementNumber": "116351",
     "ufiNumber": "1465018",
-    "vdpId": "3991"
+    "vdpId": "3992"
+  },
+  {
+    "dateRegistered": "2020-04-23T12:26:15.000Z",
+    "heritageObject": "N",
+    "siteName": "224-226 FLINDERS STREET",
+    "vhiNumber": "H7822-1899",
+    "heritageManagementNumber": "127791",
+    "ufiNumber": "1455939",
+    "vdpId": "16614"
   }
 ]

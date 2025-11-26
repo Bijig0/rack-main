@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Address } from "../../../../../../../shared/types";
-import { createWfsParams } from "../../../../../wfsDataToolkit/createWfsParams/createWfsParams";
-import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { VicmapResponseSchema } from "../../../../../wfsDataToolkit/types";
+import { Address } from "../../../../../../shared/types";
+import { createWfsParams } from "../../../../wfsDataToolkit/createWfsParams/createWfsParams";
+import { WFS_DATA_URL } from "../../../../wfsDataToolkit/defaults";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { VicmapResponseSchema } from "../../../../wfsDataToolkit/types";
 import { inferRawEasementData } from "./inferRawEasementData/InferRawEasementData";
 import {
   EasementFeaturesSchema,

@@ -1,10 +1,10 @@
 import axios from "axios";
 import fs from "fs";
 import path from "path";
-import { Address } from "../../../../../../../shared/types";
-import { createWfsParams } from "../../../../../wfsDataToolkit/createWfsParams/createWfsParams";
-import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { createWfsParams } from "../../../../wfsDataToolkit/createWfsParams/createWfsParams";
+import { WFS_DATA_URL } from "../../../../wfsDataToolkit/defaults";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { getHeritageVicmapResponseSchema } from "./createHeritageResponseSchema/inferRawHeritageData/getHeritageVicmapResponseSchema";
 import { inferRawHeritageData } from "./createHeritageResponseSchema/inferRawHeritageData/inferRawHeritageData";
 import { InferredHeritageData } from "./createHeritageResponseSchema/inferRawHeritageData/types";

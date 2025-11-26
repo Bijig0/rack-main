@@ -1,6 +1,6 @@
 // @ts-ignore
 import { describe, expect, it } from "bun:test";
-import { Address } from "../../../../../../../../shared/types";
+import { Address } from "../../../../../../../shared/types";
 import { TrafficSignalData } from "./trafficSignalTypes";
 
 /**

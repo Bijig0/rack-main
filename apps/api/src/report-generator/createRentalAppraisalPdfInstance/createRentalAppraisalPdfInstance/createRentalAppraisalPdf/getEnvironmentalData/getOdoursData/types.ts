@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GeometrySchema } from "../../../../../wfsDataToolkit/types";
+import { GeometrySchema } from "../../../../wfsDataToolkit/types";
 import {
   AreaMeasurement,
   LengthMeasurement,

@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
 import { parse } from "csv-parse/sync";
-import { Address } from "../../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../../shared/types";
+import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
   TrafficSignalData,
   TrafficSignalDataSchema,

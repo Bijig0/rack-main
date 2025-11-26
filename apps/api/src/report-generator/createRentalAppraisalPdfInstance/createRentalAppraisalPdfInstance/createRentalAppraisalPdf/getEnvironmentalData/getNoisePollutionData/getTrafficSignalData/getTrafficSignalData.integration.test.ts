@@ -1,9 +1,9 @@
 // @ts-ignore
 import { describe, expect, it, mock } from "bun:test";
-import { Address } from "../../../../../../../../shared/types";
+import { Address } from "../../../../../../../shared/types";
 
 // Mock the geocodeAddress module
-mock.module("../../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress", () => ({
+mock.module("../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress", () => ({
   geocodeAddress: mock(() =>
     Promise.resolve({ lat: -37.7967303, lon: 145.0250967 })
   ),

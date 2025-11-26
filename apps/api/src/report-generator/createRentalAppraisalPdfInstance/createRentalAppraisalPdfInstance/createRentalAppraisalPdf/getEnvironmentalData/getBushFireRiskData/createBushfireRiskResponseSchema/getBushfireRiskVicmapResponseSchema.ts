@@ -1,4 +1,4 @@
-import { createFeatureSpecificVicmapResponseSchema } from "../../../../../../wfsDataToolkit/createFeatureSpecificVicmapResponseSchema";
+import { createFeatureSpecificVicmapResponseSchema } from "../../../../../wfsDataToolkit/createFeatureSpecificVicmapResponseSchema";
 import { BushfireRiskFeatureSchema } from "./types";
 
 export const getBushfireRiskVicmapResponseSchema = () => {

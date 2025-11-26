@@ -21,8 +21,6 @@ type Return = {
 };
 
 const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
-  // TODO: Fetch real environmental data from state data catalogues
-  // For now, return mock data based on the address
 
   console.log(
     `Fetching environmental data for: ${address.addressLine}, ${address.suburb} ${address.state} ${address.postcode}`
@@ -46,7 +44,7 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   const { noisePollutionData } = await getNoisePollutionData({ address });
 
-  const { odourLevelAnalysis, landfills, wastewaterPlants } =
+  const { odourLevelAnalysis, landfills, wasteWaterPlants } =
     await getOdourData({ address });
 
   const { steepLandData } = await getSteepLandData({ address });
@@ -67,11 +65,25 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
     odoursData: {
       odourLevelAnalysis,
       landfills: landfills.slice(0, 3),
-      wastewaterPlants: wastewaterPlants.slice(0, 3),
+      wastewaterPlants: wasteWaterPlants.slice(0, 3),
     },
   } satisfies EnvironmentalData;
 
   return { environmentalData };
 };
+
+if (import.meta.main) {
+  const { environmentalData } = await getEnvironmentalData({
+    address: {
+      addressLine: "7 English Place",
+      suburb: "Kew",
+      state: "VIC",
+      postcode: "3101",
+    },
+  });
+
+  console.log("\n📊 Environmental Data Summary:");
+  console.log(JSON.stringify(environmentalData, null, 2));
+}
 
 export default getEnvironmentalData;

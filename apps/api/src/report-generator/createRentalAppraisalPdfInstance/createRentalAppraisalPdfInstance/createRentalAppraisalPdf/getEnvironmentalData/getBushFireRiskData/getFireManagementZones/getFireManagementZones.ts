@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { gunzipSync } from "zlib";
 import {
   InferredFireManagementZone,
   FireManagementZoneFeature,
@@ -157,12 +158,13 @@ export const getFireManagementZones = async ({
   lat,
   lon,
 }: Args): Promise<InferredFireManagementZone[]> => {
-  // Load and parse the GeoJSON file
-  const geoJsonPath = path.join(__dirname, "fire_management_zones.geojson");
+  // Load and parse the gzipped GeoJSON file
+  const geoJsonPath = path.join(__dirname, "fire_management_zones.geojson.gz");
 
   console.log(`Loading fire management zones from: ${geoJsonPath}`);
 
-  const rawData = fs.readFileSync(geoJsonPath, "utf-8");
+  const compressedData = fs.readFileSync(geoJsonPath);
+  const rawData = gunzipSync(compressedData).toString("utf-8");
   const parsedData = JSON.parse(rawData);
 
   // Validate with Zod schema

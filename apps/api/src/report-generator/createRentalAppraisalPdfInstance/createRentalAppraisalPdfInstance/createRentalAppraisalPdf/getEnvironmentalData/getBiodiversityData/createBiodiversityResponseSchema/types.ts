@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   BBoxSchema,
   GeometrySchema,
-} from "../../../../../../wfsDataToolkit/types";
+} from "../../../../../wfsDataToolkit/types";
 
 // --- Properties schema ---
 

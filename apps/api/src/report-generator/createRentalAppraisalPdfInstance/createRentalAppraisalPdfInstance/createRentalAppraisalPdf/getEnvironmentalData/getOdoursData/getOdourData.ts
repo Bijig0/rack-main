@@ -4,7 +4,6 @@ import { Address } from "../../../../../../shared/types";
 import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { analyzeOdourLevels, OdourLevelAnalysis } from "./analyzeOdourLevels";
 import { InferredWastewaterData } from "./createWastewaterResponseSchema/types";
-import { InferredEpaLicenceData } from "./getEpaLicensedPremises";
 import { getIndustrialFacilities } from "./getIndustrialFacilities";
 import { getLandfillData } from "./getLandfillData";
 import { getWastewaterTreatmentPlants } from "./getWastewaterTreatmentPlants";
@@ -17,10 +16,10 @@ type Args = {
 type OdourData = {
   wasteWaterPlants: InferredWastewaterData[];
   landfills: InferredOdoursData[];
-  odourLevelAnalysis: OdourLevelAnalysis
-}
+  odourLevelAnalysis: OdourLevelAnalysis;
+};
 
-type Return = OdourData
+type Return = OdourData;
 
 /**
  * Get comprehensive odour level data from multiple sources

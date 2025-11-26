@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BBoxSchema } from "../../../../../../wfsDataToolkit/types";
+import { BBoxSchema } from "../../../../../wfsDataToolkit/types";
 
 // --- Geometry schemas ---
 const PolygonGeometrySchema = z.object({

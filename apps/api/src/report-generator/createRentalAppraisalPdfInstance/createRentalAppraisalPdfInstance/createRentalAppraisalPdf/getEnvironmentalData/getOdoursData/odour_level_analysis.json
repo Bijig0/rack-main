@@ -19,7 +19,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 3.521307626895063,
         "unit": "km"
@@ -44,7 +44,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 3.9399951685285193,
         "unit": "km"
@@ -69,7 +69,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 3.9407780637475764,
         "unit": "km"
@@ -94,7 +94,7 @@
       "estimatedTotalWasteVolume": "51m3 to 500,000m3",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 5.038463324705217,
         "unit": "km"
@@ -119,7 +119,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 13.635748582392203,
         "unit": "km"
@@ -144,7 +144,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 15.274716326055296,
         "unit": "km"
@@ -169,7 +169,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 16.055635078542952,
         "unit": "km"
@@ -194,7 +194,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 16.27182977393567,
         "unit": "km"
@@ -219,7 +219,7 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "ES26227",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 17.237707753215233,
         "unit": "km"
@@ -244,100 +244,14 @@
       "estimatedTotalWasteVolume": "Not available",
       "licenceNumber": "Not available",
       "historicLicenceNumber": "Not available",
-      "dataExtractedOn": "2025-11-03T18:09:31Z",
+      "dataExtractedOn": "2025-11-26T18:09:27Z",
       "distance": {
         "measurement": 17.92984365271727,
         "unit": "km"
       }
     }
   ],
-  "wastewaterPlants": [],
-  "industrialFacilities": [
-    {
-      "licenceNumber": "OL000300055",
-      "facilityName": "VISY PAPER PTY LTD [BELLFIELD] - 307-325 Waterdale Road, Bellfield VIC 3081",
-      "address": "307-325 Waterdale Road Bellfield (greater Melbourne) 3081",
-      "suburb": "Bellfield",
-      "activity": "A13a (Waste and resource recovery - large)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 4.71336597410389,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000300092",
-      "facilityName": "UCC COFFEE AUSTRALIA LIMITED [PRESTON]",
-      "address": "52-60 Albert Street, Preston, Victoria, 3072, Australia",
-      "suburb": "Preston",
-      "activity": "D06 (Food processing)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 5.322173954173941,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000009573",
-      "facilityName": "VEOLIA ENVIRONMENTAL SERVICES [DANDENONG SOUTH]",
-      "address": "15 Berends Drive Dandenong South 3175",
-      "suburb": "Dandenong South",
-      "activity": "A01 (Reportable priority waste management), A07a (Organic waste processing - large)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 6.0069544551149106,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000204407",
-      "facilityName": "OUTLOOK (VIC) INC [RESERVOIR] Outlook Environmental",
-      "address": "30 Kurnai Av Reservoir VIC 3073 AU",
-      "suburb": "Reservoir",
-      "activity": "A02b (Other waste treatment – e-waste >500 tonnes)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 9.172879451569667,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000300082",
-      "facilityName": "Coburg transfer station",
-      "address": "172-182 Newlands Road Coburg North 3058",
-      "suburb": "Coburg North",
-      "activity": "A13a (Waste and resource recovery - large)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 9.221672364433116,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000010605",
-      "facilityName": "WORLDTEAM PTY LTD",
-      "address": "1 - 3 Guilfoyle Av Coburg North VIC 3058 AU",
-      "suburb": "Coburg North",
-      "activity": "A01 (Reportable priority waste management)",
-      "status": "Issued",
-      "distance": {
-        "measurement": 9.940912051670136,
-        "unit": "km"
-      }
-    },
-    {
-      "licenceNumber": "OL000009719",
-      "facilityName": "SELARAS KECHIL NOMINEES PTY LTD [COBURG NORTH]",
-      "address": "137-139 Bakers Rd Coburg North VIC 3058 AU",
-      "suburb": "Coburg North",
-      "activity": "A01 (Reportable priority waste management)",
-      "status": "Surrendered",
-      "distance": {
-        "measurement": 10.065766647661485,
-        "unit": "km"
-      }
-    }
-  ],
+  "wasteWaterPlants": [],
   "odourLevelAnalysis": {
     "overallLevel": "HIGH",
     "odourSources": {

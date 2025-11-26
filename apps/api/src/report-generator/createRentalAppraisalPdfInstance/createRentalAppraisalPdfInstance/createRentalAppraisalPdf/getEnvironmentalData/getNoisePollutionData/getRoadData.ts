@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { VicmapResponseSchema } from "../../../../../wfsDataToolkit/types";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { VicmapResponseSchema } from "../../../../wfsDataToolkit/types";
 import { RoadFeatures, RoadFeaturesSchema } from "./types";
 
 type Args = {

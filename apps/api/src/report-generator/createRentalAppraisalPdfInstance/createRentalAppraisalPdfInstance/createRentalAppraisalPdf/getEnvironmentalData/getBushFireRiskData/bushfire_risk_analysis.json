@@ -1,12 +1,4 @@
 {
-  "bushfireProneAreas": [
-    {
-      "lga": "BANYULE (Code: 303)",
-      "bushfirePlanReference": "LEGL./24-174",
-      "gazettalDate": "10/09/2024",
-      "areaKm2": 8.81741883164
-    }
-  ],
   "fireHistory": [
     {
       "fireId": "R24",
@@ -18,7 +10,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 1.339131512978399,
+        "measurement": 1.355350340908057,
         "unit": "km"
       }
     },
@@ -33,7 +25,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 5.409721480953785,
+        "measurement": 5.385094628083487,
         "unit": "km"
       }
     },
@@ -48,7 +40,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 5.544843601946827,
+        "measurement": 5.520259139718356,
         "unit": "km"
       }
     },
@@ -63,7 +55,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 5.666928222608871,
+        "measurement": 5.642299577174341,
         "unit": "km"
       }
     },
@@ -78,7 +70,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 9.681136336656852,
+        "measurement": 9.66917249566347,
         "unit": "km"
       }
     },
@@ -91,7 +83,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 10.483468328496304,
+        "measurement": 10.471596122942318,
         "unit": "km"
       }
     },
@@ -106,7 +98,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 10.58423064442077,
+        "measurement": 10.572389946077212,
         "unit": "km"
       }
     },
@@ -120,7 +112,7 @@
         "unit": "ha"
       },
       "distance": {
-        "measurement": 13.715040279146312,
+        "measurement": 13.736386536852201,
         "unit": "km"
       }
     }
@@ -143,7 +135,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 0.061814217024096944,
+        "measurement": 0.07067293463454964,
         "unit": "km"
       },
       "isWithinZone": false
@@ -154,7 +146,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 2.969315081254303,
+        "measurement": 2.992343405137653,
         "unit": "km"
       },
       "isWithinZone": false
@@ -165,7 +157,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 3.164710017866089,
+        "measurement": 3.189248035369548,
         "unit": "km"
       },
       "isWithinZone": false
@@ -176,7 +168,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 3.2065171169560114,
+        "measurement": 3.231085684655532,
         "unit": "km"
       },
       "isWithinZone": false
@@ -187,7 +179,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 3.6218472772311383,
+        "measurement": 3.6450286470548927,
         "unit": "km"
       },
       "isWithinZone": false
@@ -198,7 +190,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 3.7290977699640657,
+        "measurement": 3.7537481823298635,
         "unit": "km"
       },
       "isWithinZone": false
@@ -209,7 +201,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 3.983595979341936,
+        "measurement": 4.006990349764035,
         "unit": "km"
       },
       "isWithinZone": false
@@ -220,7 +212,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 4.148684616138368,
+        "measurement": 4.17302094597278,
         "unit": "km"
       },
       "isWithinZone": false
@@ -231,7 +223,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 4.156241270484324,
+        "measurement": 4.17979030472997,
         "unit": "km"
       },
       "isWithinZone": false
@@ -242,7 +234,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 4.161505026581052,
+        "measurement": 4.184728855539261,
         "unit": "km"
       },
       "isWithinZone": false
@@ -253,7 +245,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 4.2097037359477785,
+        "measurement": 4.2330179561233505,
         "unit": "km"
       },
       "isWithinZone": false
@@ -264,7 +256,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 4.814433031383935,
+        "measurement": 4.837592670272013,
         "unit": "km"
       },
       "isWithinZone": false
@@ -275,7 +267,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 4.94833946670106,
+        "measurement": 4.931861372475622,
         "unit": "km"
       },
       "isWithinZone": false
@@ -286,7 +278,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 5.083873761804764,
+        "measurement": 5.108543398077136,
         "unit": "km"
       },
       "isWithinZone": false
@@ -297,7 +289,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 5.086622404461603,
+        "measurement": 5.111281126861683,
         "unit": "km"
       },
       "isWithinZone": false
@@ -308,7 +300,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 9.454061997762425,
+        "measurement": 9.478676541916652,
         "unit": "km"
       },
       "isWithinZone": false
@@ -319,7 +311,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 9.665888824548277,
+        "measurement": 9.682736943567416,
         "unit": "km"
       },
       "isWithinZone": false
@@ -330,7 +322,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 9.790093832377487,
+        "measurement": 9.779915606385417,
         "unit": "km"
       },
       "isWithinZone": false
@@ -341,7 +333,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 10.681559178872526,
+        "measurement": 10.65858448927816,
         "unit": "km"
       },
       "isWithinZone": false
@@ -352,7 +344,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 11.30512148117707,
+        "measurement": 11.329035489013977,
         "unit": "km"
       },
       "isWithinZone": false
@@ -363,7 +355,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 11.602959443337117,
+        "measurement": 11.62719199924343,
         "unit": "km"
       },
       "isWithinZone": false
@@ -374,7 +366,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 11.72277746032368,
+        "measurement": 11.743990414856821,
         "unit": "km"
       },
       "isWithinZone": false
@@ -385,7 +377,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 12.556551564425243,
+        "measurement": 12.580725857613894,
         "unit": "km"
       },
       "isWithinZone": false
@@ -396,7 +388,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 12.934905523912398,
+        "measurement": 12.95909648388233,
         "unit": "km"
       },
       "isWithinZone": false
@@ -407,7 +399,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 13.494481929377597,
+        "measurement": 13.482581924088349,
         "unit": "km"
       },
       "isWithinZone": false
@@ -418,7 +410,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 13.779980298142222,
+        "measurement": 13.767736200683768,
         "unit": "km"
       },
       "isWithinZone": false
@@ -429,7 +421,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 14.253294907535741,
+        "measurement": 14.263093068073925,
         "unit": "km"
       },
       "isWithinZone": false
@@ -440,7 +432,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 14.598811057763248,
+        "measurement": 14.576715303598624,
         "unit": "km"
       },
       "isWithinZone": false
@@ -451,7 +443,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 14.712338061307628,
+        "measurement": 14.688256271600915,
         "unit": "km"
       },
       "isWithinZone": false
@@ -462,7 +454,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 14.92885556077168,
+        "measurement": 14.952616886894953,
         "unit": "km"
       },
       "isWithinZone": false
@@ -473,7 +465,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 14.997221667266109,
+        "measurement": 15.021700063306362,
         "unit": "km"
       },
       "isWithinZone": false
@@ -484,7 +476,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 15.140336677660784,
+        "measurement": 15.151330932148579,
         "unit": "km"
       },
       "isWithinZone": false
@@ -495,7 +487,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 15.728400685355588,
+        "measurement": 15.739631112512326,
         "unit": "km"
       },
       "isWithinZone": false
@@ -506,7 +498,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 16.16143095040152,
+        "measurement": 16.18449420543859,
         "unit": "km"
       },
       "isWithinZone": false
@@ -517,7 +509,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.282260958199036,
+        "measurement": 16.257884754001093,
         "unit": "km"
       },
       "isWithinZone": false
@@ -528,7 +520,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.305479235188894,
+        "measurement": 16.282416756784013,
         "unit": "km"
       },
       "isWithinZone": false
@@ -539,7 +531,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.45517053866188,
+        "measurement": 16.465150475569597,
         "unit": "km"
       },
       "isWithinZone": false
@@ -550,7 +542,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.557355214048588,
+        "measurement": 16.568322915758237,
         "unit": "km"
       },
       "isWithinZone": false
@@ -561,7 +553,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.712190420060605,
+        "measurement": 16.718743617714292,
         "unit": "km"
       },
       "isWithinZone": false
@@ -572,7 +564,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.765512543219533,
+        "measurement": 16.742590279061442,
         "unit": "km"
       },
       "isWithinZone": false
@@ -583,7 +575,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 16.84583309368768,
+        "measurement": 16.82354130168996,
         "unit": "km"
       },
       "isWithinZone": false
@@ -594,7 +586,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 17.04937360588265,
+        "measurement": 17.073866687080542,
         "unit": "km"
       },
       "isWithinZone": false
@@ -605,7 +597,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 17.198785151833572,
+        "measurement": 17.22313494806995,
         "unit": "km"
       },
       "isWithinZone": false
@@ -616,7 +608,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 17.308885806950844,
+        "measurement": 17.33318949881159,
         "unit": "km"
       },
       "isWithinZone": false
@@ -627,7 +619,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 17.363588610950604,
+        "measurement": 17.37311806896403,
         "unit": "km"
       },
       "isWithinZone": false
@@ -638,7 +630,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 17.74247120492069,
+        "measurement": 17.721488138938298,
         "unit": "km"
       },
       "isWithinZone": false
@@ -649,7 +641,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 17.78527736796486,
+        "measurement": 17.805361613059947,
         "unit": "km"
       },
       "isWithinZone": false
@@ -660,7 +652,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 17.833453610867615,
+        "measurement": 17.853589359645007,
         "unit": "km"
       },
       "isWithinZone": false
@@ -671,7 +663,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 18.20872672604977,
+        "measurement": 18.228755995748582,
         "unit": "km"
       },
       "isWithinZone": false
@@ -682,7 +674,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 18.3346790368253,
+        "measurement": 18.35910698838099,
         "unit": "km"
       },
       "isWithinZone": false
@@ -693,7 +685,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 18.485464875070598,
+        "measurement": 18.5098935748946,
         "unit": "km"
       },
       "isWithinZone": false
@@ -704,7 +696,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 19.00123069347343,
+        "measurement": 18.980023367461964,
         "unit": "km"
       },
       "isWithinZone": false
@@ -715,7 +707,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 19.008042313705364,
+        "measurement": 19.00538079672696,
         "unit": "km"
       },
       "isWithinZone": false
@@ -726,7 +718,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 19.1795553909872,
+        "measurement": 19.204168525456947,
         "unit": "km"
       },
       "isWithinZone": false
@@ -737,7 +729,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 19.41860636698549,
+        "measurement": 19.438845906968904,
         "unit": "km"
       },
       "isWithinZone": false
@@ -748,7 +740,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 19.482103865599704,
+        "measurement": 19.506575106848057,
         "unit": "km"
       },
       "isWithinZone": false
@@ -759,7 +751,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 19.699737076468768,
+        "measurement": 19.724200759265795,
         "unit": "km"
       },
       "isWithinZone": false
@@ -770,7 +762,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 19.8203001077544,
+        "measurement": 19.798604489574902,
         "unit": "km"
       },
       "isWithinZone": false
@@ -781,18 +773,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 20.211235771253612,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 20.24839905903834,
+        "measurement": 20.23080468392996,
         "unit": "km"
       },
       "isWithinZone": false
@@ -803,18 +784,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 20.2500155965018,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 20.33499456741862,
+        "measurement": 20.269640729078457,
         "unit": "km"
       },
       "isWithinZone": false
@@ -825,7 +795,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 20.55705372762099,
+        "measurement": 20.272166485039346,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 20.332879107823185,
         "unit": "km"
       },
       "isWithinZone": false
@@ -836,7 +817,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 20.799877651424474,
+        "measurement": 20.581208160698605,
         "unit": "km"
       },
       "isWithinZone": false
@@ -847,7 +828,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 20.80721420580994,
+        "measurement": 20.816118778748674,
         "unit": "km"
       },
       "isWithinZone": false
@@ -858,29 +839,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 20.948794590740366,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 20.974382156262433,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 21.035737994332,
+        "measurement": 20.818612879486707,
         "unit": "km"
       },
       "isWithinZone": false
@@ -891,7 +850,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.146762462098362,
+        "measurement": 20.96938564872407,
         "unit": "km"
       },
       "isWithinZone": false
@@ -902,7 +861,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 21.207800729583738,
+        "measurement": 20.97218360751862,
         "unit": "km"
       },
       "isWithinZone": false
@@ -913,7 +872,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 21.246485733338663,
+        "measurement": 21.058766101555584,
         "unit": "km"
       },
       "isWithinZone": false
@@ -924,7 +883,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.2870164710872,
+        "measurement": 21.166893394084703,
         "unit": "km"
       },
       "isWithinZone": false
@@ -935,7 +894,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 21.29621864400785,
+        "measurement": 21.203859568626996,
         "unit": "km"
       },
       "isWithinZone": false
@@ -946,29 +905,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 21.426895389536206,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 21.43876001677926,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 21.444764855555484,
+        "measurement": 21.266300597144856,
         "unit": "km"
       },
       "isWithinZone": false
@@ -979,7 +916,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.54377891325657,
+        "measurement": 21.307761381137123,
         "unit": "km"
       },
       "isWithinZone": false
@@ -990,7 +927,40 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 21.559806984023083,
+        "measurement": 21.315759008900297,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.446201972978198,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.447823548651684,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.459650923009264,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1001,7 +971,29 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.563667078666473,
+        "measurement": 21.562873099343797,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 21.582927621529556,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 21.588328870734458,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1012,7 +1004,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 21.645741441984324,
+        "measurement": 21.67028549410612,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1023,7 +1015,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.7250101232687,
+        "measurement": 21.749662618464292,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1034,7 +1026,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.74047255884604,
+        "measurement": 21.763841923350217,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1045,7 +1037,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 21.831732296408642,
+        "measurement": 21.856387484969915,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1056,7 +1048,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 21.86261104480192,
+        "measurement": 21.887264625295348,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1067,7 +1059,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 22.104695186363617,
+        "measurement": 22.124078760343632,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1078,7 +1070,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 22.23419520394252,
+        "measurement": 22.253925134240642,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1089,7 +1081,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 22.351120693218736,
+        "measurement": 22.37577136190933,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1100,7 +1092,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 22.580782831617537,
+        "measurement": 22.569885653741547,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1111,7 +1103,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 22.71098276366677,
+        "measurement": 22.73559055612101,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1122,7 +1114,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 22.827297678697658,
+        "measurement": 22.846713053602375,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1133,7 +1125,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 22.88450318939902,
+        "measurement": 22.909155429479803,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1144,7 +1136,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 22.984265961701226,
+        "measurement": 23.008918345992008,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1155,7 +1147,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 23.090684097026955,
+        "measurement": 23.107563670999305,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1166,7 +1158,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 23.141152711668518,
+        "measurement": 23.147256934886382,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1177,7 +1169,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 23.54499919734351,
+        "measurement": 23.569652250702298,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1188,7 +1180,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 23.680923540628942,
+        "measurement": 23.66862936173947,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1199,7 +1191,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 23.72815690727254,
+        "measurement": 23.748021099805246,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1210,7 +1202,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 23.829005644861116,
+        "measurement": 23.85367535578489,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1221,7 +1213,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 23.912707799973663,
+        "measurement": 23.92057642470478,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1232,7 +1224,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 24.073770085722987,
+        "measurement": 24.09839713067997,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1243,7 +1235,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 24.0846610891037,
+        "measurement": 24.109293514236416,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1254,7 +1246,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 24.232308165461497,
+        "measurement": 24.256974650885237,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1265,7 +1257,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 24.309855500753542,
+        "measurement": 24.33452487527587,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1276,7 +1268,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 25.011622576098706,
+        "measurement": 25.035995341666013,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1287,7 +1279,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 25.013474626128822,
+        "measurement": 25.03807083225604,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1298,7 +1290,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 25.24059402972893,
+        "measurement": 25.23084272323623,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1309,7 +1301,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 25.537979415784346,
+        "measurement": 25.562608381722775,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1320,7 +1312,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 25.774801083291628,
+        "measurement": 25.799466585524705,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1331,7 +1323,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 25.83513116135685,
+        "measurement": 25.854687884852023,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1342,7 +1334,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 26.043640123489666,
+        "measurement": 26.057030777552725,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1353,7 +1345,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 26.18460210236199,
+        "measurement": 26.207651928319503,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1364,7 +1356,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 26.921562076910934,
+        "measurement": 26.936857044981462,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1375,7 +1367,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 27.214906711597237,
+        "measurement": 27.194449750164225,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1386,7 +1378,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 28.027939208269363,
+        "measurement": 28.0435372386758,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1397,7 +1389,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 28.214846846630145,
+        "measurement": 28.23915483101599,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1408,7 +1400,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 28.404235308283706,
+        "measurement": 28.409169591315433,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1419,7 +1411,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.004228762277794,
+        "measurement": 29.028798166089594,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1430,7 +1422,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.238833727193782,
+        "measurement": 29.263396854686217,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1441,7 +1433,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.334703612904267,
+        "measurement": 29.326589000007978,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1452,7 +1444,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.40213737371859,
+        "measurement": 29.426719966327596,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1463,7 +1455,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 29.448773759935712,
+        "measurement": 29.47329878388233,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1474,7 +1466,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.505884174206965,
+        "measurement": 29.530474600580227,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1485,7 +1477,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.614557153941682,
+        "measurement": 29.639144255194328,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1496,7 +1488,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 29.708686230396804,
+        "measurement": 29.73316320716448,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1507,7 +1499,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 29.89929872279208,
+        "measurement": 29.920462962238243,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1518,7 +1510,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 29.94913952057819,
+        "measurement": 29.97361609705101,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1529,7 +1521,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 30.036967459970832,
+        "measurement": 30.05265152870402,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1540,7 +1532,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.16266090992504,
+        "measurement": 30.187330001631413,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1551,7 +1543,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.2220521729386,
+        "measurement": 30.24647399560357,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 30.260610600053276,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1562,7 +1565,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 30.26457203602477,
+        "measurement": 30.280311999967946,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1573,7 +1576,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 30.271708892123836,
+        "measurement": 30.296182273400987,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1584,7 +1587,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.282706915578814,
+        "measurement": 30.380676377754945,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1595,7 +1598,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.35652358455305,
+        "measurement": 30.44493608348582,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1606,7 +1609,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.453857703954572,
+        "measurement": 30.759118064173734,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1617,7 +1620,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.740925495143138,
+        "measurement": 30.875660234198694,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1628,7 +1631,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.85118970457131,
+        "measurement": 31.01778417142939,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1639,7 +1642,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 30.993675911984568,
+        "measurement": 31.06798886808043,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1650,18 +1653,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 31.04400418396614,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 31.138898566069113,
+        "measurement": 31.16238001072937,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1672,18 +1664,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 31.28515358752892,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 31.307403701362645,
+        "measurement": 31.30248457018903,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1694,7 +1675,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 31.309725226767476,
+        "measurement": 31.325536795306387,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1705,7 +1686,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 31.35143054018902,
+        "measurement": 31.33151194353971,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1716,7 +1697,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 31.403553533694243,
+        "measurement": 31.37488704611715,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1727,7 +1708,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 31.418575732609035,
+        "measurement": 31.427684990087293,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 31.443232932190593,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1738,7 +1730,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 31.455135656451553,
+        "measurement": 31.471469588688365,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1749,7 +1741,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 31.510960477321856,
+        "measurement": 31.53186506812733,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1760,7 +1752,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 31.86911178964548,
+        "measurement": 31.893215868077966,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1771,7 +1763,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 32.22847417216841,
+        "measurement": 32.2460841267511,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1782,7 +1774,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 32.25545029210649,
+        "measurement": 32.275715336286545,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1793,7 +1785,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 32.323969963443936,
+        "measurement": 32.34585037049727,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1804,7 +1796,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 32.41013376361022,
+        "measurement": 32.43131606311937,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1815,7 +1807,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 32.44683672480017,
+        "measurement": 32.468154207732674,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1826,7 +1818,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 32.48641069726915,
+        "measurement": 32.510500946775785,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1837,7 +1829,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 32.555851573631614,
+        "measurement": 32.57211792379564,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1848,7 +1840,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 32.67367946559559,
+        "measurement": 32.693860756442554,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1859,7 +1851,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 32.6824319915943,
+        "measurement": 32.70479314308272,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1870,7 +1862,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 32.70464194380132,
+        "measurement": 32.72479061858488,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1881,7 +1873,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 32.746018283151585,
+        "measurement": 32.76609671824848,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1892,7 +1884,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 32.8239815324747,
+        "measurement": 32.84733884261718,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1903,7 +1895,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 32.8536340617361,
+        "measurement": 32.87190346594439,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1914,7 +1906,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 33.01527564460957,
+        "measurement": 33.03787001237748,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1925,7 +1917,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.02981744078103,
+        "measurement": 33.04736800379256,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1936,7 +1928,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.16563904435477,
+        "measurement": 33.141819833608274,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1947,7 +1939,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 33.18070213089737,
+        "measurement": 33.20281730686838,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1958,7 +1950,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.22493371146223,
+        "measurement": 33.2494509398664,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1969,7 +1961,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.234901560701005,
+        "measurement": 33.25543156175817,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1980,7 +1972,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.34422916691085,
+        "measurement": 33.368753452842725,
         "unit": "km"
       },
       "isWithinZone": false
@@ -1991,7 +1983,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.3545218450567,
+        "measurement": 33.37506889336329,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2002,18 +1994,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.37273977079218,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 33.38346592416694,
+        "measurement": 33.39510679087731,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2024,7 +2005,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.385001583841984,
+        "measurement": 33.40736092883127,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2035,7 +2016,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.446588767117554,
+        "measurement": 33.408084983559235,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2046,7 +2027,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.48487271358581,
+        "measurement": 33.46670118671075,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 33.505388067337414,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2057,7 +2049,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 33.506160017024555,
+        "measurement": 33.52273497289142,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2068,7 +2060,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 33.520783611993,
+        "measurement": 33.5421024100228,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2079,7 +2071,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 33.52135057140209,
+        "measurement": 33.54279754855445,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2090,7 +2082,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.5576286399727,
+        "measurement": 33.54416458911896,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2101,7 +2093,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.57483664216763,
+        "measurement": 33.595613602626656,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2112,7 +2104,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.67671205350611,
+        "measurement": 33.686960579329345,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2123,7 +2115,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.69518799579643,
+        "measurement": 33.717679257915805,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2134,7 +2126,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 33.735384504206046,
+        "measurement": 33.757628118302996,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2145,7 +2137,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.73760505355156,
+        "measurement": 33.7594390440791,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2156,7 +2148,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.74079800809737,
+        "measurement": 33.76263038596713,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2167,7 +2159,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.74480932232113,
+        "measurement": 33.76664238549195,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2178,7 +2170,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.86189570546345,
+        "measurement": 33.83878598665454,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2189,7 +2181,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.878403037675355,
+        "measurement": 33.9014479004234,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2200,7 +2192,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.88630123167795,
+        "measurement": 33.90882347142467,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2211,7 +2203,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.889432023698006,
+        "measurement": 33.912227042666935,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2222,7 +2214,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.928893240789066,
+        "measurement": 33.9514049250983,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2233,7 +2225,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.96395941566209,
+        "measurement": 33.979374145254354,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2244,7 +2236,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 33.968150450924874,
+        "measurement": 33.991433841070794,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2255,7 +2247,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 33.97882679580044,
+        "measurement": 34.00100122400947,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2266,7 +2258,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.14504027442087,
+        "measurement": 34.166295044903464,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2277,7 +2269,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.21352031945619,
+        "measurement": 34.234677406597065,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2288,7 +2280,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 34.217644923825866,
+        "measurement": 34.24035606245491,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2299,7 +2291,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.22259027363777,
+        "measurement": 34.24373183374362,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2310,7 +2302,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.256864576957966,
+        "measurement": 34.27941206796759,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2321,7 +2313,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.37486534116058,
+        "measurement": 34.39598152916832,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2332,7 +2324,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.379505566478485,
+        "measurement": 34.401025719848995,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2343,7 +2335,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.44989221419716,
+        "measurement": 34.468865454466375,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2354,7 +2346,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 34.450953830738996,
+        "measurement": 34.47433168209181,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2365,7 +2357,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.51939267935186,
+        "measurement": 34.538407225437645,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2376,7 +2368,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.53447870087558,
+        "measurement": 34.5535808280868,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2387,7 +2379,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.53839238260536,
+        "measurement": 34.56110166705986,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2398,7 +2390,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.66026998161562,
+        "measurement": 34.683375285222866,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2409,7 +2401,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 34.70569637177716,
+        "measurement": 34.70865903688242,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2420,7 +2412,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.73185968680882,
+        "measurement": 34.75296510439523,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2431,7 +2423,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.737745156442074,
+        "measurement": 34.76105834694872,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2442,7 +2434,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.74523265819113,
+        "measurement": 34.76855500129904,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2453,7 +2445,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 34.79129048458753,
+        "measurement": 34.81461420297043,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2464,7 +2456,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.84723680146069,
+        "measurement": 34.87149542187422,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2475,7 +2467,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.874663172056856,
+        "measurement": 34.89782676006084,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2486,7 +2478,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.884098872047566,
+        "measurement": 34.907233579492704,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2497,7 +2489,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 34.888300467947836,
+        "measurement": 34.911344269177185,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2508,7 +2500,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.92716643803471,
+        "measurement": 34.94877425551273,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2519,7 +2511,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 34.95514974967779,
+        "measurement": 34.97828060857035,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2530,7 +2522,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.066957559111536,
+        "measurement": 35.086795787542535,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2541,7 +2533,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 35.10560997246865,
+        "measurement": 35.128607267578715,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2552,7 +2544,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.22666750228697,
+        "measurement": 35.24979368188916,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2563,7 +2555,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.23285606099946,
+        "measurement": 35.25535787515024,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2574,7 +2566,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.23368749962671,
+        "measurement": 35.25672219044023,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2585,18 +2577,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.31284730919128,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 35.33641416834348,
+        "measurement": 35.33439166837186,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2607,7 +2588,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 35.3365272059114,
+        "measurement": 35.359526756665744,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2618,7 +2599,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.353686966195504,
+        "measurement": 35.359641452096675,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2629,7 +2610,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.46625624162711,
+        "measurement": 35.37546367220925,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2640,7 +2621,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.72118650686556,
+        "measurement": 35.487763807526065,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2651,7 +2632,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.73069002694017,
+        "measurement": 35.73941892987319,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2662,7 +2643,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.7526452376809,
+        "measurement": 35.750573185237755,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 35.776003301696406,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2673,7 +2665,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 35.9087305577474,
+        "measurement": 35.9311800663513,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2684,7 +2676,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.93957710195639,
+        "measurement": 35.95857605405356,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2695,7 +2687,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.94175670951655,
+        "measurement": 35.961417559803394,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2706,7 +2698,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.94744264169828,
+        "measurement": 35.970274393309985,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2717,7 +2709,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 35.96278483031032,
+        "measurement": 35.98172082115036,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2728,7 +2720,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 36.017342706579655,
+        "measurement": 36.04043777172061,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2739,7 +2731,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.01910767181843,
+        "measurement": 36.04239448644349,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2750,7 +2742,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 36.06680057880962,
+        "measurement": 36.08980426918775,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2761,7 +2753,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.10391079149886,
+        "measurement": 36.110143464997215,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2772,7 +2764,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.11673399791073,
+        "measurement": 36.14031176254085,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2783,7 +2775,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 36.13253341844822,
+        "measurement": 36.154294631735645,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2794,7 +2786,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.18437146627856,
+        "measurement": 36.20331490717406,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2805,7 +2797,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 36.23122976229787,
+        "measurement": 36.25436423703561,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2816,7 +2808,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 36.238025508474614,
+        "measurement": 36.26004345241408,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2827,7 +2819,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.335356653300735,
+        "measurement": 36.31915712891406,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2838,7 +2830,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.342170073367285,
+        "measurement": 36.35850243613379,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2849,7 +2841,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.372300708343694,
+        "measurement": 36.3934652003431,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2860,7 +2852,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.448064698007265,
+        "measurement": 36.472714584429916,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2871,7 +2863,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.46311136105335,
+        "measurement": 36.48627804959737,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2882,7 +2874,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 36.47940788619852,
+        "measurement": 36.50253588550552,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2893,7 +2885,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.48141758579151,
+        "measurement": 36.504689880748394,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2904,7 +2896,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.490868152667495,
+        "measurement": 36.51187967571945,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2915,7 +2907,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 36.53689608201437,
+        "measurement": 36.55600800856351,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2926,7 +2918,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.57229037684119,
+        "measurement": 36.59665148472596,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2937,7 +2929,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.72789660022992,
+        "measurement": 36.75234210997339,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2948,7 +2940,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.83523001003635,
+        "measurement": 36.84432906631954,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2959,7 +2951,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 36.90040600524285,
+        "measurement": 36.92344947428888,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2970,7 +2962,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 36.94455477928407,
+        "measurement": 36.962474773643216,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2981,7 +2973,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.001258049801784,
+        "measurement": 37.02204783038862,
         "unit": "km"
       },
       "isWithinZone": false
@@ -2992,7 +2984,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 37.050439550265665,
+        "measurement": 37.02742629928373,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3003,7 +2995,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.06562796859056,
+        "measurement": 37.06848635963068,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3014,7 +3006,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.06600224309427,
+        "measurement": 37.08545164447185,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3025,7 +3017,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.073896146858004,
+        "measurement": 37.09333281574476,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3036,7 +3028,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 37.15953983132316,
+        "measurement": 37.18148869572026,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3047,7 +3039,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.181754007259585,
+        "measurement": 37.200979813842096,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3058,7 +3050,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.238683680834676,
+        "measurement": 37.26060078155176,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3069,7 +3061,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.430060466368516,
+        "measurement": 37.446026189681675,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3080,7 +3072,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.43705732656561,
+        "measurement": 37.44951312300105,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3091,7 +3083,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.487676485498895,
+        "measurement": 37.50793715202489,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3102,7 +3094,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.529674885110175,
+        "measurement": 37.54919458407419,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3113,7 +3105,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.594137879308576,
+        "measurement": 37.615251884398305,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3124,7 +3116,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.60766952344825,
+        "measurement": 37.62723509811063,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3135,7 +3127,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.62519881104741,
+        "measurement": 37.64478154206241,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3146,7 +3138,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 37.81523957011099,
+        "measurement": 37.83602818810967,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3157,7 +3149,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 37.87206763754866,
+        "measurement": 37.84740167357532,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3168,7 +3160,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 38.01848624717313,
+        "measurement": 38.00925996366758,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3179,7 +3171,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 38.038135641199275,
+        "measurement": 38.01350337455233,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3190,7 +3182,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 38.12971362733911,
+        "measurement": 38.152705357547575,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3201,7 +3193,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 38.23679443266441,
+        "measurement": 38.24063279175455,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3212,29 +3204,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 38.32796734686176,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 38.44880675886891,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 38.459508121015745,
+        "measurement": 38.348687352312226,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3245,40 +3215,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 38.467559763693,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 38.5525915327034,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 38.56029042000717,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 38.57512931173517,
+        "measurement": 38.47137441946774,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3289,7 +3226,62 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 38.58431256341698,
+        "measurement": 38.47291725419333,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.48361832573775,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.57572413519396,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.58342159280901,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.58775982252701,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 38.59826181151583,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3300,7 +3292,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 38.66374957141024,
+        "measurement": 38.68270912353581,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3311,18 +3303,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 38.686953980872985,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 38.70620424458353,
+        "measurement": 38.70589264041214,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3333,7 +3314,18 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 38.70859058643434,
+        "measurement": 38.71091011175905,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 38.72706016797812,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3344,7 +3336,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 38.7815501627961,
+        "measurement": 38.75736679357722,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3355,7 +3347,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 38.884149360655044,
+        "measurement": 38.85996092853265,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3366,7 +3358,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 38.90935538952054,
+        "measurement": 38.932421723216436,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3377,7 +3369,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 38.95335172734188,
+        "measurement": 38.972893709401056,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3388,7 +3380,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 38.97447912551731,
+        "measurement": 38.99772164755628,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3399,7 +3391,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 39.03286285361451,
+        "measurement": 39.056603121574774,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3410,7 +3402,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 39.12674128607439,
+        "measurement": 39.14825072944785,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3421,18 +3413,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 39.468722132850196,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 39.51757333316119,
+        "measurement": 39.48755603374186,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3443,7 +3424,18 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 39.52088574159697,
+        "measurement": 39.53864557450132,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 39.54136509510325,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3454,7 +3446,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 39.613752106647695,
+        "measurement": 39.637939644871636,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3465,7 +3457,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 39.918788864373745,
+        "measurement": 39.93957172546214,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3476,7 +3468,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.042569927304925,
+        "measurement": 40.062152078584674,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3487,7 +3479,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 40.14452804303747,
+        "measurement": 40.16142969915278,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3498,7 +3490,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.18308191429092,
+        "measurement": 40.200737780409526,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3509,7 +3501,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.265527652253695,
+        "measurement": 40.288498820198626,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3520,7 +3512,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.477715776298766,
+        "measurement": 40.4951063578954,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3531,7 +3523,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.61107431052935,
+        "measurement": 40.62834747135446,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3542,7 +3534,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 40.63422463837326,
+        "measurement": 40.650391951726675,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3553,7 +3545,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.765415267312086,
+        "measurement": 40.78617126357177,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3564,7 +3556,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.7714415146046,
+        "measurement": 40.78828882137927,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3575,7 +3567,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.8589355844606,
+        "measurement": 40.879870773400434,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3586,18 +3578,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 40.9339569739858,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 41.07424287160251,
+        "measurement": 40.95135131748866,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3608,7 +3589,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.07966663884299,
+        "measurement": 41.085115242119045,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 41.09174951422015,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3619,7 +3611,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 41.21623814737969,
+        "measurement": 41.23980250906746,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3630,7 +3622,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 41.28768946052287,
+        "measurement": 41.26710601719254,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3641,7 +3633,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.288987852001945,
+        "measurement": 41.30657495811917,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3652,7 +3644,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.322905404203325,
+        "measurement": 41.343029212622106,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3663,7 +3655,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.36617902216324,
+        "measurement": 41.389476725074665,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3674,7 +3666,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.38081699334925,
+        "measurement": 41.397958236665374,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3685,7 +3677,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.39511132332132,
+        "measurement": 41.412237456115626,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3696,7 +3688,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.420616186313815,
+        "measurement": 41.438079684134586,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3707,7 +3699,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.45948800909476,
+        "measurement": 41.44276096186314,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3718,7 +3710,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 41.460397477920324,
+        "measurement": 41.48325272194054,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3729,7 +3721,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 41.50832189207564,
+        "measurement": 41.52544236140221,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3740,7 +3732,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 41.58755459367679,
+        "measurement": 41.563430582966646,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3751,7 +3743,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 41.88640034923829,
+        "measurement": 41.87732926531912,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3762,7 +3754,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.97851663644306,
+        "measurement": 42.00193346021682,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3773,7 +3765,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.978580499663295,
+        "measurement": 42.00248664471429,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3784,7 +3776,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 41.991885517031875,
+        "measurement": 42.01531504194495,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3795,18 +3787,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.02682921775987,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.10351908466583,
+        "measurement": 42.04115702852355,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3817,7 +3798,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.104808859831735,
+        "measurement": 42.124021156576276,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.12607077999015,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3828,7 +3820,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.12610557753172,
+        "measurement": 42.14865335146791,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3839,7 +3831,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 42.276224541365224,
+        "measurement": 42.29263696975229,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3850,7 +3842,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.36724658234425,
+        "measurement": 42.38229364216737,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3861,7 +3853,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.40190123205441,
+        "measurement": 42.42392979728133,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3872,7 +3864,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.427651979011095,
+        "measurement": 42.44842384720279,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3883,7 +3875,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 42.46779060054198,
+        "measurement": 42.469464903532845,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3894,7 +3886,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.47969323341256,
+        "measurement": 42.49373967703185,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3905,7 +3897,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 42.48175638943714,
+        "measurement": 42.49757324505328,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3916,7 +3908,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.48542595221766,
+        "measurement": 42.50173221168616,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3927,7 +3919,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.49207467391468,
+        "measurement": 42.50317140655615,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3938,7 +3930,29 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.592814687564854,
+        "measurement": 42.607548093072026,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.63880168338156,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.6509652102286,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3949,29 +3963,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.62900899099943,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.65679817229053,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.66872806203987,
+        "measurement": 42.65157203046558,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3982,7 +3974,18 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.669630212533924,
+        "measurement": 42.65185968748505,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.67653059042358,
         "unit": "km"
       },
       "isWithinZone": false
@@ -3993,7 +3996,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 42.67186456232122,
+        "measurement": 42.68927921894682,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4004,18 +4007,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.67621684174545,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 42.69419749025493,
+        "measurement": 42.6980659018655,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4026,7 +4018,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.69555104326405,
+        "measurement": 42.71018094467449,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4037,7 +4029,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.719626907297766,
+        "measurement": 42.73423332099228,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4048,7 +4040,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.7264524765586,
+        "measurement": 42.74675450536996,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4059,18 +4051,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 42.761649730150374,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "METROPOLITAN",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.78440796738092,
+        "measurement": 42.782387316270146,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4081,18 +4062,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 42.78502581349279,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.79294582918816,
+        "measurement": 42.80518585615675,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4103,7 +4073,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.879927807307894,
+        "measurement": 42.80611821697015,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4114,40 +4084,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 42.94500722207808,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "YARRA",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 42.952710941477164,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 42.96844077101698,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
-      "distance": {
-        "measurement": 43.03773133691545,
+        "measurement": 42.814654625348886,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4158,7 +4095,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.21993596078927,
+        "measurement": 42.855290053000395,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 42.950970902894056,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4169,7 +4117,40 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.23495412055495,
+        "measurement": 42.96842240666782,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 42.968672318030166,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.02027712269491,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "METROPOLITAN",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.233112756719734,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4180,7 +4161,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.266152886426234,
+        "measurement": 43.242113701051785,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4191,18 +4172,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.286893945132185,
+        "measurement": 43.256455542130645,
         "unit": "km"
       },
       "isWithinZone": false
     },
     {
-      "regionName": "PORT PHILLIP",
-      "districtName": "YARRA",
-      "zoneType": 0,
-      "zoneTypeDescription": "0 - Not Zoned",
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.32866220614472,
+        "measurement": 43.3054289728018,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4213,7 +4194,18 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 43.3563968616718,
+        "measurement": 43.33443567381309,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 0,
+      "zoneTypeDescription": "0 - Not Zoned",
+      "distance": {
+        "measurement": 43.34191574994449,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4224,7 +4216,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.37938273929763,
+        "measurement": 43.36003618680214,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4235,7 +4227,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 43.42787826589181,
+        "measurement": 43.405029146814755,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4246,7 +4238,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.476291640534384,
+        "measurement": 43.45827033921214,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4257,7 +4249,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 43.53608084121687,
+        "measurement": 43.5270009934645,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4268,7 +4260,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.54780483737178,
+        "measurement": 43.52829501530016,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4279,7 +4271,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.56319929205403,
+        "measurement": 43.54528040324856,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4290,7 +4282,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 43.65860546047011,
+        "measurement": 43.66429351349287,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4301,7 +4293,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 43.66002223749611,
+        "measurement": 43.68371697633317,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4312,7 +4304,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.71160423905394,
+        "measurement": 43.696904154730625,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4323,7 +4315,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.81589871390236,
+        "measurement": 43.798169600352466,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4334,7 +4326,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.85224315978928,
+        "measurement": 43.87279532404383,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4345,7 +4337,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 43.86039914249185,
+        "measurement": 43.882881109435225,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4356,7 +4348,18 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.92374160995841,
+        "measurement": 43.90572835900694,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 43.92507015762593,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4367,29 +4370,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.92551675205106,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 43.94167207770475,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 43.987605679632885,
+        "measurement": 43.94583744002876,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4400,7 +4381,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 43.99906916957272,
+        "measurement": 43.98125681168861,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4411,7 +4392,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.01643671706018,
+        "measurement": 44.002970146297514,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 44.011176530501096,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4422,7 +4414,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.04148425865427,
+        "measurement": 44.02785565695348,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4433,7 +4425,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.12599054100854,
+        "measurement": 44.10772915424604,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4444,7 +4436,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.42477968032393,
+        "measurement": 44.40548542016236,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4455,7 +4447,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.57322302477213,
+        "measurement": 44.596951325399395,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4466,7 +4458,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.61680189921114,
+        "measurement": 44.63876319949914,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4477,7 +4469,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.64844971763961,
+        "measurement": 44.67102272516274,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4488,7 +4480,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.76765347377083,
+        "measurement": 44.780742876201025,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4499,7 +4491,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.9247360642807,
+        "measurement": 44.937781105000084,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4510,7 +4502,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 44.95571743662212,
+        "measurement": 44.979986311302184,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4521,7 +4513,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 45.08011147576137,
+        "measurement": 45.062528770709,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4532,7 +4524,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 45.0818534566016,
+        "measurement": 45.10618191590416,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4543,7 +4535,18 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 45.14865799542547,
+        "measurement": 45.172934607272,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 45.207494853667434,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4554,7 +4557,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.18566229890089,
+        "measurement": 45.209216770492866,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4565,18 +4568,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 45.22475123415263,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 45.25071478737068,
+        "measurement": 45.23352100263226,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4587,7 +4579,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.38546283090743,
+        "measurement": 45.40412579184792,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4598,7 +4590,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 45.45762746027013,
+        "measurement": 45.47165464513815,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4609,7 +4601,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 45.48356806714077,
+        "measurement": 45.50269758752158,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4620,7 +4612,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 45.61084591446769,
+        "measurement": 45.587815462314865,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4631,7 +4623,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 45.677481220766815,
+        "measurement": 45.69723280139707,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4642,7 +4634,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 45.769562062855016,
+        "measurement": 45.78922982319191,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4653,7 +4645,7 @@
       "zoneType": 4,
       "zoneTypeDescription": "4 - Planned Burn Exclusion Zone",
       "distance": {
-        "measurement": 45.7849377395685,
+        "measurement": 45.80337233191735,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4664,7 +4656,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.821026410380185,
+        "measurement": 45.806343318694346,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4675,7 +4667,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.84448300432977,
+        "measurement": 45.866713082357236,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4686,7 +4678,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.8469467786643,
+        "measurement": 45.86704347594605,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4697,7 +4689,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 45.85015163095644,
+        "measurement": 45.87305018875489,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4708,7 +4700,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 45.90574573842635,
+        "measurement": 45.88183368062259,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4719,7 +4711,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 45.95471691175974,
+        "measurement": 45.978208614148976,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4730,7 +4722,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.05387787797298,
+        "measurement": 46.07003403586327,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4741,7 +4733,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 46.08772110312598,
+        "measurement": 46.1106367282959,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4752,7 +4744,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.21008514603591,
+        "measurement": 46.192908503095424,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4763,18 +4755,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 46.22930779729355,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "YARRA",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 46.45723907496689,
+        "measurement": 46.253564659011715,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4785,7 +4766,18 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 46.462373152409675,
+        "measurement": 46.47680592551518,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 46.47704649358221,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4796,7 +4788,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.80526232761756,
+        "measurement": 46.78072890732947,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4807,7 +4799,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.83739306600143,
+        "measurement": 46.85731512849838,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4818,7 +4810,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 46.84443441073151,
+        "measurement": 46.86788692909393,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4829,7 +4821,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.94424144049439,
+        "measurement": 46.96645416346223,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4840,7 +4832,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 46.98869439140523,
+        "measurement": 46.995726440121224,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4851,7 +4843,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.07691364907553,
+        "measurement": 47.06243294705025,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4862,7 +4854,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.0934379013172,
+        "measurement": 47.06891129738248,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4873,7 +4865,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.188795673587784,
+        "measurement": 47.17421453889695,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4884,7 +4876,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.219484097717405,
+        "measurement": 47.24289019815932,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4895,7 +4887,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.30656134417666,
+        "measurement": 47.28789901146257,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4906,7 +4898,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.433862360419646,
+        "measurement": 47.41942542509753,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4917,7 +4909,29 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 47.46579794867626,
+        "measurement": 47.454072941771486,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.65660399126507,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 47.682068578680344,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4928,7 +4942,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.66258980436629,
+        "measurement": 47.68531851587925,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4939,18 +4953,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.66949427742761,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 47.69638912646245,
+        "measurement": 47.87054498198409,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4961,18 +4964,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 47.86174000017569,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 47.89517209956784,
+        "measurement": 47.88207821097881,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4983,7 +4975,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 47.9056771512234,
+        "measurement": 47.92408425932306,
         "unit": "km"
       },
       "isWithinZone": false
@@ -4994,7 +4986,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.062831272848754,
+        "measurement": 48.08499274996257,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5005,7 +4997,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 48.06862059815568,
+        "measurement": 48.08796913223593,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5016,7 +5008,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.11824553481707,
+        "measurement": 48.140388743659784,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5027,7 +5019,40 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.14225788413958,
+        "measurement": 48.144176491997754,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.15738343755197,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.15738343755197,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.16554595015178,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5038,18 +5063,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 48.16956531338045,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 48.17675867049502,
+        "measurement": 48.19406015428822,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5060,18 +5074,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.18203043199414,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 48.18203043199414,
+        "measurement": 48.358018631789115,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5082,18 +5085,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 48.37422769668929,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 48.382588841060624,
+        "measurement": 48.398003267674284,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5104,18 +5096,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 48.41215817390343,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "HUME",
-      "districtName": "MURRINDINDI",
-      "zoneType": 2,
-      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
-      "distance": {
-        "measurement": 48.532406803333956,
+        "measurement": 48.435538490940424,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5126,7 +5107,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.56289220535733,
+        "measurement": 48.53847368606213,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "HUME",
+      "districtName": "MURRINDINDI",
+      "zoneType": 2,
+      "zoneTypeDescription": "2 - Bushfire Moderation Zone",
+      "distance": {
+        "measurement": 48.55133076613511,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5137,7 +5129,18 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 48.6145044747254,
+        "measurement": 48.62735460459522,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 48.6537572778884,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5148,7 +5151,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.65876340783368,
+        "measurement": 48.67352564633344,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5159,7 +5162,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 48.665737694221036,
+        "measurement": 48.6804920592966,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5170,18 +5173,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.67817480193565,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 48.855441324018415,
+        "measurement": 48.83991644120204,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5192,7 +5184,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.863798175436905,
+        "measurement": 48.857955991645305,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5203,7 +5195,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.87004249942981,
+        "measurement": 48.893297661671895,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5214,7 +5206,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.94151245169339,
+        "measurement": 48.93567838577025,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5225,7 +5217,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 48.95669356792211,
+        "measurement": 48.94126061011551,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5236,7 +5228,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.00214985400195,
+        "measurement": 48.98665255677641,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5247,7 +5239,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.04865467802331,
+        "measurement": 49.033241548295614,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5258,7 +5250,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.15570226236318,
+        "measurement": 49.14035645100904,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5269,7 +5261,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.31446407779613,
+        "measurement": 49.289835809932235,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5280,7 +5272,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 49.36235480795222,
+        "measurement": 49.351467518473775,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5291,7 +5283,18 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.401813062808394,
+        "measurement": 49.38620022430099,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.49461496738562,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5302,7 +5305,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 49.48582273558566,
+        "measurement": 49.509542343889144,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5313,18 +5316,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.49659280190648,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.519261002933945,
+        "measurement": 49.520512697830384,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5335,7 +5327,7 @@
       "zoneType": 1,
       "zoneTypeDescription": "1 - Asset Protection Zone",
       "distance": {
-        "measurement": 49.579372512252434,
+        "measurement": 49.603105282366094,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5346,18 +5338,7 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.64463222103742,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "YARRA",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.654746316949826,
+        "measurement": 49.629101534705484,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5368,7 +5349,51 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.675418409572,
+        "measurement": 49.67130899105284,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.67848937378598,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.88360604332105,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.89939403092762,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "GRAMPIANS",
+      "districtName": "MIDLANDS",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.901837575514925,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5379,40 +5404,7 @@
       "zoneType": 2,
       "zoneTypeDescription": "2 - Bushfire Moderation Zone",
       "distance": {
-        "measurement": 49.89097730710714,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.90818565844813,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.9240393791114,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "GRAMPIANS",
-      "districtName": "MIDLANDS",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.92649886061312,
+        "measurement": 49.91014347727384,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5423,7 +5415,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 49.94277289599774,
+        "measurement": 49.927486765947435,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5434,18 +5426,7 @@
       "zoneType": 0,
       "zoneTypeDescription": "0 - Not Zoned",
       "distance": {
-        "measurement": 49.94556062970126,
-        "unit": "km"
-      },
-      "isWithinZone": false
-    },
-    {
-      "regionName": "PORT PHILLIP",
-      "districtName": "YARRA",
-      "zoneType": 3,
-      "zoneTypeDescription": "3 - Landscape Management Zone",
-      "distance": {
-        "measurement": 49.96101600497527,
+        "measurement": 49.95655642142046,
         "unit": "km"
       },
       "isWithinZone": false
@@ -5456,16 +5437,31 @@
       "zoneType": 3,
       "zoneTypeDescription": "3 - Landscape Management Zone",
       "distance": {
-        "measurement": 49.99723389782089,
+        "measurement": 49.972586174070685,
+        "unit": "km"
+      },
+      "isWithinZone": false
+    },
+    {
+      "regionName": "PORT PHILLIP",
+      "districtName": "YARRA",
+      "zoneType": 3,
+      "zoneTypeDescription": "3 - Landscape Management Zone",
+      "distance": {
+        "measurement": 49.985181757944666,
         "unit": "km"
       },
       "isWithinZone": false
     }
   ],
   "riskAnalysis": {
-    "overallRisk": "EXTREME",
+    "overallRisk": "HIGH",
     "riskFactors": {
-      "inBushfireProneArea": true,
+      "inBushfireProneArea": false,
+      "distanceToProneArea": {
+        "measurement": 1.355350340908057,
+        "unit": "km"
+      },
       "historicalFiresNearby": 5,
       "recentFiresNearby": 4,
       "fireManagementZone": {
@@ -5478,21 +5474,19 @@
       },
       "closestHistoricalFire": {
         "distance": {
-          "measurement": 1.339131512978399,
+          "measurement": 1.355350340908057,
           "unit": "km"
         },
         "fireSeason": "2011",
         "fireType": "Burn"
       }
     },
-    "summary": "This property has a EXTREME bushfire risk rating. The property is located within a designated bushfire prone area. The property is within a 0 - Not Zoned. There have been 1 recorded fire within 5km of the property. 4 fires have occurred in the area within the last 10 years.",
+    "summary": "This property has a HIGH bushfire risk rating. The property is not within a designated bushfire prone area. The property is within a 0 - Not Zoned. There have been 1 recorded fire within 5km of the property. 4 fires have occurred in the area within the last 10 years.",
     "recommendations": [
       "Develop and maintain a comprehensive bushfire survival plan",
       "Ensure property has adequate defendable space and fuel load management",
       "Install ember-proof screens on windows and vents",
       "Consider bushfire-rated construction materials for any renovations",
-      "Check building regulations for bushfire prone areas (AS 3959)",
-      "Verify bushfire attack level (BAL) rating for the property",
       "Review fire management zone requirements and restrictions for the property",
       "Review CFA (Country Fire Authority) fire history and learn from recent incidents",
       "Register for emergency alerts with VicEmergency",
