@@ -1,70 +1,40 @@
-import { Address } from "../../../../../../shared/types";
+import { Address } from "../../../../../shared/types";
+import { InfrastructureData } from "../getRentalAppraisalData/schemas";
+import { getElectricityData } from "./getElectricityData/getElectricityData";
+import { getNearbyEmergencyServicesData } from "./getNearbyEmergencyServices/getNearbyEmergencyServices";
+import { getNearbyParksData } from "./getNearbyParks/getNearbyParks";
+import { getNearbyShoppingMallsData } from "./getNearbyShoppingMallData/getNearbyShoppingMallData";
+import { getSewageData } from "./getSewageData/getSewageData";
+import { getStormwaterData } from "./getStormwaterData/getStormwaterData";
+import { getPublicTransportData } from "./getTransportData/getPublicTransportData/getPublicTransportData";
+import { getWaterData } from "./getWaterData/getWaterData";
 
 type Args = {
   address: Address;
 };
-
-export type InfrastructureData = {
-  sewer?: boolean;
-  water?: boolean;
-  stormwater?: boolean;
-  electricity?: boolean;
-  publicTransport?: {
-    available: boolean;
-    distance?: number;
-  };
-  shoppingCenter?: {
-    available: boolean;
-    distance?: number;
-  };
-  parkAndPlayground?: {
-    available: boolean;
-    distance?: number;
-  };
-  emergencyServices?: {
-    available: boolean;
-    distance?: number;
-  };
-} | null;
 
 type Return = {
   infrastructureData: InfrastructureData;
 };
 
 const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
-  // TODO: Fetch real infrastructure data from utility providers and GIS services
-  // For now, return mock data based on the address
-
-  console.log(
-    `Fetching infrastructure data for: ${address.addressLine}, ${address.suburb} ${address.state} ${address.postcode}`
-  );
-
-  // Return null if no infrastructure data available (optional section)
-  // For mock purposes, return data for all addresses
-  const infrastructureData: NonNullable<InfrastructureData> = {
-    sewer: true,
-    water: true,
-    stormwater: true,
-    electricity: true,
-    publicTransport: {
-      available: true,
-      distance: 0.5,
-    },
-    shoppingCenter: {
-      available: true,
-      distance: 1.2,
-    },
-    parkAndPlayground: {
-      available: true,
-      distance: 0.3,
-    },
-    emergencyServices: {
-      available: true,
-      distance: 2.1,
-    },
+  const promises = {
+    electricityData: getElectricityData({ address }),
+    nearbyEmergencyServicesData: getNearbyEmergencyServicesData({ address }),
+    nearbyParksData: getNearbyParksData({ address }),
+    nearbyPlaygroundsData: getNearbyPlagr({ address }),
+    nearbyShoppingMallsData: getNearbyShoppingMallsData({ address }),
+    sewageData: getSewageData({ address }),
+    stormwaterData: getStormwaterData({ address }),
+    waterData: getWaterData({ address }),
+    publicTransportData: getPublicTransportData({ address }),
   };
 
-  return { infrastructureData };
-};
+  const entries = Object.entries(promises);
+  const results = await Promise.all(entries.map(([, promise]) => promise));
 
+  return Object.fromEntries(
+    entries.map(([key], i) => [key, results[i]])
+  ) as Return;
+};
 export default getInfrastructureData;

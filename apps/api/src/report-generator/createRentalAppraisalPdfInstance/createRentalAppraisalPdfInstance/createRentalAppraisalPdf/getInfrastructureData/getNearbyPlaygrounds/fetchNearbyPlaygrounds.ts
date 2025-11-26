@@ -1,6 +1,6 @@
 import z from "zod";
-import { createFetchNearbyParksEndpoint } from "./createFetchNearbyPlaygroundsEndpoint";
-import { Playground, PlaygroundSchema } from "./types";
+import { createFetchNearbyPlaygroundsEndpoint } from "./createFetchNearbyPlaygroundsEndpoint";
+import { Playground, Playgrounds, PlaygroundSchema } from "./types";
 
 const GOOGLE_MAPS_API_KEY = z.string().parse(process.env.GOOGLE_PLACES_API_KEY);
 
@@ -10,12 +10,12 @@ type Args = {
   radius: number;
 };
 
-export const fetchNearbyParks = async ({
+export const fetchNearbyPlaygrounds = async ({
   lat,
   lon,
   radius,
-}: Args): Promise<Playground[]> => {
-  const { endpoint } = createFetchNearbyParksEndpoint({
+}: Args): Promise<Playgrounds> => {
+  const { endpoint } = createFetchNearbyPlaygroundsEndpoint({
     lat,
     lon,
     radius,
@@ -30,7 +30,7 @@ export const fetchNearbyParks = async ({
   }
 
   // Validate and map results to Park[]
-  const parks: Playground[] = nearbyData.results.map((place: any) =>
+  const playgrounds: Playground[] = nearbyData.results.map((place: any) =>
     PlaygroundSchema.parse({
       name: place.name,
       place_id: place.place_id,
@@ -42,5 +42,5 @@ export const fetchNearbyParks = async ({
     })
   );
 
-  return parks;
+  return playgrounds;
 };

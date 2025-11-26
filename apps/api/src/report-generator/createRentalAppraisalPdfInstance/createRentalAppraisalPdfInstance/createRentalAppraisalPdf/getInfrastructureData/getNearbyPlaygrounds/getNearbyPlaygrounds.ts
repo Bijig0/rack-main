@@ -1,27 +1,26 @@
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { fetchNearbyParks } from "./fetchNearbyPlaygrounds";
-import { Playground } from "./types";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { fetchNearbyPlaygrounds } from "./fetchNearbyPlaygrounds";
+import { Playgrounds } from "./types";
 
 type Args = {
   address: Address;
-  type: "park" | "playground";
 };
 
 /**
- * Get nearby parks or playgrounds for a given address
+ * Get nearby playgrounds or playgrounds for a given address
  */
-export async function getNearbyParksData(
-  { address, type }: Args,
+export async function getNearbyPlaygroundsData(
+  { address }: Args,
   radius: number = 2000
-): Promise<Playground[]> {
+): Promise<Playgrounds> {
   // 1. Geocode the address to get lat/lon
   const { lat, lon } = await geocodeAddress({ address });
 
-  // 2. Search for nearby parks/playgrounds
-  const parks = await fetchNearbyParks({ lat, lon, radius });
+  // 2. Search for nearby playgrounds/playgrounds
+  const playgrounds = await fetchNearbyPlaygrounds({ lat, lon, radius });
 
-  return parks;
+  return playgrounds;
 }
 
 // ----------------------------
@@ -35,10 +34,12 @@ if (import.meta.main) {
     postcode: "3000",
   } satisfies Address;
 
-  getNearbyParksData({ address, type: "park" })
-    .then((parks) => {
-      console.log(`Found ${parks.length} parks near "${address.addressLine}":`);
-      parks.forEach((park, i) => {
+  getNearbyPlaygroundsData({ address })
+    .then((playgrounds) => {
+      console.log(
+        `Found ${playgrounds.length} playgrounds near "${address.addressLine}":`
+      );
+      playgrounds.forEach((park, i) => {
         console.log(`${i + 1}. ${park.name} - ${park.address}`);
       });
     })

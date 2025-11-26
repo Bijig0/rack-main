@@ -85,3 +85,10 @@ export type TransportStopFeature = z.infer<typeof TransportStopFeatureSchema>;
 export type TransportLineFeature = z.infer<typeof TransportLineFeatureSchema>;
 export type InferredTransportStop = z.infer<typeof InferredTransportStopSchema>;
 export type InferredTransportLine = z.infer<typeof InferredTransportLineSchema>;
+
+export const InferredTransportStops = z.array(InferredTransportStopSchema);
+export const InferredTransportLines = z.array(InferredTransportLineSchema);
+
+export type InferredTransportStops = z.infer<typeof InferredTransportStops>;
+export type InferredTransportLines = z.infer<typeof InferredTransportLines>;
+

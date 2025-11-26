@@ -1,5 +1,5 @@
-import type { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import type { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { checkWaterServiceArea } from "./checkWaterServiceArea/checkWaterServiceArea";
 import { queryYVWWater } from "./queryYVWWater/queryYVWWater";
 import { queryMelbourneWater } from "./queryMelbourneWater/queryMelbourneWater";

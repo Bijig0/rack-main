@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { checkWaterServiceArea } from "./checkWaterServiceArea";
-import type { Address } from "../../../../../../../../shared/types";
+import type { Address } from "../../../../../../../shared/types";
 
 describe("checkWaterServiceArea", () => {
   describe("Yarra Valley Water service area", () => {

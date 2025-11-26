@@ -1,4 +1,4 @@
-import { createFeatureSpecificVicmapResponseSchema } from "../../../../../../../wfsDataToolkit/createFeatureSpecificVicmapResponseSchema";
+import { createFeatureSpecificVicmapResponseSchema } from "../../../../../../wfsDataToolkit/createFeatureSpecificVicmapResponseSchema";
 import { TransmissionLineFeatureSchema } from "./types";
 
 export const getTransmissionLinesResponseSchema = () => {

@@ -1,7 +1,7 @@
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { fetchNearbyParks } from "./fetchNearbyPlaygrounds";
-import { Park } from "./types";
+import { Parks } from "./types";
 
 type Args = {
   address: Address;
@@ -13,7 +13,7 @@ type Args = {
 export async function getNearbyParksData(
   { address }: Args,
   radius: number = 2000
-): Promise<Park[]> {
+): Promise<Parks> {
   // 1. Geocode the address to get lat/lon
   const { lat, lon } = await geocodeAddress({ address });
 

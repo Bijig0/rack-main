@@ -11,3 +11,7 @@ export const ShoppingMallSchema = z.object({
 });
 
 export type ShoppingMall = z.infer<typeof ShoppingMallSchema>;
+
+export const ShoppingMallsSchema = z.array(ShoppingMallSchema);
+
+export type ShoppingMalls = z.infer<typeof ShoppingMallsSchema>;

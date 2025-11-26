@@ -1,4 +1,4 @@
-import type { Address } from "../../../../../../../../shared/types";
+import type { Address } from "../../../../../../../shared/types";
 
 /**
  * Water service provider coverage areas in Victoria

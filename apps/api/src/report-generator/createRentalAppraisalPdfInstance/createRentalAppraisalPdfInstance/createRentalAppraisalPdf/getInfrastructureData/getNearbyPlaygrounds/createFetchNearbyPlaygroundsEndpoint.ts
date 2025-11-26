@@ -9,14 +9,17 @@ type Return = {
   endpoint: URL;
 };
 
-export const createFetchNearbyParksEndpoint = (args: Args): Return => {
+export const createFetchNearbyPlaygroundsEndpoint = (args: Args): Return => {
   const { lat, lon, radius, apiKey } = args;
 
-  const TYPE = "park" as const;
-
   const endpoint = new URL(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=${TYPE}&key=${apiKey}`
+    `https://maps.googleapis.com/maps/api/place/nearbysearch/json`
   );
+
+  endpoint.searchParams.set("location", `${lat},${lon}`);
+  endpoint.searchParams.set("radius", String(radius));
+  endpoint.searchParams.set("keyword", "playground");
+  endpoint.searchParams.set("key", apiKey);
 
   return { endpoint };
 };

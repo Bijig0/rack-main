@@ -1,7 +1,7 @@
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { fetchNearbyEmergencyServices } from "./fetchNearbyEmergencyServices";
-import { EmergencyService, emergencyServiceTypes } from "./types";
+import { EmergencyService, EmergencyServices, emergencyServiceTypes } from "./types";
 
 type Args = {
   address: Address;
@@ -15,7 +15,7 @@ type Args = {
 export async function getNearbyEmergencyServicesData({
   address,
   radius = 2000,
-}: Args): Promise<EmergencyService[]> {
+}: Args): Promise<EmergencyServices> {
   const { lat, lon } = await geocodeAddress({ address });
 
   // List of all emergency service types

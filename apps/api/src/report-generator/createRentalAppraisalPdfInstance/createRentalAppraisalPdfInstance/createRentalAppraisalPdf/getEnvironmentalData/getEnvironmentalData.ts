@@ -28,6 +28,7 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   // Fetch environmental data from multiple sources
 
+
   const { biodiversityData } = await getBiodiversityData({ address });
   const { fireHistory, fireManagementZones, riskAnalysis } =
     await getBushfireRiskData({ address });

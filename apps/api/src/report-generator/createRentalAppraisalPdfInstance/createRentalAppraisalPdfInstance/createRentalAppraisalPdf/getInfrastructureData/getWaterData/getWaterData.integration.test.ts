@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { getWaterData } from "./getWaterData";
-import type { Address } from "../../../../../../../shared/types";
+import type { Address } from "../../../../../../shared/types";
 
 describe("getWaterData integration tests", () => {
   // Note: These tests make real API calls and require network connectivity

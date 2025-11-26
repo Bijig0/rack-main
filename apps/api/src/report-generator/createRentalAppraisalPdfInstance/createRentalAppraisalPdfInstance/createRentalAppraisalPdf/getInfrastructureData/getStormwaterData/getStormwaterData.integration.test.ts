@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { getStormwaterData } from "./getStormwaterData";
-import { Address } from "../../../../../../../shared/types";
+import { Address } from "../../../../../../shared/types";
 
 describe("getStormwaterData - Integration Tests", () => {
   // Melbourne CBD address - should have good infrastructure

@@ -1,12 +1,6 @@
 {
-  "isConnectedToGrid": false,
-  "distanceToNearestTransmissionLine": 215.55147581833023,
+  "isConnectedToGrid": true,
+  "distanceToNearestTransmissionLine": 241.0444984552803,
   "distanceToNearestFacility": null,
-  "impactLevel": "none",
-  "alerts": [
-    {
-      "type": "note",
-      "message": "Limited electricity infrastructure. Consult distributor for connection requirements and costs."
-    }
-  ]
+  "impactLevel": "none"
 }

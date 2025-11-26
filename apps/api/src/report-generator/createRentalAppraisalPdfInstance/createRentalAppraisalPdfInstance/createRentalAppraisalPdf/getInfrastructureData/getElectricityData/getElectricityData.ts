@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { getElectricityTransmissionLines } from "./getElectricityTransmissionLines/getElectricityTransmissionLines";
 import { getNearbyEnergyFacilitiesData } from "./getNearbyEnergyFacilitiesData/getNearbyEnergyFacilitiesData";
 import { analyzeElectricityData } from "./analyzeElectricityData/analyzeElectricityData";

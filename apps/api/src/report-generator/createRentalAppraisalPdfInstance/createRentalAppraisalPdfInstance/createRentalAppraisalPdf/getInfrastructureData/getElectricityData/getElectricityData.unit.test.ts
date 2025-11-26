@@ -1,7 +1,7 @@
 import axios from "axios";
 import { beforeEach, afterEach, describe, expect, it, spyOn } from "bun:test";
-import type { Address } from "../../../../../../../shared/types";
-import * as geocodeModule from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import type { Address } from "../../../../../../shared/types";
+import * as geocodeModule from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { getElectricityData } from "./getElectricityData";
 
 describe("getElectricityData", () => {

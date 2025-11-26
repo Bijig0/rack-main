@@ -11,3 +11,7 @@ export const emergencyServiceTypes = [
 ] as const;
 
 export type EmergencyService = z.infer<typeof EmergencyServiceSchema>;
+
+export const EmergencyServicesSchema = z.array(EmergencyServiceSchema);
+
+export type EmergencyServices = z.infer<typeof EmergencyServicesSchema>;

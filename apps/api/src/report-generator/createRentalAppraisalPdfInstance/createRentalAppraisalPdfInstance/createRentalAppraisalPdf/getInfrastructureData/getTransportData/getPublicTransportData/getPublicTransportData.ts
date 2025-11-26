@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import type { Address } from "../../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import type { Address } from "../../../../../../../shared/types";
+import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
   InferredTransportStop,
   TransportLineFeature,

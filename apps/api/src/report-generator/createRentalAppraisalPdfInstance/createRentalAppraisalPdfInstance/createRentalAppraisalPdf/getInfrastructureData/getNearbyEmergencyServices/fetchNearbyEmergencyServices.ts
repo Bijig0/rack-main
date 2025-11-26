@@ -1,4 +1,4 @@
-import { GOOGLE_MAPS_API_KEY } from "../../../../../../../shared/config";
+import { GOOGLE_MAPS_API_KEY } from "../../../../../../shared/config";
 import { createFetchNearbyEmergencyEndpoint } from "./createFetchNearbyEmergencyServicesEndpoint";
 import { EmergencyService, EmergencyServiceSchema } from "./types";
 
