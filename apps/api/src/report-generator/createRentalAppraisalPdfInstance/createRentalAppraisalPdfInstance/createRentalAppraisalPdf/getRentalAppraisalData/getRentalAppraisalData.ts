@@ -3,9 +3,9 @@ import getCoverPageData from "../createCoverPageSection/getCoverPageData/getCove
 import getEnvironmentalData from "../createEnvironmentalSection/getEnvironmentalData/getEnvironmentalData";
 import getInfrastructureData from "../createInfrastructureSection/getInfrastructureData/getInfrastructureData";
 import getLocationSuburbData from "../createLocationSuburbSection/getLocationSuburbData/getLocationSuburbData";
-import getPlanningZoningData from "../createPlanningZoningSection/getPlanningZoningData/getPlanningZoningData";
-import getPricelabsData from "../createPricelabsSection/getPricelabsData/getPricelabsData";
 import getPropertyInfo from "../createPropertyInfoSection/getPropertyInfo/getPropertyInfo";
+import getPlanningZoningData from "../getPlanningZoningData/getPlanningZoningData";
+import getPricelabsData from "../getPricelabsData/getPricelabsData";
 import { type RentalAppraisalData } from "./schemas";
 
 type Args = {
