@@ -1,6 +1,6 @@
 #!/Users/a61403/.bun/bin/bun
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { analyzeFloodRisk } from "./analyzeFloodRisk";
 // import { get100YearFloodExtentData } from "./get100YearFloodExtentData/get100YearFloodExtentData";
 import { get2022FloodHistoryData } from "./get2022FloodHistoryData/get2022FloodHistoryData";

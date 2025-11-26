@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Address } from "../../../../../../../shared/types";
-import { createWfsParams } from "../../../../../wfsDataToolkit/createWfsParams/createWfsParams";
-import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { createWfsParams } from "../../../../wfsDataToolkit/createWfsParams/createWfsParams";
+import { WFS_DATA_URL } from "../../../../wfsDataToolkit/defaults";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
   getFaunaVicmapResponseSchema,
   getFloraVicmapResponseSchema,
@@ -10,8 +10,8 @@ import {
 import { inferBiodiversityData } from "./createBiodiversityResponseSchema/inferRawBiodiversityData/inferRawBiodiversityData";
 import {
   BiodiversityData,
-  InferredFloraData,
   InferredFaunaData,
+  InferredFloraData,
 } from "./createBiodiversityResponseSchema/types";
 
 type Args = {
@@ -86,12 +86,16 @@ const generateSummary = (
 
   if (floraData.length > 0) {
     const uniqueFlora = new Set(floraData.map((f) => f.commonName)).size;
-    parts.push(`${uniqueFlora} plant ${uniqueFlora === 1 ? "species" : "species"}`);
+    parts.push(
+      `${uniqueFlora} plant ${uniqueFlora === 1 ? "species" : "species"}`
+    );
   }
 
   if (faunaData.length > 0) {
     const uniqueFauna = new Set(faunaData.map((f) => f.commonName)).size;
-    parts.push(`${uniqueFauna} animal ${uniqueFauna === 1 ? "species" : "species"}`);
+    parts.push(
+      `${uniqueFauna} animal ${uniqueFauna === 1 ? "species" : "species"}`
+    );
   }
 
   const speciesSummary = parts.join(" and ");
@@ -294,8 +298,12 @@ if (import.meta.main) {
       const { biodiversityData } = await getBiodiversityData({ address });
 
       console.log("\nBiodiversity Summary:");
-      console.log(`  In Biodiversity Overlay: ${biodiversityData.isInBiodiversityOverlay}`);
-      console.log(`  Sensitivity Level: ${biodiversityData.sensitivityLevel.toUpperCase()}`);
+      console.log(
+        `  In Biodiversity Overlay: ${biodiversityData.isInBiodiversityOverlay}`
+      );
+      console.log(
+        `  Sensitivity Level: ${biodiversityData.sensitivityLevel.toUpperCase()}`
+      );
       console.log(
         `  Distance to Nearest Habitat: ${
           biodiversityData.distanceToNearestHabitat !== null

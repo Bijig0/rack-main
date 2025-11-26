@@ -4,7 +4,7 @@ import { LandUseSchema } from "./getLandUse/types";
 import { LocalPlanDataSchema } from "./getLocalPlan/types";
 import { LocalPlanPrecinctSchema } from "./getLocalPlanPrecinct/types";
 import { LocalPlanSubprecinctSchema } from "./getLocalPlanSubprecinct/types";
-import { PlanningOverlayItemSchema } from "./getPlanningOverlay/types";
+import { PlanningOverlayDataSchema, PlanningOverlayItemSchema } from "./getPlanningOverlay/types";
 import { PlanningSchemeSchema } from "./getPlanningScheme/types";
 import { RegionalPlanSchema } from "./getRegionalPlan/types";
 import { ZoneCodeSchema } from "./getZoneCode/types";
@@ -19,15 +19,15 @@ import { ZonePrecinctTypeSchema } from "./getZonePrecinct/types";
 export const PlanningZoningDataSchema = z.object({
   heritageOverlays: HeritageOverlaysSchema,
   landUse: LandUseSchema,
-  localPlan: LocalPlanDataSchema,
+  localPlan: LocalPlanDataSchema.nullish(),
   localPlanPrecinct: LocalPlanPrecinctSchema,
   localPlanSubprecinct: LocalPlanSubprecinctSchema,
-  overlays: z.array(PlanningOverlayItemSchema).nullish(),
+  overlays: PlanningOverlayDataSchema.nullish(),
   planningScheme: PlanningSchemeSchema,
   regionalPlan: RegionalPlanSchema.nullish(),
   zoneCode: ZoneCodeSchema,
   zoneDescription: ZoneDescriptionSchema,
-  zonePrecinct: ZonePrecinctTypeSchema.nullish(),
+  zonePrecinct: ZonePrecinctTypeSchema,
 });
 
 export type PlanningZoningData = z.infer<typeof PlanningZoningDataSchema> | null;

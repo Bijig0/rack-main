@@ -1,3 +1,5 @@
+import { Effect } from "effect";
+import * as O from "effect/Option";
 import { Address } from "../../../../../shared/types";
 import { getHeritageOverlays } from "./getHeritageOverlays/getHeritageOverlays";
 import { getLandUse } from "./getLandUse/getLandUse";
@@ -23,64 +25,86 @@ type Return = {
 
 /**
  * Fetches planning and zoning data from Victorian WFS services
- *
- * This function orchestrates calls to all the individual getter functions,
- * which share a cache to avoid redundant WFS calls.
- *
- * Data sources:
- * - Vicmap Planning (plan_zone) - Zone codes and descriptions
- * - Vicmap Planning (plan_overlay) - Planning overlays (HO, DDO, VPO, etc.)
- * - Planning schemes are derived from LGA
- * - Regional plans are mapped from suburb/LGA
- *
- * @param address - Property address
- * @returns Planning and zoning data or null if not available
  */
-const getPlanningZoningData = async ({ address }: Args): Promise<Return> => {
-  console.log(
-    `Fetching planning and zoning data for: ${address.addressLine}, ${address.suburb} ${address.state} ${address.postcode}`
-  );
+const getPlanningZoningData = ({
+  address,
+}: Args): Effect.Effect<Return, Error> =>
+  Effect.gen(function* () {
+    // Check base data exists
+    const { planningZoneData } = yield* getPlanningZoneData({ address });
 
-  try {
-    // Fetch base planning zone data first (this populates the cache)
-    const { planningZoneData: baseData } = await getPlanningZoneData({
-      address,
-    });
-
-    if (!baseData) {
-      console.warn("No planning zone data available for this location");
+    if (O.isNone(planningZoneData)) {
+      console.warn("No planning zone data available");
       return { planningZoningData: null };
     }
 
-    // Fetch all data in parallel - subsequent calls use cached data
+    // Fetch all data in parallel
     const [
-      heritageOverlays,
-      landUse,
-      zoneCode,
-      zoneDescription,
-      planningScheme,
-      regionalPlan,
-      { planningOverlayData },
-      localPlanPrecinct,
-      localPlanSubprecinct,
-    ] = await Promise.all([
-      getHeritageOverlays({ address }),
-      getLandUse({ address }),
-      getZoneCode({ address }),
-      getZoneDescription({ address }),
-      getPlanningScheme({ address }),
-      getRegionalPlan({ address }),
-      getPlanningOverlay({ address }),
-      getLocalPlanPrecinct({ address }),
-      getLocalPlanSubprecinct({ address }),
-    ]);
+      heritageResult,
+      landUseResult,
+      zoneCodeResult,
+      zoneDescriptionResult,
+      planningSchemeResult,
+      regionalPlanResult,
+      overlayResult,
+      localPlanPrecinctResult,
+      localPlanSubprecinctResult,
+      localPlanResult,
+    ] = yield* Effect.all(
+      [
+        getHeritageOverlays({ address }),
+        getLandUse({ address }),
+        getZoneCode({ address }),
+        getZoneDescription({ address }),
+        getPlanningScheme({ address }),
+        getRegionalPlan({ address }),
+        getPlanningOverlay({ address }),
+        getLocalPlanPrecinct({ address }),
+        getLocalPlanSubprecinct({ address }),
+        getLocalPlan({ address }),
+      ],
+      { concurrency: "unbounded" }
+    );
 
-    // Get local plan using Effect
-    const { Effect } = await import("effect");
-    const localPlan = await Effect.runPromise(getLocalPlan({ address }));
+    // Extract values - heritageOverlays expects an array
+    const heritageOverlays = O.getOrElse(
+      heritageResult.heritageOverlays,
+      () => [] as { code: string; name: string }[]
+    );
+
+    // landUse is Option<string | null | undefined>
+    const landUse = O.getOrNull(landUseResult.landUse);
+
+    // zoneCode returns { zoneCode: ZoneCode } directly (no Option wrapper)
+    const zoneCode = zoneCodeResult.zoneCode;
+
+    // zoneDescription returns ZoneDescription directly (no wrapper)
+    const zoneDescription = zoneDescriptionResult;
+
+    // planningScheme returns Option<PlanningScheme> directly
+    const planningScheme = O.getOrNull(planningSchemeResult);
+
+    // regionalPlan returns Option<{ regionalPlan: string | null | undefined }> directly
+    const regionalPlan = O.getOrNull(regionalPlanResult);
+
+    // overlays
+    const planningOverlayData = O.getOrNull(overlayResult.planningOverlayData);
+
+    // localPlanPrecinct returns { localPlanPrecinct: Option<string> }
+    const localPlanPrecinct = O.getOrNull(
+      localPlanPrecinctResult.localPlanPrecinct
+    );
+
+    // localPlanSubprecinct returns { localPlanSubprecinct: Option<string> }
+    const localPlanSubprecinct = O.getOrNull(
+      localPlanSubprecinctResult.localPlanSubprecinct
+    );
+
+    // localPlan returns { localPlanData: Option<LocalPlanData> }
+    const localPlan = O.getOrNull(localPlanResult.localPlanData);
 
     // Deduplicate overlays based on overlayCode
-    let overlays = null;
+    let overlays: typeof planningOverlayData = null;
     if (planningOverlayData && planningOverlayData.length > 0) {
       overlays = Array.from(
         new Map(
@@ -90,12 +114,12 @@ const getPlanningZoningData = async ({ address }: Args): Promise<Return> => {
     }
 
     // Determine zone precinct from overlay combinations
-    const { zonePrecinct } = getZonePrecinct({
+    const { zonePrecinct } = yield* getZonePrecinct({
       overlays: overlays || [],
       zoneCode: zoneCode || "",
     });
 
-    const planningZoningData: NonNullable<PlanningZoningData> = {
+    const planningZoningData: PlanningZoningData = {
       heritageOverlays,
       landUse,
       localPlan,
@@ -109,33 +133,13 @@ const getPlanningZoningData = async ({ address }: Args): Promise<Return> => {
       zonePrecinct,
     };
 
-    console.log("✅ Planning and zoning data retrieved:", {
-      zoneCode: planningZoningData.zoneCode,
-      zoneDescription: planningZoningData.zoneDescription,
-      planningScheme: planningZoningData.planningScheme,
-      landUse: planningZoningData.landUse,
-      overlayCount: overlays?.length || 0,
-      heritageOverlays:
-        planningZoningData.heritageOverlays?.map((h) => h.code).join(", ") ||
-        "None",
-      zonePrecinct: planningZoningData.zonePrecinct || "None",
-      localPlan: planningZoningData.localPlan?.localPlan || "None",
-      localPlanPrecinct: planningZoningData.localPlanPrecinct || "None",
-      localPlanSubprecinct: planningZoningData.localPlanSubprecinct || "None",
-      regionalPlan: planningZoningData.regionalPlan?.regionalPlan || "None",
-    });
-
     return { planningZoningData };
-  } catch (error) {
-    console.error("Error in getPlanningZoningData:", error);
-    return { planningZoningData: null };
-  }
-};
+  });
 
 export default getPlanningZoningData;
 
 if (import.meta.main) {
-  const { planningZoningData } = await getPlanningZoningData({
+  const program = getPlanningZoningData({
     address: {
       addressLine: "7 English Place",
       suburb: "Kew",
@@ -144,6 +148,7 @@ if (import.meta.main) {
     },
   });
 
+  const { planningZoningData } = await Effect.runPromise(program);
   console.log("\n📋 Planning and Zoning Data:");
   console.log(JSON.stringify(planningZoningData, null, 2));
 }

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
   analyzeBushfireRisk,
   BushfireRiskAnalysis,
@@ -17,12 +17,14 @@ type Args = {
   address: Address;
 };
 
-type Return = {
-  bushfireProneAreas: InferredBushfireRiskData[];
+export type BushfireRiskData = {
+  // bushfireProneAreas: InferredBushfireRiskData[];
   fireHistory: InferredFireHistoryData[];
   fireManagementZones: InferredFireManagementZone[];
   riskAnalysis: BushfireRiskAnalysis;
 };
+
+type Return = BushfireRiskData
 
 /**
  * Get comprehensive bushfire risk data from multiple sources
@@ -51,7 +53,7 @@ export const getBushfireRiskData = async ({
   });
 
   return {
-    bushfireProneAreas,
+    // bushfireProneAreas,
     fireHistory,
     fireManagementZones,
     riskAnalysis,
@@ -59,7 +61,7 @@ export const getBushfireRiskData = async ({
 };
 
 if (import.meta.main) {
-  const { bushfireProneAreas, fireHistory, fireManagementZones, riskAnalysis } =
+  const {  fireHistory, fireManagementZones, riskAnalysis } =
     await getBushfireRiskData({
       address: {
         addressLine: "Flinders Street Station",
@@ -122,7 +124,7 @@ if (import.meta.main) {
   });
 
   console.log("\n--- Data Summary ---");
-  console.log(`Bushfire Prone Areas: ${bushfireProneAreas.length}`);
+  // console.log(`Bushfire Prone Areas: ${bushfireProneAreas.length}`);
   console.log(`Fire History Records: ${fireHistory.length}`);
   console.log(`Fire Management Zones: ${fireManagementZones.length}`);
 
@@ -132,7 +134,7 @@ if (import.meta.main) {
     outputPath,
     JSON.stringify(
       {
-        bushfireProneAreas,
+        // bushfireProneAreas,
         fireHistory: fireHistory.slice(0, 20), // Limit to first 20 for readability
         fireManagementZones,
         riskAnalysis,

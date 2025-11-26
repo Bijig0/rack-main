@@ -1,6 +1,6 @@
 #!/Users/a61403/.bun/bin/bun
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { analyzeNoiseLevel } from "./analyzeNoiseLevel";
 import { getTrafficSignalData } from "./getTrafficSignalData/getTrafficSignalData";
 import { getVicmapRoadlineData } from "./getVicmapRoadlineData/getVicmapRoadlineData";

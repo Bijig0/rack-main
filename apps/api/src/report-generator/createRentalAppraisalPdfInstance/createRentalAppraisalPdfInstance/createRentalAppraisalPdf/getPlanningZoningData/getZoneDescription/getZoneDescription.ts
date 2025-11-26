@@ -15,11 +15,18 @@ type Args = {
  * @param address - The property address
  * @returns The zone description (e.g., "General Residential Zone", "Neighbourhood Residential Zone") or null if not available
  */
-export const getZoneDescription = async ({
+import { Effect, Option } from "effect";
+
+export const getZoneDescription = ({
   address,
-}: Args): Promise<ZoneDescription> => {
-  const { planningZoneData } = await getPlanningZoneData({ address });
-  return planningZoneData?.zoneDescription ?? null;
-};
+}: Args): Effect.Effect<ZoneDescription, Error> =>
+  getPlanningZoneData({ address }).pipe(
+    Effect.map(({ planningZoneData }) =>
+      Option.match(planningZoneData, {
+        onNone: () => null,
+        onSome: (pz) => pz?.zoneDescription ?? null,
+      })
+    )
+  );
 
 export default getZoneDescription;

@@ -1,4 +1,6 @@
 import type { Address } from "../../../../../../shared/types";
+import { Effect } from "effect";
+import * as O from "effect/Option";
 import { getPlanningOverlay } from "../getPlanningOverlay/getPlanningOverlay";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
 import { LocalPlanPrecinct } from "./types";
@@ -168,6 +170,10 @@ function generateGenericPrecinctName(overlayCode: string): string {
   return `Precinct ${letter}`;
 }
 
+type Return = {
+  localPlanPrecinct: O.Option<LocalPlanPrecinct>;
+};
+
 /**
  * Gets the local plan precinct for an address.
  *
@@ -180,45 +186,59 @@ function generateGenericPrecinctName(overlayCode: string): string {
  * Uses cached data from getPlanningZoneData and getPlanningOverlay.
  *
  * @param address - The property address
- * @returns The precinct name or null if not available
+ * @returns The precinct name or None if not available
  */
-export const getLocalPlanPrecinct = async ({
+export const getLocalPlanPrecinct = ({
   address,
-}: Args): Promise<LocalPlanPrecinct> => {
-  // Get planning zone data for LGA
-  const { planningZoneData } = await getPlanningZoneData({ address });
+}: Args): Effect.Effect<Return, Error> =>
+  Effect.gen(function* () {
+    // Get planning zone data for LGA
+    const { planningZoneData } = yield* getPlanningZoneData({ address });
 
-  // Get overlays
-  const { planningOverlayData } = await getPlanningOverlay({ address });
+    // Get overlays
+    const { planningOverlayData } = yield* getPlanningOverlay({ address });
 
-  if (!planningOverlayData || planningOverlayData.length === 0) {
-    return null;
-  }
-
-  const lgaName = planningZoneData?.lgaName || null;
-
-  // Priority order: HO > DDO > NCO > DPO > other
-  const priorityPrefixes = ["HO", "DDO", "NCO", "DPO"];
-
-  for (const prefix of priorityPrefixes) {
-    const overlay = planningOverlayData.find((o) =>
-      o.overlayCode.startsWith(prefix)
-    );
-
-    if (overlay) {
-      // Try LGA-specific precinct name first
-      const precinctName = getPrecinctName(overlay.overlayCode, lgaName);
-      if (precinctName) {
-        return precinctName;
-      }
-
-      // Fall back to generic precinct name
-      return generateGenericPrecinctName(overlay.overlayCode);
+    // If no overlays, return none
+    if (O.isNone(planningOverlayData)) {
+      return { localPlanPrecinct: O.none() };
     }
-  }
 
-  return null;
-};
+    const overlays = O.getOrThrow(planningOverlayData);
+
+    if (overlays?.length === 0) {
+      return { localPlanPrecinct: O.none() };
+    }
+
+    // Extract LGA name if present
+    const lgaName = O.map(
+      planningZoneData,
+      (data) => data?.lgaName ?? null
+    ).pipe(O.getOrElse(() => null));
+
+    // Priority order: HO > DDO > NCO > DPO > other
+    const priorityPrefixes = ["HO", "DDO", "NCO", "DPO"];
+
+    for (const prefix of priorityPrefixes) {
+      const overlay = overlays?.find((o) => o.overlayCode.startsWith(prefix));
+
+      if (overlay) {
+        // Try LGA-specific precinct name first
+        const precinctName = getPrecinctName(overlay.overlayCode, lgaName);
+        if (precinctName) {
+          return { localPlanPrecinct: O.some(precinctName) };
+        }
+
+        // Fall back to generic precinct name
+        return {
+          localPlanPrecinct: O.some(
+            generateGenericPrecinctName(overlay.overlayCode)
+          ),
+        };
+      }
+    }
+
+    return { localPlanPrecinct: O.none() };
+  });
 
 export default getLocalPlanPrecinct;
 
@@ -254,7 +274,10 @@ if (import.meta.main) {
   ];
 
   for (const test of testAddresses) {
-    const precinct = await getLocalPlanPrecinct({ address: test.address });
-    console.log(`${test.name}: ${precinct || "Not found"}`);
+    const program = getLocalPlanPrecinct({ address: test.address });
+    const { localPlanPrecinct } = await Effect.runPromise(program);
+
+    const precinctDisplay = O.getOrElse(localPlanPrecinct, () => "Not found");
+    console.log(`${test.name}: ${precinctDisplay}`);
   }
 }

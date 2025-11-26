@@ -1,3 +1,4 @@
+import { Effect, Option } from "effect";
 import { titleCase } from "title-case";
 import type { Address } from "../../../../../../shared/types";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
@@ -21,23 +22,22 @@ type Args = {
  * @param address - The property address
  * @returns The planning scheme name (e.g., "Boroondara Planning Scheme") or null if not available
  */
-export const getPlanningScheme = async ({
+
+export const getPlanningScheme = ({
   address,
-}: Args): Promise<PlanningScheme> => {
-  const { planningZoneData } = await getPlanningZoneData({ address });
-
-  if (!planningZoneData?.lgaName) {
-    return null;
-  }
-
-  const cleanedLgaName = titleCase(
-    planningZoneData.lgaName.toLocaleLowerCase()
+}: Args): Effect.Effect<Option.Option<PlanningScheme>, Error> =>
+  getPlanningZoneData({ address }).pipe(
+    Effect.map(({ planningZoneData }) =>
+      Option.match(planningZoneData, {
+        onNone: () => Option.none(),
+        onSome: (zoneData) => {
+          const lgaName = zoneData?.lgaName?.toLocaleLowerCase() ?? "";
+          const cleanedLgaName = titleCase(lgaName);
+          return Option.some(`${cleanedLgaName} Planning Scheme`);
+        },
+      })
+    )
   );
-
-  return `${cleanedLgaName} Planning Scheme`;
-};
-
-export default getPlanningScheme;
 
 if (import.meta.main) {
   const planningScheme = await getPlanningScheme({

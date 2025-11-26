@@ -1,4 +1,6 @@
 import type { Address } from "../../../../../../shared/types";
+import { Effect } from "effect";
+import * as O from "effect/Option";
 import { getPlanningOverlay } from "../getPlanningOverlay/getPlanningOverlay";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
 import { LocalPlanSubprecinct } from "./types";
@@ -112,6 +114,9 @@ function normalizeLgaName(lga: string): string {
     .trim();
 }
 
+type Return = {
+  localPlanSubprecinct: O.Option<LocalPlanSubprecinct>;
+};
 
 /**
  * Gets the local plan subprecinct for an address.
@@ -130,81 +135,98 @@ function normalizeLgaName(lga: string): string {
  * Uses cached data from getPlanningZoneData and getPlanningOverlay.
  *
  * @param address - The property address
- * @returns The subprecinct name or null if not available
+ * @returns The subprecinct name or None if not available
  */
-export const getLocalPlanSubprecinct = async ({
+export const getLocalPlanSubprecinct = ({
   address,
-}: Args): Promise<LocalPlanSubprecinct> => {
-  // Get planning zone data for LGA
-  const { planningZoneData } = await getPlanningZoneData({ address });
+}: Args): Effect.Effect<Return, Error> =>
+  Effect.gen(function* () {
+    // Get planning zone data for LGA
+    const { planningZoneData } = yield* getPlanningZoneData({ address });
 
-  // Get overlays
-  const { planningOverlayData } = await getPlanningOverlay({ address });
+    // Get overlays
+    const { planningOverlayData } = yield* getPlanningOverlay({ address });
 
-  if (!planningOverlayData || planningOverlayData.length === 0) {
-    return null;
-  }
+    // If no overlays, return none
+    if (O.isNone(planningOverlayData)) {
+      return { localPlanSubprecinct: O.none() };
+    }
 
-  const lgaName = planningZoneData?.lgaName
-    ? normalizeLgaName(planningZoneData.lgaName)
-    : null;
+    const overlays = O.getOrThrow(planningOverlayData);
 
-  // Check for Heritage Overlay subprecincts (LGA-specific)
-  if (lgaName && HERITAGE_SUBPRECINCT_NAMES[lgaName]) {
-    const lgaSubprecincts = HERITAGE_SUBPRECINCT_NAMES[lgaName];
-    for (const overlay of planningOverlayData) {
-      if (overlay.overlayCode.startsWith("HO")) {
-        const subprecinct = lgaSubprecincts[overlay.overlayCode];
-        if (subprecinct) {
-          return subprecinct;
+    if (overlays?.length === 0) {
+      return { localPlanSubprecinct: O.none() };
+    }
+
+    // Extract and normalize LGA name if present
+    const lgaName = O.flatMap(planningZoneData, (data) =>
+      data?.lgaName ? O.some(normalizeLgaName(data.lgaName)) : O.none()
+    ).pipe(O.getOrElse(() => null as string | null));
+
+    // Check for Heritage Overlay subprecincts (LGA-specific)
+    if (lgaName && HERITAGE_SUBPRECINCT_NAMES[lgaName]) {
+      const lgaSubprecincts = HERITAGE_SUBPRECINCT_NAMES[lgaName];
+      for (const overlay of overlays ?? []) {
+        if (overlay.overlayCode.startsWith("HO")) {
+          const subprecinct = lgaSubprecincts[overlay.overlayCode];
+          if (subprecinct) {
+            return { localPlanSubprecinct: O.some(subprecinct) };
+          }
         }
       }
     }
-  }
 
-  // Check for Neighbourhood Character Overlay subprecincts
-  for (const overlay of planningOverlayData) {
-    if (overlay.overlayCode.startsWith("NCO")) {
-      const subprecinct = NCO_SUBPRECINCT_NAMES[overlay.overlayCode];
-      if (subprecinct) {
-        return subprecinct;
+    // Check for Neighbourhood Character Overlay subprecincts
+    for (const overlay of overlays ?? []) {
+      if (overlay.overlayCode.startsWith("NCO")) {
+        const subprecinct = NCO_SUBPRECINCT_NAMES[overlay.overlayCode];
+        if (subprecinct) {
+          return { localPlanSubprecinct: O.some(subprecinct) };
+        }
       }
     }
-  }
 
-  // Check for Design and Development Overlay subprecincts
-  for (const overlay of planningOverlayData) {
-    if (overlay.overlayCode.startsWith("DDO")) {
-      const subprecinct = DDO_SUBPRECINCT_NAMES[overlay.overlayCode];
-      if (subprecinct) {
-        return subprecinct;
+    // Check for Design and Development Overlay subprecincts
+    for (const overlay of overlays ?? []) {
+      if (overlay.overlayCode.startsWith("DDO")) {
+        const subprecinct = DDO_SUBPRECINCT_NAMES[overlay.overlayCode];
+        if (subprecinct) {
+          return { localPlanSubprecinct: O.some(subprecinct) };
+        }
       }
     }
-  }
 
-  // Generate a generic subprecinct name from the first significant overlay
-  const significantOverlay = planningOverlayData.find(
-    (o) =>
-      o.overlayCode.startsWith("HO") ||
-      o.overlayCode.startsWith("NCO") ||
-      o.overlayCode.startsWith("DDO")
-  );
+    // Generate a generic subprecinct name from the first significant overlay
+    const significantOverlay = overlays?.find(
+      (o) =>
+        o.overlayCode.startsWith("HO") ||
+        o.overlayCode.startsWith("NCO") ||
+        o.overlayCode.startsWith("DDO")
+    );
 
-  if (significantOverlay) {
-    const code = significantOverlay.overlayCode;
-    const number = code.replace(/[A-Z]/g, "");
+    if (significantOverlay) {
+      const code = significantOverlay.overlayCode;
+      const number = code.replace(/[A-Z]/g, "");
 
-    if (code.startsWith("HO")) {
-      return `Heritage Subprecinct ${number}`;
-    } else if (code.startsWith("NCO")) {
-      return `Neighbourhood Character Subprecinct ${number}`;
-    } else if (code.startsWith("DDO")) {
-      return `Design Subprecinct ${number}`;
+      if (code.startsWith("HO")) {
+        return {
+          localPlanSubprecinct: O.some(`Heritage Subprecinct ${number}`),
+        };
+      } else if (code.startsWith("NCO")) {
+        return {
+          localPlanSubprecinct: O.some(
+            `Neighbourhood Character Subprecinct ${number}`
+          ),
+        };
+      } else if (code.startsWith("DDO")) {
+        return {
+          localPlanSubprecinct: O.some(`Design Subprecinct ${number}`),
+        };
+      }
     }
-  }
 
-  return null;
-};
+    return { localPlanSubprecinct: O.none() };
+  });
 
 export default getLocalPlanSubprecinct;
 
@@ -240,9 +262,13 @@ if (import.meta.main) {
   ];
 
   for (const test of testAddresses) {
-    const subprecinct = await getLocalPlanSubprecinct({
-      address: test.address,
-    });
-    console.log(`${test.name}: ${subprecinct || "Not found"}`);
+    const program = getLocalPlanSubprecinct({ address: test.address });
+    const { localPlanSubprecinct } = await Effect.runPromise(program);
+
+    const subprecinctDisplay = O.getOrElse(
+      localPlanSubprecinct,
+      () => "Not found"
+    );
+    console.log(`${test.name}: ${subprecinctDisplay}`);
   }
 }

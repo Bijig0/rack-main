@@ -1,3 +1,4 @@
+import { Effect, Option } from "effect";
 import type { Address } from "../../../../../../shared/types";
 import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
 import { RegionalPlan } from "./types";
@@ -124,13 +125,9 @@ const GIPPSLAND_LGAS = [
   "East Gippsland",
 ];
 
-/**
- * Determines the regional plan based on LGA name
- */
 function getRegionalPlanForLga(lgaName: string): string | null {
   const normalizedLga = lgaName.toLowerCase();
 
-  // Check Greater Melbourne
   if (
     GREATER_MELBOURNE_LGAS.some((lga) =>
       normalizedLga.includes(lga.toLowerCase())
@@ -139,14 +136,12 @@ function getRegionalPlanForLga(lgaName: string): string | null {
     return "Plan Melbourne 2017-2050";
   }
 
-  // Check Geelong Region
   if (
     GEELONG_REGION_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))
   ) {
     return "G21 Regional Growth Plan";
   }
 
-  // Check Barwon South West
   if (
     BARWON_SOUTH_WEST_LGAS.some((lga) =>
       normalizedLga.includes(lga.toLowerCase())
@@ -155,26 +150,22 @@ function getRegionalPlanForLga(lgaName: string): string | null {
     return "Great South Coast Regional Growth Plan";
   }
 
-  // Check Loddon Mallee
   if (
     LODDON_MALLEE_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))
   ) {
     return "Loddon Mallee South Regional Growth Plan";
   }
 
-  // Check Grampians
   if (GRAMPIANS_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))) {
     return "Central Highlands Regional Growth Plan";
   }
 
-  // Check Hume Region
   if (
     HUME_REGION_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))
   ) {
     return "Hume Regional Growth Plan";
   }
 
-  // Check Gippsland
   if (GIPPSLAND_LGAS.some((lga) => normalizedLga.includes(lga.toLowerCase()))) {
     return "Gippsland Regional Growth Plan";
   }
@@ -183,33 +174,30 @@ function getRegionalPlanForLga(lgaName: string): string | null {
 }
 
 /**
- * Gets the regional plan for an address.
- *
- * Regional plans in Victoria are strategic documents that guide land use
- * and development across regions. Examples:
- * - "Plan Melbourne 2017-2050" (Greater Melbourne)
- * - "G21 Regional Growth Plan" (Geelong Region)
- * - "Gippsland Regional Growth Plan" (Gippsland)
- *
- * Uses the shared cache from getPlanningZoneData, so if getPlanningZoneData
- * has already been called for this address, no additional WFS call is made.
- *
- * @param address - The property address
- * @returns The regional plan name or null if not available
+ * Effect version of getRegionalPlan
  */
-export const getRegionalPlan = async ({
+export const getRegionalPlan = ({
   address,
-}: Args): Promise<RegionalPlan> => {
-  const { planningZoneData } = await getPlanningZoneData({ address });
+}: Args): Effect.Effect<Option.Option<RegionalPlan>, Error> =>
+  getPlanningZoneData({ address }).pipe(
+    Effect.map(({ planningZoneData }) =>
+      Option.match(planningZoneData, {
+        onNone: () => Option.none(),
 
-  if (!planningZoneData?.lgaName) {
-    return null;
-  }
+        onSome: (pz) => {
+          if (!pz?.lgaName) return Option.none();
 
-  const regionalPlan = getRegionalPlanForLga(planningZoneData.lgaName);
+          const regionalPlanName = getRegionalPlanForLga(pz.lgaName);
 
-  return { regionalPlan };
-};
+          if (!regionalPlanName) return Option.none();
+
+          return Option.some({
+            regionalPlan: regionalPlanName,
+          });
+        },
+      })
+    )
+  );
 
 export default getRegionalPlan;
 
