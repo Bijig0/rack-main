@@ -7,6 +7,7 @@
     "dev:web": "bun run --cwd apps/web dev",
     "build:api": "bun run --cwd apps/api build",
     "build:web": "bun run --cwd apps/web build",
-    "server": "bun run --cwd apps/api src/server/server.ts"
+    "server": "bun run --cwd apps/api src/server/server.ts",
+    "serve:pdf": "cd apps/api/src/builder-io-react-test && pnpm install && pnpm dev"
   }
 }
