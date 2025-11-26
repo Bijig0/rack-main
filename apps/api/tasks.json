@@ -141,21 +141,21 @@
       },
       {
         "name": "Planning Scheme",
-        "status": "not-done",
+        "status": "done",
         "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
         "note": "Retrieved from Vicmap Planning WFS data",
         "url": ""
       },
       {
         "name": "Regional Plan",
-        "status": "not-done",
+        "status": "done",
         "description": "Derived from LGA - Plan Melbourne 2017-2050 for Greater Melbourne LGAs",
         "note": "Automatically determined based on LGA location",
         "url": ""
       },
       {
         "name": "Land Use",
-        "status": "not-done",
+        "status": "done",
         "description": "Inferred from planning zone code (Residential, Commercial, Industrial, etc.)",
         "note": "Derived from Vicmap Planning zone classification",
         "url": ""
@@ -190,7 +190,7 @@
       },
       {
         "name": "Local Plan Precinct",
-        "status": "not-done",
+        "status": "done",
         "description": "Would require detailed local planning policy framework data",
         "note": "Future enhancement",
         "url": ""
