@@ -12,5 +12,8 @@
     "build:web": "bun run --cwd apps/web build",
     "server": "bun run --cwd apps/api src/server/server.ts",
     "serve:pdf": "cd apps/api/src/builder-io-react-test && pnpm install && pnpm dev"
+  },
+  "dependencies": {
+    "title-case": "^4.3.2"
   }
 }

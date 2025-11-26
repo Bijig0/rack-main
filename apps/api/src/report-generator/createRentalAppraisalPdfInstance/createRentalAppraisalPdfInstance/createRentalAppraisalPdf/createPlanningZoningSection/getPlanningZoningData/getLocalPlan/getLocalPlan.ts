@@ -1,13 +1,16 @@
 #!/Users/a61403/.bun/bin/bun
 
+import { Effect } from "effect";
 import { Address } from "../../../../../../../shared/types";
+import { getPlanningZoneData } from "../getPlanningZoneData/getPlanningZoneData";
+
 type Args = {
   address: Address;
-  lgaName?: string;
 };
 
-type Return = {
-  localPlan: string | undefined;
+type LocalPlanResult = {
+  localPlan: string | null;
+  lgaName: string | null;
 };
 
 /**
@@ -90,46 +93,6 @@ const LOCAL_PLAN_LOOKUP: Record<string, string> = {
 };
 
 /**
- * Gets local planning policy information for a property
- *
- * Attempts to identify the applicable Local Planning Policy Framework (LPPF) document
- * using a lookup table of common Victorian planning policies. The LPPF is part of the
- * Municipal Strategic Statement (MSS) that contains local planning objectives and strategies.
- *
- * Note: This is a basic lookup implementation. A full implementation would query WFS
- * services or planning scheme databases for more precise policy information.
- *
- * @param address - Property address
- * @param lgaName - Optional LGA name (if already known from planning zone data)
- * @returns Local plan name or undefined if not available
- */
-export const getLocalPlan = ({ address, lgaName }: Args): Return => {
-  console.log("\n📋 Determining local planning policy...");
-
-  // Try LGA name first if provided
-  if (lgaName) {
-    const normalizedLga = normalizeLgaName(lgaName);
-    const localPlan = lookupLocalPlan(normalizedLga);
-    if (localPlan) {
-      console.log(`✅ Found local plan from LGA: ${localPlan}`);
-      return { localPlan };
-    }
-  }
-
-  // Fall back to suburb-based lookup
-  const normalizedSuburb = normalizeSuburbName(address.suburb);
-  const localPlan = lookupLocalPlan(normalizedSuburb);
-
-  if (localPlan) {
-    console.log(`✅ Found local plan from suburb: ${localPlan}`);
-    return { localPlan };
-  }
-
-  console.log("ℹ️  No local planning policy found in lookup table");
-  return { localPlan: undefined };
-};
-
-/**
  * Normalizes LGA name by removing common suffixes and standardizing format
  */
 function normalizeLgaName(lga: string): string {
@@ -150,7 +113,7 @@ function normalizeSuburbName(suburb: string): string {
 /**
  * Looks up local plan in the lookup table
  */
-function lookupLocalPlan(name: string): string | undefined {
+function lookupLocalPlan(name: string): string | null {
   // Try exact match first
   if (LOCAL_PLAN_LOOKUP[name]) {
     return LOCAL_PLAN_LOOKUP[name];
@@ -172,8 +135,73 @@ function lookupLocalPlan(name: string): string | undefined {
     }
   }
 
-  return undefined;
+  return null;
 }
+
+/**
+ * Fetches LGA from getPlanningZoneData (uses cached data if available)
+ */
+const fetchLgaFromAddress = (
+  address: Address
+): Effect.Effect<string | null, never> =>
+  Effect.gen(function* () {
+    try {
+      const { planningZoneData } = yield* Effect.tryPromise({
+        try: () => getPlanningZoneData({ address }),
+        catch: (error) => new Error(`Planning zone data fetch failed: ${error}`),
+      });
+
+      return planningZoneData?.lgaName || null;
+    } catch {
+      return null;
+    }
+  }).pipe(Effect.catchAll(() => Effect.succeed(null)));
+
+/**
+ * Gets local planning policy information for a property
+ *
+ * Uses getPlanningZoneData (with caching) to get the LGA, then looks up
+ * the applicable Local Planning Policy Framework (LPPF) document.
+ *
+ * @param address - Property address
+ * @returns Effect containing local plan name and LGA name
+ */
+export const getLocalPlan = ({
+  address,
+}: Args): Effect.Effect<LocalPlanResult, never> =>
+  Effect.gen(function* () {
+    yield* Effect.log("📋 Determining local planning policy...");
+
+    const lgaName = yield* fetchLgaFromAddress(address);
+
+    if (lgaName) {
+      yield* Effect.log(`✅ Found LGA from WFS: ${lgaName}`);
+    } else {
+      yield* Effect.log("⚠️ Could not determine LGA");
+    }
+
+    // Try LGA name first if available
+    if (lgaName) {
+      const normalizedLga = normalizeLgaName(lgaName);
+      const localPlan = lookupLocalPlan(normalizedLga);
+      if (localPlan) {
+        yield* Effect.log(`✅ Found local plan: ${localPlan}`);
+        return { localPlan, lgaName };
+      }
+    }
+
+    // Fall back to suburb-based lookup
+    const normalizedSuburb = normalizeSuburbName(address.suburb);
+    const localPlan = lookupLocalPlan(normalizedSuburb);
+
+    if (localPlan) {
+      yield* Effect.log(`✅ Found local plan: ${localPlan}`);
+      return { localPlan, lgaName };
+    }
+
+    yield* Effect.log("ℹ️ No local planning policy found in lookup table");
+    return { localPlan: null, lgaName };
+  });
 
 export default getLocalPlan;
 
@@ -185,34 +213,31 @@ if (import.meta.main) {
 
   const testCases = [
     {
-      name: "Melbourne CBD (with LGA)",
+      name: "Melbourne CBD",
       address: {
         addressLine: "Flinders Street Station",
         suburb: "Melbourne",
         state: "VIC" as const,
         postcode: "3000",
       },
-      lgaName: "Melbourne",
     },
     {
-      name: "Boroondara (with LGA)",
+      name: "Kew (Boroondara)",
       address: {
         addressLine: "7 English Place",
         suburb: "Kew",
         state: "VIC" as const,
         postcode: "3101",
       },
-      lgaName: "Boroondara",
     },
     {
-      name: "Yarra (from suburb)",
+      name: "Collingwood (Yarra)",
       address: {
         addressLine: "100 Smith Street",
         suburb: "Collingwood",
         state: "VIC" as const,
         postcode: "3066",
       },
-      lgaName: undefined,
     },
     {
       name: "Regional - Geelong",
@@ -222,51 +247,30 @@ if (import.meta.main) {
         state: "VIC" as const,
         postcode: "3220",
       },
-      lgaName: "Greater Geelong",
     },
     {
-      name: "Not in lookup table",
-      address: {
-        addressLine: "1 Main Street",
-        suburb: "SmallTown",
-        state: "VIC" as const,
-        postcode: "3999",
-      },
-      lgaName: "Unknown Council",
-    },
-    {
-      name: "LGA with suffix",
+      name: "Frankston",
       address: {
         addressLine: "50 Test Street",
         suburb: "Frankston",
         state: "VIC" as const,
         postcode: "3199",
       },
-      lgaName: "Frankston City Council",
-    },
-    {
-      name: "City of prefix",
-      address: {
-        addressLine: "789 Example Road",
-        suburb: "Port Melbourne",
-        state: "VIC" as const,
-        postcode: "3207",
-      },
-      lgaName: "City of Port Phillip",
     },
   ];
 
   for (const testCase of testCases) {
     console.log(`\nTest: ${testCase.name}`);
-    console.log(`Address: ${testCase.address.suburb}`);
-    console.log(`LGA: ${testCase.lgaName || "Not provided"}`);
+    console.log(
+      `Address: ${testCase.address.addressLine}, ${testCase.address.suburb}`
+    );
 
-    const { localPlan } = getLocalPlan({
-      address: testCase.address,
-      lgaName: testCase.lgaName,
-    });
+    const result = await Effect.runPromise(
+      getLocalPlan({ address: testCase.address })
+    );
 
-    console.log(`Result: ${localPlan || "undefined"}`);
+    console.log(`LGA: ${result.lgaName || "Not found"}`);
+    console.log(`Local Plan: ${result.localPlan || "Not found"}`);
   }
 
   console.log("\n" + "=".repeat(80));

@@ -126,31 +126,10 @@
     "name": "Planning and Zoning",
     "tasks": [
       {
-        "name": "Regional Plan",
+        "name": "Local Plan",
         "status": "done",
-        "description": "Derived from LGA - Plan Melbourne 2017-2050 for Greater Melbourne LGAs",
-        "note": "Automatically determined based on LGA location",
-        "url": ""
-      },
-      {
-        "name": "Land Use",
-        "status": "done",
-        "description": "Inferred from planning zone code (Residential, Commercial, Industrial, etc.)",
-        "note": "Derived from Vicmap Planning zone classification",
-        "url": ""
-      },
-      {
-        "name": "Planning Scheme",
-        "status": "done",
-        "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
-        "note": "Retrieved from Vicmap Planning WFS data",
-        "url": ""
-      },
-      {
-        "name": "Zone",
-        "status": "done",
-        "description": "From Vicmap Planning plan_zone WFS layer",
-        "note": "Includes zone code, description, and schedule number (e.g., 'TRANSPORT ZONE 2 - PRINCIPAL ROAD NETWORK - Schedule 7151')",
+        "description": "Municipal Strategic Statement lookup using comprehensive LGA/suburb mapping table",
+        "note": "getLocalPlan function created with 50+ Victorian council mappings covering Melbourne metro and regional areas with 19+ comprehensive unit tests",
         "url": ""
       },
       {
@@ -161,8 +140,43 @@
         "url": ""
       },
       {
-        "name": "Heritage Overlays",
+        "name": "Planning Scheme",
+        "status": "not-done",
+        "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
+        "note": "Retrieved from Vicmap Planning WFS data",
+        "url": ""
+      },
+      {
+        "name": "Regional Plan",
+        "status": "not-done",
+        "description": "Derived from LGA - Plan Melbourne 2017-2050 for Greater Melbourne LGAs",
+        "note": "Automatically determined based on LGA location",
+        "url": ""
+      },
+      {
+        "name": "Land Use",
+        "status": "not-done",
+        "description": "Inferred from planning zone code (Residential, Commercial, Industrial, etc.)",
+        "note": "Derived from Vicmap Planning zone classification",
+        "url": ""
+      },
+      {
+        "name": "Zone Description",
         "status": "done",
+        "description": "From Vicmap Planning plan_zone WFS layer",
+        "note": "Includes zone code, description, and schedule number (e.g., 'TRANSPORT ZONE 2 - PRINCIPAL ROAD NETWORK - Schedule 7151')",
+        "url": ""
+      },
+      {
+        "name": "Zone Code",
+        "status": "done",
+        "description": "From Vicmap Planning plan_zone WFS layer",
+        "note": "Just zone code, i.e GRZ2",
+        "url": ""
+      },
+      {
+        "name": "Heritage Overlays",
+        "status": "not-done",
         "description": "Extracted from planning overlays - specifically HO (Heritage Overlay) codes",
         "note": "Automatically filtered from overlay data. Example: HO485, HO109",
         "url": ""
@@ -172,13 +186,6 @@
         "status": "done",
         "description": "Derived from specific overlay combinations - analyzes planning overlay patterns to determine precinct classification",
         "note": "getZonePrecinct function created with 6 precinct types (Heritage, Design & Development, Environmental, Mixed Use, Activity Centre, Special Use) with 24+ comprehensive unit tests",
-        "url": ""
-      },
-      {
-        "name": "Local Plan",
-        "status": "done",
-        "description": "Municipal Strategic Statement lookup using comprehensive LGA/suburb mapping table",
-        "note": "getLocalPlan function created with 50+ Victorian council mappings covering Melbourne metro and regional areas with 19+ comprehensive unit tests",
         "url": ""
       },
       {

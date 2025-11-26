@@ -2,7 +2,7 @@ import { Address } from "../../../../../../shared/types";
 import { getLocalPlan } from "./getLocalPlan/getLocalPlan";
 import { getPlanningOverlay } from "./getPlanningOverlay/getPlanningOverlay";
 import { PlanningOverlayItem } from "./getPlanningOverlay/types";
-import { getPlanningSchemeZone } from "./getPlanningSchemeZone/getPlanningSchemeZone";
+import { getPlanningSchemeZone } from "./getPlanningZoneData/getPlanningZoneData";
 import { getZonePrecinct } from "./getZonePrecinct/getZonePrecinct";
 
 type Args = {

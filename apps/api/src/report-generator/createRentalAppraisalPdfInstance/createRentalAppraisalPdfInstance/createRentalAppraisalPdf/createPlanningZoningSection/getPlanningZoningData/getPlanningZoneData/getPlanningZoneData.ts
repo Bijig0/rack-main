@@ -5,6 +5,10 @@ import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
 import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { VicmapResponseSchema } from "../../../../../wfsDataToolkit/types";
 import {
+  getCachedPlanningZoneData,
+  setCachedPlanningZoneData,
+} from "./cache";
+import {
   PlanningSchemeZoneFeaturesSchema,
   PlanningZoneData,
   PlanningZoneDataSchema,
@@ -28,10 +32,20 @@ const PLANNING_ZONE_WFS_URL = WFS_DATA_URL;
  * - Zone descriptions
  * - Zone numbers
  * - LGA information
+ *
+ * Results are cached in-memory so subsequent calls for the same address
+ * (e.g., from getZoneCode, getZoneDescription) don't make redundant WFS calls.
  */
-export const getPlanningSchemeZone = async ({
+export const getPlanningZoneData = async ({
   address,
 }: Args): Promise<Return> => {
+  // Check cache first
+  const cached = getCachedPlanningZoneData(address);
+  if (cached !== undefined) {
+    console.log("📦 Using cached planning zone data");
+    return { planningZoneData: cached };
+  }
+
   try {
     const geocoded = await geocodeAddress({ address });
     if (!geocoded) {
@@ -83,6 +97,9 @@ export const getPlanningSchemeZone = async ({
     );
     console.log(`   LGA: ${lgaName || "Unknown"}`);
 
+    // Cache the result for subsequent calls
+    setCachedPlanningZoneData(address, planningZoneData);
+
     return { planningZoneData };
   } catch (error) {
     console.error("Error fetching planning scheme zone:", error);
@@ -91,7 +108,7 @@ export const getPlanningSchemeZone = async ({
 };
 
 if (import.meta.main) {
-  const { planningZoneData } = await getPlanningSchemeZone({
+  const { planningZoneData } = await getPlanningZoneData({
     address: {
       addressLine: "7 English Place",
       suburb: "Kew",
