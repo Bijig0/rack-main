@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GeometrySchema } from "../../../../../wfsDataToolkit/types";
+import { GeometrySchema } from "../../../../wfsDataToolkit/types";
 
 // Road classification types based on Vicmap Transport
 export const RoadClassificationSchema = z.enum([
@@ -77,14 +77,16 @@ export const NoiseSourceSchema = z.object({
 export type NoiseSource = z.infer<typeof NoiseSourceSchema>;
 
 // Noise pollution data
-export const NoisePollutionDataSchema = z.object({
-  noiseLevel: NoiseLevelSchema,
-  primarySources: z.array(NoiseSourceSchema),
-  nearbyRoadsCount: z.number(),
-  estimatedAverageNoiseLevel: z.number(), // Average dB(A)
-  trafficVolumeContribution: z.number().optional(), // Additional dB(A) from traffic volume
-  description: z.string(),
-});
+export const NoisePollutionDataSchema = z
+  .object({
+    noiseLevel: NoiseLevelSchema,
+    primarySources: z.array(NoiseSourceSchema),
+    nearbyRoadsCount: z.number(),
+    estimatedAverageNoiseLevel: z.number(), // Average dB(A)
+    trafficVolumeContribution: z.number().optional(), // Additional dB(A) from traffic volume
+    description: z.string(),
+  })
+  .nullish();
 
 export type NoisePollutionData = z.infer<typeof NoisePollutionDataSchema>;
 

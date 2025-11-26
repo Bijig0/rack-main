@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { Address } from "../../../../../../../shared/types";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { Address } from "../../../../../../shared/types";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import { analyzeOdourLevels, OdourLevelAnalysis } from "./analyzeOdourLevels";
 import { InferredWastewaterData } from "./createWastewaterResponseSchema/types";
 import { InferredEpaLicenceData } from "./getEpaLicensedPremises";
@@ -14,12 +14,13 @@ type Args = {
   address: Address;
 };
 
-type Return = {
+type OdourData = {
+  wasteWaterPlants: InferredWastewaterData[];
   landfills: InferredOdoursData[];
-  wastewaterPlants: InferredWastewaterData[];
-  industrialFacilities: InferredEpaLicenceData[];
-  odourLevelAnalysis: OdourLevelAnalysis;
-};
+  odourLevelAnalysis: OdourLevelAnalysis
+}
+
+type Return = OdourData
 
 /**
  * Get comprehensive odour level data from multiple sources
@@ -29,7 +30,7 @@ export const getOdourData = async ({ address }: Args): Promise<Return> => {
   const { lat, lon } = await geocodeAddress({ address });
 
   // Fetch all three datasets in parallel
-  const [landfills, wastewaterPlants, industrialFacilities] = await Promise.all(
+  const [landfills, wasteWaterPlants, industrialFacilities] = await Promise.all(
     [
       getLandfillData({ lat, lon }),
       getWastewaterTreatmentPlants({ lat, lon }),
@@ -40,7 +41,7 @@ export const getOdourData = async ({ address }: Args): Promise<Return> => {
   // Analyze odour levels based on all data sources
   const odourLevelAnalysis = analyzeOdourLevels({
     landfills,
-    wastewaterPlants,
+    wasteWaterPlants,
     industrialFacilities,
     propertyLat: lat,
     propertyLon: lon,
@@ -48,8 +49,8 @@ export const getOdourData = async ({ address }: Args): Promise<Return> => {
 
   return {
     landfills,
-    wastewaterPlants,
-    industrialFacilities,
+    wasteWaterPlants,
+    // industrialFacilities,
     odourLevelAnalysis,
   };
 };
@@ -57,8 +58,8 @@ export const getOdourData = async ({ address }: Args): Promise<Return> => {
 if (import.meta.main) {
   const {
     landfills,
-    wastewaterPlants,
-    industrialFacilities,
+    wasteWaterPlants,
+    // industrialFacilities,
     odourLevelAnalysis,
   } = await getOdourData({
     address: {
@@ -135,8 +136,8 @@ if (import.meta.main) {
 
   console.log("\n--- Data Summary ---");
   console.log(`Landfills: ${landfills.length}`);
-  console.log(`Wastewater Plants: ${wastewaterPlants.length}`);
-  console.log(`Industrial Facilities: ${industrialFacilities.length}`);
+  console.log(`Wastewater Plants: ${wasteWaterPlants.length}`);
+  // console.log(`Industrial Facilities: ${industrialFacilities.length}`);
 
   // Write to JSON file
   const outputPath = path.join(__dirname, "odour_level_analysis.json");
@@ -145,8 +146,8 @@ if (import.meta.main) {
     JSON.stringify(
       {
         landfills: landfills.slice(0, 10), // Limit to first 10 for readability
-        wastewaterPlants: wastewaterPlants.slice(0, 10),
-        industrialFacilities,
+        wasteWaterPlants: wasteWaterPlants.slice(0, 10),
+        // industrialFacilities,
         odourLevelAnalysis,
       },
       null,

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { createWfsParams } from "../../../../../wfsDataToolkit/createWfsParams/createWfsParams";
-import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
+import { createWfsParams } from "../../../../wfsDataToolkit/createWfsParams/createWfsParams";
+import { WFS_DATA_URL } from "../../../../wfsDataToolkit/defaults";
 import { getOdoursVicmapResponseSchema } from "./getOdoursVicmapResponseSchema";
 import { inferRawOdourData } from "./inferOdoursData/InferRawOdourData";
 import { InferredOdoursData } from "./types";

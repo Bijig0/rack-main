@@ -1,21 +1,17 @@
 #!/Users/a61403/.bun/bin/bun
 import * as turf from "@turf/turf";
 import axios from "axios";
-import { Address } from "../../../../../../../shared/types";
-import { createWfsParams } from "../../../../../wfsDataToolkit/createWfsParams/createWfsParams";
-import { WFS_DATA_URL } from "../../../../../wfsDataToolkit/defaults";
-import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { VicmapResponseSchema } from "../../../../../wfsDataToolkit/types";
+import { Address } from "../../../../../../shared/types";
+import { createWfsParams } from "../../../../wfsDataToolkit/createWfsParams/createWfsParams";
+import { WFS_DATA_URL } from "../../../../wfsDataToolkit/defaults";
+import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { VicmapResponseSchema } from "../../../../wfsDataToolkit/types";
 import { calculateDistance } from "../shared/calculateDistance/calculateDistance";
 import { checkIfPointInPolygon } from "../shared/checkIfPointInPolygon/checkIfPointInPolygon";
 import { determineSignificanceLevel } from "./determineSignificanceLevel/determineSignificanceLevel";
 import { generateDescription } from "./generateDescription/generateDescription";
 import { generateRecommendations } from "./generateRecommendations/generateRecommendations";
-import {
-  WaterwayData,
-  WaterwayFeature,
-  WaterwaySignificanceLevel,
-} from "./types";
+import { WaterwayData, WaterwayFeature } from "./types";
 
 type Args = {
   address: Address;
@@ -77,19 +73,29 @@ export const getWaterwayData = async ({
       // Filter for waterway-related overlays (FO, ESO, PAO)
       const waterwayOverlays = features.filter((feature: any) => {
         const code = feature.properties.scheme_code;
-        return code && (
-          code.startsWith("FO") || // Floodway Overlay
-          code.startsWith("PAO") || // Public Acquisition Overlay (waterways)
-          (code.startsWith("ESO") &&
-           feature.properties.zone_description?.toLowerCase().includes("water"))
+        return (
+          code &&
+          (code.startsWith("FO") || // Floodway Overlay
+            code.startsWith("PAO") || // Public Acquisition Overlay (waterways)
+            (code.startsWith("ESO") &&
+              feature.properties.zone_description
+                ?.toLowerCase()
+                .includes("water")))
         );
       });
 
-      console.log(`✅ Found ${waterwayOverlays.length} waterway-related overlay(s)`);
+      console.log(
+        `✅ Found ${waterwayOverlays.length} waterway-related overlay(s)`
+      );
 
       for (const feature of waterwayOverlays) {
-        const affectsProperty = checkIfPointInPolygon({ feature, point: propertyPoint });
-        const distance = affectsProperty ? 0 : calculateDistance({ feature, point: propertyPoint });
+        const affectsProperty = checkIfPointInPolygon({
+          feature,
+          point: propertyPoint,
+        });
+        const distance = affectsProperty
+          ? 0
+          : calculateDistance({ feature, point: propertyPoint });
 
         if (affectsProperty) {
           inWaterwayBuffer = true;
@@ -100,7 +106,9 @@ export const getWaterwayData = async ({
           featureType = "Floodway";
         } else if (feature.properties.scheme_code?.startsWith("PAO")) {
           featureType = "Waterway Reservation";
-        } else if (feature.properties.zone_description?.toLowerCase().includes("wetland")) {
+        } else if (
+          feature.properties.zone_description?.toLowerCase().includes("wetland")
+        ) {
           featureType = "Wetland";
         }
 
@@ -118,13 +126,23 @@ export const getWaterwayData = async ({
     // Sort by distance
     waterwayFeatures.sort((a, b) => a.distanceMeters - b.distanceMeters);
 
-    const significanceLevel = determineSignificanceLevel({ features: waterwayFeatures, inBuffer: inWaterwayBuffer });
+    const significanceLevel = determineSignificanceLevel({
+      features: waterwayFeatures,
+      inBuffer: inWaterwayBuffer,
+    });
     const requiresWaterwayAssessment = inWaterwayBuffer;
-    const nearestWaterwayDistance = waterwayFeatures.length > 0
-      ? waterwayFeatures[0].distanceMeters
-      : undefined;
-    const description = generateDescription({ level: significanceLevel, features: waterwayFeatures });
-    const recommendations = generateRecommendations({ level: significanceLevel, features: waterwayFeatures });
+    const nearestWaterwayDistance =
+      waterwayFeatures.length > 0
+        ? waterwayFeatures[0].distanceMeters
+        : undefined;
+    const description = generateDescription({
+      level: significanceLevel,
+      features: waterwayFeatures,
+    });
+    const recommendations = generateRecommendations({
+      level: significanceLevel,
+      features: waterwayFeatures,
+    });
 
     console.log(`✅ Waterway analysis complete: ${significanceLevel}`);
     console.log(`   In waterway buffer: ${inWaterwayBuffer ? "YES" : "NO"}`);
@@ -153,7 +171,8 @@ function createMinimalWaterwayData(): Return {
       waterwayFeatures: [],
       inWaterwayBuffer: false,
       requiresWaterwayAssessment: false,
-      description: "Minimal waterway significance - no identified waterway constraints.",
+      description:
+        "Minimal waterway significance - no identified waterway constraints.",
       recommendations: [
         "No significant waterway constraints identified",
         "Standard stormwater management practices apply",
@@ -186,22 +205,35 @@ if (import.meta.main) {
 
   for (const address of testAddresses) {
     console.log(`\n${"=".repeat(80)}`);
-    console.log(`Testing: ${address.addressLine}, ${address.suburb} ${address.postcode}`);
+    console.log(
+      `Testing: ${address.addressLine}, ${address.suburb} ${address.postcode}`
+    );
     console.log("=".repeat(80));
 
-    const { waterwayData } = await getWaterwayData({ address, bufferMeters: 200 });
+    const { waterwayData } = await getWaterwayData({
+      address,
+      bufferMeters: 200,
+    });
 
     console.log(`\nSignificance Level: ${waterwayData.significanceLevel}`);
-    console.log(`In Waterway Buffer: ${waterwayData.inWaterwayBuffer ? "YES" : "NO"}`);
+    console.log(
+      `In Waterway Buffer: ${waterwayData.inWaterwayBuffer ? "YES" : "NO"}`
+    );
     if (waterwayData.nearestWaterwayDistance !== undefined) {
-      console.log(`Nearest Waterway: ${Math.round(waterwayData.nearestWaterwayDistance)}m`);
+      console.log(
+        `Nearest Waterway: ${Math.round(waterwayData.nearestWaterwayDistance)}m`
+      );
     }
     console.log(`\nDescription: ${waterwayData.description}`);
 
     if (waterwayData.waterwayFeatures.length > 0) {
-      console.log(`\nWaterway Features (${waterwayData.waterwayFeatures.length}):`);
+      console.log(
+        `\nWaterway Features (${waterwayData.waterwayFeatures.length}):`
+      );
       waterwayData.waterwayFeatures.forEach((feature, i) => {
-        console.log(`  ${i + 1}. ${feature.featureType} - ${Math.round(feature.distanceMeters)}m`);
+        console.log(
+          `  ${i + 1}. ${feature.featureType} - ${Math.round(feature.distanceMeters)}m`
+        );
         if (feature.name) {
           console.log(`     ${feature.name}`);
         }

@@ -11,7 +11,7 @@ type Args = {
 };
 
 type Return = {
-  floodRiskData: FloodRiskData | null;
+  floodRiskData: FloodRiskData;
 };
 
 /**

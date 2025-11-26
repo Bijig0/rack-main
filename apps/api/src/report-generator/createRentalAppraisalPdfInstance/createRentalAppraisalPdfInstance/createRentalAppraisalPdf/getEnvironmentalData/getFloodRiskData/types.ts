@@ -84,7 +84,7 @@ export const FloodRiskDataSchema = z.object({
   minimumDistanceToFloodZone: z.number().optional(), // Meters to nearest flood zone
   description: z.string(),
   recommendations: z.array(z.string()).optional(), // Planning and risk mitigation advice
-});
+}).nullish();
 
 export type FloodRiskData = z.infer<typeof FloodRiskDataSchema>;
 export type InferredFloodRiskData = FloodRiskData;

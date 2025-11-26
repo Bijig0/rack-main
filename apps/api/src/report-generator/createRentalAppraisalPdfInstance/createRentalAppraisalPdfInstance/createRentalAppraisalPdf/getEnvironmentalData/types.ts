@@ -1,25 +1,24 @@
 import { BiodiversityData } from "./getBiodiversityData/createBiodiversityResponseSchema/types";
-import { InferredBushfireRiskData } from "./getBushFireRiskData/createBushfireRiskResponseSchema/types";
 import { BushfireRiskData } from "./getBushFireRiskData/getBushfireRiskData";
-import { InferredEasementData } from "./getEasmentsData/types";
-import { InferredFloodRiskData } from "./getFloodRiskData/types";
-import { InferredHeritageData } from "./getHeritageData/createHeritageResponseSchema/inferRawHeritageData/types";
-import { NoisePollutionData as InferredNoisePollutionData } from "./getNoisePollutionData/types";
-import { InferredOdoursData } from "./getOdoursData/types";
-
-
+import { CharacterData } from "./getCharacterData/types";
+import { CoastalHazardData } from "./getCoastalHazardData/types";
+import { EasementData } from "./getEasmentsData/types";
+import { FloodRiskData } from "./getFloodRiskData/types";
+import { HeritageAnalysisData } from "./getHeritageData/analyzeHeritageData";
+import { NoisePollutionData } from "./getNoisePollutionData/types";
+import { SteepLandData } from "./getSteepLandData/types";
+import { WaterwayData } from "./getWaterwayData/types";
 
 export type EnvironmentalData = {
-  easements?: EasementData;
-  heritage?: HeritageData;
-  character?: CharacterData;
-  floodRisk?: FloodRiskData;
   biodiversity?: BiodiversityData;
-  coastalHazards?: CoastalHazardsData;
-  waterways?: WaterwaysData;
-  wetlands?: WetlandsData;
   bushfireRisk?: BushfireRiskData;
-  steepLand?: SteepLandData;
-  noisePollution?: NoisePollutionData;
-  odours?: OdoursData;
+  characterData?: CharacterData;
+  coastalHazardsData?: CoastalHazardData;
+  easementsData?: EasementData;
+  heritageData?: HeritageAnalysisData;
+  floodRiskData?: FloodRiskData;
+  waterwaysData?: WaterwayData;
+  steepLandData?: SteepLandData;
+  noisePollutionData?: NoisePollutionData;
+  odoursData?: OdourData;
 };

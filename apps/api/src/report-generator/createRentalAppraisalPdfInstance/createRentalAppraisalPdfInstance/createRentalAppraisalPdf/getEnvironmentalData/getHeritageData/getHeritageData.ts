@@ -1,5 +1,5 @@
 #!/Users/a61403/.bun/bin/bun
-import { Address } from "../../../../../../../shared/types";
+import { Address } from "../../../../../../shared/types";
 import { analyzeHeritageData, HeritageAnalysisData } from "./analyzeHeritageData";
 
 type Args = {

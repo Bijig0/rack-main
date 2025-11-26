@@ -4,7 +4,7 @@ import { InferredEpaLicenceData } from "./getEpaLicensedPremises";
 
 type Args = {
   landfills: InferredOdoursData[];
-  wastewaterPlants: InferredWastewaterData[];
+  wasteWaterPlants: InferredWastewaterData[];
   industrialFacilities: InferredEpaLicenceData[];
   propertyLat: number;
   propertyLon: number;
@@ -53,14 +53,14 @@ export type OdourLevelAnalysis = {
  */
 export function analyzeOdourLevels({
   landfills,
-  wastewaterPlants,
+  wasteWaterPlants,
   industrialFacilities,
   propertyLat,
   propertyLon,
 }: Args): OdourLevelAnalysis {
   // Get closest sources
   const closestLandfill = landfills[0]; // Already sorted by distance
-  const closestWastewaterPlant = wastewaterPlants[0];
+  const closestWastewaterPlant = wasteWaterPlants[0];
   const closestIndustrialFacility = industrialFacilities[0];
 
   // Count sources within different radii
@@ -68,7 +68,7 @@ export function analyzeOdourLevels({
     (l) => (l.distance?.measurement ?? Infinity) <= 10
   ).length;
 
-  const wastewaterPlantsWithin10km = wastewaterPlants.filter(
+  const wastewaterPlantsWithin10km = wasteWaterPlants.filter(
     (w) => (w.distance?.measurement ?? Infinity) <= 10
   ).length;
 

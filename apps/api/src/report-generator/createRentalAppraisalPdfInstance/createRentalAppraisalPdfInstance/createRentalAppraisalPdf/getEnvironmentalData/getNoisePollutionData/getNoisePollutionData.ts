@@ -11,7 +11,7 @@ type Args = {
 };
 
 type Return = {
-  noisePollutionData: NoisePollutionData | null;
+  noisePollutionData: NoisePollutionData;
 };
 
 /**
