@@ -1,3 +1,4 @@
+import z from "zod";
 import { InferredBushfireRiskData } from "./createBushfireRiskResponseSchema/types";
 import { InferredFireHistoryData } from "./createFireHistoryResponseSchema/types";
 import { InferredFireManagementZone } from "./getFireManagementZones/types";
@@ -10,40 +11,47 @@ type Args = {
   propertyLon: number;
 };
 
-export type BushfireRiskLevel = "LOW" | "MEDIUM" | "HIGH" | "EXTREME";
+const DistanceSchema = z.object({
+  measurement: z.number(),
+  unit: z.string(),
+});
 
-export type BushfireRiskAnalysis = {
-  overallRisk: BushfireRiskLevel;
-  riskFactors: {
-    inBushfireProneArea: boolean;
-    distanceToProneArea?: {
-      measurement: number;
-      unit: string;
-    };
-    historicalFiresNearby: number;
-    recentFiresNearby: number; // Fires in last 10 years
-    fireManagementZone?: {
-      zoneTypeDescription: string;
-      isWithinZone: boolean;
-      distance: {
-        measurement: number;
-        unit: string;
-      };
-    };
-    closestHistoricalFire?: {
-      distance: {
-        measurement: number;
-        unit: string;
-      };
-      fireName?: string;
-      fireSeason?: string;
-      fireType?: string;
-    };
-  };
-  summary: string;
-  recommendations: string[];
-};
+export const BushfireRiskLevelSchema = z.enum([
+  "LOW",
+  "MEDIUM",
+  "HIGH",
+  "EXTREME",
+]);
 
+export const BushfireRiskAnalysisSchema = z.object({
+  overallRisk: BushfireRiskLevelSchema,
+  riskFactors: z.object({
+    inBushfireProneArea: z.boolean(),
+    distanceToProneArea: DistanceSchema.optional(),
+    historicalFiresNearby: z.number(),
+    recentFiresNearby: z.number(),
+    fireManagementZone: z
+      .object({
+        zoneTypeDescription: z.string(),
+        isWithinZone: z.boolean(),
+        distance: DistanceSchema,
+      })
+      .optional(),
+    closestHistoricalFire: z
+      .object({
+        distance: DistanceSchema,
+        fireName: z.string().optional(),
+        fireSeason: z.string().optional(),
+        fireType: z.string().optional(),
+      })
+      .optional(),
+  }),
+  summary: z.string(),
+  recommendations: z.array(z.string()),
+});
+
+export type BushfireRiskLevel = z.infer<typeof BushfireRiskLevelSchema>;
+export type BushfireRiskAnalysis = z.infer<typeof BushfireRiskAnalysisSchema>;
 
 /**
  * Analyze bushfire risk based on multiple data sources
@@ -59,7 +67,8 @@ export function analyzeBushfireRisk({
   const inBushfireProneArea = bushfireProneAreas.length > 0;
 
   // Get fire management zone information (optional)
-  const closestZone = fireManagementZones.length > 0 ? fireManagementZones[0] : undefined;
+  const closestZone =
+    fireManagementZones.length > 0 ? fireManagementZones[0] : undefined;
   const inFireManagementZone = closestZone?.isWithinZone || false;
 
   // Count fires within different radii
@@ -78,7 +87,9 @@ export function analyzeBushfireRisk({
     const seasonMatch = f.fireSeason.match(/(\d{4})/);
     if (!seasonMatch) return false;
     const year = parseInt(seasonMatch[1]);
-    return year >= currentYear - 10 && (f.distance?.measurement ?? Infinity) <= 10;
+    return (
+      year >= currentYear - 10 && (f.distance?.measurement ?? Infinity) <= 10
+    );
   }).length;
 
   // Get closest historical fire
@@ -169,9 +180,12 @@ function calculateRiskScore(factors: {
   // Fire management zone scoring based on zone type
   // Zone types: 1 = Asset Protection Zone, 2 = Bushfire Moderation Zone, 3 = Landscape Management Zone
   if (factors.inFireManagementZone) {
-    if (factors.fireManagementZoneType === 1) score += 2; // Asset Protection Zone (high risk)
-    else if (factors.fireManagementZoneType === 2) score += 1.5; // Bushfire Moderation Zone
-    else if (factors.fireManagementZoneType === 3) score += 1; // Landscape Management Zone
+    if (factors.fireManagementZoneType === 1)
+      score += 2; // Asset Protection Zone (high risk)
+    else if (factors.fireManagementZoneType === 2)
+      score += 1.5; // Bushfire Moderation Zone
+    else if (factors.fireManagementZoneType === 3)
+      score += 1; // Landscape Management Zone
     else score += 0.5; // Other zones
   }
 
@@ -198,10 +212,14 @@ function generateSummary(factors: {
 }): string {
   const parts = [];
 
-  parts.push(`This property has a ${factors.overallRisk} bushfire risk rating.`);
+  parts.push(
+    `This property has a ${factors.overallRisk} bushfire risk rating.`
+  );
 
   if (factors.inBushfireProneArea) {
-    parts.push("The property is located within a designated bushfire prone area.");
+    parts.push(
+      "The property is located within a designated bushfire prone area."
+    );
   } else {
     parts.push("The property is not within a designated bushfire prone area.");
   }
@@ -255,9 +273,7 @@ function generateRecommendations(factors: {
     recommendations.push(
       "Ensure property has adequate defendable space and fuel load management"
     );
-    recommendations.push(
-      "Install ember-proof screens on windows and vents"
-    );
+    recommendations.push("Install ember-proof screens on windows and vents");
     recommendations.push(
       "Consider bushfire-rated construction materials for any renovations"
     );
@@ -293,9 +309,7 @@ function generateRecommendations(factors: {
     );
   }
 
-  recommendations.push(
-    "Register for emergency alerts with VicEmergency"
-  );
+  recommendations.push("Register for emergency alerts with VicEmergency");
   recommendations.push(
     "Prepare an emergency evacuation kit and know evacuation routes"
   );

@@ -1,8 +1,10 @@
 import { z } from "zod";
+import { EnvironmentalDataSchema } from "../getEnvironmentalData/types";
 import { InfrastructureDataSchema } from "../getInfrastructureData/types/types";
 import { LocationAndSuburbDataSchema } from "../getLocationAndSuburbData/getLocationAndSuburbData";
 import { PlanningZoningDataSchema } from "../getPlanningZoningData/types";
 import { PropertyInfoSchema } from "../getPropertyInfo/utils/types";
+import { CoverPageDataSchema } from "../getCoverPageData/getCoverPageData";
 
 // ============================================================================
 // Rental Appraisal Data Schema (Merged)
@@ -17,7 +19,7 @@ export const RentalAppraisalDataSchema = z.object({
   environmentalData: EnvironmentalDataSchema,
   infrastructureData: InfrastructureDataSchema,
   locationAndSuburbData: LocationAndSuburbDataSchema,
-  pricelabsData: PricelabsDataSchema,
+  // pricelabsData: PricelabsDataSchema,
 });
 
 export type RentalAppraisalData = z.infer<typeof RentalAppraisalDataSchema>;

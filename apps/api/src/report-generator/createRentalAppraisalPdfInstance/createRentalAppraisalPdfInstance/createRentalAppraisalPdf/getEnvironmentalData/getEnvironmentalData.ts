@@ -21,7 +21,6 @@ type Return = {
 };
 
 const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
-
   console.log(
     `Fetching environmental data for: ${address.addressLine}, ${address.suburb} ${address.state} ${address.postcode}`
   );
@@ -33,11 +32,6 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   const { fireHistory, fireManagementZones, riskAnalysis } =
     await getBushfireRiskData({ address });
-
-  // Force garbage collection after loading large fire management data
-  if (typeof Bun !== 'undefined' && Bun.gc) {
-    Bun.gc(true);
-  }
 
   const { characterData } = await getCharacterData({ address });
 
@@ -60,7 +54,7 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   const environmentalData = {
     biodiversity: biodiversityData,
-    bushfireRisk: { fireHistory, fireManagementZones, riskAnalysis },
+    bushfireRisk: { fireHistory, riskAnalysis },
     characterData: characterData,
     coastalHazardsData: coastalHazardData,
     easementsData: easementData,
@@ -72,7 +66,7 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
     odoursData: {
       odourLevelAnalysis,
       landfills: landfills.slice(0, 3),
-      wastewaterPlants: wasteWaterPlants.slice(0, 3),
+      wasteWaterPlants: wasteWaterPlants.slice(0, 3),
     },
   } satisfies EnvironmentalData;
 

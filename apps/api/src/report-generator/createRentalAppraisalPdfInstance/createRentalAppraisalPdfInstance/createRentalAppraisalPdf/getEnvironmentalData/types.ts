@@ -1,24 +1,28 @@
-import { BiodiversityData } from "./getBiodiversityData/createBiodiversityResponseSchema/types";
-import { BushfireRiskData } from "./getBushFireRiskData/getBushfireRiskData";
-import { CharacterData } from "./getCharacterData/types";
-import { CoastalHazardData } from "./getCoastalHazardData/types";
-import { EasementData } from "./getEasmentsData/types";
-import { FloodRiskData } from "./getFloodRiskData/types";
-import { HeritageAnalysisData } from "./getHeritageData/analyzeHeritageData";
-import { NoisePollutionData } from "./getNoisePollutionData/types";
-import { SteepLandData } from "./getSteepLandData/types";
-import { WaterwayData } from "./getWaterwayData/types";
+import z from "zod";
+import { BiodiversityDataSchema } from "./getBiodiversityData/createBiodiversityResponseSchema/types";
+import { CharacterDataSchema } from "./getCharacterData/types";
+import { CoastalHazardDataSchema } from "./getCoastalHazardData/types";
+import { EasementDataSchema } from "./getEasmentsData/types";
+import { FloodRiskDataSchema } from "./getFloodRiskData/types";
+import { HeritageAnalysisDataSchema } from "./getHeritageData/analyzeHeritageData";
+import { NoisePollutionDataSchema } from "./getNoisePollutionData/types";
+import { OdourDataSchema } from "./getOdoursData/getOdourData";
+import { SteepLandDataSchema } from "./getSteepLandData/types";
+import { WaterwayDataSchema } from "./getWaterwayData/types";
+import { BushfireRiskDataSchema } from "./getBushFireRiskData/getBushfireRiskData";
 
-export type EnvironmentalData = {
-  biodiversity?: BiodiversityData;
-  bushfireRisk?: BushfireRiskData;
-  characterData?: CharacterData;
-  coastalHazardsData?: CoastalHazardData;
-  easementsData?: EasementData;
-  heritageData?: HeritageAnalysisData;
-  floodRiskData?: FloodRiskData;
-  waterwaysData?: WaterwayData;
-  steepLandData?: SteepLandData;
-  noisePollutionData?: NoisePollutionData;
-  odoursData?: OdourData;
-};
+export const EnvironmentalDataSchema = z.object({
+  biodiversity: BiodiversityDataSchema.nullable(),
+  bushfireRisk: BushfireRiskDataSchema.nullable(),
+  characterData: CharacterDataSchema.nullable(),
+  coastalHazardsData: CoastalHazardDataSchema.nullable(),
+  easementsData: EasementDataSchema.nullable(),
+  heritageData: HeritageAnalysisDataSchema.nullable(),
+  floodRiskData: FloodRiskDataSchema.nullable(),
+  waterwaysData: WaterwayDataSchema.nullable(),
+  steepLandData: SteepLandDataSchema.nullable(),
+  noisePollutionData: NoisePollutionDataSchema.nullable(),
+  odoursData: OdourDataSchema,
+});
+
+export type EnvironmentalData = z.infer<typeof EnvironmentalDataSchema>;

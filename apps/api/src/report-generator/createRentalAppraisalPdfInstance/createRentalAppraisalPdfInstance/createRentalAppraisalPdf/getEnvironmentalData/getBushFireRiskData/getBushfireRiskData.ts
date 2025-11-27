@@ -1,21 +1,34 @@
 import fs from "fs";
 import path from "path";
+import z from "zod";
 import { Address } from "../../../../../../shared/types";
 import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
 import {
   analyzeBushfireRisk,
   BushfireRiskAnalysis,
+  BushfireRiskAnalysisSchema,
 } from "./analyzeBushfireRisk";
-import { InferredBushfireRiskData } from "./createBushfireRiskResponseSchema/types";
-import { InferredFireHistoryData } from "./createFireHistoryResponseSchema/types";
+import {
+  InferredFireHistoryData,
+  InferredFireHistoryDataSchema,
+} from "./createFireHistoryResponseSchema/types";
 import { getBushfireProneAreas } from "./getBushfireProneAreas";
 import { getFireHistory } from "./getFireHistory";
-import { getFireManagementZones } from "./getFireManagementZones/getFireManagementZones";
-import { InferredFireManagementZone } from "./getFireManagementZones/types";
+import {
+  InferredFireManagementZone,
+  InferredFireManagementZoneSchema,
+} from "./getFireManagementZones/types";
 
 type Args = {
   address: Address;
 };
+
+export const BushfireRiskDataSchema = z.object({
+  // bushfireProneAreas: InferredBushfireRiskDataSchema.array(),
+  fireHistory: InferredFireHistoryDataSchema.array(),
+  // fireManagementZones: InferredFireManagementZoneSchema.array().nullable(),
+  riskAnalysis: BushfireRiskAnalysisSchema,
+});
 
 export type BushfireRiskData = {
   // bushfireProneAreas: InferredBushfireRiskData[];
@@ -24,7 +37,7 @@ export type BushfireRiskData = {
   riskAnalysis: BushfireRiskAnalysis;
 };
 
-type Return = BushfireRiskData
+type Return = BushfireRiskData;
 
 /**
  * Get comprehensive bushfire risk data from multiple sources
@@ -36,12 +49,11 @@ export const getBushfireRiskData = async ({
   const { lat, lon } = await geocodeAddress({ address });
 
   // Fetch all three datasets in parallel
-  const [bushfireProneAreas, fireHistory] =
-    await Promise.all([
-      getBushfireProneAreas({ lat, lon }),
-      getFireHistory({ lat, lon }),
-      // getFireManagementZones({ lat, lon }),
-    ]);
+  const [bushfireProneAreas, fireHistory] = await Promise.all([
+    getBushfireProneAreas({ lat, lon }),
+    getFireHistory({ lat, lon }),
+    // getFireManagementZones({ lat, lon }),
+  ]);
 
   // Analyze risk based on all data sources
   const riskAnalysis = analyzeBushfireRisk({
@@ -60,7 +72,7 @@ export const getBushfireRiskData = async ({
 };
 
 if (import.meta.main) {
-  const {  fireHistory, fireManagementZones, riskAnalysis } =
+  const { fireHistory, fireManagementZones, riskAnalysis } =
     await getBushfireRiskData({
       address: {
         addressLine: "Flinders Street Station",

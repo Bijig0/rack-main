@@ -1,23 +1,29 @@
 import fs from "fs";
 import path from "path";
+import z from "zod";
 import { Address } from "../../../../../../shared/types";
 import { geocodeAddress } from "../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import { analyzeOdourLevels, OdourLevelAnalysis } from "./analyzeOdourLevels";
-import { InferredWastewaterData } from "./createWastewaterResponseSchema/types";
+import {
+  analyzeOdourLevels,
+  OdourLevelAnalysisSchema,
+} from "./analyzeOdourLevels";
+import { InferredWastewaterDataSchema } from "./createWastewaterResponseSchema/types";
 import { getIndustrialFacilities } from "./getIndustrialFacilities";
 import { getLandfillData } from "./getLandfillData";
 import { getWastewaterTreatmentPlants } from "./getWastewaterTreatmentPlants";
-import { InferredOdoursData } from "./types";
+import { InferredOdoursDataSchema } from "./types";
 
 type Args = {
   address: Address;
 };
 
-type OdourData = {
-  wasteWaterPlants: InferredWastewaterData[];
-  landfills: InferredOdoursData[];
-  odourLevelAnalysis: OdourLevelAnalysis;
-};
+export const OdourDataSchema = z.object({
+  wasteWaterPlants: InferredWastewaterDataSchema.array(),
+  landfills: InferredOdoursDataSchema.array(),
+  odourLevelAnalysis: OdourLevelAnalysisSchema,
+});
+
+export type OdourData = z.infer<typeof OdourDataSchema>;
 
 type Return = OdourData;
 

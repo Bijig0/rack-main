@@ -1,6 +1,7 @@
-import { InferredOdoursData } from "./types";
+import z from "zod";
 import { InferredWastewaterData } from "./createWastewaterResponseSchema/types";
 import { InferredEpaLicenceData } from "./getEpaLicensedPremises";
+import { InferredOdoursData } from "./types";
 
 type Args = {
   landfills: InferredOdoursData[];
@@ -12,41 +13,46 @@ type Args = {
 
 export type OdourLevel = "MINIMAL" | "LOW" | "MODERATE" | "HIGH" | "VERY_HIGH";
 
-export type OdourLevelAnalysis = {
-  overallLevel: OdourLevel;
-  odourSources: {
-    closestLandfill?: {
-      distance: {
-        measurement: number;
-        unit: string;
-      };
-      name: string;
-      status: string;
-    };
-    closestWastewaterPlant?: {
-      distance: {
-        measurement: number;
-        unit: string;
-      };
-      name: string;
-      operator?: string;
-    };
-    closestIndustrialFacility?: {
-      distance: {
-        measurement: number;
-        unit: string;
-      };
-      name: string;
-      activity: string;
-    };
-    landfillsWithin10km: number;
-    wastewaterPlantsWithin10km: number;
-    industrialFacilitiesWithin5km: number;
-  };
-  summary: string;
-  considerations: string[];
-};
+const DistanceSchema = z.object({
+  measurement: z.number(),
+  unit: z.string(),
+});
 
+const OdourLevelSchema = z.enum(["low", "moderate", "high"]); // adjust values as needed
+
+export const OdourLevelAnalysisSchema = z.object({
+  overallLevel: OdourLevelSchema,
+  odourSources: z.object({
+    closestLandfill: z
+      .object({
+        distance: DistanceSchema,
+        name: z.string(),
+        status: z.string(),
+      })
+      .optional(),
+    closestWastewaterPlant: z
+      .object({
+        distance: DistanceSchema,
+        name: z.string(),
+        operator: z.string().optional(),
+      })
+      .optional(),
+    closestIndustrialFacility: z
+      .object({
+        distance: DistanceSchema,
+        name: z.string(),
+        activity: z.string(),
+      })
+      .optional(),
+    landfillsWithin10km: z.number(),
+    wastewaterPlantsWithin10km: z.number(),
+    industrialFacilitiesWithin5km: z.number(),
+  }),
+  summary: z.string(),
+  considerations: z.array(z.string()),
+});
+
+export type OdourLevelAnalysis = z.infer<typeof OdourLevelAnalysisSchema>;
 /**
  * Analyze odour levels based on proximity to odour-emitting sources
  * This assesses how odorous a location is, not risk factors
@@ -158,16 +164,21 @@ function calculateOdourIntensityScore(factors: {
 
   // Closest landfill scoring - based on typical odour dispersion distances
   if (factors.closestLandfillDistance) {
-    if (factors.closestLandfillDistance <= 2) score += 5; // Very close - strong odour likely
-    else if (factors.closestLandfillDistance <= 5) score += 3; // Moderate distance - odour probable
-    else if (factors.closestLandfillDistance <= 10) score += 2; // Some distance - occasional odour
+    if (factors.closestLandfillDistance <= 2)
+      score += 5; // Very close - strong odour likely
+    else if (factors.closestLandfillDistance <= 5)
+      score += 3; // Moderate distance - odour probable
+    else if (factors.closestLandfillDistance <= 10)
+      score += 2; // Some distance - occasional odour
     else score += 1; // Far - minimal odour impact
   }
 
   // Closest wastewater plant scoring
   if (factors.closestWastewaterDistance) {
-    if (factors.closestWastewaterDistance <= 2) score += 4; // Very close - odour likely
-    else if (factors.closestWastewaterDistance <= 5) score += 2; // Moderate distance
+    if (factors.closestWastewaterDistance <= 2)
+      score += 4; // Very close - odour likely
+    else if (factors.closestWastewaterDistance <= 5)
+      score += 2; // Moderate distance
     else if (factors.closestWastewaterDistance <= 10) score += 1; // Some distance
   }
 
@@ -213,7 +224,9 @@ function generateOdourSummary(factors: {
         "At this distance, odour from the landfill may be noticeable, especially on hot days or with certain wind conditions."
       );
     } else if (dist <= 5) {
-      parts.push("Occasional odour from the landfill may be detected under certain wind conditions.");
+      parts.push(
+        "Occasional odour from the landfill may be detected under certain wind conditions."
+      );
     }
   }
 
@@ -224,7 +237,9 @@ function generateOdourSummary(factors: {
     );
 
     if (dist <= 2) {
-      parts.push("Odour from wastewater treatment may occasionally be noticeable.");
+      parts.push(
+        "Odour from wastewater treatment may occasionally be noticeable."
+      );
     }
   }
 
@@ -247,7 +262,11 @@ function generateOdourSummary(factors: {
     );
   }
 
-  if (!factors.closestLandfill && !factors.closestWastewaterPlant && !factors.closestIndustrialFacility) {
+  if (
+    !factors.closestLandfill &&
+    !factors.closestWastewaterPlant &&
+    !factors.closestIndustrialFacility
+  ) {
     parts.push("No significant odour sources were identified nearby.");
   }
 
@@ -276,16 +295,11 @@ function generateOdourConsiderations(factors: {
     );
   }
 
-  if (
-    factors.closestLandfillDistance &&
-    factors.closestLandfillDistance <= 5
-  ) {
+  if (factors.closestLandfillDistance && factors.closestLandfillDistance <= 5) {
     considerations.push(
       "Review the landfill's operating hours and EPA license conditions"
     );
-    considerations.push(
-      "Check if the landfill has an odour management plan"
-    );
+    considerations.push("Check if the landfill has an odour management plan");
     considerations.push(
       "Consider air conditioning to minimize the need to open windows"
     );
@@ -304,18 +318,14 @@ function generateOdourConsiderations(factors: {
   }
 
   if (factors.overallLevel === "MODERATE" || factors.overallLevel === "LOW") {
-    considerations.push(
-      "Be aware that odour intensity can vary seasonally"
-    );
+    considerations.push("Be aware that odour intensity can vary seasonally");
     considerations.push(
       "Hot, still days can increase odour intensity from distant sources"
     );
   }
 
   if (factors.overallLevel === "MINIMAL") {
-    considerations.push(
-      "Odour sources are distant - minimal impact expected"
-    );
+    considerations.push("Odour sources are distant - minimal impact expected");
   }
 
   considerations.push(

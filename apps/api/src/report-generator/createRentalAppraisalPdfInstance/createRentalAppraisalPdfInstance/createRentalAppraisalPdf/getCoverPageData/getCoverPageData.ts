@@ -1,7 +1,7 @@
-import { Address } from "../../../../../../shared/types";
-import { CoverPageData } from "../../getRentalAppraisalData/schemas";
+import z from "zod";
 import { formatAddress } from "./formatAddress/formatAddress";
 import getReportDate from "./getReportDate/getReportDate";
+import { Address } from "../../../../../shared/types";
 
 type Args = {
   address: Address;
@@ -10,6 +10,13 @@ type Args = {
 type Return = {
   coverPageData: CoverPageData;
 };
+
+export const CoverPageDataSchema = z.object({
+  addressCommonName: z.string(),
+  reportDate: z.string(),
+});
+
+export type CoverPageData = z.infer<typeof CoverPageDataSchema>;
 
 const getCoverPageData = async ({ address }: Args): Promise<Return> => {
   const formattedAddress = formatAddress({ address });
