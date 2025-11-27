@@ -23,17 +23,6 @@ const createRentalAppraisalPDF = async ({
 };
 
 if (import.meta.main) {
-  // Keep process alive until we're done
-  const keepAlive = setInterval(() => {}, 1000);
-
-  process.on('beforeExit', () => {
-    console.log('beforeExit event');
-  });
-
-  process.on('exit', (code) => {
-    console.log(`exit event with code ${code}`);
-  });
-
   try {
     console.log("🚀 Starting main...");
     const rentalAppraisalData = await createRentalAppraisalPDF({
@@ -49,10 +38,7 @@ if (import.meta.main) {
     console.log(JSON.stringify(rentalAppraisalData, null, 2));
   } catch (error) {
     console.error("❌ Error:", error);
-  } finally {
-    clearInterval(keepAlive);
-    console.log("✅ Main complete");
-  }
+  } 
 }
 
 export default createRentalAppraisalPDF;
