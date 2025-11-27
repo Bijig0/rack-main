@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 import { Scraper } from "../../../types";
 import { ScraperBaseArgs } from "../../../types/scraper";
 import { createAntiBotBrowserContext } from "../../utils/createBrowserContext/createAntiBotBrowserContext";

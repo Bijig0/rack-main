@@ -1,5 +1,7 @@
 import { z } from "zod";
-import { PropertyInfoSchema } from "../createPropertyInfoSection/getPropertyInfo/utils/types";
+import { LocationAndSuburbDataSchema } from "../getLocationAndSuburbData/getLocationAndSuburbData";
+import { PropertyInfoSchema } from "../getPropertyInfo/utils/types";
+import { PlanningZoningDataSchema } from "../getPlanningZoningData/types";
 
 // ============================================================================
 // Cover Page Data Schema
@@ -12,33 +14,6 @@ export const CoverPageDataSchema = z.object({
 
 export type CoverPageData = z.infer<typeof CoverPageDataSchema>;
 
-// ============================================================================
-// Planning Zoning Data Schema
-// ============================================================================
-
-export const PlanningOverlayItemSchema = z.object({
-  overlayCode: z.string(),
-  overlayNumber: z.number().optional(),
-  overlayDescription: z.string(),
-});
-
-export const PlanningZoningDataSchema = z
-  .object({
-    regionalPlan: z.string().optional(),
-    landUse: z.string().optional(),
-    planningScheme: z.string().optional(),
-    zone: z.string().optional(),
-    zoneCode: z.string().optional(),
-    overlays: z.array(PlanningOverlayItemSchema).optional(),
-    heritageOverlays: z.array(z.string()).optional(),
-    zonePrecinct: z.string().optional(),
-    localPlan: z.string().optional(),
-    localPlanPrecinct: z.string().optional(),
-    localPlanSubprecinct: z.string().optional(),
-  })
-  .nullable();
-
-export type PlanningZoningData = z.infer<typeof PlanningZoningDataSchema>;
 
 // ============================================================================
 // Environmental Data Schema
@@ -147,10 +122,10 @@ export type PricelabsData = z.infer<typeof PricelabsDataSchema>;
 export const RentalAppraisalDataSchema = z.object({
   coverPageData: CoverPageDataSchema,
   propertyInfo: PropertyInfoSchema,
-  planningZoningData: PlanningZoningDataSchema,
+  planningZoningData: PlanningZoningDataSchema.nullable(),
   environmentalData: EnvironmentalDataSchema,
   infrastructureData: InfrastructureDataSchema,
-  locationSuburbData: LocationSuburbDataSchema,
+  locationAndSuburbData: LocationAndSuburbDataSchema,
   pricelabsData: PricelabsDataSchema,
 });
 

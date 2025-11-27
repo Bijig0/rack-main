@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 
 // Map of full street type names to Google-style abbreviations
 const STREET_TYPE_ABBREVIATIONS: Record<string, string> = {

@@ -1,157 +1,186 @@
-import fs from "fs";
-import path from "path";
-import { gunzipSync } from "zlib";
+import crypto from "crypto";
+import { PTV_DEV_ID, PTV_DEV_KEY } from "../../../../../../../shared/config";
 import type { Address } from "../../../../../../../shared/types";
 import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
-import {
-  InferredTransportStop,
-  TransportLineFeature,
-  TransportLinesCollectionSchema,
-  TransportStopFeature,
-  TransportStopsCollectionSchema,
-} from "./types";
+import { InferredTransportStop } from "./types";
+
+// PTV API Configuration
+const PTV_BASE_URL = "https://timetableapi.ptv.vic.gov.au";
 
 type Args = {
   address: Address;
-  radiusKm?: number; // Default to 5km
+  radiusKm?: number; // Default to 1km
+  maxResults?: number; // Default to 30
 };
 
 type Return = {
   nearbyStops: InferredTransportStop[];
 };
 
-// Haversine formula to calculate distance between two points in km
-const calculateDistance = (
-  lat1: number,
-  lon1: number,
-  lat2: number,
-  lon2: number
-): number => {
-  const R = 6371; // Earth's radius in km
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
+// Route types in PTV API
+const ROUTE_TYPE_MAP: Record<number, string> = {
+  0: "METRO TRAIN",
+  1: "METRO TRAM",
+  2: "METRO BUS",
+  3: "REGIONAL TRAIN",
+  4: "REGIONAL BUS",
 };
 
-// Check if a point is within radius of another point
-const isWithinRadius = (
-  lat1: number,
-  lon1: number,
-  lat2: number,
-  lon2: number,
-  radiusKm: number
-): boolean => {
-  const distance = calculateDistance(lat1, lon1, lat2, lon2);
-  return distance <= radiusKm;
-};
+// PTV API Response types
+interface PTVStop {
+  stop_distance: number;
+  stop_suburb: string;
+  stop_name: string;
+  stop_id: number;
+  route_type: number;
+  stop_latitude: number;
+  stop_longitude: number;
+  stop_landmark?: string;
+  stop_sequence?: number;
+}
 
-// Find routes that serve a stop by checking which lines pass near it
-const findRoutesForStop = (
-  stop: TransportStopFeature,
-  lines: TransportLineFeature[]
-): string[] => {
-  const routes = new Set<string>();
-  const [stopLon, stopLat] = stop.geometry.coordinates;
+interface PTVStopsResponse {
+  stops: PTVStop[];
+  status: {
+    version: string;
+    health: number;
+  };
+}
 
-  // Check each line to see if it passes near this stop (within 100m)
-  for (const line of lines) {
-    if (line.properties.MODE !== stop.properties.MODE) {
-      continue; // Only match lines with same transport mode
-    }
-
-    // Check if any point on the line is within 100m of the stop
-    const lineCoords = line.geometry.coordinates;
-    for (const [lon, lat] of lineCoords) {
-      const distanceKm = calculateDistance(stopLat, stopLon, lat, lon);
-      if (distanceKm <= 0.1) {
-        // 100m
-        const routeName =
-          line.properties.LONG_NAME ||
-          line.properties.HEADSIGN ||
-          line.properties.SHAPE_ID;
-        routes.add(routeName);
-        break; // Found a match, move to next line
-      }
-    }
-  }
-
-  return Array.from(routes);
+/**
+ * Generate HMAC-SHA1 signature for PTV API authentication
+ * The signature is calculated from the request path (including devid) and the developer key
+ */
+const generateSignature = (request: string): string => {
+  const hmac = crypto.createHmac("sha1", PTV_DEV_KEY);
+  hmac.update(request);
+  return hmac.digest("hex").toUpperCase();
 };
 
 /**
- * Get public transport stops and their routes within a given radius
+ * Build authenticated PTV API URL
+ */
+const buildPTVUrl = (
+  path: string,
+  params: Record<string, string | number> = {}
+): string => {
+  // Add devid to params
+  const allParams = { ...params, devid: PTV_DEV_ID };
+
+  // Build query string
+  const queryString = Object.entries(allParams)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join("&");
+
+  // The request for signature calculation starts from /v3
+  const request = `${path}?${queryString}`;
+
+  // Generate signature
+  const signature = generateSignature(request);
+
+  // Return full URL with signature
+  return `${PTV_BASE_URL}${request}&signature=${signature}`;
+};
+
+/**
+ * Fetch stops near a location from PTV API
+ */
+const fetchStopsNearLocation = async (
+  lat: number,
+  lon: number,
+  maxDistanceMeters: number,
+  maxResults: number
+): Promise<PTVStop[]> => {
+  const path = `/v3/stops/location/${lat},${lon}`;
+  const url = buildPTVUrl(path, {
+    max_distance: maxDistanceMeters,
+    max_results: maxResults,
+  });
+
+  console.log(`Fetching stops from PTV API...`);
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`PTV API error: ${response.status} - ${errorText}`);
+    throw new Error(`PTV API request failed: ${response.status}`);
+  }
+
+  const data: PTVStopsResponse = await response.json();
+
+  if (data.status?.health !== 1) {
+    console.warn(`PTV API health status: ${data.status?.health}`);
+  }
+
+  return data.stops || [];
+};
+
+/**
+ * Get public transport stops near an address using PTV API
+ * This replaces the previous GeoJSON file-based approach with live API data
  */
 export const getPublicTransportData = async ({
   address,
-  radiusKm = 5,
+  radiusKm = 1,
+  maxResults = 30,
 }: Args): Promise<Return> => {
   // Geocode the address
   const { lat, lon } = await geocodeAddress({ address });
 
-  // Load and parse the gzipped GeoJSON files
-  const stopsPath = path.join(__dirname, "../public_transport_stops.geojson.gz");
-  const linesPath = path.join(__dirname, "../public_transport_lines.geojson.gz");
-
-  const stopsCompressed = fs.readFileSync(stopsPath);
-  const linesCompressed = fs.readFileSync(linesPath);
-
-  const stopsData = JSON.parse(gunzipSync(stopsCompressed).toString("utf-8"));
-  const linesData = JSON.parse(gunzipSync(linesCompressed).toString("utf-8"));
-
-  const stopsCollection = TransportStopsCollectionSchema.parse(stopsData);
-  const linesCollection = TransportLinesCollectionSchema.parse(linesData);
+  // Convert radius to meters for API
+  const maxDistanceMeters = Math.round(radiusKm * 1000);
 
   console.log(
-    `Loaded ${stopsCollection.features.length} stops and ${linesCollection.features.length} lines`
+    `Searching for public transport stops within ${radiusKm}km of ${address.addressLine}, ${address.suburb}...`
   );
 
-  // Filter stops within radius
-  const nearbyStopFeatures = stopsCollection.features.filter((stop) => {
-    const [stopLon, stopLat] = stop.geometry.coordinates;
-    return isWithinRadius(lat, lon, stopLat, stopLon, radiusKm);
-  });
+  try {
+    // Fetch stops from PTV API
+    const ptvStops = await fetchStopsNearLocation(
+      lat,
+      lon,
+      maxDistanceMeters,
+      maxResults
+    );
 
-  console.log(`Found ${nearbyStopFeatures.length} stops within ${radiusKm}km`);
+    console.log(`Found ${ptvStops.length} stops from PTV API`);
 
-  // For each nearby stop, find the routes that serve it
-  const nearbyStops: InferredTransportStop[] = nearbyStopFeatures.map(
-    (stop) => {
-      const [stopLon, stopLat] = stop.geometry.coordinates;
-      const distance = calculateDistance(lat, lon, stopLat, stopLon);
-      const routes = findRoutesForStop(stop, linesCollection.features);
+    // Transform PTV stops to our internal format
+    const nearbyStops: InferredTransportStop[] = ptvStops.map((stop) => {
+      // Calculate actual distance (PTV returns distance in meters)
+      const distanceKm = stop.stop_distance / 1000;
 
       return {
-        stopId: stop.properties.STOP_ID,
-        stopName: stop.properties.STOP_NAME,
-        mode: stop.properties.MODE,
+        stopId: stop.stop_id.toString(),
+        stopName: stop.stop_name,
+        mode: ROUTE_TYPE_MAP[stop.route_type] || `TYPE_${stop.route_type}`,
         distance: {
-          measurement: distance,
+          measurement: distanceKm,
           unit: "km",
         },
         coordinates: {
-          lat: stopLat,
-          lon: stopLon,
+          lat: stop.stop_latitude,
+          lon: stop.stop_longitude,
         },
-        routes: routes.length > 0 ? routes : undefined,
+        // PTV API doesn't return routes directly, would need additional API calls
+        routes: undefined,
       };
-    }
-  );
+    });
 
-  // Sort by distance
-  nearbyStops.sort((a, b) => {
-    const distA = a.distance?.measurement ?? Infinity;
-    const distB = b.distance?.measurement ?? Infinity;
-    return distA - distB;
-  });
+    // Sort by distance (should already be sorted by API, but ensure consistency)
+    nearbyStops.sort((a, b) => {
+      const distA = a.distance?.measurement ?? Infinity;
+      const distB = b.distance?.measurement ?? Infinity;
+      return distA - distB;
+    });
 
-  return { nearbyStops };
+    return { nearbyStops };
+  } catch (error) {
+    console.error("Error fetching from PTV API:", error);
+    // Return empty array on error rather than throwing
+    return { nearbyStops: [] };
+  }
 };
 
 if (import.meta.main) {
@@ -166,7 +195,7 @@ if (import.meta.main) {
   });
 
   console.log("\n=== PUBLIC TRANSPORT STOPS ===");
-  console.log(`Found ${nearbyStops.length} stops within 5km`);
+  console.log(`Found ${nearbyStops.length} stops within 1km`);
 
   // Show first 10 stops
   console.log("\nClosest 10 stops:");
@@ -174,18 +203,8 @@ if (import.meta.main) {
     console.log(`\n${index + 1}. ${stop.stopName}`);
     console.log(`   Mode: ${stop.mode}`);
     console.log(`   Distance: ${stop.distance?.measurement.toFixed(2)}km`);
-    if (stop.routes && stop.routes.length > 0) {
-      console.log(
-        `   Routes: ${stop.routes.slice(0, 3).join(", ")}${
-          stop.routes.length > 3 ? "..." : ""
-        }`
-      );
-    }
+    console.log(
+      `   Coordinates: ${stop.coordinates.lat}, ${stop.coordinates.lon}`
+    );
   });
-
-  // Write to JSON file
-  const outputPath = path.join(__dirname, "nearbyTransportStops.json");
-  fs.writeFileSync(outputPath, JSON.stringify(nearbyStops, null, 2));
-
-  console.log(`\n✓ Full data written to ${outputPath}`);
 }

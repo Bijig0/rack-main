@@ -1,3 +1,3 @@
-import { getDistanceFromCBD as baseGetDistanceFromCBD } from "../../createPropertyInfoSection/getPropertyInfo/getDistanceFromCBD/getDistanceFromCBD";
+import { getDistanceFromCBD as baseGetDistanceFromCBD } from "../../getPropertyInfo/getDistanceFromCBD/getDistanceFromCBD";
 
 export const getDistanceFromCBD = baseGetDistanceFromCBD;

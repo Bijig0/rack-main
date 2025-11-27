@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 import { normalizeAddressObjToString } from "../../../createReportCache/utils/normalizeAddressObjToString/normalizeAddressObjToString";
 
 const normalizeAddressObjToCoreLogicString = (address: Address): string => {

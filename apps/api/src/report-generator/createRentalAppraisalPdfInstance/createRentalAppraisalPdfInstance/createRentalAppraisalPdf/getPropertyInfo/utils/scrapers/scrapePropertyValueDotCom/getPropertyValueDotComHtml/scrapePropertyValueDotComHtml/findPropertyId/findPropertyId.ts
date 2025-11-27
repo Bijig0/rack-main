@@ -3,7 +3,7 @@
  * The ID is needed to construct the full property URL
  */
 
-import { Address } from "../../../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../../../shared/types";
 
 type Args = {
   address: Address;

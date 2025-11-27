@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 
 // Map of state abbreviations to their full names for microburbs.com.au
 const STATE_FULL_NAMES: Record<string, string> = {

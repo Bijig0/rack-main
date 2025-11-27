@@ -8,7 +8,7 @@
  * 4. Wait for search results and click the first matching result
  */
 
-import { Address } from "../../../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../../../shared/types";
 
 type Args = {
   address: Address;

@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 
 /**
  * Converts an address into property.com.au URL format:

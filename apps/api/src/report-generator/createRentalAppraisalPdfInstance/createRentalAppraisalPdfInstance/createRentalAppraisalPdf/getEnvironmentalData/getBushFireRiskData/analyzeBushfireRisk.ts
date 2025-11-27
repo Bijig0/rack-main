@@ -3,9 +3,9 @@ import { InferredFireHistoryData } from "./createFireHistoryResponseSchema/types
 import { InferredFireManagementZone } from "./getFireManagementZones/types";
 
 type Args = {
-  bushfireProneAreas: InferredBushfireRiskData[];
-  fireHistory: InferredFireHistoryData[];
-  fireManagementZones: InferredFireManagementZone[];
+  bushfireProneAreas?: InferredBushfireRiskData[];
+  fireHistory?: InferredFireHistoryData[];
+  fireManagementZones?: InferredFireManagementZone[];
   propertyLat: number;
   propertyLon: number;
 };
@@ -44,21 +44,22 @@ export type BushfireRiskAnalysis = {
   recommendations: string[];
 };
 
+
 /**
  * Analyze bushfire risk based on multiple data sources
  */
 export function analyzeBushfireRisk({
-  bushfireProneAreas,
-  fireHistory,
-  fireManagementZones,
+  bushfireProneAreas = [],
+  fireHistory = [],
+  fireManagementZones = [],
   propertyLat,
   propertyLon,
 }: Args): BushfireRiskAnalysis {
   // Determine if property is in a bushfire prone area
   const inBushfireProneArea = bushfireProneAreas.length > 0;
 
-  // Get fire management zone information
-  const closestZone = fireManagementZones[0]; // Already sorted by distance
+  // Get fire management zone information (optional)
+  const closestZone = fireManagementZones.length > 0 ? fireManagementZones[0] : undefined;
   const inFireManagementZone = closestZone?.isWithinZone || false;
 
   // Count fires within different radii

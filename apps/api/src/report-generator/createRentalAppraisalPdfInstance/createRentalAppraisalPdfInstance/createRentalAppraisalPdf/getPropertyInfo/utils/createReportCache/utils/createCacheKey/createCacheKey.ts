@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 import { PropertyInfoSourcesSchema } from "../../types";
 import { normalizeAddressObjToString as normalizeAddress } from "../normalizeAddressObjToString/normalizeAddressObjToString";
 

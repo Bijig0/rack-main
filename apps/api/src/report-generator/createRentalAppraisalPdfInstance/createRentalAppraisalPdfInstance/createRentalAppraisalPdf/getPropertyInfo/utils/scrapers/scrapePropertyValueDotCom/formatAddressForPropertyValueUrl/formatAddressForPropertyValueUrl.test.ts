@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 import { formatAddressForPropertyValueUrl } from "./formatAddressForPropertyValueUrl";
 
 describe("formatAddressForPropertyValueUrl", () => {

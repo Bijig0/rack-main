@@ -1,6 +1,6 @@
 import z from "zod";
-import { createFetcher } from "../../../createPropertyInfoSection/getPropertyInfo/createFetcher";
-import { scrapePropertyValueDotCom } from "../../../createPropertyInfoSection/getPropertyInfo/utils/scrapers/scrapePropertyValueDotCom/scrapePropertyValueDotCom";
+import { createFetcher } from "../../../getPropertyInfo/createFetcher";
+import { scrapePropertyValueDotCom } from "../../../getPropertyInfo/utils/scrapers/scrapePropertyValueDotCom/scrapePropertyValueDotCom";
 import { PopulationAmountSchema } from "../types";
 import { populationParseOptions } from "./options";
 

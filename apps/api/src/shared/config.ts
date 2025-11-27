@@ -21,6 +21,9 @@ export const EnvSchema = z.object({
   SERVER_PORT: z.string().default("3000"),
 
   GOOGLE_GEMINI_API_KEY: z.string(),
+
+  PTV_DEV_ID: z.string(),
+  PTV_DEV_KEY: z.string(),
 });
 
 const env = EnvSchema.parse(process.env);
@@ -35,6 +38,8 @@ export const {
   CORELOGIC_PASSWORD,
   CORELOGIC_URL,
   GOOGLE_GEMINI_API_KEY,
+  PTV_DEV_ID,
+  PTV_DEV_KEY,
 } = env;
 
 // Railway injects PORT, fallback to SERVER_PORT for local dev

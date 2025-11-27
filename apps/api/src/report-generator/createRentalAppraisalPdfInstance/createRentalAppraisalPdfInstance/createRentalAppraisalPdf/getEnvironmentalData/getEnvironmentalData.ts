@@ -27,11 +27,17 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   );
 
   // Fetch environmental data from multiple sources
-
+  // Force GC between heavy operations to manage memory
 
   const { biodiversityData } = await getBiodiversityData({ address });
+
   const { fireHistory, fireManagementZones, riskAnalysis } =
     await getBushfireRiskData({ address });
+
+  // Force garbage collection after loading large fire management data
+  if (typeof Bun !== 'undefined' && Bun.gc) {
+    Bun.gc(true);
+  }
 
   const { characterData } = await getCharacterData({ address });
 

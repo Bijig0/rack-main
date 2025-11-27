@@ -1,5 +1,4 @@
 import { Address } from "../../../../../shared/types";
-import { InfrastructureData } from "../getRentalAppraisalData/schemas";
 import { getElectricityData } from "./getElectricityData/getElectricityData";
 import { getNearbyEmergencyServicesData } from "./getNearbyEmergencyServices/getNearbyEmergencyServices";
 import { getNearbyParksData } from "./getNearbyParks/getNearbyParks";
@@ -14,29 +13,50 @@ type Args = {
   address: Address;
 };
 
-type Return = {
-  infrastructureData: InfrastructureData;
-};
-
-const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
-  const promises = {
+const getInfrastructureData = async ({ address }: Args) => {
+  // Run lighter data fetchers in parallel
+  const lightPromises = {
     electricityData: getElectricityData({ address }),
     nearbyEmergencyServicesData: getNearbyEmergencyServicesData({ address }),
     nearbyParksData: getNearbyParksData({ address }),
     nearbyPlaygroundsData: getNearbyPlaygroundsData({ address }),
     nearbyShoppingMallsData: getNearbyShoppingMallsData({ address }),
-    sewageData: getSewageData({ address }),
     stormwaterData: getStormwaterData({ address }),
     waterData: getWaterData({ address }),
-    publicTransportData: getPublicTransportData({ address }),
   };
 
-  const entries = Object.entries(promises);
-  const results = await Promise.all(entries.map(([, promise]) => promise));
+  const lightEntries = Object.entries(lightPromises);
+  const lightResults = await Promise.all(lightEntries.map(([, promise]) => promise));
 
-  const infrastructureData = Object.fromEntries(
-    entries.map(([key], i) => [key, results[i]])
+  const lightData = Object.fromEntries(
+    lightEntries.map(([key], i) => [key, lightResults[i]])
   );
+
+  // Force GC before loading heavy data
+  if (typeof Bun !== 'undefined' && Bun.gc) {
+    Bun.gc(true);
+  }
+
+  // Run heavy data fetchers sequentially to manage memory
+  const sewageData = await getSewageData({ address });
+
+  // Force GC after sewage data
+  if (typeof Bun !== 'undefined' && Bun.gc) {
+    Bun.gc(true);
+  }
+
+  const publicTransportData = await getPublicTransportData({ address });
+
+  // Force GC after transport data
+  if (typeof Bun !== 'undefined' && Bun.gc) {
+    Bun.gc(true);
+  }
+
+  const infrastructureData = {
+    ...lightData,
+    sewageData,
+    publicTransportData,
+  };
 
   return { infrastructureData };
 };

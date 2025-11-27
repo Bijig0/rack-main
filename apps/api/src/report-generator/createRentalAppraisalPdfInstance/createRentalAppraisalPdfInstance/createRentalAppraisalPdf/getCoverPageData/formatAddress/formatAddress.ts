@@ -1,5 +1,5 @@
-import { Address } from "../../../../../../../shared/types";
-import { normalizeAddress } from "../../../createPropertyInfoSection/getPropertyInfo/utils/createReportCache";
+import { Address } from "../../../../../../shared/types";
+import { normalizeAddress } from "../../getPropertyInfo/utils/createReportCache";
 
 type Args = {
   address: Address;

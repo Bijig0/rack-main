@@ -20,7 +20,7 @@ type Args = {
 export type BushfireRiskData = {
   // bushfireProneAreas: InferredBushfireRiskData[];
   fireHistory: InferredFireHistoryData[];
-  fireManagementZones: InferredFireManagementZone[];
+  fireManagementZones?: InferredFireManagementZone[];
   riskAnalysis: BushfireRiskAnalysis;
 };
 
@@ -36,18 +36,17 @@ export const getBushfireRiskData = async ({
   const { lat, lon } = await geocodeAddress({ address });
 
   // Fetch all three datasets in parallel
-  const [bushfireProneAreas, fireHistory, fireManagementZones] =
+  const [bushfireProneAreas, fireHistory] =
     await Promise.all([
       getBushfireProneAreas({ lat, lon }),
       getFireHistory({ lat, lon }),
-      getFireManagementZones({ lat, lon }),
+      // getFireManagementZones({ lat, lon }),
     ]);
 
   // Analyze risk based on all data sources
   const riskAnalysis = analyzeBushfireRisk({
     bushfireProneAreas,
     fireHistory,
-    fireManagementZones,
     propertyLat: lat,
     propertyLon: lon,
   });
@@ -55,7 +54,7 @@ export const getBushfireRiskData = async ({
   return {
     // bushfireProneAreas,
     fireHistory,
-    fireManagementZones,
+    // fireManagementZones,
     riskAnalysis,
   };
 };
@@ -126,7 +125,7 @@ if (import.meta.main) {
   console.log("\n--- Data Summary ---");
   // console.log(`Bushfire Prone Areas: ${bushfireProneAreas.length}`);
   console.log(`Fire History Records: ${fireHistory.length}`);
-  console.log(`Fire Management Zones: ${fireManagementZones.length}`);
+  console.log(`Fire Management Zones: ${fireManagementZones?.length}`);
 
   // Write to JSON file
   const outputPath = path.join(__dirname, "bushfire_risk_analysis.json");

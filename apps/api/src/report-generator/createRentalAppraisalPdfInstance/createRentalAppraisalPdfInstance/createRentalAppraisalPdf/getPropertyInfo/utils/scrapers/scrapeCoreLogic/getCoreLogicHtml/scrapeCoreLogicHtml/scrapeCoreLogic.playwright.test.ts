@@ -14,7 +14,7 @@ import {
   CORELOGIC_PASSWORD,
   CORELOGIC_URL,
   CORELOGIC_USERNAME,
-} from "../../../../../../../../../../../shared/config";
+} from "../../../../../../../../../../shared/config";
 import type { Address } from "../../../../createReportCache";
 
 const __filename = fileURLToPath(import.meta.url);

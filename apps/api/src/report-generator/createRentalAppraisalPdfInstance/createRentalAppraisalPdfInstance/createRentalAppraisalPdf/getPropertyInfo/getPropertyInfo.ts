@@ -35,7 +35,7 @@ type Return = {
  * - domain.com: Used by 3 getters (similarPropertiesForRent, similarPropertiesForSale, propertyTimeline)
  * - realestate.com: Used by 1 getter (nearbySchools)
  */
-const prefetchSources = async ({ address }: Args): Promise<void> => {
+export const prefetchSources = async ({ address }: Args): Promise<void> => {
   const cacheStore = getReportCache();
 
   const sources = [

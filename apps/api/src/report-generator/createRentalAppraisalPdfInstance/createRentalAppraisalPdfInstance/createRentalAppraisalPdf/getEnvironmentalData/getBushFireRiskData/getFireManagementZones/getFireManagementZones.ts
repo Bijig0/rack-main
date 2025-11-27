@@ -4,13 +4,19 @@ import { gunzipSync } from "zlib";
 import {
   InferredFireManagementZone,
   FireManagementZoneFeature,
-  FireManagementZoneFeatureCollectionSchema,
 } from "./types";
 
 type Args = {
   lat: number;
   lon: number;
 };
+
+// Region index type
+type RegionIndex = Record<string, {
+  featureCount: number;
+  bbox: { minLat: number; maxLat: number; minLon: number; maxLon: number };
+  filename: string;
+}>;
 
 // Haversine formula to calculate distance between two points in km
 const calculateDistance = (
@@ -150,37 +156,124 @@ const processFireManagementZone = (
   };
 };
 
+// Quick check using first coordinate of geometry as approximate location
+const getApproximateCenter = (
+  feature: FireManagementZoneFeature
+): { lat: number; lon: number } | null => {
+  const { geometry } = feature;
+  try {
+    if (geometry.type === "Polygon") {
+      const [lon, lat] = geometry.coordinates[0][0];
+      return { lat: lat as number, lon: lon as number };
+    } else if (geometry.type === "MultiPolygon") {
+      const [lon, lat] = geometry.coordinates[0][0][0];
+      return { lat: lat as number, lon: lon as number };
+    }
+  } catch {
+    return null;
+  }
+  return null;
+};
+
+// Check if a point is within or near a bounding box (with buffer)
+const isPointNearBbox = (
+  lat: number,
+  lon: number,
+  bbox: { minLat: number; maxLat: number; minLon: number; maxLon: number },
+  bufferDegrees: number = 0.2 // ~22km buffer - reduced to avoid loading too many regions
+): boolean => {
+  return (
+    lat >= bbox.minLat - bufferDegrees &&
+    lat <= bbox.maxLat + bufferDegrees &&
+    lon >= bbox.minLon - bufferDegrees &&
+    lon <= bbox.maxLon + bufferDegrees
+  );
+};
+
+// Find regions that could contain the property location
+const findRelevantRegions = (
+  lat: number,
+  lon: number,
+  regionIndex: RegionIndex
+): string[] => {
+  const relevantRegions: string[] = [];
+
+  for (const [regionName, regionInfo] of Object.entries(regionIndex)) {
+    if (isPointNearBbox(lat, lon, regionInfo.bbox)) {
+      relevantRegions.push(regionName);
+    }
+  }
+
+  return relevantRegions;
+};
+
 /**
  * Get fire management zones data for a property
- * Reads from local GeoJSON file and finds zones within radius or containing the point
+ * Loads only relevant regional files based on property location
  */
 export const getFireManagementZones = async ({
   lat,
   lon,
 }: Args): Promise<InferredFireManagementZone[]> => {
-  // Load and parse the gzipped GeoJSON file
-  const geoJsonPath = path.join(__dirname, "fire_management_zones.geojson.gz");
+  const regionsDir = path.join(__dirname, "regions");
+  const indexPath = path.join(regionsDir, "region-index.json");
 
-  console.log(`Loading fire management zones from: ${geoJsonPath}`);
+  // Load region index
+  if (!fs.existsSync(indexPath)) {
+    console.log("Region index not found, falling back to full file...");
+    return loadFromFullFile(lat, lon);
+  }
 
-  const compressedData = fs.readFileSync(geoJsonPath);
-  const rawData = gunzipSync(compressedData).toString("utf-8");
-  const parsedData = JSON.parse(rawData);
+  const regionIndex: RegionIndex = JSON.parse(fs.readFileSync(indexPath, "utf-8"));
 
-  // Validate with Zod schema
-  const featureCollection = FireManagementZoneFeatureCollectionSchema.parse(parsedData);
+  // Find relevant regions
+  const relevantRegions = findRelevantRegions(lat, lon, regionIndex);
 
-  console.log(`Total fire management zones in dataset: ${featureCollection.features.length}`);
+  if (relevantRegions.length === 0) {
+    console.log("No relevant fire management regions found for this location");
+    return [];
+  }
 
-  // Process all features and calculate distances
-  const allZones = featureCollection.features
-    .map((feature) => processFireManagementZone(feature, lat, lon))
-    .filter((zone): zone is InferredFireManagementZone => zone !== null);
+  console.log(`Loading fire management zones from ${relevantRegions.length} region(s): ${relevantRegions.join(", ")}`);
 
-  // Filter zones within reasonable radius (50km) or containing the point
-  const nearbyZones = allZones.filter(
-    (zone) => zone.isWithinZone || zone.distance.measurement <= 50
-  );
+  const nearbyZones: InferredFireManagementZone[] = [];
+  const maxDistanceKm = 100;
+
+  // Load and process each relevant region
+  for (const regionName of relevantRegions) {
+    const regionInfo = regionIndex[regionName];
+    const regionPath = path.join(regionsDir, regionInfo.filename);
+
+    if (!fs.existsSync(regionPath)) {
+      console.log(`Region file not found: ${regionPath}`);
+      continue;
+    }
+
+    const compressedData = fs.readFileSync(regionPath);
+    const rawData = gunzipSync(compressedData).toString("utf-8");
+    const parsedData = JSON.parse(rawData) as {
+      type: string;
+      features: FireManagementZoneFeature[];
+    };
+
+    console.log(`  ${regionName}: ${parsedData.features.length} features`);
+
+    // Process features with early distance filtering
+    for (const feature of parsedData.features) {
+      const center = getApproximateCenter(feature);
+      if (center) {
+        const approxDistance = calculateDistance(lat, lon, center.lat, center.lon);
+        if (approxDistance > maxDistanceKm) {
+          continue;
+        }
+      }
+
+      const zone = processFireManagementZone(feature, lat, lon);
+      if (zone && (zone.isWithinZone || zone.distance.measurement <= 50)) {
+        nearbyZones.push(zone);
+      }
+    }
+  }
 
   // Sort by distance (closest first)
   nearbyZones.sort((a, b) => {
@@ -188,6 +281,48 @@ export const getFireManagementZones = async ({
     const distB = b.distance.measurement;
     return distA - distB;
   });
+
+  console.log(`Found ${nearbyZones.length} fire management zones within 50km`);
+
+  return nearbyZones;
+};
+
+// Fallback to loading full file if regional files don't exist
+const loadFromFullFile = async (lat: number, lon: number): Promise<InferredFireManagementZone[]> => {
+  const geoJsonPath = path.join(__dirname, "fire_management_zones.geojson.gz");
+
+  console.log(`Loading fire management zones from: ${geoJsonPath}`);
+
+  const compressedData = fs.readFileSync(geoJsonPath);
+  const rawData = gunzipSync(compressedData).toString("utf-8");
+
+  const parsedData = JSON.parse(rawData) as {
+    type: string;
+    features: FireManagementZoneFeature[];
+  };
+
+  const features = parsedData.features;
+  console.log(`Total fire management zones in dataset: ${features.length}`);
+
+  const nearbyZones: InferredFireManagementZone[] = [];
+  const maxDistanceKm = 100;
+
+  for (const feature of features) {
+    const center = getApproximateCenter(feature);
+    if (center) {
+      const approxDistance = calculateDistance(lat, lon, center.lat, center.lon);
+      if (approxDistance > maxDistanceKm) {
+        continue;
+      }
+    }
+
+    const zone = processFireManagementZone(feature, lat, lon);
+    if (zone && (zone.isWithinZone || zone.distance.measurement <= 50)) {
+      nearbyZones.push(zone);
+    }
+  }
+
+  nearbyZones.sort((a, b) => a.distance.measurement - b.distance.measurement);
 
   return nearbyZones;
 };

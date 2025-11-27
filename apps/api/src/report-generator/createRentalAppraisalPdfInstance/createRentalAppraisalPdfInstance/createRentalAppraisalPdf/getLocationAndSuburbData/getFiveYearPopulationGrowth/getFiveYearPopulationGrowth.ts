@@ -1,5 +1,5 @@
 import z from "zod";
-import { createPropertyInfoGetter } from "../../createPropertyInfoSection/getPropertyInfo/createPropertyInfoGetter";
+import { createPropertyInfoGetter } from "../../getPropertyInfo/createPropertyInfoGetter";
 import { getCoreLogicFiveYearPopulationGrowthData } from "./getCoreLogicFiveYearPopulationGrowthData/getCoreLogicFiveYearPopulationGrowthData";
 import { FiveYearPopulationGrowthSchema } from "./types";
 

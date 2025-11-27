@@ -4,7 +4,7 @@ import {
   CORELOGIC_PASSWORD,
   CORELOGIC_URL,
   CORELOGIC_USERNAME,
-} from "../../../../../../../../../../shared/config";
+} from "../../../../../../../../../shared/config";
 import { Address } from "../../../createReportCache";
 import {
   Scraper,

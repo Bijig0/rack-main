@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../shared/types";
 
 /**
  * Formats an address for PropertyValue.com.au URL structure

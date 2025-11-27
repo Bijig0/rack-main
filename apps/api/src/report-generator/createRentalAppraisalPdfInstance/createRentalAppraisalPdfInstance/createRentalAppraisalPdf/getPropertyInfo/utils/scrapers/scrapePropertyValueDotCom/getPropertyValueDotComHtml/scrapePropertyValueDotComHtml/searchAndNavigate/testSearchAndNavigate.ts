@@ -4,7 +4,7 @@
  */
 
 import { connect } from "puppeteer-real-browser";
-import { Address } from "../../../../../../../../../../../../shared/types";
+import { Address } from "../../../../../../../../../../../shared/types";
 import { searchAndNavigate } from "./searchAndNavigate";
 
 async function testSearchAndNavigate() {

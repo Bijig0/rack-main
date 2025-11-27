@@ -1,0 +1,82 @@
+{
+  "REGIONAL TRAIN": {
+    "featureCount": 1590,
+    "bbox": {
+      "minLat": -38.39165171,
+      "maxLat": -35.34110072,
+      "minLon": 142.47539595,
+      "maxLon": 147.6274052
+    },
+    "filename": "regional_train.geojson.gz"
+  },
+  "METRO TRAIN": {
+    "featureCount": 2046,
+    "bbox": {
+      "minLat": -38.374023,
+      "maxLat": -37.57847959,
+      "minLon": 144.66023696,
+      "maxLon": 145.51651237
+    },
+    "filename": "metro_train.geojson.gz"
+  },
+  "METRO TRAM": {
+    "featureCount": 1008,
+    "bbox": {
+      "minLat": -37.91421397,
+      "maxLat": -37.67902423,
+      "minLon": 144.87798488,
+      "maxLon": 145.18209161
+    },
+    "filename": "metro_tram.geojson.gz"
+  },
+  "METRO BUS": {
+    "featureCount": 2031,
+    "bbox": {
+      "minLat": -38.47541766,
+      "maxLat": -37.1899092,
+      "minLon": 144.53786839,
+      "maxLon": 145.91139666
+    },
+    "filename": "metro_bus.geojson.gz"
+  },
+  "REGIONAL COACH": {
+    "featureCount": 3237,
+    "bbox": {
+      "minLat": -38.78464128,
+      "maxLat": -34.17071489,
+      "minLon": 138.5956116,
+      "maxLon": 150.17811372
+    },
+    "filename": "regional_coach.geojson.gz"
+  },
+  "REGIONAL BUS": {
+    "featureCount": 766,
+    "bbox": {
+      "minLat": -38.77725311,
+      "maxLat": -34.16455236,
+      "minLon": 140.74150343,
+      "maxLon": 149.75840465
+    },
+    "filename": "regional_bus.geojson.gz"
+  },
+  "INTERSTATE TRAIN": {
+    "featureCount": 16,
+    "bbox": {
+      "minLat": -38.11227238,
+      "maxLat": -34.9381648,
+      "minLon": 138.58131758,
+      "maxLon": 144.95200262
+    },
+    "filename": "interstate_train.geojson.gz"
+  },
+  "SKYBUS": {
+    "featureCount": 6,
+    "bbox": {
+      "minLat": -38.14516381,
+      "maxLat": -37.66925989,
+      "minLon": 144.46553276,
+      "maxLon": 145.12721641
+    },
+    "filename": "skybus.geojson.gz"
+  }
+}
