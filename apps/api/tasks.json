@@ -29,6 +29,20 @@
         "url": ""
       },
       {
+        "name": "Bathroom Count",
+        "status": "done",
+        "description": "",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Land Area",
+        "status": "done",
+        "description": "From corelogic",
+        "note": "",
+        "url": ""
+      },
+      {
         "name": "Floor Area",
         "status": "done",
         "description": "",
