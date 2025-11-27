@@ -31,17 +31,10 @@ export const getNearbyEnergyFacilitiesData = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw energy facilities response:",
-    JSON.stringify(energyFacilitiesResponse.data, null, 2)
-  );
-
   const parsedEnergyFacilitiesResponse =
     getElectricityVicmapResponseSchema().parse(energyFacilitiesResponse.data);
 
   const energyFacilitiesFeatures = parsedEnergyFacilitiesResponse.features;
-
-  console.log({ energyFacilitiesFeatures }, { depth: null });
 
   const { inferredElectricityData } = inferRawElectricityData({
     features: energyFacilitiesFeatures,

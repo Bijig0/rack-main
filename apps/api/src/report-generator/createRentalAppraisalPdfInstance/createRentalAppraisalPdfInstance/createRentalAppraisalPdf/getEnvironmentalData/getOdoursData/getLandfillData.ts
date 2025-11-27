@@ -32,11 +32,6 @@ export const getLandfillData = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw landfill data response:",
-    JSON.stringify(response.data, null, 2)
-  );
-
   const parsedVlrResponse = getOdoursVicmapResponseSchema().parse(
     response.data
   );

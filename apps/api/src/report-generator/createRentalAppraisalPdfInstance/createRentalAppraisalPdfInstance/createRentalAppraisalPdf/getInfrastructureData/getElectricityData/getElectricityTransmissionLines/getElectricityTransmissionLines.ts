@@ -39,17 +39,10 @@ export const getElectricityTransmissionLines = async ({
     }
   );
 
-  console.log(
-    "Raw transmission lines response:",
-    JSON.stringify(transmissionLinesResponse.data, null, 2)
-  );
-
   const parsedTransmissionLinesResponse =
     getTransmissionLinesResponseSchema().parse(transmissionLinesResponse.data);
 
   const transmissionLinesFeatures = parsedTransmissionLinesResponse.features;
-
-  console.log({ transmissionLinesFeatures }, { depth: null });
 
   const { inferredTransmissionLineData } = inferRawTransmissionLineData({
     features: transmissionLinesFeatures,

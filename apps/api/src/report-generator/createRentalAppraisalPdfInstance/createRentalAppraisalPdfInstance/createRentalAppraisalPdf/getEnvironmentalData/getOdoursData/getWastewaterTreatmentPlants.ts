@@ -39,15 +39,8 @@ export const getWastewaterTreatmentPlants = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw wastewater treatment plants response:",
-    JSON.stringify(response.data, null, 2)
-  );
-
   const parsedResponse = getWastewaterResponseSchema().parse(response.data);
   const features = parsedResponse.features;
-
-  console.log({ wastewaterFeatures: features }, { depth: null });
 
   const { inferredWastewaterData } = inferRawWastewaterData({
     features,

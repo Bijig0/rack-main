@@ -36,15 +36,8 @@ export const getFireHistory = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw fire history response:",
-    JSON.stringify(response.data, null, 2)
-  );
-
   const parsedResponse = getFireHistoryResponseSchema().parse(response.data);
   const features = parsedResponse.features;
-
-  console.log({ fireHistoryFeatures: features }, { depth: null });
 
   const { inferredFireHistoryData } = inferRawFireHistoryData({
     features,

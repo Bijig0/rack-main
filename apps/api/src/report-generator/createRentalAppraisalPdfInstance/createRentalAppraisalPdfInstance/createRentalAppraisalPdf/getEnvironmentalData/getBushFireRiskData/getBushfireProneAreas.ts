@@ -31,17 +31,10 @@ export const getBushfireProneAreas = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw bushfire prone areas response:",
-    JSON.stringify(response.data, null, 2)
-  );
-
   const parsedResponse = getBushfireRiskVicmapResponseSchema().parse(
     response.data
   );
   const features = parsedResponse.features;
-
-  console.log({ bushfireProneFeatures: features }, { depth: null });
 
   const { inferredBushfireRiskData } = inferRawBushfireRiskData({
     features,

@@ -22,7 +22,7 @@ import {
   InferredTransportStops,
   InferredTransportStopsSchema,
 } from "../getTransportData/getPublicTransportData/types";
-import { WaterData, WaterDataSchema } from "../getWaterData/types";
+import { WaterInfrastructureSchema } from "../getWaterData/types";
 
 export const InfrastructureDataSchema = z.object({
   electricityInfrastructureData: ElectricityInfrastructureSchema,
@@ -32,7 +32,7 @@ export const InfrastructureDataSchema = z.object({
   nearbyShoppingMalls: ShoppingMallsSchema,
   sewageData: SewageDataSchema,
   stormwaterData: StormwaterDataSchema,
-  waterData: WaterDataSchema,
+  waterData: WaterInfrastructureSchema,
   publicTransport: InferredTransportStopsSchema,
   electricity: ElectricityInfrastructureSchema,
 });

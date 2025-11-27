@@ -19,32 +19,59 @@ type Return = {
   infrastructureData: InfrastructureData;
 };
 
+// Helper to suggest garbage collection (non-blocking)
+// NOTE: Using Bun.gc(true) caused premature process exit, so we use the non-blocking version
+const forceGC = () => {
+  if (typeof Bun !== "undefined" && Bun.gc) {
+    Bun.gc(false);
+  }
+};
+
 const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
-  // Run lighter data fetchers in parallel
-  const lightPromises = {
-    electricityData: getElectricityData({ address }),
-    nearbyEmergencyServicesData: getNearbyEmergencyServicesData({ address }),
-    nearbyParksData: getNearbyParksData({ address }),
-    nearbyPlaygroundsData: getNearbyPlaygroundsData({ address }),
-    nearbyShoppingMallsData: getNearbyShoppingMallsData({ address }),
-    stormwaterData: getStormwaterData({ address }),
-    waterData: getWaterData({ address }),
-    publicTransportData: getPublicTransportData({ address }),
-    sewageData: getSewageData({ address }),
-  };
+  // Run light API-based data fetchers in parallel
+  const [
+    emergencyServicesData,
+    parksData,
+    playgroundsData,
+    shoppingMallsData,
+    publicTransportResult,
+  ] = await Promise.all([
+    getNearbyEmergencyServicesData({ address }),
+    getNearbyParksData({ address }),
+    getNearbyPlaygroundsData({ address }),
+    getNearbyShoppingMallsData({ address }),
+    getPublicTransportData({ address }),
+  ]);
+  forceGC();
 
-  const lightEntries = Object.entries(lightPromises);
-  const lightResults = await Promise.all(
-    lightEntries.map(([, promise]) => promise)
-  );
+  // Run heavier data fetchers sequentially to manage memory
+  const electricityResult = await getElectricityData({ address });
+  forceGC();
 
-  const lightData = Object.fromEntries(
-    lightEntries.map(([key], i) => [key, lightResults[i]])
-  );
+  const stormwaterResult = await getStormwaterData({ address });
+  forceGC();
 
-  const data = InfrastructureDataSchema.parse(lightData);
+  const waterResult = await getWaterData({ address });
+  forceGC();
 
-  return { infrastructureData: data };
+  // Sewage loads large GeoJSON - run last and alone
+  const sewageData = await getSewageData({ address });
+  forceGC();
+
+  const infrastructureData = InfrastructureDataSchema.parse({
+    electricityInfrastructureData: electricityResult.electricityInfrastructure,
+    electricity: electricityResult.electricityInfrastructure,
+    nearbyEmergencyServices: emergencyServicesData,
+    nearbyParks: parksData,
+    nearbyPlaygrounds: playgroundsData,
+    nearbyShoppingMalls: shoppingMallsData,
+    stormwaterData: stormwaterResult.stormwaterData,
+    waterData: waterResult.waterInfrastructure,
+    publicTransport: publicTransportResult.nearbyStops,
+    sewageData: sewageData,
+  });
+
+  return { infrastructureData };
 };
 
 if (import.meta.main) {

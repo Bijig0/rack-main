@@ -20,6 +20,14 @@ type Return = {
   environmentalData: EnvironmentalData;
 };
 
+// Helper to suggest garbage collection (non-blocking)
+// NOTE: Using Bun.gc(true) caused premature process exit, so we use the non-blocking version
+const forceGC = () => {
+  if (typeof Bun !== "undefined" && Bun.gc) {
+    Bun.gc(false);
+  }
+};
+
 const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   console.log(
     `Fetching environmental data for: ${address.addressLine}, ${address.suburb} ${address.state} ${address.postcode}`
@@ -28,29 +36,61 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   // Fetch environmental data from multiple sources
   // Force GC between heavy operations to manage memory
 
+  console.log("📊 ENV: Starting biodiversity data fetch...");
   const { biodiversityData } = await getBiodiversityData({ address });
+  forceGC();
+  console.log("✅ ENV: Biodiversity data complete");
 
-  const { fireHistory, fireManagementZones, riskAnalysis } =
-    await getBushfireRiskData({ address });
+  console.log("📊 ENV: Starting bushfire risk data fetch...");
+  const { fireHistory, riskAnalysis } = await getBushfireRiskData({ address });
+  forceGC();
+  console.log("✅ ENV: Bushfire risk data complete");
 
+  console.log("📊 ENV: Starting character data fetch...");
   const { characterData } = await getCharacterData({ address });
+  forceGC();
+  console.log("✅ ENV: Character data complete");
 
+  console.log("📊 ENV: Starting coastal hazard data fetch...");
   const { coastalHazardData } = await getCoastalHazardData({ address });
+  forceGC();
+  console.log("✅ ENV: Coastal hazard data complete");
 
+  console.log("📊 ENV: Starting easements data fetch...");
   const { easementData } = await getEasementsData({ address });
+  forceGC();
+  console.log("✅ ENV: Easements data complete");
 
+  console.log("📊 ENV: Starting flood risk data fetch...");
   const { floodRiskData } = await getFloodRiskData({ address });
+  forceGC();
+  console.log("✅ ENV: Flood risk data complete");
 
+  console.log("📊 ENV: Starting heritage data fetch...");
   const { heritageData } = await getHeritageData({ address });
+  forceGC();
+  console.log("✅ ENV: Heritage data complete");
 
+  console.log("📊 ENV: Starting noise pollution data fetch...");
   const { noisePollutionData } = await getNoisePollutionData({ address });
+  forceGC();
+  console.log("✅ ENV: Noise pollution data complete");
 
+  console.log("📊 ENV: Starting odour data fetch...");
   const { odourLevelAnalysis, landfills, wasteWaterPlants } =
     await getOdourData({ address });
+  forceGC();
+  console.log("✅ ENV: Odour data complete");
 
+  console.log("📊 ENV: Starting steep land data fetch...");
   const { steepLandData } = await getSteepLandData({ address });
+  forceGC();
+  console.log("✅ ENV: Steep land data complete");
 
+  console.log("📊 ENV: Starting waterway data fetch...");
   const { waterwayData } = await getWaterwayData({ address });
+  forceGC();
+  console.log("✅ ENV: Waterway data complete");
 
   const environmentalData = {
     biodiversity: biodiversityData,

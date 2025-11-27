@@ -65,11 +65,6 @@ export const getEpaLicensedPremises = async ({
     timeout: 15000,
   });
 
-  console.log(
-    "Raw EPA licensed premises response:",
-    JSON.stringify(response.data, null, 2)
-  );
-
   // TODO: Add proper schema validation once we see the actual response structure
   const features: EpaLicenceFeature[] = response.data.features || [];
 
