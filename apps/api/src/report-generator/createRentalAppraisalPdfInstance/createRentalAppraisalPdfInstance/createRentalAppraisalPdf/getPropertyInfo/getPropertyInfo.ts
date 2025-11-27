@@ -11,12 +11,14 @@ import { getPropertyType } from "./getPropertyType/getPropertyType";
 import { getSimilarPropertiesForRent } from "./getSimilarPropertiesForRent/getSimilarPropertiesForRent";
 import { getSimilarPropertiesForSale } from "./getSimilarPropertiesForSale/getSimilarPropertiesForSale";
 import { getYearBuilt } from "./getYearBuilt/getYearBuilt";
-import { PropertyInfo } from "./utils/types";
 import { getReportCache } from "./utils/createReportCache/createReportCache/createReportCache";
 import { fetchOrRetrieve } from "./utils/createReportCache/fetchOrRetrieve/fetchOrRetrieve";
 import { scrapeDomainDotCom } from "./utils/scrapers/scrapeDomainDotCom/scrapeDomainDotCom";
 import { scrapePropertyValueDotCom } from "./utils/scrapers/scrapePropertyValueDotCom/scrapePropertyValueDotCom";
 import { scrapeRealEstateDotCom } from "./utils/scrapers/scrapeRealEstateDotCom/scrapePropertyValueDotCom";
+import { PropertyInfo } from "./utils/types";
+import { getBathroomCount } from "./getBathroomCount/getBathroomCount";
+import { getBedroomCount } from "./getBedroomCount/getBedroomCount";
 
 type Args = {
   address: Address;
@@ -39,7 +41,10 @@ export const prefetchSources = async ({ address }: Args): Promise<void> => {
   const cacheStore = getReportCache();
 
   const sources = [
-    { source: "propertyvalue.com" as const, scraper: scrapePropertyValueDotCom },
+    {
+      source: "propertyvalue.com" as const,
+      scraper: scrapePropertyValueDotCom,
+    },
     { source: "domain.com" as const, scraper: scrapeDomainDotCom },
     { source: "realestate.com" as const, scraper: scrapeRealEstateDotCom },
   ];
@@ -59,6 +64,14 @@ export const prefetchSources = async ({ address }: Args): Promise<void> => {
 
 const createEffects = ({ address }: Args) => {
   return {
+    bedroomCount: pipe(
+      getBedroomCount({ address }),
+      Effect.map((r) => r.bedroomCount)
+    ),
+    bathroomCount: pipe(
+      getBathroomCount({ address }),
+      Effect.map((r) => r.bathroomCount)
+    ),
     yearBuilt: pipe(
       getYearBuilt({ address }),
       Effect.map((r) => r.yearBuilt)

@@ -1,7 +1,7 @@
 import { Effect, pipe } from "effect";
 import * as O from "effect/Option";
 import { z } from "zod";
-import { Address } from "../../../../../../shared/types";
+import { Address } from "../../../../../shared/types";
 import { trySources } from "./getYearBuilt/trySources/trySources";
 import { getReportCache } from "./utils/createReportCache";
 import { PropertyInfo } from "./utils/types";

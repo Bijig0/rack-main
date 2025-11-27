@@ -12,8 +12,12 @@ import { PropertyTypeSchema } from "../../getPropertyType/types";
 import { SimilarPropertiesForRentSchema } from "../../getSimilarPropertiesForRent/types";
 import { SimilarPropertiesForSaleSchema } from "../../getSimilarPropertiesForSale/types";
 import { YearBuiltSchema } from "../../getYearBuilt/types";
+import { BedroomCountSchema } from "../../getBedroomCount/types";
+import { BathroomCountSchema } from "../../getBathroomCount/types";
 
 export const PropertyInfoSchema = z.object({
+  bedroomCount: BedroomCountSchema,
+  bathroomCount: BathroomCountSchema,
   yearBuilt: YearBuiltSchema,
   landArea: LandAreaSchema,
   floorArea: FloorAreaSchema,
@@ -27,6 +31,7 @@ export const PropertyInfoSchema = z.object({
   similarPropertiesForSale: SimilarPropertiesForSaleSchema,
   similarPropertiesForRent: SimilarPropertiesForRentSchema,
   appraisalSummary: AppraisalSummarySchema,
+
 });
 
 export type PropertyInfo = z.infer<typeof PropertyInfoSchema>;
