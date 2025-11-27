@@ -9,7 +9,7 @@ const createRealBrowserContext = async (): Promise<Return> => {
   console.log("🚀 Launching real browser with advanced anti-detection...");
 
   const { browser, page } = await connect({
-    headless: false,
+    headless: true,
     args: [
       "--disable-blink-features=AutomationControlled",
       "--disable-features=IsolateOrigins,site-per-process",

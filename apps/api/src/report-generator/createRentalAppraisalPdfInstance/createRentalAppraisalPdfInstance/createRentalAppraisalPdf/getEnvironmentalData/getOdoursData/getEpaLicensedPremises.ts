@@ -62,7 +62,7 @@ export const getEpaLicensedPremises = async ({
 
   const response = await axios.get(WFS_DATA_URL, {
     params,
-    timeout: 15000,
+    timeout: 30000, // Increased to 30 seconds
   });
 
   // TODO: Add proper schema validation once we see the actual response structure

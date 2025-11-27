@@ -34,14 +34,28 @@ type Return = OdourData;
 export const getOdourData = async ({ address }: Args): Promise<Return> => {
   const { lat, lon } = await geocodeAddress({ address });
 
-  // Fetch all three datasets in parallel
-  const [landfills, wasteWaterPlants, industrialFacilities] = await Promise.all(
-    [
-      getLandfillData({ lat, lon }),
-      getWastewaterTreatmentPlants({ lat, lon }),
-      getIndustrialFacilities({ lat, lon }),
-    ]
-  );
+  // Fetch all three datasets in parallel with error handling
+  const [landfillsResult, wasteWaterPlantsResult, industrialFacilitiesResult] = await Promise.allSettled([
+    getLandfillData({ lat, lon }),
+    getWastewaterTreatmentPlants({ lat, lon }),
+    getIndustrialFacilities({ lat, lon }),
+  ]);
+
+  // Extract results or use empty arrays on failure
+  const landfills = landfillsResult.status === 'fulfilled' ? landfillsResult.value : [];
+  const wasteWaterPlants = wasteWaterPlantsResult.status === 'fulfilled' ? wasteWaterPlantsResult.value : [];
+  const industrialFacilities = industrialFacilitiesResult.status === 'fulfilled' ? industrialFacilitiesResult.value : [];
+
+  // Log any failures
+  if (landfillsResult.status === 'rejected') {
+    console.warn('⚠️  Failed to fetch landfill data:', landfillsResult.reason.message);
+  }
+  if (wasteWaterPlantsResult.status === 'rejected') {
+    console.warn('⚠️  Failed to fetch wastewater plant data:', wasteWaterPlantsResult.reason.message);
+  }
+  if (industrialFacilitiesResult.status === 'rejected') {
+    console.warn('⚠️  Failed to fetch industrial facility data:', industrialFacilitiesResult.reason.message);
+  }
 
   // Analyze odour levels based on all data sources
   const odourLevelAnalysis = analyzeOdourLevels({

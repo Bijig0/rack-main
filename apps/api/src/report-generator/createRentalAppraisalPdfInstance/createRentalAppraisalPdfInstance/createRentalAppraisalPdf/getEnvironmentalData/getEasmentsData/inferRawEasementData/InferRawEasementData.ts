@@ -28,7 +28,15 @@ export async function inferRawEasementData({
     return { inferredEasementData: [] };
   }
 
-  const inferredEasementDataPromises = features.map(
+  // Limit to first 10 features to avoid memory issues with AI calls
+  const MAX_FEATURES = 10;
+  const limitedFeatures = features.slice(0, MAX_FEATURES);
+
+  if (features.length > MAX_FEATURES) {
+    console.warn(`⚠️  Limiting easement processing to ${MAX_FEATURES} features (found ${features.length})`);
+  }
+
+  const inferredEasementDataPromises = limitedFeatures.map(
     async (feature): Promise<InferredEasementData> => {
       const { id, properties, geometry } = feature;
       const { status, ufi_created } = properties || {};

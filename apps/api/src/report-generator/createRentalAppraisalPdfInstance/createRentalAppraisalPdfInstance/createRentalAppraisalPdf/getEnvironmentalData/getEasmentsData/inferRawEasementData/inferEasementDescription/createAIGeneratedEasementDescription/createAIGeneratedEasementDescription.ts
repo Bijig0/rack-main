@@ -26,10 +26,21 @@ const createAIGeneratedEasementDescription = async ({
     inferredEasementData,
   });
 
-  const { text: aiGeneratedDescription } = await ai.models.generateContent({
+  // Add timeout wrapper for AI call (10 seconds)
+  const timeout = 10000;
+  const aiCallPromise = ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: taskText,
   });
+
+  const timeoutPromise = new Promise<never>((_, reject) =>
+    setTimeout(() => reject(new Error('AI call timeout')), timeout)
+  );
+
+  const { text: aiGeneratedDescription } = await Promise.race([
+    aiCallPromise,
+    timeoutPromise,
+  ]);
 
   return { aiGeneratedDescription };
 };

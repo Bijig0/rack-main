@@ -8,7 +8,7 @@ type BrowserSetup = {
 
 export async function createBrowserContext(): Promise<BrowserSetup> {
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
     slowMo: 100,
   });
 

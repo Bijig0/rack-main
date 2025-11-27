@@ -36,7 +36,7 @@ export const getWastewaterTreatmentPlants = async ({
   };
   const response = await axios.get(WASTEWATER_WFS_URL, {
     params,
-    timeout: 15000,
+    timeout: 30000, // Increased to 30 seconds
   });
 
   const parsedResponse = getWastewaterResponseSchema().parse(response.data);

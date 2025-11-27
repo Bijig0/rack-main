@@ -49,7 +49,7 @@ export const getNoisePollutionData = async ({
     // Fetch nearby road data from Vicmap Transport
     const { roadFeatures } = await getVicmapRoadlineData({
       address,
-      bufferMeters: 500, // 500m radius
+      bufferMeters: 300, // 300m radius - reduced to prevent memory issues
     });
 
     console.log(`\nFound ${roadFeatures.length} roads:`);

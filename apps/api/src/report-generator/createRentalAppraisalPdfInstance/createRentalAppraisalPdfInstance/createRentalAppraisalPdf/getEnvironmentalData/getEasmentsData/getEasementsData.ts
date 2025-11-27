@@ -228,6 +228,7 @@ export const getEasementsData = async ({ address }: Args): Promise<Return> => {
 
   const response = await axios.get(EASEMENTS_WFS_URL, {
     params,
+    timeout: 30000, // 30 second timeout
   });
 
   const parsedResponse = VicmapResponseSchema.parse(response.data);

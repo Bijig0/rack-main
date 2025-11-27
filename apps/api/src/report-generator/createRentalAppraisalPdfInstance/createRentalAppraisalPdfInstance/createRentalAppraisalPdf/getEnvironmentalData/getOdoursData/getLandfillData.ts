@@ -29,7 +29,7 @@ export const getLandfillData = async ({
 
   const response = await axios.get(VLR_WFS_URL, {
     params,
-    timeout: 15000,
+    timeout: 30000, // Increased to 30 seconds
   });
 
   const parsedVlrResponse = getOdoursVicmapResponseSchema().parse(

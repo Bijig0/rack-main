@@ -20,11 +20,18 @@ type Return = {
   environmentalData: EnvironmentalData;
 };
 
-// Helper to suggest garbage collection (non-blocking)
-// NOTE: Using Bun.gc(true) caused premature process exit, so we use the non-blocking version
-const forceGC = () => {
+// Helper to suggest garbage collection
+// Use blocking GC for memory-intensive operations to prevent OOM kills
+const forceGC = (blocking = false) => {
   if (typeof Bun !== "undefined" && Bun.gc) {
-    Bun.gc(false);
+    try {
+      Bun.gc(blocking);
+      if (blocking) {
+        console.log("🗑️  Forced blocking garbage collection");
+      }
+    } catch (error) {
+      console.warn("⚠️  GC failed:", error);
+    }
   }
 };
 
@@ -58,7 +65,7 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   console.log("📊 ENV: Starting easements data fetch...");
   const { easementData } = await getEasementsData({ address });
-  forceGC();
+  forceGC(true); // Blocking GC after AI-heavy operation
   console.log("✅ ENV: Easements data complete");
 
   console.log("📊 ENV: Starting flood risk data fetch...");
@@ -71,15 +78,17 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   forceGC();
   console.log("✅ ENV: Heritage data complete");
 
+  // Force blocking GC before memory-intensive operation
+  forceGC(true);
   console.log("📊 ENV: Starting noise pollution data fetch...");
   const { noisePollutionData } = await getNoisePollutionData({ address });
-  forceGC();
+  forceGC(true); // Blocking GC after large data fetch
   console.log("✅ ENV: Noise pollution data complete");
 
   console.log("📊 ENV: Starting odour data fetch...");
   const { odourLevelAnalysis, landfills, wasteWaterPlants } =
     await getOdourData({ address });
-  forceGC();
+  forceGC(true); // Blocking GC after multiple API calls
   console.log("✅ ENV: Odour data complete");
 
   console.log("📊 ENV: Starting steep land data fetch...");

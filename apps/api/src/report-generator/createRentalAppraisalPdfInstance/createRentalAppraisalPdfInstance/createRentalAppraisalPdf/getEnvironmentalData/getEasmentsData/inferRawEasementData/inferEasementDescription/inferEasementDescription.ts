@@ -20,12 +20,18 @@ const inferEasementDescription = async ({
   rawEasementFeatures,
   inferredEasementData,
 }: Args): Promise<Return> => {
-  const { aiGeneratedDescription } = await createAIGeneratedEasementDescription(
-    {
+  let aiGeneratedDescription: string | undefined;
+
+  try {
+    const result = await createAIGeneratedEasementDescription({
       rawEasementFeatures,
       inferredEasementData,
-    }
-  );
+    });
+    aiGeneratedDescription = result.aiGeneratedDescription;
+  } catch (error) {
+    // Silently fall back to default description if AI fails
+    console.warn('⚠️  AI description generation failed, using default:', error instanceof Error ? error.message : 'Unknown error');
+  }
 
   const { defaultDescription } = createDefaultEasementDescription({
     inferredEasementData,

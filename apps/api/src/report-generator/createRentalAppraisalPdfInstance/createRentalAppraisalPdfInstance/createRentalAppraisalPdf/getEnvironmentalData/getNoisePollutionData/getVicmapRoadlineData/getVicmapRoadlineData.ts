@@ -39,14 +39,20 @@ export const getVicmapRoadlineData = async ({
     const bufferDegrees = bufferMeters / 111000;
 
     // Create WFS parameters using the standard toolkit
-    const params = createWfsParams({
-      lat,
-      lon,
-      buffer: bufferDegrees,
-      typeName: "open-data-platform:tr_road",
-    });
+    const params = {
+      ...createWfsParams({
+        lat,
+        lon,
+        buffer: bufferDegrees,
+        typeName: "open-data-platform:tr_road",
+      }),
+      count: 100, // Limit to 100 roads to prevent memory issues
+    };
 
-    const response = await axios.get(WFS_DATA_URL, { params });
+    const response = await axios.get(WFS_DATA_URL, {
+      params,
+      timeout: 30000, // 30 second timeout
+    });
 
     const parsedResponse = VicmapResponseSchema.parse(response.data);
     const features = parsedResponse.features;

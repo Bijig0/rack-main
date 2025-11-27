@@ -13,7 +13,7 @@ type Return = {
 const createAntiBotBrowserContext = async (): Promise<Return> => {
   // Launch with more realistic browser settings to avoid bot detection
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
     args: antiBotLaunchArgs,
   });
 
