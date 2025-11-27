@@ -73,12 +73,14 @@ export const SewageFeatureSchema = z.object({
 export const SewageFeatureCollectionSchema = z.object({
   type: z.literal("FeatureCollection"),
   name: z.string(),
-  crs: z.object({
-    type: z.string(),
-    properties: z.object({
-      name: z.string(),
-    }),
-  }).optional(),
+  crs: z
+    .object({
+      type: z.string(),
+      properties: z.object({
+        name: z.string(),
+      }),
+    })
+    .optional(),
   features: z.array(SewageFeatureSchema),
 });
 
@@ -96,30 +98,40 @@ export const InferredSewagePipelineSchema = z.object({
   }),
   serviceStatus: z.string().nullable(),
   dateOfConstruction: z.string().optional(),
-  distance: z.object({
-    measurement: z.number(),
-    unit: z.string(),
-  }).optional(),
-  closestPoint: z.object({
-    lat: z.number(),
-    lon: z.number(),
-  }).optional(),
+  distance: z
+    .object({
+      measurement: z.number(),
+      unit: z.string(),
+    })
+    .optional(),
+  closestPoint: z
+    .object({
+      lat: z.number(),
+      lon: z.number(),
+    })
+    .optional(),
 });
 
 // Connection type for sewage
 export type ConnectionType = "direct" | "septic" | "unknown";
 
+export const SewageDataSchema = z.object({
+  isConnected: z.boolean(),
+  connectionType: z.string(),
+  nearestPipeline: InferredSewagePipelineSchema.optional(),
+  distanceToNearestPipeline: z.number().optional(),
+  confidence: z.number().optional(),
+});
+
 // Sewage summary return type
-export type SewageSummary = {
-  isConnected: boolean;
-  connectionType: ConnectionType;
-  nearestPipeline?: InferredSewagePipeline;
-  distanceToNearestPipeline?: number; // in meters
-  confidence: number; // 0-100 score
-};
+export type SewageData = z.infer<typeof SewageDataSchema>;
 
 // Type exports
 export type SewageProperties = z.infer<typeof SewagePropertiesSchema>;
 export type SewageFeature = z.infer<typeof SewageFeatureSchema>;
-export type SewageFeatureCollection = z.infer<typeof SewageFeatureCollectionSchema>;
-export type InferredSewagePipeline = z.infer<typeof InferredSewagePipelineSchema>;
+export type SewageFeatureCollection = z.infer<
+  typeof SewageFeatureCollectionSchema
+>;
+export type InferredSewagePipeline = z.infer<
+  typeof InferredSewagePipelineSchema
+>;

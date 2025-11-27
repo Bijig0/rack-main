@@ -16,3 +16,4 @@ output
 
 # Ignore all GeoJSON files (commit only compressed versions)
 *.geojson
+.env

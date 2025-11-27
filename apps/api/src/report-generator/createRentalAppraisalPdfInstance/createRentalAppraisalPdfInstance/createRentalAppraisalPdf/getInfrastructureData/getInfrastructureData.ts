@@ -1,4 +1,5 @@
 import { Address } from "../../../../../shared/types";
+import {} from "../getRentalAppraisalData/schemas";
 import { getElectricityData } from "./getElectricityData/getElectricityData";
 import { getNearbyEmergencyServicesData } from "./getNearbyEmergencyServices/getNearbyEmergencyServices";
 import { getNearbyParksData } from "./getNearbyParks/getNearbyParks";
@@ -8,12 +9,17 @@ import { getSewageData } from "./getSewageData/getSewageData";
 import { getStormwaterData } from "./getStormwaterData/getStormwaterData";
 import { getPublicTransportData } from "./getTransportData/getPublicTransportData/getPublicTransportData";
 import { getWaterData } from "./getWaterData/getWaterData";
+import { InfrastructureData, InfrastructureDataSchema } from "./types/types";
 
 type Args = {
   address: Address;
 };
 
-const getInfrastructureData = async ({ address }: Args) => {
+type Return = {
+  infrastructureData: InfrastructureData;
+};
+
+const getInfrastructureData = async ({ address }: Args): Promise<Return> => {
   // Run lighter data fetchers in parallel
   const lightPromises = {
     electricityData: getElectricityData({ address }),
@@ -23,42 +29,22 @@ const getInfrastructureData = async ({ address }: Args) => {
     nearbyShoppingMallsData: getNearbyShoppingMallsData({ address }),
     stormwaterData: getStormwaterData({ address }),
     waterData: getWaterData({ address }),
+    publicTransportData: getPublicTransportData({ address }),
+    sewageData: getSewageData({ address }),
   };
 
   const lightEntries = Object.entries(lightPromises);
-  const lightResults = await Promise.all(lightEntries.map(([, promise]) => promise));
+  const lightResults = await Promise.all(
+    lightEntries.map(([, promise]) => promise)
+  );
 
   const lightData = Object.fromEntries(
     lightEntries.map(([key], i) => [key, lightResults[i]])
   );
 
-  // Force GC before loading heavy data
-  if (typeof Bun !== 'undefined' && Bun.gc) {
-    Bun.gc(true);
-  }
+  const data = InfrastructureDataSchema.parse(lightData);
 
-  // Run heavy data fetchers sequentially to manage memory
-  const sewageData = await getSewageData({ address });
-
-  // Force GC after sewage data
-  if (typeof Bun !== 'undefined' && Bun.gc) {
-    Bun.gc(true);
-  }
-
-  const publicTransportData = await getPublicTransportData({ address });
-
-  // Force GC after transport data
-  if (typeof Bun !== 'undefined' && Bun.gc) {
-    Bun.gc(true);
-  }
-
-  const infrastructureData = {
-    ...lightData,
-    sewageData,
-    publicTransportData,
-  };
-
-  return { infrastructureData };
+  return { infrastructureData: data };
 };
 
 if (import.meta.main) {
@@ -71,7 +57,7 @@ if (import.meta.main) {
 
   getInfrastructureData({ address })
     .then(({ infrastructureData }) => {
-      console.log(infrastructureData);
+      console.log({ infrastructureData });
     })
     .catch((error) => {
       console.error(error);

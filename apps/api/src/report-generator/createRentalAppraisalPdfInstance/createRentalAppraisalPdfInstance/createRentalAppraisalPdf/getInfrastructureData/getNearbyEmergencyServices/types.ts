@@ -1,5 +1,5 @@
 import z from "zod";
-import { GooglePlaceSchema } from "../types";
+import { GooglePlaceSchema } from "../types/googlePlaceSchema";
 
 export const EmergencyServiceSchema = GooglePlaceSchema;
 

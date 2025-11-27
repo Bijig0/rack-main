@@ -12,20 +12,24 @@ const LineStringGeometrySchema = z.object({
 });
 
 // --- Stop properties schema ---
-export const TransportStopPropertiesSchema = z.object({
-  STOP_ID: z.string(),
-  STOP_NAME: z.string(),
-  MODE: z.string(),
-}).passthrough();
+export const TransportStopPropertiesSchema = z
+  .object({
+    STOP_ID: z.string(),
+    STOP_NAME: z.string(),
+    MODE: z.string(),
+  })
+  .passthrough();
 
 // --- Line properties schema ---
-export const TransportLinePropertiesSchema = z.object({
-  SHAPE_ID: z.string(),
-  HEADSIGN: z.string().optional(),
-  SHORT_NAME: z.string().optional(),
-  LONG_NAME: z.string().optional(),
-  MODE: z.string(),
-}).passthrough();
+export const TransportLinePropertiesSchema = z
+  .object({
+    SHAPE_ID: z.string(),
+    HEADSIGN: z.string().optional(),
+    SHORT_NAME: z.string().optional(),
+    LONG_NAME: z.string().optional(),
+    MODE: z.string(),
+  })
+  .passthrough();
 
 // --- Feature schemas ---
 export const TransportStopFeatureSchema = z.object({
@@ -86,9 +90,16 @@ export type TransportLineFeature = z.infer<typeof TransportLineFeatureSchema>;
 export type InferredTransportStop = z.infer<typeof InferredTransportStopSchema>;
 export type InferredTransportLine = z.infer<typeof InferredTransportLineSchema>;
 
-export const InferredTransportStops = z.array(InferredTransportStopSchema);
-export const InferredTransportLines = z.array(InferredTransportLineSchema);
+export const InferredTransportStopsSchema = z.array(
+  InferredTransportStopSchema
+);
+export const InferredTransportLinesSchema = z.array(
+  InferredTransportLineSchema
+);
 
-export type InferredTransportStops = z.infer<typeof InferredTransportStops>;
-export type InferredTransportLines = z.infer<typeof InferredTransportLines>;
-
+export type InferredTransportStops = z.infer<
+  typeof InferredTransportStopsSchema
+>;
+export type InferredTransportLines = z.infer<
+  typeof InferredTransportLinesSchema
+>;

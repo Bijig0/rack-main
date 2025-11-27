@@ -8,7 +8,7 @@ import {
   InferredSewagePipeline,
   SewageFeature,
   SewageFeatureCollectionSchema,
-  SewageSummary,
+  SewageData,
 } from "./types";
 
 type Args = {
@@ -16,7 +16,7 @@ type Args = {
   radiusKm?: number; // Default to 5km for main sewage pipelines
 };
 
-type Return = SewageSummary;
+type Return = SewageData;
 
 // Haversine formula to calculate distance between two points in km
 const calculateDistance = (
