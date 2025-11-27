@@ -1,13 +1,9 @@
-import * as fs from "fs";
-import * as path from "path";
-import { parse } from "csv-parse/sync";
 import { Address } from "../../../../../../../shared/types";
 import { geocodeAddress } from "../../../../../wfsDataToolkit/geocodeAddress/geoCodeAddress";
+import { getPool } from "../../../../../../../db/pool";
 import {
   TrafficSignalData,
   TrafficSignalDataSchema,
-  TrafficSignalRow,
-  TrafficSignalRowSchema,
   TrafficSignalSite,
 } from "./trafficSignalTypes";
 
@@ -20,13 +16,9 @@ type Return = {
   trafficData: TrafficSignalData | null;
 };
 
-const DATA_DIR = path.join(__dirname, "..", "data", "traffic_signal_volume_data_november_2025");
-
 /**
- * Loads and parses traffic signal volume data from local CSV files
- * Note: This uses local data since the traffic signal API requires authentication
- * and provides large datasets. For production, this should be replaced with
- * a database or API integration.
+ * Loads and analyzes traffic signal volume data from the PostgreSQL database
+ * Data is sourced from SCATS (Sydney Coordinated Adaptive Traffic System) detectors
  */
 export const getTrafficSignalData = async ({
   address,
@@ -44,59 +36,65 @@ export const getTrafficSignalData = async ({
 
     const { lat, lon } = geocoded;
 
-    // Check if data directory exists
-    if (!fs.existsSync(DATA_DIR)) {
-      console.log("⚠️  Traffic signal data directory not found");
+    // Get database connection
+    const pool = getPool();
+
+    // Query traffic signal data from database
+    // Get the most recent date available and aggregate by site
+    console.log(`📊 Querying traffic data from database...`);
+
+    const query = `
+      SELECT
+        scats_site,
+        detector_number,
+        interval_date,
+        region,
+        volume_24hour,
+        v00, v01, v02, v03, v04, v05, v06, v07, v08, v09,
+        v10, v11, v12, v13, v14, v15, v16, v17, v18, v19,
+        v20, v21, v22, v23, v24, v25, v26, v27, v28, v29,
+        v30, v31, v32, v33, v34, v35, v36, v37, v38, v39,
+        v40, v41, v42, v43, v44, v45, v46, v47, v48, v49,
+        v50, v51, v52, v53, v54, v55, v56, v57, v58, v59,
+        v60, v61, v62, v63, v64, v65, v66, v67, v68, v69,
+        v70, v71, v72, v73, v74, v75, v76, v77, v78, v79,
+        v80, v81, v82, v83, v84, v85, v86, v87, v88, v89,
+        v90, v91, v92, v93, v94, v95
+      FROM traffic_signal_volumes
+      WHERE interval_date = (
+        SELECT MAX(interval_date) FROM traffic_signal_volumes
+      )
+      AND volume_24hour > 0
+      ORDER BY volume_24hour DESC
+      LIMIT 1000
+    `;
+
+    const result = await pool.query(query);
+    const records = result.rows;
+
+    if (records.length === 0) {
+      console.log("⚠️  No traffic signal data found in database");
       return { trafficData: null };
     }
 
-    // Get most recent CSV file
-    const files = fs
-      .readdirSync(DATA_DIR)
-      .filter((f) => f.endsWith(".csv"))
-      .sort()
-      .reverse();
+    const date = records[0].interval_date.toISOString().split('T')[0];
+    console.log(`📁 Loading traffic data from: ${date}`);
 
-    if (files.length === 0) {
-      console.log("⚠️  No traffic signal data files found");
-      return { trafficData: null };
-    }
-
-    // Use most recent file
-    const latestFile = files[0];
-    const filePath = path.join(DATA_DIR, latestFile);
-    const date = latestFile.match(/\d{8}/)?.[0] || "unknown";
-
-    console.log(`📁 Loading traffic data from: ${latestFile}`);
-
-    // Read and parse CSV
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const records = parse(fileContent, {
-      columns: true,
-      skip_empty_lines: true,
-      relax_column_count: true, // Handle inconsistent column counts
-    });
-
-    // Parse and filter records
+    // Parse and process records
     const sites: TrafficSignalSite[] = [];
 
     for (const record of records) {
       try {
-        // Extract volume data (V00-V95 columns represent 15-min intervals)
+        // Extract volume data (v00-v95 columns represent 15-min intervals)
         const volumes: number[] = [];
         for (let i = 0; i < 96; i++) {
-          const volKey = `V${i.toString().padStart(2, "0")}`;
-          const vol = parseInt(record[volKey] || "0", 10);
-          if (!isNaN(vol)) {
-            volumes.push(vol);
-          }
+          const volKey = `v${i.toString().padStart(2, "0")}`;
+          const vol = record[volKey] || 0;
+          volumes.push(vol);
         }
 
-        if (volumes.length === 0) continue;
-
-        // Calculate metrics
-        const dailyVolume = parseInt(record.QT_VOLUME_24HOUR || "0", 10);
-        if (isNaN(dailyVolume) || dailyVolume === 0) continue;
+        const dailyVolume = record.volume_24hour;
+        if (!dailyVolume || dailyVolume === 0) continue;
 
         // Calculate peak hour (4 consecutive 15-min intervals)
         let maxHourlyVolume = 0;
@@ -107,11 +105,11 @@ export const getTrafficSignalData = async ({
         }
 
         sites.push({
-          scatsSiteId: record.NB_SCATS_SITE || "unknown",
-          detectorId: record.NB_DETECTOR || "unknown",
+          scatsSiteId: record.scats_site.toString(),
+          detectorId: record.detector_number.toString(),
           averageDailyVolume: dailyVolume,
           peakHourVolume: maxHourlyVolume,
-          region: record.NM_REGION || "unknown",
+          region: record.region || "unknown",
           date,
         });
       } catch (error) {
