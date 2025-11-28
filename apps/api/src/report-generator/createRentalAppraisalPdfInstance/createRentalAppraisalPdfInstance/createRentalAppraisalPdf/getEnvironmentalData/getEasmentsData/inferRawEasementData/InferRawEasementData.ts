@@ -36,53 +36,53 @@ export async function inferRawEasementData({
     console.warn(`⚠️  Limiting easement processing to ${MAX_FEATURES} features (found ${features.length})`);
   }
 
-  const inferredEasementDataPromises = limitedFeatures.map(
-    async (feature): Promise<InferredEasementData> => {
-      const { id, properties, geometry } = feature;
-      const { status, ufi_created } = properties || {};
+  // Process features sequentially to avoid memory issues with concurrent AI calls
+  const inferredEasementData: InferredEasementData[] = [];
 
-      const { easementType } = inferEasementType({ geometry });
+  for (const feature of limitedFeatures) {
+    const { id, properties, geometry } = feature;
+    const { status, ufi_created } = properties || {};
 
-      const { measurement, measurementText } = computeEasementMeasurement({
-        feature,
-      });
+    const { easementType } = inferEasementType({ geometry });
 
-      // --- Build dataset info ---
-      const date = ufi_created
-        ? new Date(ufi_created).toISOString().split("T")[0]
-        : "unknown date";
+    const { measurement, measurementText } = computeEasementMeasurement({
+      feature,
+    });
 
-      const dataset = {
-        name: "",
-        url: "https://abc.com",
-      } satisfies Dataset;
+    // --- Build dataset info ---
+    const date = ufi_created
+      ? new Date(ufi_created).toISOString().split("T")[0]
+      : "unknown date";
 
-      // --- Build readable description ---
-      const { inferredStatusText: statusText } = inferStatusText({
-        rawStatus: status,
-      });
+    const dataset = {
+      name: "",
+      url: "https://abc.com",
+    } satisfies Dataset;
 
-      const { description } = await inferEasementDescription({
-        rawEasementFeatures: feature,
-        inferredEasementData: {
-          status: statusText,
-          type: easementType,
-          measurement,
-          dataset,
-        },
-      });
-      // --- Build structured response ---
-      return {
-        dataset,
+    // --- Build readable description ---
+    const { inferredStatusText: statusText } = inferStatusText({
+      rawStatus: status,
+    });
+
+    const { description } = await inferEasementDescription({
+      rawEasementFeatures: feature,
+      inferredEasementData: {
+        status: statusText,
         type: easementType,
         measurement,
-        status: statusText,
-        description,
-      };
-    }
-  );
+        dataset,
+      },
+    });
 
-  const inferredEasementData = await Promise.all(inferredEasementDataPromises);
+    // --- Build structured response ---
+    inferredEasementData.push({
+      dataset,
+      type: easementType,
+      measurement,
+      status: statusText,
+      description,
+    });
+  }
 
   return { inferredEasementData };
 }

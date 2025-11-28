@@ -6,6 +6,7 @@ import getInfrastructureData from "../getInfrastructureData/getInfrastructureDat
 import getLocationAndSuburbData from "../getLocationAndSuburbData/getLocationAndSuburbData";
 import getPlanningZoningData from "../getPlanningZoningData/getPlanningZoningData";
 import getPropertyInfo from "../getPropertyInfo/getPropertyInfo";
+import { resetGlobalCache } from "../getPropertyInfo/utils/createReportCache/createReportCache/createReportCache";
 import { type RentalAppraisalData } from "./schemas";
 
 type Args = {
@@ -29,6 +30,8 @@ const getRentalAppraisalData = async ({ address }: Args): Promise<Return> => {
   console.log("🏠 MAIN: Fetching property info...");
   const { propertyInfo } = await getPropertyInfo({ address });
   // Clear the HTML cache to free memory before heavy environmental/infrastructure data
+  resetGlobalCache();
+  console.log("🗑️  MAIN: Cleared HTML cache to free memory");
 
   console.log("🏠 MAIN: Fetching planning zone data...");
   const { planningZoningData } = await Effect.runPromise(

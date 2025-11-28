@@ -59,9 +59,12 @@ export const getPlanningZoneData = ({
       typeName: "open-data-platform:plan_zone",
     });
 
-    // Fetch from WFS
+    // Fetch from WFS with timeout
     const response = yield* Effect.tryPromise({
-      try: () => axios.get(PLANNING_ZONE_WFS_URL, { params }),
+      try: () => axios.get(PLANNING_ZONE_WFS_URL, {
+        params,
+        timeout: 30000, // 30 second timeout
+      }),
       catch: (error) => new Error(`WFS request failed: ${error}`),
     });
 

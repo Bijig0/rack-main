@@ -43,6 +43,12 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   // Fetch environmental data from multiple sources
   // Force GC between heavy operations to manage memory
 
+  // Run easements FIRST before memory builds up from other operations
+  console.log("📊 ENV: Starting easements data fetch...");
+  const { easementData } = await getEasementsData({ address });
+  forceGC(true);
+  console.log("✅ ENV: Easements data complete");
+
   console.log("📊 ENV: Starting biodiversity data fetch...");
   const { biodiversityData } = await getBiodiversityData({ address });
   forceGC();
@@ -60,13 +66,8 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
 
   console.log("📊 ENV: Starting coastal hazard data fetch...");
   const { coastalHazardData } = await getCoastalHazardData({ address });
-  forceGC();
+  forceGC(true);
   console.log("✅ ENV: Coastal hazard data complete");
-
-  console.log("📊 ENV: Starting easements data fetch...");
-  const { easementData } = await getEasementsData({ address });
-  forceGC(true); // Blocking GC after AI-heavy operation
-  console.log("✅ ENV: Easements data complete");
 
   console.log("📊 ENV: Starting flood risk data fetch...");
   const { floodRiskData } = await getFloodRiskData({ address });

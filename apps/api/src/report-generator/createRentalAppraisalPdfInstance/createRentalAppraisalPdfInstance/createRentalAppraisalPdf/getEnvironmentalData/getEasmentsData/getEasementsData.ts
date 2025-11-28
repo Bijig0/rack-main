@@ -218,63 +218,83 @@ const generateAlerts = (
  * ```
  */
 export const getEasementsData = async ({ address }: Args): Promise<Return> => {
-  const { lat, lon } = await geocodeAddress({ address })!;
+  try {
+    const { lat, lon } = await geocodeAddress({ address })!;
 
-  const params = createWfsParams({
-    lat,
-    lon,
-    typeName: "open-data-platform:easement",
-  });
+    const baseParams = createWfsParams({
+      lat,
+      lon,
+      typeName: "open-data-platform:easement",
+    });
 
-  const response = await axios.get(EASEMENTS_WFS_URL, {
-    params,
-    timeout: 30000, // 30 second timeout
-  });
+    // Add count limit to prevent large response payloads
+    const params = {
+      ...baseParams,
+      count: 20, // WFS 2.0 uses 'count' instead of 'maxFeatures'
+    };
 
-  const parsedResponse = VicmapResponseSchema.parse(response.data);
-  const geographicFeatures = parsedResponse.features;
-  const easementFeatures = EasementFeaturesSchema.parse(geographicFeatures);
+    const response = await axios.get(EASEMENTS_WFS_URL, {
+      params,
+      timeout: 30000, // 30 second timeout
+    });
 
-  const hasEasement =
-    geographicFeatures != null && geographicFeatures.length > 0;
+    const parsedResponse = VicmapResponseSchema.parse(response.data);
+    const geographicFeatures = parsedResponse.features;
+    const easementFeatures = EasementFeaturesSchema.parse(geographicFeatures);
 
-  // No easements found
-  if (!hasEasement) {
+    const hasEasement =
+      geographicFeatures != null && geographicFeatures.length > 0;
+
+    // No easements found
+    if (!hasEasement) {
+      return {
+        easementData: {
+          hasEasement: false,
+          type: undefined,
+          locationDescription: undefined,
+          impactLevel: "none",
+          alerts: undefined,
+        },
+      };
+    }
+
+    // Process easements to get detailed data
+    const { inferredEasementData } = await inferRawEasementData({
+      features: easementFeatures,
+    });
+
+    // Aggregate into simplified format
+    const type = determinePrimaryType(inferredEasementData);
+    const impactLevel = determineImpactLevel(
+      hasEasement,
+      type,
+      inferredEasementData
+    );
+    const locationDescription = generateLocationDescription(inferredEasementData);
+    const alerts = generateAlerts(type, impactLevel, inferredEasementData);
+
+    return {
+      easementData: {
+        hasEasement,
+        type,
+        locationDescription,
+        impactLevel,
+        alerts,
+      },
+    };
+  } catch (error) {
+    console.error("⚠️  Error fetching easement data:", error instanceof Error ? error.message : error);
+    // Return default "unknown" data on error to prevent pipeline crash
     return {
       easementData: {
         hasEasement: false,
         type: undefined,
-        locationDescription: undefined,
+        locationDescription: "Unable to retrieve easement data",
         impactLevel: "none",
-        alerts: undefined,
+        alerts: ["Easement data unavailable - manual verification recommended"],
       },
     };
   }
-
-  // Process easements to get detailed data
-  const { inferredEasementData } = await inferRawEasementData({
-    features: easementFeatures,
-  });
-
-  // Aggregate into simplified format
-  const type = determinePrimaryType(inferredEasementData);
-  const impactLevel = determineImpactLevel(
-    hasEasement,
-    type,
-    inferredEasementData
-  );
-  const locationDescription = generateLocationDescription(inferredEasementData);
-  const alerts = generateAlerts(type, impactLevel, inferredEasementData);
-
-  return {
-    easementData: {
-      hasEasement,
-      type,
-      locationDescription,
-      impactLevel,
-      alerts,
-    },
-  };
 };
 
 if (import.meta.main) {
