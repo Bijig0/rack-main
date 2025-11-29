@@ -14,6 +14,7 @@
     "serve:pdf": "cd apps/api/src/builder-io-react-test && pnpm install && pnpm dev"
   },
   "dependencies": {
+    "ioredis": "^5.8.2",
     "title-case": "^4.3.2"
   }
 }

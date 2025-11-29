@@ -26,13 +26,20 @@ const forceGC = (blocking = false) => {
   if (typeof Bun !== "undefined" && Bun.gc) {
     try {
       Bun.gc(blocking);
-      if (blocking) {
-        console.log("🗑️  Forced blocking garbage collection");
-      }
     } catch (error) {
       console.warn("⚠️  GC failed:", error);
     }
   }
+};
+
+/**
+ * Logs current memory usage with a label
+ */
+const logMemoryUsage = (label: string) => {
+  const used = process.memoryUsage();
+  const heapUsedMB = Math.round(used.heapUsed / 1024 / 1024);
+  const rssMB = Math.round(used.rss / 1024 / 1024);
+  console.log(`   📊 [ENV ${label}] Heap: ${heapUsedMB} MB | RSS: ${rssMB} MB`);
 };
 
 const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
@@ -43,64 +50,66 @@ const getEnvironmentalData = async ({ address }: Args): Promise<Return> => {
   // Fetch environmental data from multiple sources
   // Force GC between heavy operations to manage memory
 
+  logMemoryUsage("START");
+
   // Run easements FIRST before memory builds up from other operations
   console.log("📊 ENV: Starting easements data fetch...");
   const { easementData } = await getEasementsData({ address });
   forceGC(true);
-  console.log("✅ ENV: Easements data complete");
+  logMemoryUsage("After easements");
 
   console.log("📊 ENV: Starting biodiversity data fetch...");
   const { biodiversityData } = await getBiodiversityData({ address });
   forceGC();
-  console.log("✅ ENV: Biodiversity data complete");
+  logMemoryUsage("After biodiversity");
 
   console.log("📊 ENV: Starting bushfire risk data fetch...");
   const { fireHistory, riskAnalysis } = await getBushfireRiskData({ address });
   forceGC();
-  console.log("✅ ENV: Bushfire risk data complete");
+  logMemoryUsage("After bushfire");
 
   console.log("📊 ENV: Starting character data fetch...");
   const { characterData } = await getCharacterData({ address });
   forceGC();
-  console.log("✅ ENV: Character data complete");
+  logMemoryUsage("After character");
 
   console.log("📊 ENV: Starting coastal hazard data fetch...");
   const { coastalHazardData } = await getCoastalHazardData({ address });
   forceGC(true);
-  console.log("✅ ENV: Coastal hazard data complete");
+  logMemoryUsage("After coastal");
 
   console.log("📊 ENV: Starting flood risk data fetch...");
   const { floodRiskData } = await getFloodRiskData({ address });
   forceGC();
-  console.log("✅ ENV: Flood risk data complete");
+  logMemoryUsage("After flood");
 
   console.log("📊 ENV: Starting heritage data fetch...");
   const { heritageData } = await getHeritageData({ address });
   forceGC();
-  console.log("✅ ENV: Heritage data complete");
+  logMemoryUsage("After heritage");
 
   // Force blocking GC before memory-intensive operation
   forceGC(true);
   console.log("📊 ENV: Starting noise pollution data fetch...");
   const { noisePollutionData } = await getNoisePollutionData({ address });
-  forceGC(true); // Blocking GC after large data fetch
-  console.log("✅ ENV: Noise pollution data complete");
+  forceGC(true);
+  logMemoryUsage("After noise");
 
   console.log("📊 ENV: Starting odour data fetch...");
   const { odourLevelAnalysis, landfills, wasteWaterPlants } =
     await getOdourData({ address });
-  forceGC(true); // Blocking GC after multiple API calls
-  console.log("✅ ENV: Odour data complete");
+  forceGC(true);
+  logMemoryUsage("After odour");
 
   console.log("📊 ENV: Starting steep land data fetch...");
   const { steepLandData } = await getSteepLandData({ address });
   forceGC();
-  console.log("✅ ENV: Steep land data complete");
+  logMemoryUsage("After steepland");
 
   console.log("📊 ENV: Starting waterway data fetch...");
   const { waterwayData } = await getWaterwayData({ address });
   forceGC();
-  console.log("✅ ENV: Waterway data complete");
+  logMemoryUsage("After waterway");
 
   const environmentalData = {
     biodiversity: biodiversityData,

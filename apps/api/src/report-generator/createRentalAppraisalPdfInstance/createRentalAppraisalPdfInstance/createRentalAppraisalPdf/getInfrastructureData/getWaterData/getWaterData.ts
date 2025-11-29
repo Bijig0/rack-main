@@ -58,7 +58,7 @@ const generateAlerts = (
       alerts.push({
         type: "note",
         message: `Nearest fire hydrant is ${Math.round(nearestHydrantDistance)}m away. May affect fire insurance premiums.`,
-      });
+      });πsc
     } else if (nearestHydrantDistance <= 100) {
       alerts.push({
         type: "note",

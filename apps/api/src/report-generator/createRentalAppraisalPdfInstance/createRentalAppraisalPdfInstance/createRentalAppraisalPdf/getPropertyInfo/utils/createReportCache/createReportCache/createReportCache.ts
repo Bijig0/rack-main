@@ -1,5 +1,6 @@
 import { CacheStore } from "../types";
 import { InMemoryCacheStore } from "../stores/InMemoryCacheStore/InMemoryCacheStore";
+import { RedisCacheStore } from "../stores/RedisCacheStore/RedisCacheStore";
 
 /**
  * Singleton instance of the cache store
@@ -11,12 +12,38 @@ import { InMemoryCacheStore } from "../stores/InMemoryCacheStore/InMemoryCacheSt
 let globalCacheStoreInstance: CacheStore | null = null;
 
 /**
+ * Create a default cache store based on environment
+ * Uses RedisCacheStore if Redis is available, otherwise falls back to InMemoryCacheStore
+ */
+const createDefaultCacheStore = (): CacheStore => {
+  // Check if Redis is available in the environment
+  const redisHost = process.env.REDIS_HOST;
+  const redisUrl = process.env.REDIS_URL;
+
+  if (redisHost || redisUrl) {
+    try {
+      console.log("📦 Initializing Redis cache store...");
+      return new RedisCacheStore();
+    } catch (error) {
+      console.warn(
+        "⚠️  Failed to connect to Redis, falling back to in-memory cache:",
+        error
+      );
+      return new InMemoryCacheStore();
+    }
+  }
+
+  console.log("📦 Initializing in-memory cache store (no Redis configured)");
+  return new InMemoryCacheStore();
+};
+
+/**
  * Get the singleton cache store instance
- * Creates it if it doesn't exist (uses InMemoryCacheStore by default)
+ * Creates it if it doesn't exist (uses RedisCacheStore if available, otherwise InMemoryCacheStore)
  */
 export const getReportCache = (): CacheStore => {
   if (globalCacheStoreInstance === null) {
-    globalCacheStoreInstance = new InMemoryCacheStore();
+    globalCacheStoreInstance = createDefaultCacheStore();
   }
   return globalCacheStoreInstance;
 };
@@ -25,10 +52,10 @@ export const getReportCache = (): CacheStore => {
  * Create a new cache store instance
  * Use this when you need a separate cache instance (e.g., per-request caching)
  *
- * @param store - Optional custom cache store (defaults to InMemoryCacheStore)
+ * @param store - Optional custom cache store (defaults to auto-detected: Redis if available, otherwise InMemory)
  */
 export const createReportCache = (store?: CacheStore): CacheStore => {
-  return store || new InMemoryCacheStore();
+  return store || createDefaultCacheStore();
 };
 
 /**
