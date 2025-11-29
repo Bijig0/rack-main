@@ -1,0 +1,150 @@
+{
+  "fireHistory": [
+    {
+      "fireId": "R24",
+      "fireType": "Burn",
+      "fireSeason": "2011",
+      "ignitionDate": "2010-10-21T00:00:00Z",
+      "area": {
+        "measurement": 1.0261726062040062,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 1.355350340908057,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.009865781478771441,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.385094628083487,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.9527661949661546,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.520259139718356,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "20",
+      "fireName": "METROPOLITAN 20 - PORT MELBOURNE - WESTGATE PARK PICNIC GROUND - BAY TRL",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2024-12-16T00:00:00Z",
+      "area": {
+        "measurement": 0.06481220047049414,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 5.642299577174341,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "5",
+      "fireName": "METROPOLITAN 5 - MARIBYRNONG - RALEIGH RD",
+      "fireType": "Bushfire",
+      "fireSeason": "2022",
+      "ignitionDate": "2022-01-01T00:00:00Z",
+      "area": {
+        "measurement": 26.203051227970246,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 9.66917249566347,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "06G01",
+      "fireType": "Burn",
+      "fireSeason": "2006",
+      "area": {
+        "measurement": 8.249793855374385,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 10.471596122942318,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "28",
+      "fireName": "METROPOLITAN 28 - AVONDALE HEIGHTS - LOWER MARIBRYNONG PARKLANDS",
+      "fireType": "Bushfire",
+      "fireSeason": "2025",
+      "ignitionDate": "2025-01-11T00:00:00Z",
+      "area": {
+        "measurement": 1.5884567980860875,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 10.572389946077212,
+        "unit": "km"
+      }
+    },
+    {
+      "fireId": "B03",
+      "fireType": "Burn",
+      "fireSeason": "2003",
+      "ignitionDate": "2003-03-12T00:00:00Z",
+      "area": {
+        "measurement": 5.121979360634582,
+        "unit": "ha"
+      },
+      "distance": {
+        "measurement": 13.736386536852201,
+        "unit": "km"
+      }
+    }
+  ],
+  "riskAnalysis": {
+    "overallRisk": "HIGH",
+    "riskFactors": {
+      "inBushfireProneArea": false,
+      "distanceToProneArea": {
+        "measurement": 1.355350340908057,
+        "unit": "km"
+      },
+      "historicalFiresNearby": 5,
+      "recentFiresNearby": 4,
+      "closestHistoricalFire": {
+        "distance": {
+          "measurement": 1.355350340908057,
+          "unit": "km"
+        },
+        "fireSeason": "2011",
+        "fireType": "Burn"
+      }
+    },
+    "summary": "This property has a HIGH bushfire risk rating. The property is not within a designated bushfire prone area. There have been 1 recorded fire within 5km of the property. 4 fires have occurred in the area within the last 10 years.",
+    "recommendations": [
+      "Develop and maintain a comprehensive bushfire survival plan",
+      "Ensure property has adequate defendable space and fuel load management",
+      "Install ember-proof screens on windows and vents",
+      "Consider bushfire-rated construction materials for any renovations",
+      "Review CFA (Country Fire Authority) fire history and learn from recent incidents",
+      "Register for emergency alerts with VicEmergency",
+      "Prepare an emergency evacuation kit and know evacuation routes"
+    ]
+  }
+}

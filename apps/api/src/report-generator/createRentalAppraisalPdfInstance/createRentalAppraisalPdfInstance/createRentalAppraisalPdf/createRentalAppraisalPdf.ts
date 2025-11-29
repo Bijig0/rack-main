@@ -23,16 +23,22 @@ const createRentalAppraisalPDF = async ({
 };
 
 if (import.meta.main) {
-  const rentalAppraisalData = await createRentalAppraisalPDF({
-    address: {
-      addressLine: "6 English Place",
-      suburb: "Kew",
-      state: "VIC",
-      postcode: "3101",
-    },
-  });
+  try {
+    console.log("🚀 Starting main...");
+    const rentalAppraisalData = await createRentalAppraisalPDF({
+      address: {
+        addressLine: "6 English Place",
+        suburb: "Kew",
+        state: "VIC",
+        postcode: "3101",
+      },
+    });
 
-  console.log({ rentalAppraisalData }, { depth: null, colors: true });
+    console.log("📊 Rental appraisal data received!");
+    console.log(JSON.stringify(rentalAppraisalData, null, 2));
+  } catch (error) {
+    console.error("❌ Error:", error);
+  } 
 }
 
 export default createRentalAppraisalPDF;

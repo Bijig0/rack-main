@@ -29,6 +29,20 @@
         "url": ""
       },
       {
+        "name": "Bathroom Count",
+        "status": "done",
+        "description": "",
+        "note": "",
+        "url": ""
+      },
+      {
+        "name": "Land Area",
+        "status": "done",
+        "description": "From corelogic",
+        "note": "",
+        "url": ""
+      },
+      {
         "name": "Floor Area",
         "status": "done",
         "description": "",
@@ -126,6 +140,27 @@
     "name": "Planning and Zoning",
     "tasks": [
       {
+        "name": "Local Plan",
+        "status": "done",
+        "description": "Municipal Strategic Statement lookup using comprehensive LGA/suburb mapping table",
+        "note": "getLocalPlan function created with 50+ Victorian council mappings covering Melbourne metro and regional areas with 19+ comprehensive unit tests",
+        "url": ""
+      },
+      {
+        "name": "Planning Overlays",
+        "status": "done",
+        "description": "From Vicmap Planning plan_overlay WFS layer - includes Heritage (HO), Design & Development (DDO), Vegetation Protection (VPO), Significant Landscape (SLO), Development Plan (DPO), Development Contributions (DCPO), etc.",
+        "note": "Automatically fetched and deduplicated. Example: Found 9 unique overlays including HO485, HO109, VPO1, VPO2, DDO1, DDO2, DPO3, SLO1, DCPO1",
+        "url": ""
+      },
+      {
+        "name": "Planning Scheme",
+        "status": "done",
+        "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
+        "note": "Retrieved from Vicmap Planning WFS data",
+        "url": ""
+      },
+      {
         "name": "Regional Plan",
         "status": "done",
         "description": "Derived from LGA - Plan Melbourne 2017-2050 for Greater Melbourne LGAs",
@@ -140,29 +175,22 @@
         "url": ""
       },
       {
-        "name": "Planning Scheme",
-        "status": "done",
-        "description": "Constructed from LGA name (e.g., 'Boroondara Planning Scheme')",
-        "note": "Retrieved from Vicmap Planning WFS data",
-        "url": ""
-      },
-      {
-        "name": "Zone",
+        "name": "Zone Description",
         "status": "done",
         "description": "From Vicmap Planning plan_zone WFS layer",
         "note": "Includes zone code, description, and schedule number (e.g., 'TRANSPORT ZONE 2 - PRINCIPAL ROAD NETWORK - Schedule 7151')",
         "url": ""
       },
       {
-        "name": "Planning Overlays",
+        "name": "Zone Code",
         "status": "done",
-        "description": "From Vicmap Planning plan_overlay WFS layer - includes Heritage (HO), Design & Development (DDO), Vegetation Protection (VPO), Significant Landscape (SLO), Development Plan (DPO), Development Contributions (DCPO), etc.",
-        "note": "Automatically fetched and deduplicated. Example: Found 9 unique overlays including HO485, HO109, VPO1, VPO2, DDO1, DDO2, DPO3, SLO1, DCPO1",
+        "description": "From Vicmap Planning plan_zone WFS layer",
+        "note": "Just zone code, i.e GRZ2",
         "url": ""
       },
       {
         "name": "Heritage Overlays",
-        "status": "done",
+        "status": "not-done",
         "description": "Extracted from planning overlays - specifically HO (Heritage Overlay) codes",
         "note": "Automatically filtered from overlay data. Example: HO485, HO109",
         "url": ""
@@ -175,15 +203,8 @@
         "url": ""
       },
       {
-        "name": "Local Plan",
-        "status": "done",
-        "description": "Municipal Strategic Statement lookup using comprehensive LGA/suburb mapping table",
-        "note": "getLocalPlan function created with 50+ Victorian council mappings covering Melbourne metro and regional areas with 19+ comprehensive unit tests",
-        "url": ""
-      },
-      {
         "name": "Local Plan Precinct",
-        "status": "not-done",
+        "status": "done",
         "description": "Would require detailed local planning policy framework data",
         "note": "Future enhancement",
         "url": ""

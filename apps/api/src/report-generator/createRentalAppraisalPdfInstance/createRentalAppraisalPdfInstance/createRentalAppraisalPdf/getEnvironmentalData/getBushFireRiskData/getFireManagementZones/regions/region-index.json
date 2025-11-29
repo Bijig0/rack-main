@@ -1,0 +1,62 @@
+{
+  "BARWON SOUTH WEST": {
+    "featureCount": 2343,
+    "bbox": {
+      "minLat": -38.8576936,
+      "maxLat": -37.0910096,
+      "minLon": 140.96579,
+      "maxLon": 144.720154
+    },
+    "filename": "barwon_south_west.geojson.gz"
+  },
+  "PORT PHILLIP": {
+    "featureCount": 599,
+    "bbox": {
+      "minLat": -38.4993717,
+      "maxLat": -37.4332855,
+      "minLon": 144.444002,
+      "maxLon": 146.163126
+    },
+    "filename": "port_phillip.geojson.gz"
+  },
+  "LODDON MALLEE": {
+    "featureCount": 9105,
+    "bbox": {
+      "minLat": -37.5297011,
+      "maxLat": -33.9806498,
+      "minLon": 140.961859,
+      "maxLon": 145.240455
+    },
+    "filename": "loddon_mallee.geojson.gz"
+  },
+  "HUME": {
+    "featureCount": 3722,
+    "bbox": {
+      "minLat": -37.6827579,
+      "maxLat": -35.8019829,
+      "minLon": 144.706809,
+      "maxLon": 148.129992
+    },
+    "filename": "hume.geojson.gz"
+  },
+  "GRAMPIANS": {
+    "featureCount": 5163,
+    "bbox": {
+      "minLat": -38.1493236,
+      "maxLat": -35.866911,
+      "minLon": 140.963778,
+      "maxLon": 144.67268
+    },
+    "filename": "grampians.geojson.gz"
+  },
+  "GIPPSLAND": {
+    "featureCount": 1775,
+    "bbox": {
+      "minLat": -39.15913,
+      "maxLat": -36.5132002,
+      "minLon": 145.116156,
+      "maxLon": 149.976499
+    },
+    "filename": "gippsland.geojson.gz"
+  }
+}

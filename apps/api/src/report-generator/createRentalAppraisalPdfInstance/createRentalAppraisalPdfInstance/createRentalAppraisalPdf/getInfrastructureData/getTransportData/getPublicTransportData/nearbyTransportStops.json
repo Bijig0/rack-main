@@ -1,0 +1,322 @@
+[
+  {
+    "stopId": "43455",
+    "stopName": "Endeavour Foundation Industries/Hutchinson Dr",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.5271378657814084,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.7942643,
+      "lon": 145.03022044
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "3194",
+    "stopName": "Princess St/Willsmere Rd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.5605377579237022,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79893371,
+      "lon": 145.03083463
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "384",
+    "stopName": "Fellows St/Princess St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.5719630234995905,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.80007399,
+      "lon": 145.0300434
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "3193",
+    "stopName": "Molesworth St/Princess St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.6609008214860954,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.80124464,
+      "lon": 145.02998958
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "402",
+    "stopName": "Walpole St/Willsmere Rd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.6756911286102023,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79772098,
+      "lon": 145.03268396
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "299",
+    "stopName": "Molesworth St/Princess St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.7002227449827328,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.80187063,
+      "lon": 145.02970036
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "47605",
+    "stopName": "Princess St/Earl St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.7088874398398611,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79265114,
+      "lon": 145.03129671
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "3197",
+    "stopName": "Walpole St/Willsmere Rd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.7349251662988727,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79748971,
+      "lon": 145.03340559
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "47604",
+    "stopName": "Princess St/Earl St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.7365797361851819,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79350803,
+      "lon": 145.03242096
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "45475",
+    "stopName": "Royal Talbot Rehab Centre/Yarra Bvd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.7371980937687808,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79024693,
+      "lon": 145.02334326
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "47603",
+    "stopName": "Peel St/Earl St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.8471909087207787,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79452212,
+      "lon": 145.03432467
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "47606",
+    "stopName": "Peel St/Earl St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.8681325505783529,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.7945535,
+      "lon": 145.03458504
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "44184",
+    "stopName": "Guide Dogs Victoria/Chandler Hwy ",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9068386221683737,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.78857625,
+      "lon": 145.02528417
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "44250",
+    "stopName": "Guide Dogs Victoria/Chandler Hwy ",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9072726643321185,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.78858214,
+      "lon": 145.02563604
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "3192",
+    "stopName": "Beatrice St/Princess St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9116273262046088,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.80418204,
+      "lon": 145.02942313
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "17598",
+    "stopName": "Beatrice St/Princess St",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9147834131852148,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.80427808,
+      "lon": 145.02923885
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "3198",
+    "stopName": "Willsmere Village/Willsmere Rd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9445901109843777,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79608804,
+      "lon": 145.03581634
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "501",
+    "stopName": "Willsmere Village/Willsmere Rd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9691777468760249,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.79554177,
+      "lon": 145.03602387
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "17488",
+    "stopName": "Chandler Hwy/Yarra Bvd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9739716561292362,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.78797931,
+      "lon": 145.02461873
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  },
+  {
+    "stopId": "19289",
+    "stopName": "Chandler Hwy/Yarra Bvd",
+    "mode": "METRO BUS",
+    "distance": {
+      "measurement": 0.9854944252594132,
+      "unit": "km"
+    },
+    "coordinates": {
+      "lat": -37.78787274,
+      "lon": 145.02471241
+    },
+    "routes": [
+      "Kew/Hawthorn - Fairfield"
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 import { Building2, Home, Calendar, MapPin, Ruler, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useReportData } from "../hooks/useReportData";
 
 function PropertyDetailStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
@@ -143,6 +144,16 @@ export default function Index() {
 
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4">
+      {/* Navigation Link to Builder Demo */}
+      <div className="max-w-[210mm] mx-auto mb-4">
+        <Link
+          to="/builder-demo"
+          className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+        >
+          <Building2 className="w-4 h-4" />
+          View Builder.io Integration Demo
+        </Link>
+      </div>
       <div className="max-w-[210mm] mx-auto">
         {/* Page 1: Cover */}
         <A4Page>

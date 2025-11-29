@@ -22,7 +22,9 @@
     "postinstall": "npm run data:setup",
     "data:setup": "./scripts/unzip-data-files.sh",
     "data:zip": "./scripts/zip-data-files.sh",
-    "data:unzip": "./scripts/unzip-data-files.sh"
+    "data:unzip": "./scripts/unzip-data-files.sh",
+    "test:sewage": "bun src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getInfrastructureData/getSewageData/getSewageData.ts",
+    "test:traffic-signals": "bun src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getEnvironmentalData/getNoisePollutionData/getTrafficSignalData/getTrafficSignalData.ts"
   },
   "devDependencies": {
     "@types/axios": "^0.14.4",
@@ -48,6 +50,7 @@
     "@pdfme/ui": "^5.4.6",
     "@playwright/test": "^1.56.1",
     "@turf/turf": "^7.2.0",
+    "@types/pg": "^8.15.6",
     "@types/web": "^0.0.281",
     "axios": "^1.13.1",
     "bullmq": "^5.64.1",
@@ -63,6 +66,7 @@
     "husky": "^9.1.7",
     "make-fetch-happen": "^15.0.2",
     "openai": "^6.7.0",
+    "pg": "^8.16.3",
     "playwright": "^1.56.1",
     "puppeteer-real-browser": "^1.4.4",
     "selenium-webdriver": "^4.37.0",

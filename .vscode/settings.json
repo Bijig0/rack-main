@@ -1,0 +1,37 @@
+{
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true,
+    "**/out/**": true,
+    "**/coverage/**": true,
+    "**/*.log": true,
+    "**/playwright-report/**": true,
+    "**/test-results/**": true,
+    "**/.cache/**": true,
+    "**/propertyPageRentalEstimate.html": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/coverage": true,
+    "**/*.tsbuildinfo": true,
+    "**/playwright-report": true,
+    "**/test-results": true,
+    "**/.cache": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.tsbuildinfo": true
+  },
+  "typescript.tsserver.maxTsServerMemory": 8192,
+  "typescript.tsserver.log": "off",
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "files.maxMemoryForLargeFilesMB": 8192
+}

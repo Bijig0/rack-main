@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run TypeScript with Bun",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/Users/a61403/.bun/bin/bun",
+      "runtimeArgs": ["run"],
+      "args": ["${file}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/a61403/Desktop/barry/appraisal-pdf-generator-script",
+      "program": "/Users/a61403/Desktop/barry/appraisal-pdf-generator-script/build/Debug/outDebug"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export { getLgaFromCoordinates } from "./getLgaFromCoordinates";
