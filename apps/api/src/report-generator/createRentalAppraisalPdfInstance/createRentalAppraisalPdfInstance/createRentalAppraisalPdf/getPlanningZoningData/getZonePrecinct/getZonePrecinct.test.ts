@@ -1,4 +1,3 @@
-#!/Users/a61403/.bun/bin/bun
 import { describe, expect, test } from "bun:test";
 import { PlanningOverlayItem } from "../getPlanningOverlay/types";
 import { getZonePrecinct } from "./getZonePrecinct";

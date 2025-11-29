@@ -151,6 +151,7 @@ export const DataBindingReference = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [showOnlyUsed, setShowOnlyUsed] = useState(false);
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
+  const [markedPath, setMarkedPath] = useState<string | null>(null);
 
   // Fetch the JSON Schema
   const { data: schema, isLoading: schemaLoading, error: schemaError } = useGetRentalAppraisalSchema();
@@ -195,18 +196,35 @@ export const DataBindingReference = ({
     });
   };
 
+  const handleMarkBinding = (path: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setMarkedPath(markedPath === path ? null : path);
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(`{{${path}}}`).catch(console.error);
+  };
+
   const renderBindingNode = (node: BindingNode, depth: number = 0) => {
     const hasChildren = node.children && node.children.length > 0;
     const isExpanded = expandedPaths.has(node.path);
+    const isMarked = markedPath === node.path;
 
     return (
       <div key={node.path} style={{ marginLeft: `${depth * 16}px` }}>
         <div
-          className="flex items-center gap-2 py-1 px-2 hover:bg-gray-50 rounded cursor-pointer group"
-          onClick={() => hasChildren && toggleExpanded(node.path)}
+          className={`flex items-center gap-2 py-1 px-2 hover:bg-gray-50 rounded cursor-pointer group ${
+            isMarked ? "border-2 border-red-500 bg-red-50" : ""
+          }`}
+          onClick={(e) => handleMarkBinding(node.path, e)}
         >
           {hasChildren && (
-            <div className="w-4 h-4 flex items-center justify-center">
+            <div
+              className="w-4 h-4 flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleExpanded(node.path);
+              }}
+            >
               {isExpanded ? (
                 <ChevronDown className="w-3 h-3 text-gray-500" />
               ) : (
@@ -221,7 +239,9 @@ export const DataBindingReference = ({
           )}
           {!node.isUsed && <div className="w-4 h-4 flex-shrink-0" />}
 
-          <code className="text-xs font-mono flex-1">{node.path}</code>
+          <code className={`text-xs font-mono flex-1 ${isMarked ? "font-bold text-red-700" : ""}`}>
+            {node.path}
+          </code>
 
           <Badge variant="outline" className="text-xs">
             {node.type}
@@ -265,6 +285,23 @@ export const DataBindingReference = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
+        {markedPath && (
+          <div className="border-2 border-red-500 bg-red-50 rounded-md p-3">
+            <div className="text-xs font-semibold text-red-700 mb-1">
+              Selected Binding (copied to clipboard)
+            </div>
+            <code className="text-sm font-mono text-red-900 break-all">
+              {`{{${markedPath}}}`}
+            </code>
+            <button
+              onClick={() => setMarkedPath(null)}
+              className="mt-2 text-xs text-red-600 hover:text-red-800 underline"
+            >
+              Clear selection
+            </button>
+          </div>
+        )}
+
         <div className="relative">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
           <Input
@@ -303,11 +340,11 @@ export const DataBindingReference = ({
 
         <div className="text-xs text-gray-500 pt-2 border-t">
           <p>
-            <strong>Tip:</strong> Use binding syntax like{" "}
+            <strong>Tip:</strong> Click any binding to copy it to clipboard with{" "}
             <code className="bg-gray-100 px-1 rounded">
-              {"{{state.propertyInfo.yearBuilt}}"}
+              {"{{}}"}
             </code>{" "}
-            in Builder.io text fields
+            syntax for Builder.io
           </p>
         </div>
       </CardContent>

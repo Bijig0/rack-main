@@ -1,4 +1,3 @@
-#!/Users/a61403/.bun/bin/bun
 import * as turf from "@turf/turf";
 import axios from "axios";
 import { Address } from "../../../../../../shared/types";

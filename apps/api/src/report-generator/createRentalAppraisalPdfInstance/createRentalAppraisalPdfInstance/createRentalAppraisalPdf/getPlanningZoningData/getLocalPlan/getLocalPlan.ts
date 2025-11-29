@@ -1,4 +1,3 @@
-#!/Users/a61403/.bun/bin/bun
 
 import { Effect } from "effect";
 import * as O from "effect/Option";

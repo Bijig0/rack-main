@@ -1,4 +1,3 @@
-#!/Users/a61403/.bun/bin/bun
 import { z } from "zod";
 import { Address } from "../../../../../../shared/types";
 import { InferredHeritageData } from "./createHeritageResponseSchema/inferRawHeritageData/types";

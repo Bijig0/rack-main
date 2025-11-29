@@ -1,4 +1,3 @@
-#!/Users/a61403/.bun/bin/bun
 import { describe, expect, mock, test } from "bun:test";
 import { Effect } from "effect";
 import type { Address } from "../../../../../../shared/types";
