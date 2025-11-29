@@ -1017,6 +1017,55 @@ export default function Index() {
           </div>
         </A4Page>
       </div>
+
+      {/* Floating Live Demo Panel */}
+      <div className="fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50">
+        <div className="bg-white px-6 py-4 border-b-2 border-purple-300 flex-shrink-0">
+          <h3 className="text-lg font-semibold text-purple-900">
+            Live Demo (with sample data)
+          </h3>
+          <p className="text-sm text-gray-600 mt-1">
+            Below shows bindings used in your Builder.io content.
+          </p>
+        </div>
+        <div className="overflow-y-auto flex-1">
+          <div className="p-4">
+            <DataBindingReference
+              builderContent={{
+                data: {
+                  blocks: [
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Property built in {{state.propertyInfo.yearBuilt}}"
+                        }
+                      }
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
+                        }
+                      }
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }}
+              position="fixed"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
