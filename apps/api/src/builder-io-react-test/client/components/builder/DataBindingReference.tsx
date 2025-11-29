@@ -1,14 +1,17 @@
-import { useState, useMemo } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Check, Search, ChevronDown, ChevronRight } from "lucide-react";
-
-// RentalAppraisalData type is inferred from the sample data structure
-// This component doesn't need the actual type, just the data structure
-type RentalAppraisalData = any;
+import { Check, ChevronDown, ChevronRight, Search, AlertCircle } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useGetRentalAppraisalSchema, JsonSchema } from "@/hooks/useGetRentalAppraisalSchema";
 
 interface DataBindingReferenceProps {
   /**
@@ -36,152 +39,63 @@ interface BindingNode {
 }
 
 /**
- * Recursively extract all possible binding paths from a type structure
+ * Extract all possible binding paths from JSON Schema
  */
-function extractBindingPaths(
-  obj: any,
+function extractBindingPathsFromSchema(
+  schema: JsonSchema | undefined,
   prefix: string = "state",
-  usedBindings: Set<string>
+  usedBindings: Set<string>,
 ): BindingNode[] {
-  const result: BindingNode[] = [];
+  if (!schema || !schema.properties) {
+    return [];
+  }
 
-  // Sample data structure to infer types
-  const sampleData: Partial<RentalAppraisalData> = {
-    coverPageData: {
-      addressCommonName: "",
-      reportDate: new Date(),
-    },
-    propertyInfo: {
-      yearBuilt: 0,
-      landArea: { value: 0, unit: "m²" },
-      floorArea: { value: 0, unit: "m²" },
-      frontageWidth: 0,
-      propertyType: "",
-      council: "",
-      nearbySchools: [],
-      propertyImage: { url: "", alt: "", isPrimary: false },
-      estimatedValue: { low: 0, mid: 0, high: 0, currency: "AUD" },
-      distanceFromCBD: { value: 0, unit: "km" },
-      similarPropertiesForSale: [],
-      similarPropertiesForRent: [],
-      appraisalSummary: "",
-    },
-    planningZoningData: {
-      regionalPlan: "",
-      landUse: "",
-      planningScheme: "",
-      zone: "",
-      zoneCode: "",
-      overlays: [],
-      heritageOverlays: [],
-      zonePrecinct: "",
-      localPlan: "",
-      localPlanPrecinct: "",
-      localPlanSubprecinct: "",
-    },
-    environmentalData: {
-      easements: {},
-      heritage: {},
-      character: {},
-      floodRisk: {},
-      biodiversity: {},
-      coastalHazards: {},
-      waterways: {},
-      wetlands: {},
-      bushfireRisk: {},
-      steepLand: {},
-      noisePollution: {},
-      odours: {},
-    },
-    infrastructureData: {
-      sewer: false,
-      water: false,
-      stormwater: false,
-      electricity: false,
-      publicTransport: { available: false, distance: 0 },
-      shoppingCenter: { available: false, distance: 0 },
-      parkAndPlayground: { available: false, distance: 0 },
-      emergencyServices: { available: false, distance: 0 },
-    },
-    locationSuburbData: {
-      suburb: "",
-      state: "",
-      distanceToCBD: 0,
-      population: 0,
-      populationGrowth: 0,
-      occupancyData: { purchaser: 0, renting: 0, other: 0 },
-      rentalYieldGrowth: [],
-    },
-    pricelabsData: {
-      dailyRate: 0,
-      weeklyRate: 0,
-      monthlyRate: 0,
-      annualRevenue: 0,
-      occupancyRate: 0,
-    },
-  };
-
-  function traverse(data: any, currentPath: string): BindingNode[] {
+  function traverse(
+    currentSchema: JsonSchema,
+    currentPath: string
+  ): BindingNode[] {
     const nodes: BindingNode[] = [];
 
-    if (data === null || data === undefined) {
-      return nodes;
-    }
-
-    if (Array.isArray(data)) {
-      // For arrays, show the array itself and an example item
-      const arrayPath = currentPath;
+    if (currentSchema.type === "array" && currentSchema.items) {
+      // For arrays, show the array itself and example item access
       nodes.push({
-        path: arrayPath,
+        path: currentPath,
         type: "array",
-        isUsed: usedBindings.has(arrayPath),
+        isUsed: usedBindings.has(currentPath),
       });
 
-      if (data.length > 0 || typeof data[0] === "object") {
-        const itemPath = `${arrayPath}[0]`;
-        const childNodes = traverse(data[0] || {}, itemPath);
-        if (childNodes.length > 0) {
-          nodes.push(...childNodes);
-        }
-      }
-    } else if (typeof data === "object") {
-      for (const key in data) {
+      // Show first item access pattern
+      const itemPath = `${currentPath}[0]`;
+      const childNodes = traverse(currentSchema.items, itemPath);
+      nodes.push(...childNodes);
+    } else if (currentSchema.type === "object" && currentSchema.properties) {
+      // Traverse object properties
+      for (const [key, propSchema] of Object.entries(currentSchema.properties)) {
         const newPath = currentPath ? `${currentPath}.${key}` : key;
-        const value = data[key];
 
-        if (value === null || value === undefined) {
-          nodes.push({
-            path: newPath,
-            type: "null",
-            isUsed: usedBindings.has(newPath),
-          });
-        } else if (Array.isArray(value)) {
-          nodes.push(...traverse(value, newPath));
-        } else if (typeof value === "object" && !(value instanceof Date)) {
-          const childNodes = traverse(value, newPath);
+        if (propSchema.type === "array" && propSchema.items) {
+          nodes.push(...traverse(propSchema, newPath));
+        } else if (propSchema.type === "object" && propSchema.properties) {
+          const childNodes = traverse(propSchema, newPath);
           if (childNodes.length > 0) {
             nodes.push({
               path: newPath,
-              type: "object",
+              type: propSchema.nullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
               children: childNodes,
             });
           } else {
             nodes.push({
               path: newPath,
-              type: "object",
+              type: propSchema.nullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
             });
           }
         } else {
-          const type =
-            value instanceof Date
-              ? "date"
-              : typeof value === "number"
-              ? "number"
-              : typeof value === "boolean"
-              ? "boolean"
-              : "string";
+          // Primitive type
+          const type = propSchema.nullable
+            ? `${propSchema.type} (nullable)`
+            : propSchema.type || "unknown";
           nodes.push({
             path: newPath,
             type,
@@ -194,7 +108,7 @@ function extractBindingPaths(
     return nodes;
   }
 
-  return traverse(sampleData, prefix);
+  return traverse(schema, prefix);
 }
 
 /**
@@ -212,7 +126,7 @@ function scanForUsedBindings(content: any): Set<string> {
       // Check for binding syntax: {{state.xxx}}
       if (typeof value === "string") {
         const bindingRegex = /\{\{(state\.[^\}]+)\}\}/g;
-        let match;
+        let match: RegExpExecArray | null;
         while ((match = bindingRegex.exec(value)) !== null) {
           usedBindings.add(match[1]);
         }
@@ -238,13 +152,17 @@ export const DataBindingReference = ({
   const [showOnlyUsed, setShowOnlyUsed] = useState(false);
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
 
+  // Fetch the JSON Schema
+  const { data: schema, isLoading: schemaLoading, error: schemaError } = useGetRentalAppraisalSchema();
+
   const usedBindings = useMemo(() => {
     return scanForUsedBindings(builderContent);
   }, [builderContent]);
 
   const allBindings = useMemo(() => {
-    return extractBindingPaths({}, "state", usedBindings);
-  }, [usedBindings]);
+    if (!schema) return [];
+    return extractBindingPathsFromSchema(schema, "state", usedBindings);
+  }, [schema, usedBindings]);
 
   const filteredBindings = useMemo(() => {
     let filtered = allBindings;
@@ -253,7 +171,7 @@ export const DataBindingReference = ({
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((binding) =>
-        binding.path.toLowerCase().includes(query)
+        binding.path.toLowerCase().includes(query),
       );
     }
 
@@ -334,7 +252,16 @@ export const DataBindingReference = ({
       <CardHeader className="pb-3">
         <CardTitle className="text-lg">Data Binding Reference</CardTitle>
         <CardDescription>
-          {usedCount} of {totalCount} bindings used
+          {schemaLoading ? (
+            "Loading schema..."
+          ) : schemaError ? (
+            <span className="text-red-600 flex items-center gap-1">
+              <AlertCircle className="w-4 h-4" />
+              Error loading schema
+            </span>
+          ) : (
+            `${usedCount} of ${totalCount} bindings used`
+          )}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">

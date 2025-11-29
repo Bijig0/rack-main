@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleGetRentalAppraisalSchema } from "./routes/schema";
 
 export function createServer() {
   const app = express();
@@ -11,6 +12,11 @@ export function createServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
+  // Health check endpoint for Railway
+  app.get("/health", (_req, res) => {
+    res.status(200).json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
   // Example API routes
   app.get("/api/ping", (_req, res) => {
     const ping = process.env.PING_MESSAGE ?? "ping";
@@ -18,6 +24,9 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Schema endpoint
+  app.get("/api/rental-appraisal-schema", handleGetRentalAppraisalSchema);
 
   // Proxy endpoint for report data
   app.get("/api/report", async (_req, res) => {
