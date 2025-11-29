@@ -1,6 +1,7 @@
 import { Building2, Home, Calendar, MapPin, Ruler, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useReportData } from "../hooks/useReportData";
+import { DataBindingReference } from "@/components/builder/DataBindingReference";
 
 function PropertyDetailStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
@@ -1015,6 +1016,47 @@ export default function Index() {
             </div>
           </div>
         </A4Page>
+      </div>
+
+      {/* Floating Live Demo Panel */}
+      <div className="fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50">
+        <div className="overflow-y-auto flex-1">
+          <div className="p-4">
+            <DataBindingReference
+              builderContent={{
+                data: {
+                  blocks: [
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Property built in {{state.propertyInfo.yearBuilt}}"
+                        }
+                      }
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
+                        }
+                      }
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }}
+              position="fixed"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
