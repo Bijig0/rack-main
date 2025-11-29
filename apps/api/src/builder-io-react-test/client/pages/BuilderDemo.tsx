@@ -1,7 +1,7 @@
-import { Content } from "@builder.io/sdk-react";
-import { HelloWorldModal } from "@/components/builder/HelloWorldModal";
+// import { Content } from "@builder.io/sdk-react";
+// import { HelloWorldModal } from "@/components/builder/HelloWorldModal";
 import { DataBindingReference } from "@/components/builder/DataBindingReference";
-import "../builder-registry";
+// import "../builder-registry";
 
 // You'll need to set your Builder.io API key in your .env file
 // VITE_BUILDER_API_KEY=your_api_key_here
@@ -19,49 +19,8 @@ export default function BuilderDemo() {
             This page demonstrates the custom HelloWorldModal plugin for Builder.io.
           </p>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold text-blue-900 mb-3">
-              Standalone Component Demo
-            </h2>
-            <p className="text-blue-700 mb-4">
-              Here's the component working directly in React:
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <HelloWorldModal />
-              <HelloWorldModal
-                buttonText="Custom Button"
-                title="Custom Title"
-                message="This modal has custom properties!"
-                buttonVariant="secondary"
-              />
-              <HelloWorldModal
-                buttonText="Click Me!"
-                title="Amazing!"
-                message="You can customize all the text and button styles."
-                buttonVariant="outline"
-              />
-            </div>
-          </div>
+          {/* HelloWorldModal demo temporarily disabled while setting up Builder.io */}
 
-          <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold text-green-900 mb-3">
-              How to Use in Builder.io
-            </h2>
-            <ol className="list-decimal list-inside space-y-2 text-green-800">
-              <li>Log into your Builder.io account</li>
-              <li>Create or edit a page</li>
-              <li>Look for "HelloWorldModal" in the custom components section</li>
-              <li>Drag it onto your page</li>
-              <li>Customize the properties in the right panel:
-                <ul className="list-disc list-inside ml-6 mt-2 space-y-1">
-                  <li>buttonText - Text on the trigger button</li>
-                  <li>title - Modal header title</li>
-                  <li>message - Modal content message</li>
-                  <li>buttonVariant - Button style (default, outline, etc.)</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
 
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
             <h2 className="text-xl font-semibold text-purple-900 mb-3">
@@ -88,10 +47,54 @@ export default function BuilderDemo() {
                 <li>Set <code className="bg-gray-100 px-1 rounded text-xs">hidden=true</code> before publishing to production</li>
               </ol>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-3">
+            <div className="bg-yellow-50 border border-yellow-300 rounded p-3 mb-4">
               <p className="text-sm text-yellow-800">
                 <strong>Note:</strong> This component is meant for the design phase. Make sure to hide it in production by setting the <code className="bg-yellow-100 px-1 rounded">hidden</code> prop to <code className="bg-yellow-100 px-1 rounded">true</code>.
               </p>
+            </div>
+
+            {/* Live Demo */}
+            <div className="bg-white rounded-lg p-4 border-2 border-purple-300">
+              <h3 className="text-lg font-semibold text-purple-900 mb-3">
+                Live Demo (with sample data)
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Below is a working example showing bindings that are "used" in a sample Builder.io content.
+                The component on the right shows all available bindings with checkmarks next to used ones.
+              </p>
+              <DataBindingReference
+                builderContent={{
+                  data: {
+                    blocks: [
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Property built in {{state.propertyInfo.yearBuilt}}"
+                          }
+                        }
+                      },
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
+                          }
+                        }
+                      },
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }}
+                position="static"
+              />
             </div>
           </div>
 
@@ -113,18 +116,7 @@ export default function BuilderDemo() {
           </div>
         </div>
 
-        {/* Builder.io Content Area */}
-        {BUILDER_API_KEY && BUILDER_API_KEY !== "demo" && (
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Builder.io Content
-            </h2>
-            <Content
-              apiKey={BUILDER_API_KEY}
-              model="page"
-            />
-          </div>
-        )}
+        {/* Builder.io Content Area - Temporarily disabled during setup */}
       </div>
     </div>
   );

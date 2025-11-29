@@ -5,7 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Check, Search, ChevronDown, ChevronRight } from "lucide-react";
-import type { RentalAppraisalData } from "@repo/shared";
+
+// RentalAppraisalData type is inferred from the sample data structure
+// This component doesn't need the actual type, just the data structure
+type RentalAppraisalData = any;
 
 interface DataBindingReferenceProps {
   /**
