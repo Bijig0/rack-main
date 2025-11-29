@@ -1,6 +1,7 @@
 import { Building2, Home, Calendar, MapPin, Ruler, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useReportData } from "../hooks/useReportData";
+import { DataBindingReference } from "@/components/builder/DataBindingReference";
 
 function PropertyDetailStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
