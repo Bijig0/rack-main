@@ -2,7 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { handleGetRentalAppraisalSchema } from "./routes/schema";
+// Temporarily removed - causes import of parent app code with env requirements
+// import { handleGetRentalAppraisalSchema } from "./routes/schema";
 
 export function createServer() {
   const app = express();
@@ -25,8 +26,9 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
-  // Schema endpoint
-  app.get("/api/rental-appraisal-schema", handleGetRentalAppraisalSchema);
+  // Schema endpoint - temporarily disabled to avoid importing parent app code
+  // TODO: Copy schema locally or make this a separate microservice
+  // app.get("/api/rental-appraisal-schema", handleGetRentalAppraisalSchema);
 
   // Proxy endpoint for report data
   app.get("/api/report", async (_req, res) => {
