@@ -8,7 +8,12 @@ WORKDIR /app
 COPY . .
 
 # Install ALL dependencies including devDependencies (needed for vite build)
-RUN npm install --include=dev
+# Use longer timeout and retry logic to handle network issues
+RUN npm config set fetch-timeout 600000 && \
+    npm config set fetch-retries 5 && \
+    npm config set fetch-retry-mintimeout 20000 && \
+    npm config set fetch-retry-maxtimeout 120000 && \
+    npm install --include=dev
 
 # Build the Vite application (only build client for static deployment)
 RUN npm run build:client
