@@ -7,8 +7,8 @@ RUN corepack enable && corepack prepare pnpm@10.14.0 --activate
 # Set the working directory
 WORKDIR /app
 
-# Copy the rest of the application files first
-COPY . .
+# Copy only the PDF service directory (not the entire monorepo)
+COPY apps/api/src/builder-io-react-test/ .
 
 # Install ALL dependencies including devDependencies (needed for vite build)
 # Use longer timeout and retry logic to handle network issues
