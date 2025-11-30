@@ -1,0 +1,18 @@
+# Railway configuration for PostgreSQL database service
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "apps/db/Dockerfile"
+dockerfileContext = "."
+
+[deploy]
+startCommand = "docker-entrypoint.sh postgres"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# Health check to ensure database is ready
+healthcheckPath = "/"
+healthcheckTimeout = 300
+
+# Note: You must manually configure a persistent volume in Railway dashboard
+# Volume mount path: /var/lib/postgresql/data
+# This is critical for data persistence across deployments
