@@ -2,6 +2,7 @@
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "apps/api/Dockerfile"
+dockerfileContext = "."
 
 [deploy]
 startCommand = "bun run src/server/server.ts"
