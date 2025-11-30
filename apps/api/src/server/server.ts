@@ -23,16 +23,13 @@ function getReportQueue() {
   return reportQueue;
 }
 
-app.post("/api/reports/placeholder", async (c) => {
-  const placeholderRentalAppraisalData = generateFakeRentalAppraisalData();
-  return c.json(placeholderRentalAppraisalData);
-});
-
 // Also support GET for placeholder (must come before :jobId)
 app.get("/api/reports/placeholder", async (c) => {
   const placeholderRentalAppraisalData = generateFakeRentalAppraisalData();
   return c.json(placeholderRentalAppraisalData);
 });
+
+
 
 app.get("/api/reports/jobs/:jobId", async (c) => {
   const jobId = c.req.param("jobId");

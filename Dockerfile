@@ -9,12 +9,12 @@ RUN apt-get update && apt-get install -y --fix-missing \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy workspace config and lockfile
+# Copy workspace config and bun.lockb
 COPY package.json bun.lockb ./
 COPY apps/api/package.json ./apps/api/
 COPY packages/shared/package.json ./packages/shared/
 
-# Install dependencies (ignore scripts to skip canvas compilation)
+# Install dependencies (ignore scripts to skip canvas compilation with Bun)
 RUN bun install --ignore-scripts
 
 # Copy source code
