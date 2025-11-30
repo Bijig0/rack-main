@@ -30,7 +30,7 @@ RUN npm install -g serve
 COPY --from=base /app/dist/spa ./spa
 
 # Expose the port (8080)
-EXPOSE 8080
+EXPOSE 8000
 
 # Start the server (serving the static files from the spa folder)
-CMD ["serve", "-s", "spa", "-l", "8080"]
+CMD ["serve", "-s", "spa", "-l", "8000"]
