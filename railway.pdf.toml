@@ -2,6 +2,7 @@
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "apps/api/src/builder-io-react-test/Dockerfile"
+dockerfileContext = "."
 
 [deploy]
 startCommand = "serve -s spa -l 8000"
