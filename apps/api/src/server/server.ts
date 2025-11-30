@@ -9,15 +9,34 @@ const app = new Hono();
 // Health check endpoint
 app.get("/health", (c) => c.json({ status: "ok" }));
 
+// Helper to parse Redis connection from environment
+function getRedisConnection() {
+  // Railway provides REDIS_URL, parse it if available
+  const redisUrl = process.env.REDIS_URL;
+
+  if (redisUrl) {
+    // Parse redis://user:pass@host:port format
+    const url = new URL(redisUrl);
+    return {
+      host: url.hostname,
+      port: parseInt(url.port || "6379"),
+      ...(url.password && { password: url.password }),
+    };
+  }
+
+  // Local development using individual env vars
+  return {
+    host: process.env.REDIS_HOST || "localhost",
+    port: parseInt(process.env.REDIS_PORT || "6379"),
+  };
+}
+
 // Lazy-initialize queue only when needed
 let reportQueue: Queue | null = null;
 function getReportQueue() {
   if (!reportQueue) {
     reportQueue = new Queue("property-reports", {
-      connection: {
-        host: process.env.REDIS_HOST || "localhost",
-        port: 6379,
-      },
+      connection: getRedisConnection(),
     });
   }
   return reportQueue;

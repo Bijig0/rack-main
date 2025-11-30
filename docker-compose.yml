@@ -21,7 +21,7 @@ services:
   pdf:
     build:
       context: ./apps/api/src/builder-io-react-test
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     restart: unless-stopped
