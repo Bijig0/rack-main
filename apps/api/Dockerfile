@@ -14,16 +14,11 @@ RUN apt-get update && apt-get install -y --fix-missing \
 
 # Copy workspace config and lockfile from root
 COPY package.json bun.lockb ./
-
-# Copy ALL workspace package.json files to ensure proper workspace resolution
 COPY apps/api/package.json ./apps/api/
 COPY packages/shared/package.json ./packages/shared/
 
-# Copy shared package source code BEFORE install (needed for workspace deps)
-COPY packages/shared ./packages/shared
-
-# Install dependencies (workspace deps will be resolved correctly)
-RUN bun install --frozen-lockfile
+# Install with optional dependencies ignored to skip canvas
+RUN bun install --ignore-scripts
 
 # Run the app
 FROM base AS runner
@@ -32,10 +27,8 @@ WORKDIR /app
 # Copy node_modules from deps stage (hoisted to root)
 COPY --from=deps /app/node_modules ./node_modules
 
-# Copy the shared package
+# Copy source code
 COPY packages/shared ./packages/shared
-
-# Copy API source code
 COPY apps/api ./apps/api
 
 WORKDIR /app/apps/api
