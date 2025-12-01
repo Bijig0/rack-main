@@ -1,9 +1,9 @@
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
-import puppeteer from "puppeteer";
 import type { DomBindingMapping } from "../client/types/domBinding";
 import { sql } from "./db";
+import { generatePdfFromUrl } from "../scripts/generatePdf";
 // Temporarily removed - causes import of parent app code with env requirements
 // import { handleGetRentalAppraisalSchema } from "./routes/schema";
 
@@ -211,53 +211,22 @@ export function createServer() {
     }
   });
 
-  // Generate PDF by ID using Puppeteer
+  // Generate PDF by ID using the generatePdf module
   app.get("/api/pdf/:id", async (req, res) => {
     const id = req.params.id;
-    let browser = null;
 
     try {
       // Get the actual host from the request (handles dynamic port)
       const host = req.get("host") || `localhost:${process.env.PORT || 8080}`;
       const protocol = req.protocol || "http";
       const baseUrl = `${protocol}://${host}`;
+      const url = `${baseUrl}/report/${id}`;
 
-      console.log(
-        `Generating PDF for report ${id}, navigating to ${baseUrl}/report/${id}`,
-      );
+      console.log(`Generating PDF for report ${id}, navigating to ${url}`);
 
-      // Launch Puppeteer
-      browser = await puppeteer.launch({
-        headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      });
-
-      const page = await browser.newPage();
-
-      // Set viewport for consistent rendering
-      await page.setViewport({ width: 1200, height: 800 });
-
-      // Log console messages from the page for debugging
-      page.on("console", (msg) => console.log("Page console:", msg.text()));
-      page.on("pageerror", (error) =>
-        console.log("Page error:", error.message),
-      );
-
-      // Navigate to the React report page
-      await page.goto(`${baseUrl}/report/${id}`, {
-        waitUntil: "networkidle0",
-        timeout: 30000,
-      });
-
-      // Wait for React + binding injection to complete
-      await page.waitForFunction(
-        () =>
-          (window as unknown as { __PDF_READY?: boolean }).__PDF_READY === true,
-        { timeout: 30000 },
-      );
-
-      // Generate PDF
-      const pdf = await page.pdf({
+      const pdf = await generatePdfFromUrl(url, {
+        verbose: true,
+        waitForReady: true,
         format: "A4",
         printBackground: true,
         margin: {
@@ -268,9 +237,6 @@ export function createServer() {
         },
       });
 
-      await browser.close();
-      browser = null;
-
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
         "Content-Disposition",
@@ -279,9 +245,6 @@ export function createServer() {
       res.send(pdf);
     } catch (error) {
       console.error("Error generating PDF:", error);
-      if (browser) {
-        await browser.close();
-      }
       res.status(500).json({
         error: "Failed to generate PDF",
         message: error instanceof Error ? error.message : String(error),

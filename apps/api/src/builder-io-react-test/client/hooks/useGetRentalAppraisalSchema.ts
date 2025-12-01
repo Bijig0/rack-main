@@ -54,12 +54,14 @@ export function useGetRentalAppraisalSchema() {
     retry: 2,
   });
 
-  // In development mode, if there's an error, return the sample schema
-  if (isDevelopment && query.error) {
+  // In development mode, return the sample schema directly
+  if (isDevelopment) {
     return {
       ...query,
       data: sampleRentalAppraisalSchema,
-      error: query.error, // Keep the error so we can show the message
+      error: null,
+      isSuccess: true,
+      isLoading: false,
     };
   }
 
