@@ -164,8 +164,8 @@ export const DomElementSelector = ({
   const compatibleTypes = getCompatibleElementTypes(dataType);
 
   return (
-    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100]">
-      <Card className="shadow-2xl border-2 border-blue-500">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] max-w-[calc(100vw-2rem)] px-4">
+      <Card className="shadow-2xl border-2 border-blue-500 w-full">
         <CardContent className="p-4 space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -213,7 +213,7 @@ export const DomElementSelector = ({
           {hoveredElement && (
             <div className="border-t pt-3">
               <div className="text-xs font-semibold mb-1">Hovering:</div>
-              <code className="text-xs bg-yellow-50 border border-yellow-200 px-2 py-1 rounded block break-all">
+              <code className="text-xs bg-yellow-50 border border-yellow-200 px-2 py-1 rounded block break-words overflow-wrap-anywhere">
                 {generateElementPath(hoveredElement)}
               </code>
             </div>

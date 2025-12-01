@@ -11,6 +11,8 @@ import {
   Upload,
   List,
   Sparkles,
+  Info,
+  X,
 } from "lucide-react";
 import { DomBindingMapping } from "@/types/domBinding";
 
@@ -29,6 +31,7 @@ export const DomBindingsManager = ({
   onEditConditionalStyles,
 }: DomBindingsManagerProps) => {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const [viewingBinding, setViewingBinding] = useState<DomBindingMapping | null>(null);
 
   const removeBinding = (id: string) => {
     onChange(bindings.filter((b) => b.id !== id));
@@ -162,6 +165,14 @@ export const DomBindingsManager = ({
                             <Button
                               variant="ghost"
                               size="sm"
+                              onClick={() => setViewingBinding(binding)}
+                              title="View binding details"
+                            >
+                              <Info className="w-3 h-3" />
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
                               onClick={() => onEditConditionalStyles(binding)}
                               title="Edit conditional styles"
                             >
@@ -219,6 +230,138 @@ export const DomBindingsManager = ({
           </ScrollArea>
         )}
       </CardContent>
+
+      {/* Binding Details Modal */}
+      {viewingBinding && (
+        <div className="fixed inset-0 bg-black/50 z-[200] flex items-center justify-center p-4">
+          <Card className="max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-base">Binding Details</CardTitle>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setViewingBinding(null)}
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {/* Data Binding */}
+              <div>
+                <div className="text-xs font-semibold mb-1">Data Binding:</div>
+                <code className="text-sm bg-blue-50 border border-blue-200 px-2 py-1 rounded block break-words">
+                  {viewingBinding.dataBinding}
+                </code>
+              </div>
+
+              {/* Data Type */}
+              <div>
+                <div className="text-xs font-semibold mb-1">Data Type:</div>
+                <Badge variant="outline">{viewingBinding.dataType}</Badge>
+              </div>
+
+              {/* DOM Path */}
+              <div>
+                <div className="text-xs font-semibold mb-1">DOM Element Path:</div>
+                <code className="text-sm bg-gray-50 border border-gray-200 px-2 py-1 rounded block break-words overflow-wrap-anywhere">
+                  {viewingBinding.path}
+                </code>
+              </div>
+
+              {/* List Container Info */}
+              {viewingBinding.isListContainer && (
+                <div>
+                  <div className="text-xs font-semibold mb-1 flex items-center gap-1">
+                    <List className="w-3 h-3" />
+                    List Container:
+                  </div>
+                  <div className="bg-purple-50 border border-purple-200 p-2 rounded">
+                    <div className="text-xs">
+                      <span className="font-semibold">Item Pattern:</span>
+                      <code className="ml-2 bg-white px-1 rounded text-xs">
+                        {viewingBinding.listItemPattern || "N/A"}
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Conditional Styles */}
+              {viewingBinding.conditionalStyles && viewingBinding.conditionalStyles.length > 0 && (
+                <div>
+                  <div className="text-xs font-semibold mb-1 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" />
+                    Conditional Styles ({viewingBinding.conditionalStyles.length}):
+                  </div>
+                  <div className="space-y-2">
+                    {viewingBinding.conditionalStyles.map((style, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-amber-50 border border-amber-200 p-3 rounded"
+                      >
+                        <div className="text-xs font-semibold mb-2">
+                          Depends on:{" "}
+                          <code className="bg-white px-1 rounded">
+                            {style.dependsOn}
+                          </code>
+                        </div>
+                        <div className="space-y-1">
+                          {style.conditions.map((cond, cidx) => (
+                            <div
+                              key={cidx}
+                              className="text-xs bg-white p-2 rounded"
+                            >
+                              <div className="font-semibold mb-1">
+                                Condition: {cond.operator} "{cond.value}"
+                              </div>
+                              <div className="text-gray-700">
+                                <span className="font-semibold">Apply CSS:</span>
+                                <pre className="mt-1 bg-gray-50 p-2 rounded text-xs overflow-x-auto">
+                                  {JSON.stringify(cond.cssProperties, null, 2)}
+                                </pre>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Action Buttons */}
+              <div className="flex gap-2 pt-4 border-t">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setViewingBinding(null);
+                    onEditConditionalStyles(viewingBinding);
+                  }}
+                  className="flex-1"
+                >
+                  <Edit className="w-3 h-3 mr-2" />
+                  Edit Conditional Styles
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    removeBinding(viewingBinding.id);
+                    setViewingBinding(null);
+                  }}
+                  className="flex-1 text-red-600 hover:text-red-700"
+                >
+                  <Trash2 className="w-3 h-3 mr-2" />
+                  Remove Binding
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Card>
   );
 };
