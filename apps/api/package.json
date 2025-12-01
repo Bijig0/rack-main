@@ -34,9 +34,11 @@
     "@types/node": "^22.18.11",
     "@types/selenium-webdriver": "^4.35.1",
     "concurrently": "^9.2.1",
+    "drizzle-kit": "^0.31.7",
     "puppeteer": "^24.31.0",
     "ts-essentials": "^10.1.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {
@@ -59,6 +61,7 @@
     "chromedriver": "^141.0.3",
     "commander": "^14.0.1",
     "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.7",
     "effect": "^3.19.6",
     "elysia": "^1.4.16",
     "hono": "^4.10.6",
@@ -68,6 +71,7 @@
     "openai": "^6.7.0",
     "pg": "^8.16.3",
     "playwright": "^1.56.1",
+    "postgres": "^3.4.7",
     "puppeteer-real-browser": "^1.4.4",
     "selenium-webdriver": "^4.37.0",
     "type-fest": "^5.2.0",

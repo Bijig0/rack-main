@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, Link2, FileCode, Eye, EyeOff } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, Link2, FileCode, Eye, EyeOff, AlertTriangle, Download, Upload, X } from "lucide-react";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useGetRentalAppraisalSchema, JsonSchema } from "@/hooks/useGetRentalAppraisalSchema";
+import { useFetchDomBindings, useSaveDomBindings } from "@/hooks/useDomBindingsApi";
 import { DomBindingMapping, ConditionalStyle } from "@/types/domBinding";
 import { DomElementSelector } from "./DomElementSelector";
 import { ListBindingSelector } from "./ListBindingSelector";
@@ -19,6 +20,9 @@ import { ConditionalStyleEditor } from "./ConditionalStyleEditor";
 import { DomBindingsManager } from "./DomBindingsManager";
 import { BindingVisualIndicators } from "./BindingVisualIndicators";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+// Path to store DOM bindings
+const BINDINGS_FILE_PATH = "./dom-bindings.json";
 
 interface DataBindingReferenceProps {
   /**
@@ -162,7 +166,27 @@ export const DataBindingReference = ({
 
   // Edit mode state
   const [editMode, setEditMode] = useState(false);
-  const [domBindings, setDomBindings] = useState<DomBindingMapping[]>([]);
+
+  // React Query hooks for database operations
+  const { data: savedBindings = [], isLoading: isLoadingBindings, error: bindingsError } = useFetchDomBindings();
+  const saveMutation = useSaveDomBindings();
+
+  // Local state for unsaved changes (dirty state)
+  const [localBindings, setLocalBindings] = useState<DomBindingMapping[]>([]);
+  const [isDirty, setIsDirty] = useState(false);
+
+  // Sync localBindings with saved data from database
+  useEffect(() => {
+    setLocalBindings(savedBindings);
+    setIsDirty(false);
+  }, [savedBindings]);
+
+  // Track when local bindings differ from saved
+  useEffect(() => {
+    const hasChanges = JSON.stringify(localBindings) !== JSON.stringify(savedBindings);
+    setIsDirty(hasChanges);
+  }, [localBindings, savedBindings]);
+
   const [selectingBinding, setSelectingBinding] = useState<{
     path: string;
     type: string;
@@ -170,6 +194,8 @@ export const DataBindingReference = ({
   const [editingConditionalStyles, setEditingConditionalStyles] = useState<DomBindingMapping | null>(null);
   const [activeTab, setActiveTab] = useState<"reference" | "bindings">("reference");
   const [showVisualIndicators, setShowVisualIndicators] = useState(false);
+  const [incompatibilities, setIncompatibilities] = useState<string[]>([]);
+  const [showIncompatibilityModal, setShowIncompatibilityModal] = useState(false);
 
   // Resize state
   const [panelWidth, setPanelWidth] = useState(384); // 96 * 4 = 384px (w-96)
@@ -255,6 +281,100 @@ export const DataBindingReference = ({
     return filtered;
   }, [allBindings, searchQuery, showOnlyUsed]);
 
+  // Get all valid paths from current schema
+  const validSchemaPaths = useMemo(() => {
+    const paths = new Set<string>();
+    const collectPaths = (bindings: BindingNode[]) => {
+      bindings.forEach((binding) => {
+        paths.add(binding.path);
+        if (binding.children) {
+          collectPaths(binding.children);
+        }
+      });
+    };
+    collectPaths(allBindings);
+    return paths;
+  }, [allBindings]);
+
+  // Save bindings to file
+  const saveBindings = async (bindings: DomBindingMapping[]) => {
+    try {
+      const json = JSON.stringify(bindings, null, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "dom-bindings.json";
+      a.click();
+      URL.revokeObjectURL(url);
+      console.log("✅ Bindings saved successfully");
+    } catch (error) {
+      console.error("❌ Failed to save bindings:", error);
+    }
+  };
+
+  // Load bindings from file
+  const loadBindings = async () => {
+    try {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "application/json";
+      input.onchange = async (e) => {
+        const file = (e.target as HTMLInputElement).files?.[0];
+        if (file) {
+          const text = await file.text();
+          try {
+            const loaded = JSON.parse(text) as DomBindingMapping[];
+            setLocalBindings(loaded);
+
+            // Check for incompatibilities
+            const issues: string[] = [];
+            loaded.forEach((binding) => {
+              if (!validSchemaPaths.has(binding.dataBinding)) {
+                issues.push(binding.dataBinding);
+              }
+            });
+
+            if (issues.length > 0) {
+              setIncompatibilities(issues);
+              setShowIncompatibilityModal(true);
+            }
+
+            console.log("✅ Bindings loaded successfully");
+          } catch (error) {
+            alert("Failed to parse bindings file: Invalid JSON");
+          }
+        }
+      };
+      input.click();
+    } catch (error) {
+      console.error("❌ Failed to load bindings:", error);
+    }
+  };
+
+  // Manual save function
+  const handleSaveChanges = () => {
+    console.log("💾 Saving bindings to database...");
+    saveMutation.mutate(localBindings);
+  };
+
+  // Check for incompatibilities when bindings are loaded
+  useEffect(() => {
+    if (savedBindings.length > 0 && schema) {
+      const issues: string[] = [];
+      savedBindings.forEach((binding: DomBindingMapping) => {
+        if (!validSchemaPaths.has(binding.dataBinding)) {
+          issues.push(binding.dataBinding);
+        }
+      });
+
+      if (issues.length > 0) {
+        setIncompatibilities(issues);
+        setShowIncompatibilityModal(true);
+      }
+    }
+  }, [savedBindings, schema, validSchemaPaths]);
+
   const toggleExpanded = (path: string) => {
     setExpandedPaths((prev) => {
       const next = new Set(prev);
@@ -291,7 +411,7 @@ export const DataBindingReference = ({
       conditionalStyles: [],
     };
 
-    setDomBindings([...domBindings, newBinding]);
+    setLocalBindings([...localBindings, newBinding]);
     setSelectingBinding(null);
     setActiveTab("bindings");
   };
@@ -309,7 +429,7 @@ export const DataBindingReference = ({
       conditionalStyles: [],
     };
 
-    setDomBindings([...domBindings, newBinding]);
+    setLocalBindings([...localBindings, newBinding]);
     setSelectingBinding(null);
     setActiveTab("bindings");
   };
@@ -321,8 +441,8 @@ export const DataBindingReference = ({
   const handleConditionalStylesChange = (styles: ConditionalStyle[]) => {
     if (!editingConditionalStyles) return;
 
-    setDomBindings(
-      domBindings.map((b) =>
+    setLocalBindings(
+      localBindings.map((b) =>
         b.id === editingConditionalStyles.id
           ? { ...b, conditionalStyles: styles }
           : b
@@ -340,7 +460,7 @@ export const DataBindingReference = ({
     const isExpanded = expandedPaths.has(node.path);
     const isMarked = markedPath === node.path;
     const isArray = node.type === "array";
-    const alreadyBound = domBindings.some((b) => b.dataBinding === node.path);
+    const alreadyBound = localBindings.some((b) => b.dataBinding === node.path);
 
     return (
       <div key={node.path} style={{ marginLeft: `${depth * 16}px` }}>
@@ -459,7 +579,7 @@ export const DataBindingReference = ({
               </CardDescription>
             </div>
             <div className="flex gap-2">
-              {domBindings.length > 0 && (
+              {localBindings.length > 0 && (
                 <Button
                   variant={showVisualIndicators ? "default" : "outline"}
                   size="sm"
@@ -473,6 +593,15 @@ export const DataBindingReference = ({
                   )}
                 </Button>
               )}
+              <Button
+                variant="default"
+                size="sm"
+                onClick={handleSaveChanges}
+                disabled={!isDirty || saveMutation.isPending}
+                title={isDirty ? "Save changes to database" : "No changes to save"}
+              >
+                {saveMutation.isPending ? "Saving..." : "Save Changes"}
+              </Button>
               <Button
                 variant={editMode ? "default" : "outline"}
                 size="sm"
@@ -498,7 +627,7 @@ export const DataBindingReference = ({
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="reference">Reference</TabsTrigger>
               <TabsTrigger value="bindings">
-                DOM Bindings ({domBindings.length})
+                DOM Bindings ({localBindings.length})
               </TabsTrigger>
             </TabsList>
 
@@ -575,11 +704,36 @@ export const DataBindingReference = ({
             </TabsContent>
 
             <TabsContent value="bindings" className="mt-3">
-              <DomBindingsManager
-                bindings={domBindings}
-                onChange={setDomBindings}
-                onEditConditionalStyles={handleEditConditionalStyles}
-              />
+              <div className="space-y-3">
+                {/* Save/Load Buttons */}
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => saveBindings(localBindings)}
+                    disabled={localBindings.length === 0}
+                    className="flex-1"
+                  >
+                    <Download className="w-3 h-3 mr-2" />
+                    Export Bindings
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={loadBindings}
+                    className="flex-1"
+                  >
+                    <Upload className="w-3 h-3 mr-2" />
+                    Load Bindings
+                  </Button>
+                </div>
+
+                <DomBindingsManager
+                  bindings={localBindings}
+                  onChange={setLocalBindings}
+                  onEditConditionalStyles={handleEditConditionalStyles}
+                />
+              </div>
             </TabsContent>
           </Tabs>
         </CardContent>
@@ -621,9 +775,83 @@ export const DataBindingReference = ({
 
       {/* Visual Binding Indicators */}
       <BindingVisualIndicators
-        bindings={domBindings}
+        bindings={localBindings}
         enabled={showVisualIndicators || editMode}
       />
+
+      {/* Incompatibility Warning Modal */}
+      {showIncompatibilityModal && (
+        <div className="fixed inset-0 bg-black/50 z-[300] flex items-center justify-center p-4" data-binding-panel>
+          <Card className="max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                  <CardTitle className="text-base">Schema Incompatibilities Detected</CardTitle>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowIncompatibilityModal(false)}
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="text-sm text-gray-700">
+                The following data bindings exist in your saved DOM bindings but are not present in the current schema. This may cause runtime errors.
+              </div>
+
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <div className="text-xs font-semibold mb-2 text-amber-900">Missing Bindings:</div>
+                <div className="space-y-1">
+                  {incompatibilities.map((binding, idx) => (
+                    <div key={idx} className="text-xs font-mono bg-white px-2 py-1 rounded border border-amber-300 text-amber-900">
+                      {binding}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-sm text-gray-600">
+                <strong>Possible solutions:</strong>
+                <ul className="list-disc ml-5 mt-2 space-y-1">
+                  <li>Update your schema to include these bindings</li>
+                  <li>Remove the incompatible bindings from your DOM bindings</li>
+                  <li>Verify that you're using the correct schema version</li>
+                </ul>
+              </div>
+
+              <div className="flex gap-2 pt-4 border-t">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    // Remove incompatible bindings
+                    const filtered = localBindings.filter(
+                      (b) => !incompatibilities.includes(b.dataBinding)
+                    );
+                    setLocalBindings(filtered);
+                    setShowIncompatibilityModal(false);
+                  }}
+                  className="flex-1 text-amber-700 hover:text-amber-800"
+                >
+                  Remove Incompatible Bindings
+                </Button>
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => setShowIncompatibilityModal(false)}
+                  className="flex-1"
+                >
+                  Keep All & Continue
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </>
   );
 };
