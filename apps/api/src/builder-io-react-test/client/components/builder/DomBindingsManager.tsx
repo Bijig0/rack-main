@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +13,7 @@ import {
   Sparkles,
   Info,
   X,
+  Eye,
 } from "lucide-react";
 import { DomBindingMapping } from "@/types/domBinding";
 
@@ -32,6 +33,56 @@ export const DomBindingsManager = ({
 }: DomBindingsManagerProps) => {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [viewingBinding, setViewingBinding] = useState<DomBindingMapping | null>(null);
+
+  // Helper function to safely check if element exists
+  const findElement = useCallback((path: string): HTMLElement | null => {
+    try {
+      const element = document.querySelector(path) as HTMLElement;
+      if (element) {
+        console.log('✅ Element found for path:', path);
+      } else {
+        console.warn('⚠️ Element not found for path:', path);
+      }
+      return element;
+    } catch (error) {
+      console.error('❌ Invalid selector path:', path, error);
+      return null;
+    }
+  }, []);
+
+  // Memoize element existence check for viewing binding
+  const viewingElementExists = useMemo(() => {
+    if (!viewingBinding) return false;
+    return !!findElement(viewingBinding.path);
+  }, [viewingBinding, findElement]);
+
+  // Highlight element when viewing binding
+  useEffect(() => {
+    if (!viewingBinding) return;
+
+    const element = findElement(viewingBinding.path);
+    if (!element) return;
+
+    // Store original styles
+    const originalOutline = element.style.outline;
+    const originalOutlineOffset = element.style.outlineOffset;
+    const originalZIndex = element.style.zIndex;
+
+    // Apply highlight
+    element.style.outline = '4px solid #ef4444';
+    element.style.outlineOffset = '4px';
+    element.style.zIndex = '9998';
+
+    // Scroll into view
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    return () => {
+      // Restore original styles
+      element.style.outline = originalOutline;
+      element.style.outlineOffset = originalOutlineOffset;
+      element.style.zIndex = originalZIndex;
+    };
+  }, [viewingBinding, findElement]);
 
   const removeBinding = (id: string) => {
     onChange(bindings.filter((b) => b.id !== id));
@@ -233,7 +284,7 @@ export const DomBindingsManager = ({
 
       {/* Binding Details Modal */}
       {viewingBinding && (
-        <div className="fixed inset-0 bg-black/50 z-[200] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/50 z-[200] flex items-center justify-center p-4" data-binding-panel>
           <Card className="max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -264,7 +315,19 @@ export const DomBindingsManager = ({
 
               {/* DOM Path */}
               <div>
-                <div className="text-xs font-semibold mb-1">DOM Element Path:</div>
+                <div className="text-xs font-semibold mb-1 flex items-center gap-2">
+                  DOM Element Path:
+                  {viewingElementExists ? (
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-300">
+                      <Eye className="w-3 h-3 mr-1" />
+                      Element Found & Highlighted
+                    </Badge>
+                  ) : (
+                    <Badge variant="outline" className="bg-red-50 text-red-700 border-red-300">
+                      ⚠️ Element Not Found
+                    </Badge>
+                  )}
+                </div>
                 <code className="text-sm bg-gray-50 border border-gray-200 px-2 py-1 rounded block break-words overflow-wrap-anywhere">
                   {viewingBinding.path}
                 </code>

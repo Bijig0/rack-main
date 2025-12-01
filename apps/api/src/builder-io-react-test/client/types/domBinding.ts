@@ -85,6 +85,14 @@ export function isElementCompatible(elementType: string, dataType: string): bool
 }
 
 /**
+ * Escape special characters in CSS class names for use in selectors
+ */
+function escapeClassName(className: string): string {
+  // Escape special CSS characters: !"#$%&'()*+,./:;<=>?@[\]^`{|}~
+  return className.replace(/([!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~])/g, '\\$1');
+}
+
+/**
  * Generate a unique CSS selector for an element
  */
 export function generateElementPath(element: HTMLElement): string {
@@ -95,7 +103,7 @@ export function generateElementPath(element: HTMLElement): string {
     let selector = current.tagName.toLowerCase();
 
     if (current.id) {
-      selector += `#${current.id}`;
+      selector += `#${escapeClassName(current.id)}`;
       path.unshift(selector);
       break;
     }
@@ -104,6 +112,7 @@ export function generateElementPath(element: HTMLElement): string {
       const classes = Array.from(current.classList)
         .filter(c => !c.startsWith('hover:') && !c.startsWith('group-'))
         .slice(0, 3)
+        .map(c => escapeClassName(c))
         .join('.');
       if (classes) {
         selector += `.${classes}`;

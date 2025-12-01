@@ -423,6 +423,7 @@ export const DataBindingReference = ({
         ref={panelRef}
         className={positionClasses}
         style={panelStyle}
+        data-binding-panel
       >
         {/* Resize handle */}
         {position === "fixed" && (
@@ -621,7 +622,7 @@ export const DataBindingReference = ({
       {/* Visual Binding Indicators */}
       <BindingVisualIndicators
         bindings={domBindings}
-        enabled={showVisualIndicators}
+        enabled={showVisualIndicators || editMode}
       />
     </>
   );

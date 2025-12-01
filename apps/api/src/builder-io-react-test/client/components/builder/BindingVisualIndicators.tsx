@@ -55,13 +55,15 @@ export const BindingVisualIndicators = ({
           element.style.position = 'relative';
         }
 
-        // Add visual border
+        // Add visual border - RED to mark bound elements
         const originalOutline = element.style.outline;
-        element.style.outline = '2px dashed #10b981';
+        const originalOutlineOffset = element.style.outlineOffset;
+        element.style.outline = '2px solid #ef4444'; // red-500
         element.style.outlineOffset = '2px';
 
-        // Store original style to restore later
+        // Store original styles to restore later
         element.setAttribute('data-original-outline', originalOutline);
+        element.setAttribute('data-original-outline-offset', originalOutlineOffset);
 
         // Add hover listeners
         const handleMouseEnter = () => {
@@ -81,9 +83,11 @@ export const BindingVisualIndicators = ({
           element.removeEventListener('mouseenter', handleMouseEnter);
           element.removeEventListener('mouseleave', handleMouseLeave);
           element.style.outline = originalOutline;
+          element.style.outlineOffset = originalOutlineOffset;
           element.removeAttribute('data-has-binding');
           element.removeAttribute('data-binding-path');
           element.removeAttribute('data-original-outline');
+          element.removeAttribute('data-original-outline-offset');
         };
       } catch (error) {
         console.error('Error adding binding indicator:', error);
@@ -116,9 +120,9 @@ export const BindingVisualIndicators = ({
         transform: 'translateX(-50%)',
       }}
     >
-      <div className="bg-green-600 text-white px-3 py-2 rounded-lg shadow-xl border-2 border-green-700">
+      <div className="bg-red-600 text-white px-3 py-2 rounded-lg shadow-xl border-2 border-red-700">
         <div className="text-xs font-semibold mb-1">Bound to:</div>
-        <code className="text-xs bg-green-700 px-2 py-1 rounded">
+        <code className="text-xs bg-red-700 px-2 py-1 rounded">
           {hoveredBinding.binding.dataBinding}
         </code>
         <div className="text-xs mt-1 opacity-90">
@@ -133,7 +137,7 @@ export const BindingVisualIndicators = ({
       </div>
       {/* Arrow */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-green-700"
+        className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-red-700"
       />
     </div>
   );

@@ -85,20 +85,38 @@ export const DomElementSelector = ({
   useEffect(() => {
     const rootElement = parentElement || document.body;
     const allElements = rootElement.querySelectorAll("*");
+    let currentHoveredElement: HTMLElement | null = null;
+
+    // Helper to check if element should be excluded from selection
+    const shouldExcludeElement = (el: HTMLElement): boolean => {
+      // Exclude the selector UI itself and the data binding reference panel
+      return el.closest('[data-dom-selector-ui]') !== null ||
+             el.closest('[data-binding-panel]') !== null;
+    };
 
     // Apply initial overlay
     allElements.forEach((el) => {
-      if (el instanceof HTMLElement && el !== rootElement) {
+      if (el instanceof HTMLElement && el !== rootElement && !shouldExcludeElement(el)) {
         applyElementOverlay(el);
       }
     });
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+
+      // Skip if this is an excluded element
+      if (shouldExcludeElement(target)) return;
+
+      // Remove hover from previous element
+      if (currentHoveredElement && currentHoveredElement !== target) {
+        applyElementOverlay(currentHoveredElement, false);
+      }
+
       if (
         target &&
         isElementCompatible(target.tagName.toLowerCase(), dataType)
       ) {
+        currentHoveredElement = target;
         setHoveredElement(target);
         applyElementOverlay(target, true);
       }
@@ -106,9 +124,10 @@ export const DomElementSelector = ({
 
     const handleMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target && hoveredElement === target) {
-        setHoveredElement(null);
+      if (target === currentHoveredElement) {
         applyElementOverlay(target, false);
+        currentHoveredElement = null;
+        setHoveredElement(null);
       }
     };
 
@@ -117,6 +136,10 @@ export const DomElementSelector = ({
       e.stopPropagation();
 
       const target = e.target as HTMLElement;
+
+      // Skip if this is an excluded element
+      if (shouldExcludeElement(target)) return;
+
       if (
         target &&
         isElementCompatible(target.tagName.toLowerCase(), dataType)
@@ -158,13 +181,12 @@ export const DomElementSelector = ({
     removeElementOverlay,
     onSelect,
     onCancel,
-    hoveredElement,
   ]);
 
   const compatibleTypes = getCompatibleElementTypes(dataType);
 
   return (
-    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] max-w-[calc(100vw-2rem)] px-4">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100] max-w-[calc(100vw-2rem)] px-4" data-dom-selector-ui>
       <Card className="shadow-2xl border-2 border-blue-500 w-full">
         <CardContent className="p-4 space-y-3">
           <div className="flex items-center justify-between">
@@ -213,7 +235,14 @@ export const DomElementSelector = ({
           {hoveredElement && (
             <div className="border-t pt-3">
               <div className="text-xs font-semibold mb-1">Hovering:</div>
-              <code className="text-xs bg-yellow-50 border border-yellow-200 px-2 py-1 rounded block break-words overflow-wrap-anywhere">
+              <code
+                className="text-xs bg-yellow-50 border border-yellow-200 px-2 py-1 rounded block max-h-32 overflow-y-auto"
+                style={{
+                  wordBreak: 'break-all',
+                  overflowWrap: 'anywhere',
+                  whiteSpace: 'pre-wrap'
+                }}
+              >
                 {generateElementPath(hoveredElement)}
               </code>
             </div>
