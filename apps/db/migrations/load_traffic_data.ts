@@ -21,18 +21,28 @@ import { parse } from "csv-parse/sync";
 const { Pool } = pg;
 
 // Database configuration
-const dbConfig = {
-  host: process.env.POSTGRES_HOST || "localhost",
-  port: parseInt(process.env.POSTGRES_PORT || "5432"),
-  database: process.env.POSTGRES_DB || "barry_db",
-  user: process.env.POSTGRES_USER || "barry_user",
-  password: process.env.POSTGRES_PASSWORD || "barry_password",
-};
+// Use DATABASE_URL for Railway, or fall back to individual env vars for local
+const DATABASE_URL = process.env.DATABASE_URL;
+
+const dbConfig = DATABASE_URL
+  ? {
+      connectionString: DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false, // Required for Railway connections
+      },
+    }
+  : {
+      host: process.env.POSTGRES_HOST || "localhost",
+      port: parseInt(process.env.POSTGRES_PORT || "5432"),
+      database: process.env.POSTGRES_DB || "barry_db",
+      user: process.env.POSTGRES_USER || "barry_user",
+      password: process.env.POSTGRES_PASSWORD || "barry_password",
+    };
 
 // Default data directory
 const DEFAULT_DATA_DIR = path.resolve(
   __dirname,
-  "../../api/src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getEnvironmentalData/getNoisePollutionData/data/traffic_signal_volume_data_november_2025"
+  "../traffic_signal_volume_data_november_2025"
 );
 
 interface TrafficRecord {
@@ -393,7 +403,13 @@ async function main() {
   }
 
   console.log("=== Traffic Signal Volume Data Migration ===\n");
-  console.log(`Database: ${dbConfig.host}:${dbConfig.port}/${dbConfig.database}`);
+  if (DATABASE_URL) {
+    // Mask the password in the connection string for display
+    const maskedUrl = DATABASE_URL.replace(/:([^@]+)@/, ":***@");
+    console.log(`Database: ${maskedUrl}`);
+  } else {
+    console.log(`Database: ${dbConfig.host}:${dbConfig.port}/${dbConfig.database}`);
+  }
   console.log(`Dry run: ${dryRun ? "YES" : "NO"}\n`);
 
   // Get list of files to process
