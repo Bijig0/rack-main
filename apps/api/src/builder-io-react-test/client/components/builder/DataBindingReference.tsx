@@ -156,6 +156,8 @@ export const DataBindingReference = ({
   // Fetch the JSON Schema
   const { data: schema, isLoading: schemaLoading, error: schemaError } = useGetRentalAppraisalSchema();
 
+  const isDevelopment = import.meta.env.DEV;
+
   const usedBindings = useMemo(() => {
     return scanForUsedBindings(builderContent);
   }, [builderContent]);
@@ -275,10 +277,17 @@ export const DataBindingReference = ({
           {schemaLoading ? (
             "Loading schema..."
           ) : schemaError ? (
-            <span className="text-red-600 flex items-center gap-1">
-              <AlertCircle className="w-4 h-4" />
-              Error loading schema
-            </span>
+            <div className="space-y-1">
+              <span className="text-red-600 flex items-center gap-1">
+                <AlertCircle className="w-4 h-4" />
+                Fetching failed
+              </span>
+              {isDevelopment && schema && (
+                <span className="text-amber-600 text-xs">
+                  Using sample schema (dev mode)
+                </span>
+              )}
+            </div>
           ) : (
             `${usedCount} of ${totalCount} bindings used`
           )}
