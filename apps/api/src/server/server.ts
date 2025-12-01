@@ -1,10 +1,21 @@
 // server.ts
 import { Queue } from "bullmq";
 import { Hono } from "hono";
+import { cors } from "hono/cors";
+import { zodToJsonSchema } from "zod-to-json-schema";
+import { RentalAppraisalDataSchema } from "../report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getRentalAppraisalData/schemas";
 import { SERVER_PORT } from "../shared/config";
 import { generateFakeRentalAppraisalData } from "./generateFakeRentalAppraisalData";
 
 const app = new Hono();
+
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:8080", "http://localhost:8000"],
+    credentials: true,
+  })
+);
 
 // Health check endpoint
 app.get("/health", (c) => c.json({ status: "ok" }));
@@ -48,7 +59,10 @@ app.get("/api/reports/placeholder", async (c) => {
   return c.json(placeholderRentalAppraisalData);
 });
 
-
+app.get("/api/reports/schema", async (c) => {
+  const jsonSchema = zodToJsonSchema(RentalAppraisalDataSchema);
+  return c.json(jsonSchema);
+});
 
 app.get("/api/reports/jobs/:jobId", async (c) => {
   const jobId = c.req.param("jobId");

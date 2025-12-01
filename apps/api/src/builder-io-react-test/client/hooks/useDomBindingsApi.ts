@@ -1,10 +1,20 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { DomBindingMapping } from '@/types/domBinding';
 
-// NOTE: This file now uses API endpoints instead of direct database access,
+// NOTE: This file uses API endpoints instead of direct database access,
 // as postgres/drizzle don't work in browser environments.
 
-const PDF_ID = 1; // rental appraisal PDF
+/**
+ * Fetch the PDF ID for rental appraisal from the database
+ */
+async function fetchPdfId(): Promise<number> {
+  const response = await fetch('/api/pdf-info');
+  if (!response.ok) {
+    throw new Error('Failed to fetch PDF info');
+  }
+  const data = await response.json();
+  return data.id;
+}
 
 /**
  * Fetch all DOM bindings via API
@@ -13,7 +23,10 @@ export function useFetchDomBindings() {
   return useQuery({
     queryKey: ['domBindings'],
     queryFn: async (): Promise<DomBindingMapping[]> => {
-      const response = await fetch(`/api/bindings/${PDF_ID}`);
+      // First get the PDF ID dynamically
+      const pdfId = await fetchPdfId();
+
+      const response = await fetch(`/api/bindings/${pdfId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch bindings');
       }
@@ -26,14 +39,16 @@ export function useFetchDomBindings() {
 
 /**
  * Save DOM bindings (bulk update - replaces all bindings)
- * Note: This requires a POST /api/bindings endpoint to be implemented
  */
 export function useSaveDomBindings() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async (bindings: DomBindingMapping[]) => {
-      const response = await fetch(`/api/bindings/${PDF_ID}`, {
+      // Get the PDF ID dynamically
+      const pdfId = await fetchPdfId();
+
+      const response = await fetch(`/api/bindings/${pdfId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bindings),

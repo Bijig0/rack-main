@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, Link2, FileCode, Eye, EyeOff, AlertTriangle, Download, Upload, X } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, Link2, FileCode, Eye, EyeOff, AlertTriangle, Download, Upload, X, Minimize2, Maximize2 } from "lucide-react";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useGetRentalAppraisalSchema, JsonSchema } from "@/hooks/useGetRentalAppraisalSchema";
 import { useFetchDomBindings, useSaveDomBindings } from "@/hooks/useDomBindingsApi";
@@ -50,6 +50,43 @@ interface BindingNode {
 }
 
 /**
+ * Unwrap anyOf/oneOf to get the actual schema (handles nullable patterns)
+ * Returns the non-null schema from anyOf/oneOf arrays
+ */
+function unwrapNullableSchema(schema: JsonSchema): { schema: JsonSchema; isNullable: boolean } {
+  // Handle anyOf pattern: [{ type: "object", ... }, { type: "null" }]
+  if (schema.anyOf && Array.isArray(schema.anyOf)) {
+    const nonNullSchema = schema.anyOf.find(
+      (s: JsonSchema) => s.type !== "null" && !(Array.isArray(s.type) && s.type.includes("null"))
+    );
+    if (nonNullSchema) {
+      return { schema: nonNullSchema, isNullable: true };
+    }
+  }
+
+  // Handle oneOf pattern similarly
+  if (schema.oneOf && Array.isArray(schema.oneOf)) {
+    const nonNullSchema = schema.oneOf.find(
+      (s: JsonSchema) => s.type !== "null" && !(Array.isArray(s.type) && s.type.includes("null"))
+    );
+    if (nonNullSchema) {
+      return { schema: nonNullSchema, isNullable: true };
+    }
+  }
+
+  // Handle type: ["string", "null"] pattern
+  if (Array.isArray(schema.type) && schema.type.includes("null")) {
+    const nonNullType = schema.type.find((t: string) => t !== "null");
+    return {
+      schema: { ...schema, type: nonNullType },
+      isNullable: true,
+    };
+  }
+
+  return { schema, isNullable: schema.nullable === true };
+}
+
+/**
  * Extract all possible binding paths from JSON Schema
  */
 function extractBindingPathsFromSchema(
@@ -67,46 +104,55 @@ function extractBindingPathsFromSchema(
   ): BindingNode[] {
     const nodes: BindingNode[] = [];
 
-    if (currentSchema.type === "array" && currentSchema.items) {
+    // Unwrap nullable patterns (anyOf, oneOf, type arrays)
+    const { schema: unwrappedSchema, isNullable } = unwrapNullableSchema(currentSchema);
+
+    if (unwrappedSchema.type === "array" && unwrappedSchema.items) {
       // For arrays, show the array itself and example item access
       nodes.push({
         path: currentPath,
-        type: "array",
+        type: isNullable ? "array (nullable)" : "array",
         isUsed: usedBindings.has(currentPath),
       });
 
+      // Unwrap items schema too (in case items use anyOf)
+      const { schema: itemSchema } = unwrapNullableSchema(unwrappedSchema.items);
+
       // Show first item access pattern
       const itemPath = `${currentPath}[0]`;
-      const childNodes = traverse(currentSchema.items, itemPath);
+      const childNodes = traverse(itemSchema, itemPath);
       nodes.push(...childNodes);
-    } else if (currentSchema.type === "object" && currentSchema.properties) {
+    } else if (unwrappedSchema.type === "object" && unwrappedSchema.properties) {
       // Traverse object properties
-      for (const [key, propSchema] of Object.entries(currentSchema.properties)) {
+      for (const [key, propSchema] of Object.entries(unwrappedSchema.properties)) {
         const newPath = currentPath ? `${currentPath}.${key}` : key;
 
-        if (propSchema.type === "array" && propSchema.items) {
+        // Unwrap the property schema
+        const { schema: unwrappedPropSchema, isNullable: propIsNullable } = unwrapNullableSchema(propSchema);
+
+        if (unwrappedPropSchema.type === "array" && unwrappedPropSchema.items) {
           nodes.push(...traverse(propSchema, newPath));
-        } else if (propSchema.type === "object" && propSchema.properties) {
-          const childNodes = traverse(propSchema, newPath);
+        } else if (unwrappedPropSchema.type === "object" && unwrappedPropSchema.properties) {
+          const childNodes = traverse(unwrappedPropSchema, newPath);
           if (childNodes.length > 0) {
             nodes.push({
               path: newPath,
-              type: propSchema.nullable ? "object (nullable)" : "object",
+              type: propIsNullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
               children: childNodes,
             });
           } else {
             nodes.push({
               path: newPath,
-              type: propSchema.nullable ? "object (nullable)" : "object",
+              type: propIsNullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
             });
           }
         } else {
           // Primitive type
-          const type = propSchema.nullable
-            ? `${propSchema.type} (nullable)`
-            : propSchema.type || "unknown";
+          const type = propIsNullable
+            ? `${unwrappedPropSchema.type} (nullable)`
+            : unwrappedPropSchema.type || "unknown";
           nodes.push({
             path: newPath,
             type,
@@ -198,8 +244,9 @@ export const DataBindingReference = ({
   const [showIncompatibilityModal, setShowIncompatibilityModal] = useState(false);
 
   // Resize state
-  const [panelWidth, setPanelWidth] = useState(384); // 96 * 4 = 384px (w-96)
+  const [panelWidth, setPanelWidth] = useState(512); // ~33% larger than original 384px
   const [isResizing, setIsResizing] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const resizeStartRef = useRef({ startX: 0, startWidth: 0 });
 
@@ -259,7 +306,7 @@ export const DataBindingReference = ({
 
   const allBindings = useMemo(() => {
     if (!schema) return [];
-    return extractBindingPathsFromSchema(schema, "state", usedBindings);
+    return extractBindingPathsFromSchema(schema, "", usedBindings);
   }, [schema, usedBindings]);
 
   const filteredBindings = useMemo(() => {
@@ -530,18 +577,45 @@ export const DataBindingReference = ({
 
   const positionClasses =
     position === "fixed"
-      ? "fixed bottom-4 right-4 max-h-[600px] z-50"
+      ? "fixed bottom-4 right-4 z-50"
       : "";
 
   const panelStyle: React.CSSProperties = position === "fixed"
-    ? { width: `${panelWidth}px` }
+    ? { width: isMinimized ? "auto" : `${panelWidth}px` }
     : {};
+
+  // Minimized view - just a small tab
+  if (isMinimized) {
+    return (
+      <div
+        className={positionClasses}
+        style={panelStyle}
+        data-binding-panel
+      >
+        <Card className="shadow-2xl">
+          <CardHeader className="p-3">
+            <div className="flex items-center gap-2">
+              <CardTitle className="text-sm">Data Bindings</CardTitle>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsMinimized(false)}
+                title="Expand panel"
+              >
+                <Maximize2 className="w-4 h-4" />
+              </Button>
+            </div>
+          </CardHeader>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <>
       <div
         ref={panelRef}
-        className={positionClasses}
+        className={`${positionClasses} max-h-[600px]`}
         style={panelStyle}
         data-binding-panel
       >
@@ -618,6 +692,14 @@ export const DataBindingReference = ({
                     Edit Mode
                   </>
                 )}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsMinimized(true)}
+                title="Minimize panel"
+              >
+                <Minimize2 className="w-4 h-4" />
               </Button>
             </div>
           </div>

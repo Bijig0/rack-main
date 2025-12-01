@@ -1,10 +1,9 @@
+import cors from "cors";
 import "dotenv/config";
 import express from "express";
-import cors from "cors";
 import puppeteer from "puppeteer";
-import { handleDemo } from "./routes/demo";
-import { sql } from "./db";
 import type { DomBindingMapping } from "../client/types/domBinding";
+import { sql } from "./db";
 // Temporarily removed - causes import of parent app code with env requirements
 // import { handleGetRentalAppraisalSchema } from "./routes/schema";
 
@@ -27,17 +26,11 @@ export function createServer() {
     res.json({ message: ping });
   });
 
-  app.get("/api/demo", handleDemo);
-
-  // Schema endpoint - temporarily disabled to avoid importing parent app code
-  // TODO: Copy schema locally or make this a separate microservice
-  // app.get("/api/rental-appraisal-schema", handleGetRentalAppraisalSchema);
-
   // Proxy endpoint for report data (legacy)
   app.get("/api/report", async (_req, res) => {
     try {
       const response = await fetch(
-        "https://rack-main-production.up.railway.app/api/reports/placeholder"
+        "https://rack-main-production.up.railway.app/api/reports/placeholder",
       );
 
       if (!response.ok) {
@@ -75,9 +68,10 @@ export function createServer() {
 
       // The data column is jsonb, postgres driver returns it parsed
       // But if it was inserted as a string, parse it
-      const data = typeof result[0].data === 'string'
-        ? JSON.parse(result[0].data)
-        : result[0].data;
+      const data =
+        typeof result[0].data === "string"
+          ? JSON.parse(result[0].data)
+          : result[0].data;
       res.json(data);
     } catch (error) {
       console.error("Error fetching report data:", error);
@@ -112,7 +106,8 @@ export function createServer() {
           dataType: (properties.dataType as string) || "string",
           isListContainer: properties.isListContainer as boolean | undefined,
           listItemPattern: properties.listItemPattern as string | undefined,
-          conditionalStyles: properties.conditionalStyles as DomBindingMapping["conditionalStyles"],
+          conditionalStyles:
+            properties.conditionalStyles as DomBindingMapping["conditionalStyles"],
         };
       });
 
@@ -126,6 +121,96 @@ export function createServer() {
     }
   });
 
+  // Save DOM bindings (bulk replace for a PDF)
+  app.post("/api/bindings/:pdfId", async (req, res) => {
+    try {
+      const pdfId = parseInt(req.params.pdfId, 10);
+      if (isNaN(pdfId)) {
+        return res.status(400).json({ error: "Invalid PDF ID" });
+      }
+
+      const bindings: DomBindingMapping[] = req.body;
+      if (!Array.isArray(bindings)) {
+        return res.status(400).json({ error: "Request body must be an array of bindings" });
+      }
+
+      // Delete existing bindings for this PDF
+      await sql`DELETE FROM dom_bindings WHERE pdf_id = ${pdfId}`;
+
+      // Insert new bindings
+      for (const binding of bindings) {
+        const properties = {
+          dataType: binding.dataType,
+          isListContainer: binding.isListContainer,
+          listItemPattern: binding.listItemPattern,
+          conditionalStyles: binding.conditionalStyles,
+        };
+
+        await sql`
+          INSERT INTO dom_bindings (pdf_id, path, state_binding, properties, created_at, updated_at)
+          VALUES (${pdfId}, ${binding.path}, ${binding.dataBinding}, ${JSON.stringify(properties)}::jsonb, NOW(), NOW())
+        `;
+      }
+
+      console.log(`✅ Saved ${bindings.length} bindings for PDF ${pdfId}`);
+      res.json({ success: true, count: bindings.length });
+    } catch (error) {
+      console.error("Error saving bindings:", error);
+      res.status(500).json({
+        error: "Failed to save bindings",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
+  // Delete a single DOM binding by ID
+  app.delete("/api/bindings/item/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id, 10);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid binding ID" });
+      }
+
+      const result = await sql`
+        DELETE FROM dom_bindings WHERE id = ${id} RETURNING id
+      `;
+
+      if (result.length === 0) {
+        return res.status(404).json({ error: "Binding not found" });
+      }
+
+      console.log(`✅ Deleted binding ${id}`);
+      res.json({ success: true, deletedId: id });
+    } catch (error) {
+      console.error("Error deleting binding:", error);
+      res.status(500).json({
+        error: "Failed to delete binding",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
+  // Get the current PDF ID for rental appraisal (helper endpoint)
+  app.get("/api/pdf-info", async (_req, res) => {
+    try {
+      const result = await sql`
+        SELECT id, name FROM pdf WHERE name = 'rental appraisal' LIMIT 1
+      `;
+
+      if (result.length === 0) {
+        return res.status(404).json({ error: "PDF not found" });
+      }
+
+      res.json({ id: result[0].id, name: result[0].name });
+    } catch (error) {
+      console.error("Error fetching PDF info:", error);
+      res.status(500).json({
+        error: "Failed to fetch PDF info",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
   // Generate PDF by ID using Puppeteer
   app.get("/api/pdf/:id", async (req, res) => {
     const id = req.params.id;
@@ -133,11 +218,13 @@ export function createServer() {
 
     try {
       // Get the actual host from the request (handles dynamic port)
-      const host = req.get('host') || `localhost:${process.env.PORT || 8080}`;
-      const protocol = req.protocol || 'http';
+      const host = req.get("host") || `localhost:${process.env.PORT || 8080}`;
+      const protocol = req.protocol || "http";
       const baseUrl = `${protocol}://${host}`;
 
-      console.log(`Generating PDF for report ${id}, navigating to ${baseUrl}/report/${id}`);
+      console.log(
+        `Generating PDF for report ${id}, navigating to ${baseUrl}/report/${id}`,
+      );
 
       // Launch Puppeteer
       browser = await puppeteer.launch({
@@ -151,8 +238,10 @@ export function createServer() {
       await page.setViewport({ width: 1200, height: 800 });
 
       // Log console messages from the page for debugging
-      page.on('console', msg => console.log('Page console:', msg.text()));
-      page.on('pageerror', error => console.log('Page error:', error.message));
+      page.on("console", (msg) => console.log("Page console:", msg.text()));
+      page.on("pageerror", (error) =>
+        console.log("Page error:", error.message),
+      );
 
       // Navigate to the React report page
       await page.goto(`${baseUrl}/report/${id}`, {
@@ -162,8 +251,9 @@ export function createServer() {
 
       // Wait for React + binding injection to complete
       await page.waitForFunction(
-        () => (window as unknown as { __PDF_READY?: boolean }).__PDF_READY === true,
-        { timeout: 30000 }
+        () =>
+          (window as unknown as { __PDF_READY?: boolean }).__PDF_READY === true,
+        { timeout: 30000 },
       );
 
       // Generate PDF
@@ -184,7 +274,7 @@ export function createServer() {
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
         "Content-Disposition",
-        `attachment; filename=report-${id}.pdf`
+        `attachment; filename=report-${id}.pdf`,
       );
       res.send(pdf);
     } catch (error) {

@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "bun src/report-generator/index.ts",
+    "server": "bun src/server/server.ts",
+    "server:watch": "bun --watch src/server/server.ts",
     "run:editor": "bun run --cwd src/pdf-editor dev",
     "test:fast": "./scripts/run-fast-tests.sh",
     "test:integration": "./scripts/run-integration-tests.sh",
@@ -77,6 +79,7 @@
     "type-fest": "^5.2.0",
     "xml2js": "^0.6.2",
     "zod": "^3.23.8",
-    "zod-schema-faker": "^2.0.1"
+    "zod-schema-faker": "^2.0.1",
+    "zod-to-json-schema": "^3.25.0"
   }
 }
