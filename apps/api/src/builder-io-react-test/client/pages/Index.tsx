@@ -148,9 +148,9 @@ export default function Index({ showControls = true }: IndexProps) {
   const { data: reportData } = useReportData();
 
   return (
-    <div className="bg-gray-100 min-h-screen py-8 px-4">
+    <div className="bg-gray-100 min-h-screen py-8 px-4 print:bg-white print:p-0 print:m-0 print:min-h-0">
       {/* Navigation Link to Builder Demo - always render container for consistent DOM structure */}
-      <div className={`max-w-[210mm] mx-auto mb-4 ${showControls ? '' : 'hidden'}`}>
+      <div className={`max-w-[210mm] mx-auto mb-4 print:hidden ${showControls ? '' : 'hidden'}`}>
         <Link
           to="/builder-demo"
           className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
@@ -159,7 +159,7 @@ export default function Index({ showControls = true }: IndexProps) {
           View Builder.io Integration Demo
         </Link>
       </div>
-      <div className="max-w-[210mm] mx-auto">
+      <div className="max-w-[210mm] mx-auto print:max-w-none print:mx-0">
         {/* Page 1: Cover */}
         <A4Page>
           <div className="relative h-full flex flex-col">
@@ -1520,8 +1520,8 @@ function HistoryTimelineItem({
 // A4 Page Container Component
 function A4Page({ children }: { children: React.ReactNode }) {
   return (
-    <div 
-      className="bg-white shadow-lg mx-auto mb-8 overflow-hidden"
+    <div
+      className="bg-white shadow-lg mx-auto mb-8 overflow-hidden print:shadow-none print:mx-0 print:mb-0"
       style={{
         width: '210mm',
         height: '297mm',
