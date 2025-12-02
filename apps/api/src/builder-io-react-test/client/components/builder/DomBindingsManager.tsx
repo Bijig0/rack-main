@@ -1,21 +1,21 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { DomBindingMapping } from "@/types/domBinding";
 import {
-  Trash2,
-  Edit,
   Code,
   Download,
-  Upload,
+  Edit,
+  Eye,
+  Info,
   List,
   Sparkles,
-  Info,
+  Trash2,
+  Upload,
   X,
-  Eye,
 } from "lucide-react";
-import { DomBindingMapping } from "@/types/domBinding";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface DomBindingsManagerProps {
   /** Current DOM bindings */
@@ -32,20 +32,21 @@ export const DomBindingsManager = ({
   onEditConditionalStyles,
 }: DomBindingsManagerProps) => {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
-  const [viewingBinding, setViewingBinding] = useState<DomBindingMapping | null>(null);
+  const [viewingBinding, setViewingBinding] =
+    useState<DomBindingMapping | null>(null);
 
   // Helper function to safely check if element exists
   const findElement = useCallback((path: string): HTMLElement | null => {
     try {
       const element = document.querySelector(path) as HTMLElement;
       if (element) {
-        console.log('✅ Element found for path:', path);
+        console.log("✅ Element found for path:", path);
       } else {
-        console.warn('⚠️ Element not found for path:', path);
+        console.warn("⚠️ Element not found for path:", path);
       }
       return element;
     } catch (error) {
-      console.error('❌ Invalid selector path:', path, error);
+      console.error("❌ Invalid selector path:", path, error);
       return null;
     }
   }, []);
@@ -69,12 +70,12 @@ export const DomBindingsManager = ({
     const originalZIndex = element.style.zIndex;
 
     // Apply highlight
-    element.style.outline = '4px solid #ef4444';
-    element.style.outlineOffset = '4px';
-    element.style.zIndex = '9998';
+    element.style.outline = "4px solid #ef4444";
+    element.style.outlineOffset = "4px";
+    element.style.zIndex = "9998";
 
     // Scroll into view
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    element.scrollIntoView({ behavior: "smooth", block: "center" });
 
     return () => {
       // Restore original styles
@@ -168,23 +169,23 @@ export const DomBindingsManager = ({
               {bindings.map((binding) => {
                 const isExpanded = expandedIds.has(binding.id);
                 return (
-                  <Card key={binding.id} className="border">
+                  <Card key={binding.id} className="border overflow-hidden">
                     <CardContent className="p-3">
                       <div className="space-y-2">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <Code className="w-3 h-3 text-blue-600" />
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0 overflow-hidden" style={{ flex: '1 1 0%' }}>
+                            <div className="flex items-center gap-2 mb-1 flex-wrap">
+                              <Code className="w-3 h-3 text-blue-600 shrink-0" />
                               <code className="text-xs font-mono font-semibold">
                                 {binding.dataBinding}
                               </code>
-                              <Badge variant="outline" className="text-xs">
+                              <Badge variant="outline" className="text-xs shrink-0">
                                 {binding.dataType}
                               </Badge>
                               {binding.isListContainer && (
                                 <Badge
                                   variant="outline"
-                                  className="text-xs bg-purple-50"
+                                  className="text-xs bg-purple-50 shrink-0"
                                 >
                                   <List className="w-3 h-3 mr-1" />
                                   List
@@ -194,7 +195,7 @@ export const DomBindingsManager = ({
                                 binding.conditionalStyles.length > 0 && (
                                   <Badge
                                     variant="outline"
-                                    className="text-xs bg-amber-50"
+                                    className="text-xs bg-amber-50 shrink-0"
                                   >
                                     <Sparkles className="w-3 h-3 mr-1" />
                                     {binding.conditionalStyles.length} rules
@@ -204,15 +205,20 @@ export const DomBindingsManager = ({
                             <div
                               className="text-xs text-gray-600 font-mono cursor-pointer hover:bg-gray-50 p-1 rounded"
                               onClick={() => toggleExpanded(binding.id)}
+                              title={binding.path}
                             >
                               {isExpanded ? (
                                 <div className="break-all">{binding.path}</div>
                               ) : (
-                                <div className="truncate">{binding.path}</div>
+                                <div>
+                                  {binding.path.length > 40
+                                    ? `${binding.path.slice(0, 40)}...`
+                                    : binding.path}
+                                </div>
                               )}
                             </div>
                           </div>
-                          <div className="flex gap-1 ml-2">
+                          <div className="flex gap-1 ml-2 shrink-0">
                             <Button
                               variant="ghost"
                               size="sm"
@@ -263,7 +269,7 @@ export const DomBindingsManager = ({
                                       <div key={cidx} className="text-gray-700">
                                         {cond.operator} "{cond.value}" →{" "}
                                         {Object.keys(cond.cssProperties).join(
-                                          ", "
+                                          ", ",
                                         )}
                                       </div>
                                     ))}
@@ -284,7 +290,10 @@ export const DomBindingsManager = ({
 
       {/* Binding Details Modal */}
       {viewingBinding && (
-        <div className="fixed inset-0 bg-black/50 z-[200] flex items-center justify-center p-4" data-binding-panel>
+        <div
+          className="fixed inset-0 bg-black/50 z-[200] flex items-center justify-center p-4"
+          data-binding-panel
+        >
           <Card className="max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -318,12 +327,18 @@ export const DomBindingsManager = ({
                 <div className="text-xs font-semibold mb-1 flex items-center gap-2">
                   DOM Element Path:
                   {viewingElementExists ? (
-                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-300">
+                    <Badge
+                      variant="outline"
+                      className="bg-green-50 text-green-700 border-green-300"
+                    >
                       <Eye className="w-3 h-3 mr-1" />
                       Element Found & Highlighted
                     </Badge>
                   ) : (
-                    <Badge variant="outline" className="bg-red-50 text-red-700 border-red-300">
+                    <Badge
+                      variant="outline"
+                      className="bg-red-50 text-red-700 border-red-300"
+                    >
                       ⚠️ Element Not Found
                     </Badge>
                   )}
@@ -352,47 +367,55 @@ export const DomBindingsManager = ({
               )}
 
               {/* Conditional Styles */}
-              {viewingBinding.conditionalStyles && viewingBinding.conditionalStyles.length > 0 && (
-                <div>
-                  <div className="text-xs font-semibold mb-1 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" />
-                    Conditional Styles ({viewingBinding.conditionalStyles.length}):
-                  </div>
-                  <div className="space-y-2">
-                    {viewingBinding.conditionalStyles.map((style, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-amber-50 border border-amber-200 p-3 rounded"
-                      >
-                        <div className="text-xs font-semibold mb-2">
-                          Depends on:{" "}
-                          <code className="bg-white px-1 rounded">
-                            {style.dependsOn}
-                          </code>
-                        </div>
-                        <div className="space-y-1">
-                          {style.conditions.map((cond, cidx) => (
-                            <div
-                              key={cidx}
-                              className="text-xs bg-white p-2 rounded"
-                            >
-                              <div className="font-semibold mb-1">
-                                Condition: {cond.operator} "{cond.value}"
+              {viewingBinding.conditionalStyles &&
+                viewingBinding.conditionalStyles.length > 0 && (
+                  <div>
+                    <div className="text-xs font-semibold mb-1 flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      Conditional Styles (
+                      {viewingBinding.conditionalStyles.length}):
+                    </div>
+                    <div className="space-y-2">
+                      {viewingBinding.conditionalStyles.map((style, idx) => (
+                        <div
+                          key={idx}
+                          className="bg-amber-50 border border-amber-200 p-3 rounded"
+                        >
+                          <div className="text-xs font-semibold mb-2">
+                            Depends on:{" "}
+                            <code className="bg-white px-1 rounded">
+                              {style.dependsOn}
+                            </code>
+                          </div>
+                          <div className="space-y-1">
+                            {style.conditions.map((cond, cidx) => (
+                              <div
+                                key={cidx}
+                                className="text-xs bg-white p-2 rounded"
+                              >
+                                <div className="font-semibold mb-1">
+                                  Condition: {cond.operator} "{cond.value}"
+                                </div>
+                                <div className="text-gray-700">
+                                  <span className="font-semibold">
+                                    Apply CSS:
+                                  </span>
+                                  <pre className="mt-1 bg-gray-50 p-2 rounded text-xs overflow-x-auto">
+                                    {JSON.stringify(
+                                      cond.cssProperties,
+                                      null,
+                                      2,
+                                    )}
+                                  </pre>
+                                </div>
                               </div>
-                              <div className="text-gray-700">
-                                <span className="font-semibold">Apply CSS:</span>
-                                <pre className="mt-1 bg-gray-50 p-2 rounded text-xs overflow-x-auto">
-                                  {JSON.stringify(cond.cssProperties, null, 2)}
-                                </pre>
-                              </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
               {/* Action Buttons */}
               <div className="flex gap-2 pt-4 border-t">

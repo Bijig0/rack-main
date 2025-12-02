@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useReportData } from "../hooks/useReportData";
 import { DataBindingReference } from "@/components/builder/DataBindingReference";
 
-function PropertyDetailStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function PropertyDetailStat({ icon, label, value, id }: { icon: React.ReactNode; label: string; value: string; id?: string }) {
   return (
     <div className="flex items-center gap-3">
       <div className="w-6 h-6 flex-shrink-0">
@@ -13,7 +13,7 @@ function PropertyDetailStat({ icon, label, value }: { icon: React.ReactNode; lab
         <p className="text-[13px] font-medium text-[#62748E] font-['Inter'] leading-[19.5px] tracking-[-0.13px]">
           {label}
         </p>
-        <p className="text-[15px] font-semibold text-[#0F172B] font-['Inter'] leading-[19.5px]">
+        <p id={id} className="text-[15px] font-semibold text-[#0F172B] font-['Inter'] leading-[19.5px]">
           {value}
         </p>
       </div>
@@ -149,18 +149,16 @@ export default function Index({ showControls = true }: IndexProps) {
 
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4">
-      {/* Navigation Link to Builder Demo */}
-      {showControls && (
-        <div className="max-w-[210mm] mx-auto mb-4">
-          <Link
-            to="/builder-demo"
-            className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-          >
-            <Building2 className="w-4 h-4" />
-            View Builder.io Integration Demo
-          </Link>
-        </div>
-      )}
+      {/* Navigation Link to Builder Demo - always render container for consistent DOM structure */}
+      <div className={`max-w-[210mm] mx-auto mb-4 ${showControls ? '' : 'hidden'}`}>
+        <Link
+          to="/builder-demo"
+          className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+        >
+          <Building2 className="w-4 h-4" />
+          View Builder.io Integration Demo
+        </Link>
+      </div>
       <div className="max-w-[210mm] mx-auto">
         {/* Page 1: Cover */}
         <A4Page>
@@ -1024,48 +1022,46 @@ export default function Index({ showControls = true }: IndexProps) {
         </A4Page>
       </div>
 
-      {/* Floating Live Demo Panel */}
-      {showControls && (
-        <div className="fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50">
-          <div className="overflow-y-auto flex-1">
-            <div className="p-4">
-              <DataBindingReference
-                builderContent={{
-                  data: {
-                    blocks: [
-                      {
-                        component: {
-                          name: "Text",
-                          options: {
-                            text: "Property built in {{state.propertyInfo.yearBuilt}}"
-                          }
-                        }
-                      },
-                      {
-                        component: {
-                          name: "Text",
-                          options: {
-                            text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
-                          }
-                        }
-                      },
-                      {
-                        component: {
-                          name: "Text",
-                          options: {
-                            text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
-                          }
+      {/* Floating Live Demo Panel - always render for consistent DOM structure */}
+      <div className={`fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50 ${showControls ? '' : 'hidden'}`}>
+        <div className="overflow-y-auto flex-1">
+          <div className="p-4">
+            <DataBindingReference
+              builderContent={{
+                data: {
+                  blocks: [
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Property built in {{state.propertyInfo.yearBuilt}}"
                         }
                       }
-                    ]
-                  }
-                }}
-                position="fixed"
-              />
-            </div>
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
+                        }
+                      }
+                    },
+                    {
+                      component: {
+                        name: "Text",
+                        options: {
+                          text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }}
+              position="fixed"
+            />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

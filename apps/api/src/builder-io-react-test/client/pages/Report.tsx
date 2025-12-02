@@ -14,9 +14,11 @@ export default function Report() {
   const { id } = useParams<{ id: string }>();
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [error, setError] = useState<string | null>(null);
+  const [bindingsData, setBindingsData] = useState<{ data: any; bindings: DomBindingMapping[] } | null>(null);
 
+  // Fetch data and bindings
   useEffect(() => {
-    async function loadAndBind() {
+    async function fetchData() {
       try {
         // First get the PDF ID dynamically
         const pdfInfoRes = await fetch('/api/pdf-info');
@@ -42,26 +44,39 @@ export default function Report() {
         const data = await dataRes.json();
         const bindings: DomBindingMapping[] = await bindingsRes.json();
 
-        // Apply bindings to DOM
-        const result = renderAllBindings(bindings, data, document);
-        console.log(`Applied ${result.success} bindings, ${result.failed} failed`);
-
-        // Signal ready for PDF capture
-        window.__PDF_READY = true;
-        setStatus("ready");
+        setBindingsData({ data, bindings });
       } catch (err) {
         console.error("Error loading report:", err);
         setError(err instanceof Error ? err.message : String(err));
         setStatus("error");
-        // Still signal ready so Puppeteer doesn't hang
         window.__PDF_READY = true;
       }
     }
 
     if (id) {
-      loadAndBind();
+      fetchData();
     }
   }, [id]);
+
+  // Apply bindings after Index component has rendered
+  useEffect(() => {
+    if (!bindingsData) return;
+
+    // Use requestAnimationFrame to ensure DOM is painted
+    const applyBindings = () => {
+      const result = renderAllBindings(bindingsData.bindings, bindingsData.data, document);
+      console.log(`Applied ${result.success} bindings, ${result.failed} failed`);
+
+      // Signal ready for PDF capture
+      window.__PDF_READY = true;
+      setStatus("ready");
+    };
+
+    // Wait for next frame to ensure Index has rendered
+    requestAnimationFrame(() => {
+      requestAnimationFrame(applyBindings);
+    });
+  }, [bindingsData]);
 
   if (status === "error") {
     return (
