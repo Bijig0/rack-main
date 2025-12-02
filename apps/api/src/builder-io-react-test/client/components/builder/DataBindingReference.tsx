@@ -709,7 +709,7 @@ export const DataBindingReference = ({
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="reference">Reference</TabsTrigger>
               <TabsTrigger value="bindings">
-                DOM Bindings ({localBindings.length})
+                {isLoadingBindings ? "Loading..." : `DOM Bindings (${localBindings.length})`}
               </TabsTrigger>
             </TabsList>
 

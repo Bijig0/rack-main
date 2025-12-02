@@ -50,17 +50,24 @@ export function createServer() {
     }
   });
 
-  // Get report data by ID from rental_appraisal_data table
+  // Get report data by ID or identifier from rental_appraisal_data table
   app.get("/api/report-data/:id", async (req, res) => {
     try {
-      const id = parseInt(req.params.id, 10);
-      if (isNaN(id)) {
-        return res.status(400).json({ error: "Invalid ID" });
-      }
+      const idParam = req.params.id;
+      const numericId = parseInt(idParam, 10);
 
-      const result = await sql`
-        SELECT data FROM rental_appraisal_data WHERE id = ${id} LIMIT 1
-      `;
+      let result;
+      if (isNaN(numericId)) {
+        // Try to find by identifier (e.g., 'sample')
+        result = await sql`
+          SELECT id, data, identifier, status, pdf_url FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
+        `;
+      } else {
+        // Find by numeric ID
+        result = await sql`
+          SELECT id, data, identifier, status, pdf_url FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
+        `;
+      }
 
       if (result.length === 0) {
         return res.status(404).json({ error: "Report data not found" });
@@ -211,7 +218,7 @@ export function createServer() {
     }
   });
 
-  // Generate PDF by ID using the generatePdf module
+  // Generate PDF by ID using the generatePdf module (returns PDF directly)
   app.get("/api/pdf/:id", async (req, res) => {
     const id = req.params.id;
 
@@ -247,6 +254,184 @@ export function createServer() {
       console.error("Error generating PDF:", error);
       res.status(500).json({
         error: "Failed to generate PDF",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
+  // Generate PDF, upload to bucket, and return URL
+  app.post("/api/generate-pdf/:id", async (req, res) => {
+    const idParam = req.params.id;
+
+    try {
+      // Find the report by ID or identifier
+      const numericId = parseInt(idParam, 10);
+      let reportResult;
+      if (isNaN(numericId)) {
+        reportResult = await sql`
+          SELECT id, identifier FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
+        `;
+      } else {
+        reportResult = await sql`
+          SELECT id, identifier FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
+        `;
+      }
+
+      if (reportResult.length === 0) {
+        return res.status(404).json({ error: "Report not found" });
+      }
+
+      const reportId = reportResult[0].id;
+      const identifier = reportResult[0].identifier || reportId;
+
+      // Update status to processing
+      await sql`
+        UPDATE rental_appraisal_data
+        SET status = 'processing', updated_at = NOW()
+        WHERE id = ${reportId}
+      `;
+
+      // Get the actual host from the request
+      const host = req.get("host") || `localhost:${process.env.PORT || 8080}`;
+      const protocol = req.protocol || "http";
+      const baseUrl = `${protocol}://${host}`;
+      const url = `${baseUrl}/report/${idParam}`;
+
+      console.log(`Generating PDF for report ${idParam}, navigating to ${url}`);
+
+      const pdfBuffer = await generatePdfFromUrl(url, {
+        verbose: true,
+        waitForReady: true,
+        format: "A4",
+        printBackground: true,
+        margin: {
+          top: "20mm",
+          right: "20mm",
+          bottom: "20mm",
+          left: "20mm",
+        },
+      });
+
+      // Upload to Railway bucket (or any S3-compatible storage)
+      const bucketUrl = process.env.BUCKET_URL;
+      const bucketAccessKey = process.env.BUCKET_ACCESS_KEY;
+      const bucketSecretKey = process.env.BUCKET_SECRET_KEY;
+
+      let pdfUrl: string;
+
+      if (bucketUrl && bucketAccessKey && bucketSecretKey) {
+        // Upload to bucket using S3-compatible API
+        const filename = `reports/${identifier}-${Date.now()}.pdf`;
+
+        try {
+          const uploadResponse = await fetch(`${bucketUrl}/${filename}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/pdf",
+              "Authorization": `AWS ${bucketAccessKey}:${bucketSecretKey}`,
+            },
+            body: new Uint8Array(pdfBuffer),
+          });
+
+          if (!uploadResponse.ok) {
+            throw new Error(`Bucket upload failed: ${uploadResponse.status}`);
+          }
+
+          pdfUrl = `${bucketUrl}/${filename}`;
+          console.log(`✅ PDF uploaded to bucket: ${pdfUrl}`);
+        } catch (uploadError) {
+          console.error("Bucket upload failed, falling back to base64 data URL:", uploadError);
+          // Fallback: store as data URL (not recommended for production)
+          pdfUrl = `data:application/pdf;base64,${pdfBuffer.toString("base64")}`;
+        }
+      } else {
+        // No bucket configured - use a local file URL or data URL for testing
+        console.log("⚠️ No bucket configured. Storing PDF URL as placeholder.");
+        // For testing, we'll create a URL that points back to the PDF endpoint
+        pdfUrl = `${baseUrl}/api/pdf/${idParam}`;
+      }
+
+      // Update status to completed and store PDF URL
+      await sql`
+        UPDATE rental_appraisal_data
+        SET status = 'completed', pdf_url = ${pdfUrl}, updated_at = NOW()
+        WHERE id = ${reportId}
+      `;
+
+      console.log(`✅ PDF generated for report ${idParam}`);
+
+      res.json({
+        success: true,
+        reportId,
+        identifier,
+        status: "completed",
+        pdfUrl,
+      });
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+
+      // Try to update status to failed
+      try {
+        const numericId = parseInt(idParam, 10);
+        if (!isNaN(numericId)) {
+          await sql`
+            UPDATE rental_appraisal_data
+            SET status = 'failed', updated_at = NOW()
+            WHERE id = ${numericId}
+          `;
+        } else {
+          await sql`
+            UPDATE rental_appraisal_data
+            SET status = 'failed', updated_at = NOW()
+            WHERE identifier = ${idParam}
+          `;
+        }
+      } catch {
+        // Ignore update error
+      }
+
+      res.status(500).json({
+        error: "Failed to generate PDF",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
+  // Get report status and PDF URL
+  app.get("/api/report-status/:id", async (req, res) => {
+    try {
+      const idParam = req.params.id;
+      const numericId = parseInt(idParam, 10);
+
+      let result;
+      if (isNaN(numericId)) {
+        result = await sql`
+          SELECT id, identifier, status, pdf_url, created_at, updated_at
+          FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
+        `;
+      } else {
+        result = await sql`
+          SELECT id, identifier, status, pdf_url, created_at, updated_at
+          FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
+        `;
+      }
+
+      if (result.length === 0) {
+        return res.status(404).json({ error: "Report not found" });
+      }
+
+      res.json({
+        id: result[0].id,
+        identifier: result[0].identifier,
+        status: result[0].status,
+        pdfUrl: result[0].pdf_url,
+        createdAt: result[0].created_at,
+        updatedAt: result[0].updated_at,
+      });
+    } catch (error) {
+      console.error("Error fetching report status:", error);
+      res.status(500).json({
+        error: "Failed to fetch report status",
         message: error instanceof Error ? error.message : String(error),
       });
     }

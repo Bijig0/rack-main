@@ -140,21 +140,27 @@ function RoofHeightIconSVG() {
   );
 }
 
-export default function Index() {
+interface IndexProps {
+  showControls?: boolean;
+}
+
+export default function Index({ showControls = true }: IndexProps) {
   const { data: reportData } = useReportData();
 
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4">
       {/* Navigation Link to Builder Demo */}
-      <div className="max-w-[210mm] mx-auto mb-4">
-        <Link
-          to="/builder-demo"
-          className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-        >
-          <Building2 className="w-4 h-4" />
-          View Builder.io Integration Demo
-        </Link>
-      </div>
+      {showControls && (
+        <div className="max-w-[210mm] mx-auto mb-4">
+          <Link
+            to="/builder-demo"
+            className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+          >
+            <Building2 className="w-4 h-4" />
+            View Builder.io Integration Demo
+          </Link>
+        </div>
+      )}
       <div className="max-w-[210mm] mx-auto">
         {/* Page 1: Cover */}
         <A4Page>
@@ -1019,45 +1025,47 @@ export default function Index() {
       </div>
 
       {/* Floating Live Demo Panel */}
-      <div className="fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50">
-        <div className="overflow-y-auto flex-1">
-          <div className="p-4">
-            <DataBindingReference
-              builderContent={{
-                data: {
-                  blocks: [
-                    {
-                      component: {
-                        name: "Text",
-                        options: {
-                          text: "Property built in {{state.propertyInfo.yearBuilt}}"
+      {showControls && (
+        <div className="fixed bottom-6 right-6 w-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border-2 border-purple-300 overflow-hidden flex flex-col z-50">
+          <div className="overflow-y-auto flex-1">
+            <div className="p-4">
+              <DataBindingReference
+                builderContent={{
+                  data: {
+                    blocks: [
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Property built in {{state.propertyInfo.yearBuilt}}"
+                          }
+                        }
+                      },
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
+                          }
+                        }
+                      },
+                      {
+                        component: {
+                          name: "Text",
+                          options: {
+                            text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
+                          }
                         }
                       }
-                    },
-                    {
-                      component: {
-                        name: "Text",
-                        options: {
-                          text: "Located in {{state.locationSuburbData.suburb}}, {{state.locationSuburbData.state}}"
-                        }
-                      }
-                    },
-                    {
-                      component: {
-                        name: "Text",
-                        options: {
-                          text: "Land area: {{state.propertyInfo.landArea.value}} {{state.propertyInfo.landArea.unit}}"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }}
-              position="fixed"
-            />
+                    ]
+                  }
+                }}
+                position="fixed"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
