@@ -1,11 +1,35 @@
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import type { DomBindingMapping } from "../client/types/domBinding";
 import { sql } from "./db";
 import { generatePdfFromUrl } from "../scripts/generatePdf";
 // Temporarily removed - causes import of parent app code with env requirements
 // import { handleGetRentalAppraisalSchema } from "./routes/schema";
+
+// Initialize S3 client for Railway bucket (lazy initialization)
+let s3Client: S3Client | null = null;
+function getS3Client(): S3Client | null {
+  if (s3Client) return s3Client;
+
+  const accessKeyId = process.env.BUCKET_ACCESS_KEY;
+  const secretAccessKey = process.env.BUCKET_SECRET_KEY;
+
+  if (!accessKeyId || !secretAccessKey) return null;
+
+  s3Client = new S3Client({
+    endpoint: "https://storage.railway.app",
+    region: "auto",
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
+    forcePathStyle: true, // Required for S3-compatible services
+  });
+
+  return s3Client;
+}
 
 export function createServer() {
   const app = express();
@@ -312,37 +336,30 @@ export function createServer() {
         },
       });
 
-      // Upload to Railway bucket (or any S3-compatible storage)
-      const bucketUrl = process.env.BUCKET_URL;
-      const bucketAccessKey = process.env.BUCKET_ACCESS_KEY;
-      const bucketSecretKey = process.env.BUCKET_SECRET_KEY;
+      // Upload to Railway bucket using AWS SDK
+      const bucketName = "pdfs-urro8dpjdf-cxa59g-ro";
+      const s3 = getS3Client();
 
       let pdfUrl: string;
 
-      if (bucketUrl && bucketAccessKey && bucketSecretKey) {
-        // Upload to bucket using S3-compatible API
+      if (s3) {
         const filename = `reports/${identifier}-${Date.now()}.pdf`;
 
         try {
-          const uploadResponse = await fetch(`${bucketUrl}/${filename}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/pdf",
-              "Authorization": `AWS ${bucketAccessKey}:${bucketSecretKey}`,
-            },
-            body: new Uint8Array(pdfBuffer),
-          });
+          await s3.send(new PutObjectCommand({
+            Bucket: bucketName,
+            Key: filename,
+            Body: pdfBuffer,
+            ContentType: "application/pdf",
+          }));
 
-          if (!uploadResponse.ok) {
-            throw new Error(`Bucket upload failed: ${uploadResponse.status}`);
-          }
-
-          pdfUrl = `${bucketUrl}/${filename}`;
-          console.log(`✅ PDF uploaded to bucket: ${pdfUrl}`);
+          // Use proxy endpoint since Railway buckets are private
+          pdfUrl = `${baseUrl}/api/stored-pdf/${filename}`;
+          console.log(`✅ PDF uploaded to bucket, accessible at: ${pdfUrl}`);
         } catch (uploadError) {
-          console.error("Bucket upload failed, falling back to base64 data URL:", uploadError);
-          // Fallback: store as data URL (not recommended for production)
-          pdfUrl = `data:application/pdf;base64,${pdfBuffer.toString("base64")}`;
+          console.error("Bucket upload failed:", uploadError);
+          // Fallback: use the on-demand PDF endpoint
+          pdfUrl = `${baseUrl}/api/pdf/${idParam}`;
         }
       } else {
         // No bucket configured - use a local file URL or data URL for testing
@@ -432,6 +449,53 @@ export function createServer() {
       console.error("Error fetching report status:", error);
       res.status(500).json({
         error: "Failed to fetch report status",
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+  });
+
+  // Proxy endpoint to serve PDFs from the private bucket
+  // Using named wildcard to capture paths like "reports/sample-123.pdf"
+  app.get("/api/stored-pdf/{*filepath}", async (req, res) => {
+    // Get the filename from the wildcard part of the URL
+    // In Express 5 with path-to-regexp v8, wildcard params can be arrays
+    const filepathParam = (req.params as { filepath: string | string[] }).filepath;
+    const filename = Array.isArray(filepathParam) ? filepathParam.join('/') : filepathParam;
+    const bucketName = "pdfs-urro8dpjdf-cxa59g-ro";
+    const s3 = getS3Client();
+
+    if (!s3) {
+      return res.status(500).json({ error: "Storage not configured" });
+    }
+
+    try {
+      const response = await s3.send(new GetObjectCommand({
+        Bucket: bucketName,
+        Key: filename,
+      }));
+
+      if (!response.Body) {
+        return res.status(404).json({ error: "PDF not found" });
+      }
+
+      // Set headers for PDF download
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", `inline; filename="${filename.split('/').pop()}"`);
+
+      if (response.ContentLength) {
+        res.setHeader("Content-Length", response.ContentLength);
+      }
+
+      // Stream the PDF to the response
+      const stream = response.Body as NodeJS.ReadableStream;
+      stream.pipe(res);
+    } catch (error: any) {
+      console.error("Error fetching PDF from bucket:", error);
+      if (error.name === "NoSuchKey") {
+        return res.status(404).json({ error: "PDF not found" });
+      }
+      res.status(500).json({
+        error: "Failed to fetch PDF",
         message: error instanceof Error ? error.message : String(error),
       });
     }

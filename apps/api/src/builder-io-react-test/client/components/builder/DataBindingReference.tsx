@@ -219,19 +219,19 @@ export const DataBindingReference = ({
 
   // Local state for unsaved changes (dirty state)
   const [localBindings, setLocalBindings] = useState<DomBindingMapping[]>([]);
-  const [isDirty, setIsDirty] = useState(false);
+
+  // Track the last saved bindings JSON for comparison (stable reference)
+  const savedBindingsJson = useMemo(() => JSON.stringify(savedBindings), [savedBindings]);
 
   // Sync localBindings with saved data from database
   useEffect(() => {
     setLocalBindings(savedBindings);
-    setIsDirty(false);
-  }, [savedBindings]);
+  }, [savedBindingsJson]); // Use stable JSON string as dependency
 
-  // Track when local bindings differ from saved
-  useEffect(() => {
-    const hasChanges = JSON.stringify(localBindings) !== JSON.stringify(savedBindings);
-    setIsDirty(hasChanges);
-  }, [localBindings, savedBindings]);
+  // Compute isDirty from current state (no effect needed)
+  const isDirty = useMemo(() => {
+    return JSON.stringify(localBindings) !== savedBindingsJson;
+  }, [localBindings, savedBindingsJson]);
 
   const [selectingBinding, setSelectingBinding] = useState<{
     path: string;
