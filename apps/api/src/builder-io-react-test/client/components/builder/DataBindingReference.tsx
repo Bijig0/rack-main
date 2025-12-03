@@ -9,16 +9,15 @@ import {
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, Link2, FileCode, Eye, EyeOff, AlertTriangle, Download, Upload, X, Minimize2, Maximize2 } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, FileCode, Eye, EyeOff, AlertTriangle, Download, Upload, X, Minimize2, Maximize2 } from "lucide-react";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useGetRentalAppraisalSchema, JsonSchema } from "@/hooks/useGetRentalAppraisalSchema";
 import { useFetchDomBindings, useSaveDomBindings } from "@/hooks/useDomBindingsApi";
 import { DomBindingMapping, ConditionalStyle } from "@/types/domBinding";
-import { DomElementSelector } from "./DomElementSelector";
-import { ListBindingSelector } from "./ListBindingSelector";
 import { ConditionalStyleEditor } from "./ConditionalStyleEditor";
 import { DomBindingsManager } from "./DomBindingsManager";
 import { BindingVisualIndicators } from "./BindingVisualIndicators";
+import { ElementFirstSelector } from "./ElementFirstSelector";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Path to store DOM bindings
@@ -47,6 +46,8 @@ interface BindingNode {
   type: string;
   isUsed: boolean;
   children?: BindingNode[];
+  /** For object types, the list of property names */
+  objectProperties?: string[];
 }
 
 /**
@@ -134,18 +135,22 @@ function extractBindingPathsFromSchema(
           nodes.push(...traverse(propSchema, newPath));
         } else if (unwrappedPropSchema.type === "object" && unwrappedPropSchema.properties) {
           const childNodes = traverse(unwrappedPropSchema, newPath);
+          // Extract property names for template binding
+          const objectProperties = Object.keys(unwrappedPropSchema.properties);
           if (childNodes.length > 0) {
             nodes.push({
               path: newPath,
               type: propIsNullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
               children: childNodes,
+              objectProperties,
             });
           } else {
             nodes.push({
               path: newPath,
               type: propIsNullable ? "object (nullable)" : "object",
               isUsed: usedBindings.has(newPath),
+              objectProperties,
             });
           }
         } else {
@@ -233,10 +238,6 @@ export const DataBindingReference = ({
     return JSON.stringify(localBindings) !== savedBindingsJson;
   }, [localBindings, savedBindingsJson]);
 
-  const [selectingBinding, setSelectingBinding] = useState<{
-    path: string;
-    type: string;
-  } | null>(null);
   const [editingConditionalStyles, setEditingConditionalStyles] = useState<DomBindingMapping | null>(null);
   const [activeTab, setActiveTab] = useState<"reference" | "bindings">("reference");
   const [showVisualIndicators, setShowVisualIndicators] = useState(false);
@@ -442,42 +443,18 @@ export const DataBindingReference = ({
     navigator.clipboard.writeText(`{{${path}}}`).catch(console.error);
   };
 
-  const handleBindToDom = (path: string, type: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectingBinding({ path, type });
-  };
-
-  const handleDomElementSelected = (domPath: string, element: HTMLElement) => {
-    if (!selectingBinding) return;
-
+  // Element-first binding flow handler
+  const handleElementFirstBindingComplete = (domPath: string, dataBinding: string, dataType: string, template?: string) => {
     const newBinding: DomBindingMapping = {
       id: `${Date.now()}-${Math.random()}`,
       path: domPath,
-      dataBinding: selectingBinding.path,
-      dataType: selectingBinding.type,
+      dataBinding,
+      dataType,
       conditionalStyles: [],
+      template,
     };
 
     setLocalBindings([...localBindings, newBinding]);
-    setSelectingBinding(null);
-    setActiveTab("bindings");
-  };
-
-  const handleListBindingComplete = (containerPath: string, childPath: string) => {
-    if (!selectingBinding) return;
-
-    const newBinding: DomBindingMapping = {
-      id: `${Date.now()}-${Math.random()}`,
-      path: containerPath,
-      dataBinding: selectingBinding.path,
-      dataType: selectingBinding.type,
-      isListContainer: true,
-      listItemPattern: childPath,
-      conditionalStyles: [],
-    };
-
-    setLocalBindings([...localBindings, newBinding]);
-    setSelectingBinding(null);
     setActiveTab("bindings");
   };
 
@@ -547,17 +524,12 @@ export const DataBindingReference = ({
             {node.type}
           </Badge>
 
-          {editMode && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-6 px-2 text-xs flex-shrink-0 ml-auto"
-              onClick={(e) => handleBindToDom(node.path, node.type, e)}
-              disabled={alreadyBound}
-            >
-              <Link2 className="w-3 h-3 mr-1" />
-              {alreadyBound ? "Bound" : "Bind"}
-            </Button>
+          {/* Show "Bound" badge if already bound (in any mode) */}
+          {alreadyBound && (
+            <Badge variant="secondary" className="text-xs flex-shrink-0 ml-auto bg-green-100 text-green-700">
+              <Check className="w-3 h-3 mr-1" />
+              Bound
+            </Badge>
           )}
         </div>
 
@@ -822,23 +794,12 @@ export const DataBindingReference = ({
       </Card>
       </div>
 
-      {/* DOM Element Selector Overlay */}
-      {selectingBinding && selectingBinding.type !== "array" && (
-        <DomElementSelector
-          dataType={selectingBinding.type}
-          dataBinding={selectingBinding.path}
-          onSelect={handleDomElementSelected}
-          onCancel={() => setSelectingBinding(null)}
-        />
-      )}
-
-      {/* List Binding Selector Overlay */}
-      {selectingBinding && selectingBinding.type === "array" && (
-        <ListBindingSelector
-          dataBinding={selectingBinding.path}
-          itemType="object"
-          onComplete={handleListBindingComplete}
-          onCancel={() => setSelectingBinding(null)}
+      {/* Element-First Selector (shown when in edit mode) */}
+      {editMode && (
+        <ElementFirstSelector
+          availableBindings={allBindings}
+          onBindingComplete={handleElementFirstBindingComplete}
+          onExit={() => setEditMode(false)}
         />
       )}
 

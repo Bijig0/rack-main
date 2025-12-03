@@ -8,6 +8,7 @@ import {
   Download,
   Edit,
   Eye,
+  FileText,
   Info,
   List,
   Sparkles,
@@ -191,6 +192,16 @@ export const DomBindingsManager = ({
                                   List
                                 </Badge>
                               )}
+                              {binding.template && (
+                                <Badge
+                                  variant="outline"
+                                  className="text-xs bg-purple-50 shrink-0"
+                                  title={`Template: ${binding.template}`}
+                                >
+                                  <FileText className="w-3 h-3 mr-1" />
+                                  Template
+                                </Badge>
+                              )}
                               {binding.conditionalStyles &&
                                 binding.conditionalStyles.length > 0 && (
                                   <Badge
@@ -347,6 +358,24 @@ export const DomBindingsManager = ({
                   {viewingBinding.path}
                 </code>
               </div>
+
+              {/* Template Info */}
+              {viewingBinding.template && (
+                <div>
+                  <div className="text-xs font-semibold mb-1 flex items-center gap-1">
+                    <FileText className="w-3 h-3" />
+                    Template:
+                  </div>
+                  <div className="bg-purple-50 border border-purple-200 p-2 rounded">
+                    <code className="text-sm font-mono">
+                      {viewingBinding.template}
+                    </code>
+                    <div className="text-xs text-gray-600 mt-1">
+                      Object properties will be formatted using this template
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* List Container Info */}
               {viewingBinding.isListContainer && (

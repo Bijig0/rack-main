@@ -7,6 +7,7 @@ import {
   DomBindingMapping,
   StyleCondition,
   StyleConditionOperator,
+  applyTemplate,
 } from "@/types/domBinding";
 
 /**
@@ -116,13 +117,21 @@ function applyConditionalStyles(
 
 /**
  * Format a value for display
+ * @param value The value to format
+ * @param dataType The data type from schema
+ * @param template Optional template string for objects (e.g., "{value} {unit}")
  */
-function formatValue(value: any, dataType: string): string {
+function formatValue(value: any, dataType: string, template?: string): string {
   if (value === null || value === undefined) {
     return "";
   }
 
-  if (dataType === "number") {
+  // Handle template formatting for objects
+  if (template && typeof value === "object" && !Array.isArray(value)) {
+    return applyTemplate(template, value);
+  }
+
+  if (dataType === "number" || dataType === "integer") {
     return Number(value).toLocaleString();
   }
 
@@ -210,7 +219,7 @@ export function renderBinding(
     } else {
       // Handle simple value binding
       const value = getValueFromPath(data, binding.dataBinding);
-      const formattedValue = formatValue(value, binding.dataType);
+      const formattedValue = formatValue(value, binding.dataType, binding.template);
 
       // Set element content based on type
       if (element instanceof HTMLInputElement) {

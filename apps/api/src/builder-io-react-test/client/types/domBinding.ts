@@ -55,6 +55,35 @@ export interface DomBindingMapping {
   listItemPattern?: string;
   /** Conditional styles to apply based on other data */
   conditionalStyles?: ConditionalStyle[];
+  /** Template for formatting object properties (e.g., "{value} {unit}" for landArea) */
+  template?: string;
+}
+
+/**
+ * Apply a template string to an object, replacing {property} placeholders
+ * @param template Template string like "{value} {unit}"
+ * @param data Object with properties to interpolate
+ * @returns Formatted string
+ */
+export function applyTemplate(template: string, data: Record<string, any>): string {
+  return template.replace(/\{(\w+)\}/g, (match, key) => {
+    const value = data[key];
+    if (value === undefined || value === null) {
+      return '';
+    }
+    return String(value);
+  });
+}
+
+/**
+ * Extract property names from a template string
+ * @param template Template string like "{value} {unit}"
+ * @returns Array of property names like ["value", "unit"]
+ */
+export function extractTemplateProperties(template: string): string[] {
+  const matches = template.match(/\{(\w+)\}/g);
+  if (!matches) return [];
+  return matches.map(m => m.slice(1, -1));
 }
 
 /**
