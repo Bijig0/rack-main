@@ -15,6 +15,20 @@
       "when": 1764582575861,
       "tag": "0001_lethal_bruce_banner",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1764661357215,
+      "tag": "0002_square_the_hunter",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1733256000000,
+      "tag": "0003_change_id_to_uuid",
+      "breakpoints": true
     }
   ]
 }

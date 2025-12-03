@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useState, useEffect } from "react";
 
 // TODO: Import these from your actual schema file
 // For now, creating placeholders - replace with your actual imports
@@ -53,6 +54,14 @@ export const AddressSchema = z
 
 export type Address = z.infer<typeof AddressSchema>;
 
+interface JobStatus {
+  jobId: string;
+  status: "pending" | "in-progress" | "completed" | "failed";
+  progress: number;
+  result?: any;
+  error?: string;
+}
+
 export default function MyForm() {
   const {
     register,
@@ -62,9 +71,76 @@ export default function MyForm() {
     resolver: zodResolver(AddressSchema),
   });
 
-  const onSubmit = (data: Address) => {
-    console.log("Form data:", data);
-    // Handle form submission here
+  const [jobStatus, setJobStatus] = useState<JobStatus | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [requestLog, setRequestLog] = useState<string[]>([]);
+
+  // Polling logic
+  useEffect(() => {
+    if (!jobStatus || jobStatus.status === "completed" || jobStatus.status === "failed") {
+      return;
+    }
+
+    const pollJob = async () => {
+      try {
+        const response = await fetch(`/api/reports/jobs/${jobStatus.jobId}`);
+        const data = await response.json();
+
+        const logEntry = `[${new Date().toLocaleTimeString()}] Poll: ${data.status} - ${data.progress}%`;
+        setRequestLog(prev => [...prev, logEntry]);
+
+        setJobStatus(data);
+      } catch (error) {
+        console.error("Error polling job:", error);
+        const logEntry = `[${new Date().toLocaleTimeString()}] Error polling job`;
+        setRequestLog(prev => [...prev, logEntry]);
+      }
+    };
+
+    // Poll every 1 second
+    const intervalId = setInterval(pollJob, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [jobStatus]);
+
+  const onSubmit = async (data: Address) => {
+    setIsSubmitting(true);
+    setJobStatus(null);
+    setRequestLog([]);
+
+    try {
+      const logEntry = `[${new Date().toLocaleTimeString()}] Submitting form...`;
+      setRequestLog([logEntry]);
+
+      const response = await fetch("/api/reports/generatePdf", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await response.json();
+
+      const successLog = `[${new Date().toLocaleTimeString()}] Job created: ${result.jobId}`;
+      setRequestLog(prev => [...prev, successLog]);
+
+      setJobStatus({
+        jobId: result.jobId,
+        status: result.status,
+        progress: 0,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      const errorLog = `[${new Date().toLocaleTimeString()}] Error: ${error}`;
+      setRequestLog(prev => [...prev, errorLog]);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,10 +217,78 @@ export default function MyForm() {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        disabled={isSubmitting || (jobStatus?.status === "in-progress")}
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
-        Submit
+        {isSubmitting ? "Submitting..." : "Submit"}
       </button>
+
+      {/* Job Status Display */}
+      {jobStatus && (
+        <div className="mt-8 p-4 border border-gray-300 rounded-md bg-gray-50">
+          <h3 className="text-lg font-semibold mb-2">Job Status</h3>
+          <div className="space-y-2">
+            <div>
+              <span className="font-medium">Job ID:</span> {jobStatus.jobId}
+            </div>
+            <div>
+              <span className="font-medium">Status:</span>{" "}
+              <span
+                className={`px-2 py-1 rounded ${
+                  jobStatus.status === "completed"
+                    ? "bg-green-200 text-green-800"
+                    : jobStatus.status === "failed"
+                    ? "bg-red-200 text-red-800"
+                    : jobStatus.status === "in-progress"
+                    ? "bg-blue-200 text-blue-800"
+                    : "bg-yellow-200 text-yellow-800"
+                }`}
+              >
+                {jobStatus.status}
+              </span>
+            </div>
+            <div>
+              <span className="font-medium">Progress:</span> {jobStatus.progress}%
+            </div>
+
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div
+                className="bg-blue-600 h-4 transition-all duration-300 ease-out"
+                style={{ width: `${jobStatus.progress}%` }}
+              />
+            </div>
+
+            {jobStatus.status === "completed" && jobStatus.result && (
+              <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded">
+                <h4 className="font-medium text-green-800 mb-2">Result:</h4>
+                <pre className="text-sm overflow-auto">
+                  {JSON.stringify(jobStatus.result, null, 2)}
+                </pre>
+              </div>
+            )}
+
+            {jobStatus.status === "failed" && jobStatus.error && (
+              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded">
+                <h4 className="font-medium text-red-800 mb-2">Error:</h4>
+                <p className="text-sm text-red-600">{jobStatus.error}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Request Log Display */}
+      {requestLog.length > 0 && (
+        <div className="mt-8 p-4 border border-gray-300 rounded-md bg-gray-900 text-green-400 font-mono text-sm">
+          <h3 className="text-lg font-semibold mb-2 text-white">Request Log</h3>
+          <div className="space-y-1 max-h-64 overflow-y-auto">
+            {requestLog.map((log, index) => (
+              <div key={index}>{log}</div>
+            ))}
+          </div>
+        </div>
+      )}
     </form>
   );
 }

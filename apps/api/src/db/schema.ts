@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, integer, jsonb, index } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, integer, jsonb, index, uuid } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 /**
@@ -45,8 +45,10 @@ export const domBindingsRelations = relations(domBindings, ({ one }) => ({
  * Rental Appraisal Data table - stores report data as JSONB
  */
 export const rentalAppraisalData = pgTable('rental_appraisal_data', {
-  id: serial('id').primaryKey(),
+  id: uuid('id').primaryKey().notNull(),
   data: jsonb('data').notNull(),
+  status: text('status').notNull().default('pending'),
+  pdfUrl: text('pdf_url'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });

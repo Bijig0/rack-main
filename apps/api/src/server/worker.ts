@@ -1,5 +1,7 @@
 // worker.ts (Separate process - consumes jobs)
 import { Worker } from "bullmq";
+import getRentalAppraisalData from "../report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getRentalAppraisalData/getRentalAppraisalData";
+import { Address } from "../shared/types";
 
 // Helper to parse Redis connection from environment
 function getRedisConnection() {
@@ -26,12 +28,29 @@ function getRedisConnection() {
 const worker = new Worker(
   "property-reports",
   async (job) => {
-    console.log(`Processing job ${job.id}`);
+    console.log(`[WORKER] Processing job ${job.id} for address:`, job.data.address);
 
-    // Do the actual work here
-    // const report = await generateReport(job.data.propertyId);
+    try {
+      const address = job.data.address as Address;
 
-    // return report; // This becomes job.returnvalue
+      // Update progress
+      await job.updateProgress(10);
+      console.log(`[WORKER] Job ${job.id}: Starting data fetch...`);
+
+      // Fetch the rental appraisal data
+      await job.updateProgress(50);
+      const { rentalAppraisalData } = await getRentalAppraisalData({ address });
+
+      await job.updateProgress(90);
+      console.log(`[WORKER] Job ${job.id}: Successfully fetched rental appraisal data`);
+
+      // Return the data - this becomes job.returnvalue
+      await job.updateProgress(100);
+      return rentalAppraisalData;
+    } catch (error) {
+      console.error(`[WORKER] Job ${job.id} failed:`, error);
+      throw error;
+    }
   },
   {
     connection: getRedisConnection(),
@@ -39,9 +58,20 @@ const worker = new Worker(
 );
 
 worker.on("completed", (job) => {
-  console.log(`Job ${job.id} completed`);
+  console.log(`[WORKER] ✓ Job ${job.id} completed successfully`);
 });
 
 worker.on("failed", (job, err) => {
-  console.log(`Job ${job?.id} failed:`, err);
+  console.error(`[WORKER] ✗ Job ${job?.id} failed:`, err.message);
 });
+
+worker.on("active", (job) => {
+  console.log(`[WORKER] → Job ${job.id} is now active`);
+});
+
+worker.on("progress", (job, progress) => {
+  console.log(`[WORKER] ⋯ Job ${job.id} progress: ${progress}%`);
+});
+
+console.log("[WORKER] Worker started and listening for jobs...");
+console.log(`[WORKER] Connected to Redis: ${JSON.stringify(getRedisConnection())}`);

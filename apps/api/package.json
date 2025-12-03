@@ -8,6 +8,9 @@
     "start": "bun src/report-generator/index.ts",
     "server": "bun src/server/server.ts",
     "server:watch": "bun --watch src/server/server.ts",
+    "worker": "bun src/server/worker.ts",
+    "worker:watch": "bun --watch src/server/worker.ts",
+    "server:dev": "concurrently -n \"SERVER,WORKER\" -c \"blue,green\" \"bun --watch src/server/server.ts\" \"bun --watch src/server/worker.ts\"",
     "run:editor": "bun run --cwd src/pdf-editor dev",
     "test:fast": "./scripts/run-fast-tests.sh",
     "test:integration": "./scripts/run-integration-tests.sh",
@@ -26,7 +29,12 @@
     "data:zip": "./scripts/zip-data-files.sh",
     "data:unzip": "./scripts/unzip-data-files.sh",
     "test:sewage": "bun src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getInfrastructureData/getSewageData/getSewageData.ts",
-    "test:traffic-signals": "bun src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getEnvironmentalData/getNoisePollutionData/getTrafficSignalData/getTrafficSignalData.ts"
+    "test:traffic-signals": "bun src/report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getEnvironmentalData/getNoisePollutionData/getTrafficSignalData/getTrafficSignalData.ts",
+    "db:pull": "drizzle-kit pull",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "update-types": "npm run db:pull"
   },
   "devDependencies": {
     "@types/axios": "^0.14.4",

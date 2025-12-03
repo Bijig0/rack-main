@@ -36,5 +36,6 @@ WORKDIR /app/apps/api
 # Expose the server port
 EXPOSE 3000
 
-# Run the server
-CMD ["bun", "run", "src/server/server.ts"]
+# Run both worker and server concurrently
+# Worker runs in background, server runs in foreground
+CMD ["sh", "-c", "bun run src/server/worker.ts & bun run src/server/server.ts"]

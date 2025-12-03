@@ -61,11 +61,12 @@ export interface DomBindingMapping {
  * Type compatibility between schema types and DOM element types
  */
 export const TYPE_COMPATIBILITY: Record<string, string[]> = {
-  string: ["text", "textarea", "input", "span", "p", "div", "h1", "h2", "h3", "h4", "h5", "h6"],
-  number: ["text", "input", "span", "p", "div"],
-  boolean: ["checkbox", "switch", "span", "div"],
-  array: ["div", "ul", "ol", "section"],
-  object: ["div", "section"],
+  string: ["text", "textarea", "input", "span", "p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "a", "label", "td", "th", "li", "dt", "dd"],
+  number: ["text", "input", "span", "p", "div", "td", "th", "li"],
+  integer: ["text", "input", "span", "p", "div", "td", "th", "li"],
+  boolean: ["checkbox", "switch", "span", "div", "input"],
+  array: ["div", "ul", "ol", "section", "table", "tbody", "thead"],
+  object: ["div", "section", "article", "aside", "header", "footer", "main", "nav"],
 };
 
 /**

@@ -1,10 +1,13 @@
 // server.ts
 import { Queue } from "bullmq";
+import { randomUUID } from "crypto";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { zodToJsonSchema } from "zod-to-json-schema";
+import { createRentalAppraisalRecord } from "../db/createRentalAppraisalRecord";
 import { RentalAppraisalDataSchema } from "../report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getRentalAppraisalData/schemas";
-import { SERVER_PORT } from "../shared/config";
+import { PDF_BASE_URL, SERVER_BASE_URL, SERVER_PORT } from "../shared/config";
+import { AddressSchema } from "../shared/types";
 import { generateFakeRentalAppraisalData } from "./generateFakeRentalAppraisalData";
 
 const app = new Hono();
@@ -64,16 +67,115 @@ app.get("/api/reports/schema", async (c) => {
   return c.json(jsonSchema);
 });
 
+// POST endpoint to generate a PDF report
+app.post("/api/reports/generatePdf", async (c) => {
+  try {
+    const body = await c.req.json();
+
+    // Validate and convert request body to Address object using AddressSchema
+    const addressValidation = AddressSchema.safeParse(body);
+
+    if (!addressValidation.success) {
+      return c.json(
+        {
+          error: "Invalid address data",
+          details: addressValidation.error.errors,
+        },
+        400
+      );
+    }
+
+    const address = addressValidation.data;
+
+    // Create a worker job and pass the address to getRentalAppraisalData
+    const job = await getReportQueue().add("generate-rental-appraisal", {
+      address,
+    });
+
+    console.log(`[SERVER] Created job ${job.id} for address:`, address);
+    console.log(`[SERVER] Job added to queue - waiting for worker to process...`);
+
+    const statusUrl = `${SERVER_BASE_URL}/api/reports/jobs/${job.id}`;
+
+    // Return the job url
+    return c.json({
+      jobId: job.id,
+      statusUrl,
+    });
+  } catch (error) {
+    console.error("Error creating job:", error);
+    return c.json(
+      {
+        error: "Failed to create job",
+        message: error instanceof Error ? error.message : String(error),
+      },
+      500
+    );
+  }
+});
+
 app.get("/api/reports/jobs/:jobId", async (c) => {
   const jobId = c.req.param("jobId");
   const job = await getReportQueue().getJob(jobId);
 
   if (!job) return c.json({ error: "Job not found" }, 404);
 
+  const status = await job.getState();
+
+  // On happy path complete
+  if (status === "completed" && job.returnvalue) {
+    try {
+      // Check if we've already created a record for this job
+      let id = job.data.id;
+
+      if (!id) {
+        // First time - create a unique id
+        id = randomUUID();
+
+        // Insert the rental appraisal data into the database
+        await createRentalAppraisalRecord({
+          id,
+          data: job.returnvalue,
+        });
+
+        console.log(
+          `Created rental appraisal record with id: ${id}`
+        );
+
+        // Update the job data to store the id for subsequent polls
+        await job.updateData({
+          ...job.data,
+          id,
+        });
+      }
+
+      // Craft the generateAPIUrl
+      const pdfBaseUrl =
+        PDF_BASE_URL || "https://builder-io-react-production.up.railway.app";
+      const generateAPIUrl = `${pdfBaseUrl}/api/pdf/${id}`;
+
+      return c.json({
+        status: "success",
+        generateAPIUrl,
+        progress: job.progress,
+      });
+    } catch (error) {
+      console.error("Error creating rental appraisal record:", error);
+      return c.json(
+        {
+          error: "Failed to create rental appraisal record",
+          message: error instanceof Error ? error.message : String(error),
+        },
+        500
+      );
+    }
+  }
+
+  // For other statuses, return the status and progress
   return c.json({
-    status: await job.getState(),
+    status,
     progress: job.progress,
-    result: job.returnvalue,
+    result: status === "completed" ? job.returnvalue : undefined,
   });
 });
 

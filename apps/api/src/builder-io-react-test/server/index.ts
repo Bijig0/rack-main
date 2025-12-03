@@ -74,24 +74,14 @@ export function createServer() {
     }
   });
 
-  // Get report data by ID or identifier from rental_appraisal_data table
+  // Get report data by ID (UUID) from rental_appraisal_data table
   app.get("/api/report-data/:id", async (req, res) => {
     try {
-      const idParam = req.params.id;
-      const numericId = parseInt(idParam, 10);
+      const id = req.params.id;
 
-      let result;
-      if (isNaN(numericId)) {
-        // Try to find by identifier (e.g., 'sample')
-        result = await sql`
-          SELECT id, data, identifier, status, pdf_url FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
-        `;
-      } else {
-        // Find by numeric ID
-        result = await sql`
-          SELECT id, data, identifier, status, pdf_url FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
-        `;
-      }
+      const result = await sql`
+        SELECT id, data, status, pdf_url FROM rental_appraisal_data WHERE id = ${id} LIMIT 1
+      `;
 
       if (result.length === 0) {
         return res.status(404).json({ error: "Report data not found" });
@@ -285,28 +275,19 @@ export function createServer() {
 
   // Generate PDF, upload to bucket, and return URL
   app.post("/api/generate-pdf/:id", async (req, res) => {
-    const idParam = req.params.id;
+    const id = req.params.id;
 
     try {
-      // Find the report by ID or identifier
-      const numericId = parseInt(idParam, 10);
-      let reportResult;
-      if (isNaN(numericId)) {
-        reportResult = await sql`
-          SELECT id, identifier FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
-        `;
-      } else {
-        reportResult = await sql`
-          SELECT id, identifier FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
-        `;
-      }
+      // Find the report by ID (UUID)
+      const reportResult = await sql`
+        SELECT id FROM rental_appraisal_data WHERE id = ${id} LIMIT 1
+      `;
 
       if (reportResult.length === 0) {
         return res.status(404).json({ error: "Report not found" });
       }
 
       const reportId = reportResult[0].id;
-      const identifier = reportResult[0].identifier || reportId;
 
       // Update status to processing
       await sql`
@@ -319,9 +300,9 @@ export function createServer() {
       const host = req.get("host") || `localhost:${process.env.PORT || 8080}`;
       const protocol = req.protocol || "http";
       const baseUrl = `${protocol}://${host}`;
-      const url = `${baseUrl}/report/${idParam}`;
+      const url = `${baseUrl}/report/${id}`;
 
-      console.log(`Generating PDF for report ${idParam}, navigating to ${url}`);
+      console.log(`Generating PDF for report ${id}, navigating to ${url}`);
 
       const pdfBuffer = await generatePdfFromUrl(url, {
         verbose: true,
@@ -343,7 +324,7 @@ export function createServer() {
       let pdfUrl: string;
 
       if (s3) {
-        const filename = `reports/${identifier}-${Date.now()}.pdf`;
+        const filename = `reports/${reportId}-${Date.now()}.pdf`;
 
         try {
           await s3.send(new PutObjectCommand({
@@ -359,13 +340,13 @@ export function createServer() {
         } catch (uploadError) {
           console.error("Bucket upload failed:", uploadError);
           // Fallback: use the on-demand PDF endpoint
-          pdfUrl = `${baseUrl}/api/pdf/${idParam}`;
+          pdfUrl = `${baseUrl}/api/pdf/${id}`;
         }
       } else {
         // No bucket configured - use a local file URL or data URL for testing
         console.log("⚠️ No bucket configured. Storing PDF URL as placeholder.");
         // For testing, we'll create a URL that points back to the PDF endpoint
-        pdfUrl = `${baseUrl}/api/pdf/${idParam}`;
+        pdfUrl = `${baseUrl}/api/pdf/${id}`;
       }
 
       // Update status to completed and store PDF URL
@@ -375,12 +356,11 @@ export function createServer() {
         WHERE id = ${reportId}
       `;
 
-      console.log(`✅ PDF generated for report ${idParam}`);
+      console.log(`✅ PDF generated for report ${id}`);
 
       res.json({
         success: true,
         reportId,
-        identifier,
         status: "completed",
         pdfUrl,
       });
@@ -389,20 +369,11 @@ export function createServer() {
 
       // Try to update status to failed
       try {
-        const numericId = parseInt(idParam, 10);
-        if (!isNaN(numericId)) {
-          await sql`
-            UPDATE rental_appraisal_data
-            SET status = 'failed', updated_at = NOW()
-            WHERE id = ${numericId}
-          `;
-        } else {
-          await sql`
-            UPDATE rental_appraisal_data
-            SET status = 'failed', updated_at = NOW()
-            WHERE identifier = ${idParam}
-          `;
-        }
+        await sql`
+          UPDATE rental_appraisal_data
+          SET status = 'failed', updated_at = NOW()
+          WHERE id = ${id}
+        `;
       } catch {
         // Ignore update error
       }
@@ -417,21 +388,12 @@ export function createServer() {
   // Get report status and PDF URL
   app.get("/api/report-status/:id", async (req, res) => {
     try {
-      const idParam = req.params.id;
-      const numericId = parseInt(idParam, 10);
+      const id = req.params.id;
 
-      let result;
-      if (isNaN(numericId)) {
-        result = await sql`
-          SELECT id, identifier, status, pdf_url, created_at, updated_at
-          FROM rental_appraisal_data WHERE identifier = ${idParam} LIMIT 1
-        `;
-      } else {
-        result = await sql`
-          SELECT id, identifier, status, pdf_url, created_at, updated_at
-          FROM rental_appraisal_data WHERE id = ${numericId} LIMIT 1
-        `;
-      }
+      const result = await sql`
+        SELECT id, status, pdf_url, created_at, updated_at
+        FROM rental_appraisal_data WHERE id = ${id} LIMIT 1
+      `;
 
       if (result.length === 0) {
         return res.status(404).json({ error: "Report not found" });
@@ -439,7 +401,6 @@ export function createServer() {
 
       res.json({
         id: result[0].id,
-        identifier: result[0].identifier,
         status: result[0].status,
         pdfUrl: result[0].pdf_url,
         createdAt: result[0].created_at,

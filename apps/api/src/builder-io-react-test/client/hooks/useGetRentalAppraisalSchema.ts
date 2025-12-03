@@ -55,15 +55,15 @@ export function useGetRentalAppraisalSchema() {
   });
 
   // In development mode, return the sample schema directly
-  if (isDevelopment) {
-    return {
-      ...query,
-      data: sampleRentalAppraisalSchema,
-      error: null,
-      isSuccess: true,
-      isLoading: false,
-    };
-  }
+  // if (isDevelopment) {
+  //   return {
+  //     ...query,
+  //     data: sampleRentalAppraisalSchema,
+  //     error: null,
+  //     isSuccess: true,
+  //     isLoading: false,
+  //   };
+  // }
 
   return query;
 }

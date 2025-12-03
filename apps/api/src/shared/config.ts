@@ -24,6 +24,12 @@ export const EnvSchema = z.object({
 
   PTV_DEV_ID: z.string(),
   PTV_DEV_KEY: z.string(),
+
+  // PDF generation service base URL
+  PDF_BASE_URL: z.string(),
+
+  // Server base URL (for generating absolute URLs in responses)
+  SERVER_BASE_URL: z.string().default("http://localhost:3000"),
 });
 
 const env = EnvSchema.parse(process.env);
@@ -40,6 +46,8 @@ export const {
   GOOGLE_GEMINI_API_KEY,
   PTV_DEV_ID,
   PTV_DEV_KEY,
+  PDF_BASE_URL,
+  SERVER_BASE_URL,
 } = env;
 
 // Railway injects PORT, fallback to SERVER_PORT for local dev
