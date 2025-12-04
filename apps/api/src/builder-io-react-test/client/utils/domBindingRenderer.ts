@@ -7,7 +7,10 @@ import {
   DomBindingMapping,
   StyleCondition,
   StyleConditionOperator,
+  ConditionalStyle,
+  ConditionalAttribute,
   applyTemplate,
+  applyMultiFieldTemplate,
 } from "@/types/domBinding";
 
 /**
@@ -93,6 +96,63 @@ function evaluateCondition(
 }
 
 /**
+ * Transform conditional style paths for a specific list item index.
+ * Replaces [0] or [i] with the actual index in dependsOn paths that belong to the same list.
+ *
+ * @param conditionalStyles Original conditional styles from the binding
+ * @param index Current item index
+ * @param listDataBinding The data binding path of the list (e.g., "state.schools[0]")
+ * @returns New conditional styles array with transformed paths
+ */
+function transformConditionalStylesForListItem(
+  conditionalStyles: ConditionalStyle[] | undefined,
+  index: number,
+  listDataBinding: string
+): ConditionalStyle[] | undefined {
+  if (!conditionalStyles?.length) return conditionalStyles;
+
+  // Extract base path (e.g., "state.schools" from "state.schools[0]")
+  const basePathMatch = listDataBinding.match(/^(.+?)\[\d+\]/);
+  const basePath = basePathMatch ? basePathMatch[1] : listDataBinding;
+
+  return conditionalStyles.map((style) => {
+    // Only transform paths within the same list
+    if (style.dependsOn.startsWith(basePath + '[')) {
+      return {
+        ...style,
+        dependsOn: style.dependsOn.replace(/\[\d+\]|\[i\]/, `[${index}]`),
+      };
+    }
+    return style; // External paths unchanged
+  });
+}
+
+/**
+ * Transform conditional attribute paths for a specific list item index.
+ * Similar to transformConditionalStylesForListItem but for attributes.
+ */
+function transformConditionalAttributesForListItem(
+  conditionalAttributes: ConditionalAttribute[] | undefined,
+  index: number,
+  listDataBinding: string
+): ConditionalAttribute[] | undefined {
+  if (!conditionalAttributes?.length) return conditionalAttributes;
+
+  const basePathMatch = listDataBinding.match(/^(.+?)\[\d+\]/);
+  const basePath = basePathMatch ? basePathMatch[1] : listDataBinding;
+
+  return conditionalAttributes.map((attr) => {
+    if (attr.dependsOn.startsWith(basePath + '[')) {
+      return {
+        ...attr,
+        dependsOn: attr.dependsOn.replace(/\[\d+\]|\[i\]/, `[${index}]`),
+      };
+    }
+    return attr;
+  });
+}
+
+/**
  * Apply conditional styles to an element
  */
 function applyConditionalStyles(
@@ -110,6 +170,29 @@ function applyConditionalStyles(
     styleRule.conditions.forEach((condition) => {
       if (evaluateCondition(watchValue, condition.operator, condition.value)) {
         Object.assign(element.style, condition.cssProperties);
+      }
+    });
+  });
+}
+
+/**
+ * Apply conditional attributes to an element (e.g., icon src based on data)
+ */
+function applyConditionalAttributes(
+  element: HTMLElement,
+  binding: DomBindingMapping,
+  data: any
+): void {
+  if (!binding.conditionalAttributes || binding.conditionalAttributes.length === 0) {
+    return;
+  }
+
+  binding.conditionalAttributes.forEach((attrRule) => {
+    const watchValue = getValueFromPath(data, attrRule.dependsOn);
+
+    attrRule.conditions.forEach((condition) => {
+      if (evaluateCondition(watchValue, condition.operator, condition.value)) {
+        element.setAttribute(attrRule.attribute, condition.attributeValue);
       }
     });
   });
@@ -197,9 +280,20 @@ export function renderBinding(
         const itemElement = templateClone.cloneNode(true) as HTMLElement;
 
         // Replace [0] or [i] in the binding path with the actual index
-        const itemBinding = {
+        // Also transform conditional styles and attributes to use the correct index
+        const itemBinding: DomBindingMapping = {
           ...binding,
           dataBinding: binding.dataBinding.replace(/\[\d+\]|\[i\]/, `[${index}]`),
+          conditionalStyles: transformConditionalStylesForListItem(
+            binding.conditionalStyles,
+            index,
+            binding.dataBinding
+          ),
+          conditionalAttributes: transformConditionalAttributesForListItem(
+            binding.conditionalAttributes,
+            index,
+            binding.dataBinding
+          ),
         };
 
         // Find all text nodes and bindings within the item
@@ -211,33 +305,315 @@ export function renderBinding(
           itemElement.textContent = formatValue(itemData, binding.dataType);
         }
 
-        // Apply conditional styles
+        // Apply conditional styles (now with correct item-specific paths)
         applyConditionalStyles(itemElement, itemBinding, data);
+
+        // Apply conditional attributes (e.g., icon src)
+        applyConditionalAttributes(itemElement, itemBinding, data);
 
         element.appendChild(itemElement);
       });
     } else {
       // Handle simple value binding
-      const value = getValueFromPath(data, binding.dataBinding);
-      const formattedValue = formatValue(value, binding.dataType, binding.template);
+      let formattedValue: string;
+
+      // Check for multi-field binding
+      if (binding.multiFieldBindings && binding.multiFieldBindings.length > 0 && binding.template) {
+        // Multi-field binding: resolve multiple paths and apply template
+        formattedValue = applyMultiFieldTemplate(
+          binding.template,
+          binding.multiFieldBindings,
+          (path: string) => getValueFromPath(data, path)
+        );
+      } else {
+        // Single field binding
+        const value = getValueFromPath(data, binding.dataBinding);
+        formattedValue = formatValue(value, binding.dataType, binding.template);
+      }
 
       // Set element content based on type
       if (element instanceof HTMLInputElement) {
         if (element.type === "checkbox") {
+          const value = getValueFromPath(data, binding.dataBinding);
           element.checked = Boolean(value);
         } else {
           element.value = formattedValue;
         }
       } else if (element instanceof HTMLTextAreaElement) {
         element.value = formattedValue;
-      } else if (element instanceof HTMLImageElement && typeof value === "string") {
-        element.src = value;
+      } else if (element instanceof HTMLImageElement) {
+        const value = getValueFromPath(data, binding.dataBinding);
+        if (typeof value === "string") {
+          element.src = value;
+        }
       } else {
         element.textContent = formattedValue;
       }
 
       // Apply conditional styles
       applyConditionalStyles(element, binding, data);
+
+      // Apply conditional attributes (e.g., icon src)
+      applyConditionalAttributes(element, binding, data);
+    }
+
+    return true;
+  } catch (error) {
+    console.error(`Error rendering binding ${binding.dataBinding}:`, error);
+    return false;
+  }
+}
+
+/**
+ * Find bindings that are children of a list binding
+ * e.g., for list binding "propertyInfo.nearbySchools", find "propertyInfo.nearbySchools[0].name"
+ */
+function findChildBindingsForList(
+  allBindings: DomBindingMapping[],
+  listBinding: DomBindingMapping
+): DomBindingMapping[] {
+  // Match bindings that start with the list path followed by [index]
+  // e.g., "propertyInfo.nearbySchools" -> matches "propertyInfo.nearbySchools[0].name"
+  const listPath = listBinding.dataBinding;
+  const pattern = new RegExp(`^${listPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\[\\d+\\]`);
+
+  return allBindings.filter(b =>
+    b.id !== listBinding.id && // Not the list itself
+    pattern.test(b.dataBinding)
+  );
+}
+
+/**
+ * Render a single binding to the DOM, with access to all bindings for list child resolution
+ */
+export function renderBindingWithContext(
+  binding: DomBindingMapping,
+  data: any,
+  allBindings: DomBindingMapping[],
+  containerElement: HTMLElement | Document = document
+): boolean {
+  try {
+    const element = containerElement.querySelector(
+      binding.path
+    ) as HTMLElement;
+
+    if (!element) {
+      console.warn(`Element not found for path: ${binding.path}`);
+      return false;
+    }
+
+    if (binding.isListContainer && binding.listItemPattern) {
+      // Handle list/array rendering
+      const arrayData = getValueFromPath(data, binding.dataBinding);
+
+      if (!Array.isArray(arrayData)) {
+        console.warn(
+          `Expected array for binding ${binding.dataBinding}, got:`,
+          typeof arrayData
+        );
+        return false;
+      }
+
+      // Find the item template
+      const itemTemplate = element.querySelector(
+        binding.listItemPattern
+      ) as HTMLElement;
+
+      if (!itemTemplate) {
+        console.warn(
+          `Item template not found: ${binding.listItemPattern} within ${binding.path}`
+        );
+        return false;
+      }
+
+      // Find child bindings that belong to this list
+      const childBindings = findChildBindingsForList(allBindings, binding);
+      console.log(`📋 List ${binding.dataBinding}: found ${childBindings.length} child bindings`,
+        childBindings.map(b => b.dataBinding));
+
+      // Clear container (except template)
+      const templateClone = itemTemplate.cloneNode(true) as HTMLElement;
+      element.innerHTML = "";
+
+      // Render each item
+      arrayData.forEach((item, index) => {
+        const itemElement = templateClone.cloneNode(true) as HTMLElement;
+
+        // Replace [0] or [i] in the binding path with the actual index
+        // Also transform conditional styles and attributes to use the correct index
+        const itemBinding: DomBindingMapping = {
+          ...binding,
+          dataBinding: binding.dataBinding.replace(/\[\d+\]|\[i\]/, `[${index}]`),
+          conditionalStyles: transformConditionalStylesForListItem(
+            binding.conditionalStyles,
+            index,
+            binding.dataBinding
+          ),
+          conditionalAttributes: transformConditionalAttributesForListItem(
+            binding.conditionalAttributes,
+            index,
+            binding.dataBinding
+          ),
+        };
+
+        // Find all text nodes and bindings within the item
+        // This is a simple implementation - you might need more sophisticated template rendering
+        const itemData = item;
+
+        // Apply item data to the element (simple text replacement)
+        if (typeof itemData === "string" || typeof itemData === "number") {
+          itemElement.textContent = formatValue(itemData, binding.dataType);
+        }
+
+        // Apply conditional styles (now with correct item-specific paths)
+        applyConditionalStyles(itemElement, itemBinding, data);
+
+        // Apply conditional attributes (e.g., icon src)
+        applyConditionalAttributes(itemElement, itemBinding, data);
+
+        // Apply child bindings to elements within this list item
+        // Transform the child binding paths to use the current index
+        childBindings.forEach(childBinding => {
+          // Transform the data binding path to use current index
+          const transformedDataBinding = childBinding.dataBinding.replace(
+            /\[\d+\]/,
+            `[${index}]`
+          );
+
+          // Transform multi-field bindings paths if present
+          const transformedMultiFieldBindings = childBinding.multiFieldBindings?.map(mf => ({
+            ...mf,
+            path: mf.path.replace(/\[\d+\]/, `[${index}]`)
+          }));
+
+          // We need to find the element within itemElement, not the whole document
+          // The child binding's path is absolute, we need to make it relative
+          // For now, let's try to find it within the item element using a partial match
+
+          // Get the selector part after the list container path
+          // e.g., if list container is at "body > div > ul" and child is "body > div > ul > li > span.name"
+          // we want to find "li > span.name" or just query the itemElement
+
+          // Simple approach: query within itemElement using the child's listItemPattern-relative selector
+          // This requires the child binding path to contain the item pattern
+          const listContainerPath = binding.path;
+          let relativeSelector = childBinding.path;
+
+          // If the child path starts with the list container path, make it relative
+          if (childBinding.path.startsWith(listContainerPath)) {
+            relativeSelector = childBinding.path
+              .substring(listContainerPath.length)
+              .replace(/^\s*>\s*/, '') // Remove leading ">"
+              .trim();
+
+            // If the relative selector starts with the list item pattern, remove it
+            if (binding.listItemPattern && relativeSelector.startsWith(binding.listItemPattern)) {
+              relativeSelector = relativeSelector
+                .substring(binding.listItemPattern.length)
+                .replace(/^\s*>\s*/, '')
+                .trim();
+            }
+          }
+
+          // Find element within itemElement
+          let targetElement: HTMLElement | null = null;
+          if (relativeSelector) {
+            targetElement = itemElement.querySelector(relativeSelector) as HTMLElement;
+          }
+
+          // If we couldn't find it with the relative selector, try the original as a fallback
+          // (in case the structure is different)
+          if (!targetElement) {
+            // Try to find by matching class or tag from the original path
+            const lastPart = childBinding.path.split('>').pop()?.trim();
+            if (lastPart) {
+              targetElement = itemElement.querySelector(lastPart) as HTMLElement;
+            }
+          }
+
+          if (targetElement) {
+            // Apply the binding to this element
+            let formattedValue: string;
+
+            if (transformedMultiFieldBindings && transformedMultiFieldBindings.length > 0 && childBinding.template) {
+              formattedValue = applyMultiFieldTemplate(
+                childBinding.template,
+                transformedMultiFieldBindings,
+                (path: string) => getValueFromPath(data, path)
+              );
+            } else {
+              const value = getValueFromPath(data, transformedDataBinding);
+              formattedValue = formatValue(value, childBinding.dataType, childBinding.template);
+            }
+
+            console.log(`📋 Applied child binding ${transformedDataBinding} -> "${formattedValue}" to element in item ${index}`);
+            targetElement.textContent = formattedValue;
+
+            // Apply conditional styles for child binding
+            if (childBinding.conditionalStyles?.length) {
+              const transformedChildBinding: DomBindingMapping = {
+                ...childBinding,
+                dataBinding: transformedDataBinding,
+                conditionalStyles: transformConditionalStylesForListItem(
+                  childBinding.conditionalStyles,
+                  index,
+                  childBinding.dataBinding
+                ),
+              };
+              applyConditionalStyles(targetElement, transformedChildBinding, data);
+            }
+          } else {
+            console.warn(`Could not find element for child binding ${childBinding.dataBinding} within list item ${index}. Tried selectors:`, {
+              relativeSelector,
+              originalPath: childBinding.path
+            });
+          }
+        });
+
+        element.appendChild(itemElement);
+      });
+    } else {
+      // Handle simple value binding (non-list)
+      let formattedValue: string;
+
+      // Check for multi-field binding
+      if (binding.multiFieldBindings && binding.multiFieldBindings.length > 0 && binding.template) {
+        // Multi-field binding: resolve multiple paths and apply template
+        formattedValue = applyMultiFieldTemplate(
+          binding.template,
+          binding.multiFieldBindings,
+          (path: string) => getValueFromPath(data, path)
+        );
+      } else {
+        // Single field binding
+        const value = getValueFromPath(data, binding.dataBinding);
+        formattedValue = formatValue(value, binding.dataType, binding.template);
+      }
+
+      // Set element content based on type
+      if (element instanceof HTMLInputElement) {
+        if (element.type === "checkbox") {
+          const value = getValueFromPath(data, binding.dataBinding);
+          element.checked = Boolean(value);
+        } else {
+          element.value = formattedValue;
+        }
+      } else if (element instanceof HTMLTextAreaElement) {
+        element.value = formattedValue;
+      } else if (element instanceof HTMLImageElement) {
+        const value = getValueFromPath(data, binding.dataBinding);
+        if (typeof value === "string") {
+          element.src = value;
+        }
+      } else {
+        element.textContent = formattedValue;
+      }
+
+      // Apply conditional styles
+      applyConditionalStyles(element, binding, data);
+
+      // Apply conditional attributes (e.g., icon src)
+      applyConditionalAttributes(element, binding, data);
     }
 
     return true;
@@ -258,8 +634,40 @@ export function renderAllBindings(
   let success = 0;
   let failed = 0;
 
-  bindings.forEach((binding) => {
-    if (renderBinding(binding, data, containerElement)) {
+  // First, render list containers (they need special handling)
+  // Then render non-list bindings that are NOT children of lists
+  // (List children are handled by the list rendering itself)
+
+  const listBindings = bindings.filter(b => b.isListContainer);
+  const listPaths = listBindings.map(b => b.dataBinding);
+
+  // Filter out bindings that are children of list bindings (they'll be handled by list rendering)
+  const nonListBindings = bindings.filter(b => {
+    if (b.isListContainer) return false;
+
+    // Check if this binding is a child of any list binding
+    for (const listPath of listPaths) {
+      const pattern = new RegExp(`^${listPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\[\\d+\\]`);
+      if (pattern.test(b.dataBinding)) {
+        console.log(`⏭️ Skipping ${b.dataBinding} - handled by list ${listPath}`);
+        return false; // Skip, will be handled by list rendering
+      }
+    }
+    return true;
+  });
+
+  // Render list bindings first (they handle their children)
+  listBindings.forEach((binding) => {
+    if (renderBindingWithContext(binding, data, bindings, containerElement)) {
+      success++;
+    } else {
+      failed++;
+    }
+  });
+
+  // Render remaining non-list bindings
+  nonListBindings.forEach((binding) => {
+    if (renderBindingWithContext(binding, data, bindings, containerElement)) {
       success++;
     } else {
       failed++;

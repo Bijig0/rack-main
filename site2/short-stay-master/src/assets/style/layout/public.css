@@ -1,0 +1,19 @@
+.public-right-side {
+  padding-left: 20% !important;
+  padding-right: 20px;
+}
+@media screen and (max-width: 1750px) {
+  .public-right-side {
+    padding-left: 10% !important;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .public-right-side {
+    padding-left: 13% !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .public-right-side {
+    padding-left: 5% !important;
+  }
+}

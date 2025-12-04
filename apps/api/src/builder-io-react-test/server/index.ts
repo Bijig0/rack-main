@@ -119,7 +119,30 @@ export function createServer() {
 
       // Transform to DomBindingMapping format
       const bindings: DomBindingMapping[] = result.map((row) => {
-        const properties = (row.properties || {}) as Record<string, unknown>;
+        // Parse properties - it may come as a string or already parsed object
+        let properties: Record<string, unknown> = {};
+        if (row.properties) {
+          if (typeof row.properties === 'string') {
+            try {
+              properties = JSON.parse(row.properties);
+            } catch (e) {
+              console.error("Failed to parse properties JSON:", e);
+              properties = {};
+            }
+          } else {
+            properties = row.properties as Record<string, unknown>;
+          }
+        }
+
+        console.log("🟢 Loading binding:", {
+          id: row.id,
+          state_binding: row.state_binding,
+          rawProperties: row.properties,
+          parsedProperties: properties,
+          parsedDataType: properties.dataType,
+          parsedIsListContainer: properties.isListContainer,
+        });
+
         return {
           id: String(row.id),
           path: row.path as string,
@@ -129,8 +152,19 @@ export function createServer() {
           listItemPattern: properties.listItemPattern as string | undefined,
           conditionalStyles:
             properties.conditionalStyles as DomBindingMapping["conditionalStyles"],
+          template: properties.template as string | undefined,
+          multiFieldBindings:
+            properties.multiFieldBindings as DomBindingMapping["multiFieldBindings"],
+          conditionalAttributes:
+            properties.conditionalAttributes as DomBindingMapping["conditionalAttributes"],
         };
       });
+
+      console.log("🟢 Returning bindings:", bindings.map(b => ({
+        dataBinding: b.dataBinding,
+        dataType: b.dataType,
+        isListContainer: b.isListContainer
+      })));
 
       res.json(bindings);
     } catch (error) {
@@ -165,7 +199,17 @@ export function createServer() {
           isListContainer: binding.isListContainer,
           listItemPattern: binding.listItemPattern,
           conditionalStyles: binding.conditionalStyles,
+          template: binding.template,
+          multiFieldBindings: binding.multiFieldBindings,
+          conditionalAttributes: binding.conditionalAttributes,
         };
+
+        console.log("🔵 Saving binding:", {
+          dataBinding: binding.dataBinding,
+          dataType: binding.dataType,
+          isListContainer: binding.isListContainer,
+          properties,
+        });
 
         await sql`
           INSERT INTO dom_bindings (pdf_id, path, state_binding, properties, created_at, updated_at)

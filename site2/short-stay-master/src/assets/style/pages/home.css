@@ -1,0 +1,75 @@
+.custom-carousel .p-carousel-prev,
+.custom-carousel .p-carousel-next {
+  position: absolute;
+  bottom: -100px;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  background: red;
+  z-index: 1;
+  opacity: 1;
+}
+
+.custom-carousel .p-carousel-prev {
+  left: 45%;
+}
+
+.custom-carousel .p-carousel-next {
+  right: 45%;
+}
+.faq-accordion-tab {
+  .p-accordion-tab {
+    border-bottom: 1px solid var(--surface-border);
+  }
+  .p-accordion-header-link {
+    flex-direction: row-reverse;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .p-accordion-content {
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+}
+.prev-btn-arrow,
+.next-btn-arrow {
+  background: #ffffff75 !important;
+  color: #fff;
+  &:hover {
+    background: #fff !important;
+    color: #000;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .industry-img {
+    img {
+      width: 170px;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .custom-carousel .p-carousel-prev {
+    left: 38%;
+  }
+
+  .custom-carousel .p-carousel-next {
+    right: 38%;
+  }
+}
+.industry-img {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .custom-carousel {
+    .p-carousel-prev {
+      left: 30%;
+    }
+    .p-carousel-next {
+      right: 30%;
+    }
+  }
+}

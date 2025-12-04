@@ -1,0 +1,17 @@
+.view-change-btn{
+    .p-button{
+        &.p-highlight{
+            background: var(--primary-color-main) !important;
+            border: 0 !important;
+            color: var(--secondary-color) !important;
+            img{
+                filter:invert(1);
+            }
+        }
+    }
+}
+.center-icon-btn{
+    .p-button-label{
+        flex: inherit;
+    }
+}

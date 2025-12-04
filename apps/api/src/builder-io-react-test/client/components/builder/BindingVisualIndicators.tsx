@@ -48,6 +48,9 @@ export const BindingVisualIndicators = ({
         // Mark element as having a binding
         element.setAttribute('data-has-binding', 'true');
         element.setAttribute('data-binding-path', binding.dataBinding);
+        if (binding.isListContainer) {
+          element.setAttribute('data-is-list-container', 'true');
+        }
 
         // Ensure element has position for the indicator
         const currentPosition = window.getComputedStyle(element).position;
@@ -55,11 +58,42 @@ export const BindingVisualIndicators = ({
           element.style.position = 'relative';
         }
 
-        // Add visual border - RED to mark bound elements
+        // Add visual border - RED for all bindings
         const originalOutline = element.style.outline;
         const originalOutlineOffset = element.style.outlineOffset;
         element.style.outline = '2px solid #ef4444'; // red-500
         element.style.outlineOffset = '2px';
+
+        // For list containers, also highlight the item template children with purple
+        if (binding.isListContainer && binding.listItemPattern) {
+          console.log('🟣 List container found:', {
+            path: binding.path,
+            listItemPattern: binding.listItemPattern,
+            element: element.tagName,
+          });
+
+          // Try multiple selector strategies
+          let itemElements = element.querySelectorAll(`:scope > ${binding.listItemPattern}`);
+          console.log('🟣 Direct children with :scope >:', itemElements.length);
+
+          // If no direct children found, try without :scope >
+          if (itemElements.length === 0) {
+            itemElements = element.querySelectorAll(binding.listItemPattern);
+            console.log('🟣 All descendants matching pattern:', itemElements.length);
+          }
+
+          itemElements.forEach((itemEl, idx) => {
+            const item = itemEl as HTMLElement;
+            console.log(`🟣 Highlighting item ${idx}:`, item.tagName, item.className);
+            // Store original styles
+            item.setAttribute('data-is-list-item-template', 'true');
+            item.setAttribute('data-original-outline', item.style.outline);
+            item.setAttribute('data-original-outline-offset', item.style.outlineOffset);
+            // Apply purple dashed border to indicate it's the repeating template
+            item.style.outline = '2px dashed #9333ea'; // purple-600
+            item.style.outlineOffset = '1px';
+          });
+        }
 
         // Store original styles to restore later
         element.setAttribute('data-original-outline', originalOutline);
@@ -86,8 +120,24 @@ export const BindingVisualIndicators = ({
           element.style.outlineOffset = originalOutlineOffset;
           element.removeAttribute('data-has-binding');
           element.removeAttribute('data-binding-path');
+          element.removeAttribute('data-is-list-container');
           element.removeAttribute('data-original-outline');
           element.removeAttribute('data-original-outline-offset');
+
+          // Also cleanup list item template elements
+          if (binding.isListContainer && binding.listItemPattern) {
+            const itemElements = element.querySelectorAll('[data-is-list-item-template]');
+            itemElements.forEach((itemEl) => {
+              const item = itemEl as HTMLElement;
+              const origOutline = item.getAttribute('data-original-outline') || '';
+              const origOutlineOffset = item.getAttribute('data-original-outline-offset') || '';
+              item.style.outline = origOutline;
+              item.style.outlineOffset = origOutlineOffset;
+              item.removeAttribute('data-is-list-item-template');
+              item.removeAttribute('data-original-outline');
+              item.removeAttribute('data-original-outline-offset');
+            });
+          }
         };
       } catch (error) {
         console.error('Error adding binding indicator:', error);
@@ -111,6 +161,8 @@ export const BindingVisualIndicators = ({
 
   if (!enabled || !hoveredBinding) return null;
 
+  const isListContainer = hoveredBinding.binding.isListContainer;
+
   return (
     <div
       className="fixed z-[9999] pointer-events-none"
@@ -121,13 +173,20 @@ export const BindingVisualIndicators = ({
       }}
     >
       <div className="bg-red-600 text-white px-3 py-2 rounded-lg shadow-xl border-2 border-red-700">
-        <div className="text-xs font-semibold mb-1">Bound to:</div>
+        <div className="text-xs font-semibold mb-1">
+          {isListContainer ? '📋 List Container:' : 'Bound to:'}
+        </div>
         <code className="text-xs bg-red-700 px-2 py-1 rounded">
           {hoveredBinding.binding.dataBinding}
         </code>
         <div className="text-xs mt-1 opacity-90">
           Type: {hoveredBinding.binding.dataType}
         </div>
+        {isListContainer && hoveredBinding.binding.listItemPattern && (
+          <div className="text-xs mt-1 opacity-90">
+            Item selector: <code className="bg-red-800 px-1 rounded">{hoveredBinding.binding.listItemPattern}</code>
+          </div>
+        )}
         {hoveredBinding.binding.conditionalStyles &&
          hoveredBinding.binding.conditionalStyles.length > 0 && (
           <div className="text-xs mt-1 opacity-90">

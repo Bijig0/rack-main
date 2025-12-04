@@ -10,6 +10,7 @@ import {
   Eye,
   FileText,
   Info,
+  Layers,
   List,
   Sparkles,
   Trash2,
@@ -36,6 +37,10 @@ export const DomBindingsManager = ({
   const [viewingBinding, setViewingBinding] =
     useState<DomBindingMapping | null>(null);
 
+  // State for editing list item pattern
+  const [editingListItemPattern, setEditingListItemPattern] = useState(false);
+  const [listItemPatternValue, setListItemPatternValue] = useState("");
+
   // Helper function to safely check if element exists
   const findElement = useCallback((path: string): HTMLElement | null => {
     try {
@@ -57,6 +62,12 @@ export const DomBindingsManager = ({
     if (!viewingBinding) return false;
     return !!findElement(viewingBinding.path);
   }, [viewingBinding, findElement]);
+
+  // Reset editing state when viewing binding changes
+  useEffect(() => {
+    setEditingListItemPattern(false);
+    setListItemPatternValue("");
+  }, [viewingBinding?.id]);
 
   // Highlight element when viewing binding
   useEffect(() => {
@@ -88,6 +99,42 @@ export const DomBindingsManager = ({
 
   const removeBinding = (id: string) => {
     onChange(bindings.filter((b) => b.id !== id));
+  };
+
+  // Start editing the list item pattern
+  const startEditingListItemPattern = () => {
+    if (viewingBinding?.listItemPattern) {
+      setListItemPatternValue(viewingBinding.listItemPattern);
+    } else {
+      setListItemPatternValue("");
+    }
+    setEditingListItemPattern(true);
+  };
+
+  // Save the updated list item pattern
+  const saveListItemPattern = () => {
+    if (!viewingBinding) return;
+
+    const updatedBindings = bindings.map((b) =>
+      b.id === viewingBinding.id
+        ? { ...b, listItemPattern: listItemPatternValue || undefined }
+        : b
+    );
+    onChange(updatedBindings);
+
+    // Update the viewing binding to reflect the change
+    setViewingBinding({
+      ...viewingBinding,
+      listItemPattern: listItemPatternValue || undefined,
+    });
+
+    setEditingListItemPattern(false);
+  };
+
+  // Cancel editing
+  const cancelEditingListItemPattern = () => {
+    setEditingListItemPattern(false);
+    setListItemPatternValue("");
   };
 
   const toggleExpanded = (id: string) => {
@@ -192,7 +239,17 @@ export const DomBindingsManager = ({
                                   List
                                 </Badge>
                               )}
-                              {binding.template && (
+                              {binding.multiFieldBindings && binding.multiFieldBindings.length > 0 && (
+                                <Badge
+                                  variant="outline"
+                                  className="text-xs bg-purple-50 shrink-0"
+                                  title={`Multi-field: ${binding.multiFieldBindings.map(f => f.alias).join(', ')}`}
+                                >
+                                  <Layers className="w-3 h-3 mr-1" />
+                                  {binding.multiFieldBindings.length} fields
+                                </Badge>
+                              )}
+                              {binding.template && !binding.multiFieldBindings && (
                                 <Badge
                                   variant="outline"
                                   className="text-xs bg-purple-50 shrink-0"
@@ -359,8 +416,41 @@ export const DomBindingsManager = ({
                 </code>
               </div>
 
-              {/* Template Info */}
-              {viewingBinding.template && (
+              {/* Multi-Field Bindings Info */}
+              {viewingBinding.multiFieldBindings && viewingBinding.multiFieldBindings.length > 0 && (
+                <div>
+                  <div className="text-xs font-semibold mb-1 flex items-center gap-1">
+                    <Layers className="w-3 h-3" />
+                    Multi-Field Binding ({viewingBinding.multiFieldBindings.length} fields):
+                  </div>
+                  <div className="bg-purple-50 border border-purple-200 p-2 rounded space-y-2">
+                    <div className="space-y-1">
+                      {viewingBinding.multiFieldBindings.map((field, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-xs bg-white rounded p-1.5 border">
+                          <Badge variant="outline" className="bg-purple-100 text-purple-700 shrink-0">
+                            {field.alias}
+                          </Badge>
+                          <span className="text-gray-400">=</span>
+                          <code className="flex-1 truncate text-blue-700 font-mono">
+                            {field.path}
+                          </code>
+                        </div>
+                      ))}
+                    </div>
+                    {viewingBinding.template && (
+                      <div className="pt-2 border-t border-purple-200">
+                        <div className="text-xs text-gray-600 mb-1">Template:</div>
+                        <code className="text-sm font-mono bg-white px-2 py-1 rounded block">
+                          {viewingBinding.template}
+                        </code>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Template Info (for single-object templates only) */}
+              {viewingBinding.template && !viewingBinding.multiFieldBindings && (
                 <div>
                   <div className="text-xs font-semibold mb-1 flex items-center gap-1">
                     <FileText className="w-3 h-3" />
@@ -382,14 +472,93 @@ export const DomBindingsManager = ({
                 <div>
                   <div className="text-xs font-semibold mb-1 flex items-center gap-1">
                     <List className="w-3 h-3" />
-                    List Container:
+                    List Container Configuration:
                   </div>
-                  <div className="bg-purple-50 border border-purple-200 p-2 rounded">
-                    <div className="text-xs">
-                      <span className="font-semibold">Item Pattern:</span>
-                      <code className="ml-2 bg-white px-1 rounded text-xs">
-                        {viewingBinding.listItemPattern || "N/A"}
-                      </code>
+                  <div className="bg-purple-50 border border-purple-200 p-3 rounded space-y-3">
+                    {/* Item Selector Pattern */}
+                    <div>
+                      <div className="text-xs font-semibold text-purple-800 mb-1 flex items-center justify-between">
+                        <span>Item Selector Pattern:</span>
+                        {!editingListItemPattern && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={startEditingListItemPattern}
+                            className="h-6 px-2 text-purple-600 hover:text-purple-800 hover:bg-purple-100"
+                          >
+                            <Edit className="w-3 h-3 mr-1" />
+                            Edit
+                          </Button>
+                        )}
+                      </div>
+                      {editingListItemPattern ? (
+                        <div className="space-y-2">
+                          <input
+                            type="text"
+                            value={listItemPatternValue}
+                            onChange={(e) => setListItemPatternValue(e.target.value)}
+                            placeholder="e.g., div.flex.items-start"
+                            className="w-full text-sm bg-white px-2 py-1.5 rounded border border-purple-300 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none font-mono"
+                          />
+                          <div className="flex gap-2">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={cancelEditingListItemPattern}
+                              className="flex-1 h-7"
+                            >
+                              Cancel
+                            </Button>
+                            <Button
+                              size="sm"
+                              onClick={saveListItemPattern}
+                              className="flex-1 h-7 bg-purple-600 hover:bg-purple-700"
+                            >
+                              Save
+                            </Button>
+                          </div>
+                        </div>
+                      ) : (
+                        <code className="text-sm bg-white px-2 py-1 rounded block border border-purple-200">
+                          {viewingBinding.listItemPattern || "Not configured"}
+                        </code>
+                      )}
+                      <p className="text-xs text-gray-600 mt-1">
+                        This selector identifies the repeating item template within the container.
+                      </p>
+                    </div>
+
+                    {/* How it works */}
+                    <div className="border-t border-purple-200 pt-3">
+                      <div className="text-xs font-semibold text-purple-800 mb-2">How List Rendering Works:</div>
+                      <ol className="text-xs text-gray-700 space-y-1 list-decimal list-inside">
+                        <li>The container element holds one item template</li>
+                        <li>At render time, the template is cloned for each array item</li>
+                        <li>Bindings inside use indexed paths like <code className="bg-white px-1 rounded">{viewingBinding.dataBinding}[i].field</code></li>
+                      </ol>
+                    </div>
+
+                    {/* Binding child elements guidance */}
+                    <div className="border-t border-purple-200 pt-3">
+                      <div className="text-xs font-semibold text-purple-800 mb-2">Binding Child Elements:</div>
+                      <div className="bg-white rounded p-2 border border-purple-200">
+                        <p className="text-xs text-gray-700 mb-2">
+                          To bind elements inside the list item template:
+                        </p>
+                        <ol className="text-xs text-gray-600 space-y-1 list-decimal list-inside">
+                          <li>Enter <strong>Element Binding Mode</strong></li>
+                          <li>Click on an element inside the list item template</li>
+                          <li>Select a field from the array item schema using paths like:</li>
+                        </ol>
+                        <div className="mt-2 space-y-1">
+                          <code className="text-xs bg-purple-100 px-2 py-0.5 rounded block">
+                            {viewingBinding.dataBinding}[0].fieldName
+                          </code>
+                          <p className="text-xs text-gray-500 italic">
+                            The [0] index will automatically be replaced with the correct index for each item during rendering.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

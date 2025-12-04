@@ -1,0 +1,15 @@
+.sidebar-menu-item {
+  transition: all 0.2s ease;
+}
+
+.sidebar-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-user-profile {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

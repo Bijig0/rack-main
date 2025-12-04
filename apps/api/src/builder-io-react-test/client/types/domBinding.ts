@@ -38,6 +38,40 @@ export interface ConditionalStyle {
 }
 
 /**
+ * A single condition that sets an attribute value when met
+ */
+export interface AttributeCondition {
+  /** Value to compare against */
+  value: any;
+  /** Comparison operator */
+  operator: StyleConditionOperator;
+  /** Attribute value to set when condition is true */
+  attributeValue: string;
+}
+
+/**
+ * Conditional attribute (e.g., icon src) based on another data binding
+ */
+export interface ConditionalAttribute {
+  /** Data binding path this attribute depends on (e.g., "state.schools[0].type") */
+  dependsOn: string;
+  /** HTML attribute to modify (e.g., "src", "href", "alt") */
+  attribute: string;
+  /** List of conditions to evaluate */
+  conditions: AttributeCondition[];
+}
+
+/**
+ * A single data binding field with path and alias for templates
+ */
+export interface DataBindingField {
+  /** Data binding path (e.g., "state.propertyInfo.landArea.value") */
+  path: string;
+  /** Alias used in template (e.g., "value", "unit") */
+  alias: string;
+}
+
+/**
  * Mapping between a DOM element and a data binding
  */
 export interface DomBindingMapping {
@@ -45,7 +79,7 @@ export interface DomBindingMapping {
   id: string;
   /** CSS selector or DOM path to the element */
   path: string;
-  /** Data binding path (e.g., "state.propertyInfo.yearBuilt.value") */
+  /** Data binding path (e.g., "state.propertyInfo.yearBuilt.value") - for single bindings */
   dataBinding: string;
   /** Type of the data (from JSON schema) */
   dataType: string;
@@ -57,6 +91,10 @@ export interface DomBindingMapping {
   conditionalStyles?: ConditionalStyle[];
   /** Template for formatting object properties (e.g., "{value} {unit}" for landArea) */
   template?: string;
+  /** Multiple data bindings for multi-field templates (e.g., combining landArea.value + landArea.unit) */
+  multiFieldBindings?: DataBindingField[];
+  /** Conditional attributes (e.g., icon src) to apply based on other data */
+  conditionalAttributes?: ConditionalAttribute[];
 }
 
 /**
@@ -84,6 +122,26 @@ export function extractTemplateProperties(template: string): string[] {
   const matches = template.match(/\{(\w+)\}/g);
   if (!matches) return [];
   return matches.map(m => m.slice(1, -1));
+}
+
+/**
+ * Apply a multi-field template by building a data object from resolved field values
+ * @param template Template string like "{value} {unit}"
+ * @param fields Array of field bindings with their aliases
+ * @param resolveValue Function to resolve a data path to its value
+ * @returns Formatted string
+ */
+export function applyMultiFieldTemplate(
+  template: string,
+  fields: DataBindingField[],
+  resolveValue: (path: string) => any
+): string {
+  // Build a data object from the fields
+  const data: Record<string, any> = {};
+  fields.forEach(field => {
+    data[field.alias] = resolveValue(field.path);
+  });
+  return applyTemplate(template, data);
 }
 
 /**

@@ -1,5 +1,7 @@
 import z from "zod";
 import { AppraisalSummarySchema } from "../../getAppraisalSummary/types";
+import { BathroomCountSchema } from "../../getBathroomCount/types";
+import { BedroomCountSchema } from "../../getBedroomCount/types";
 import { CouncilSchema } from "../../getCouncil/types";
 import { DistanceFromCBDSchema } from "../../getDistanceFromCBD/types";
 import { EstimatedValueRangeSchema } from "../../getEstimatedValueRange/types";
@@ -12,8 +14,7 @@ import { PropertyTypeSchema } from "../../getPropertyType/types";
 import { SimilarPropertiesForRentSchema } from "../../getSimilarPropertiesForRent/types";
 import { SimilarPropertiesForSaleSchema } from "../../getSimilarPropertiesForSale/types";
 import { YearBuiltSchema } from "../../getYearBuilt/types";
-import { BedroomCountSchema } from "../../getBedroomCount/types";
-import { BathroomCountSchema } from "../../getBathroomCount/types";
+import { PropertyTimelineSchema } from "../../getPropertyTimeline/types";
 
 export const PropertyInfoSchema = z.object({
   bedroomCount: BedroomCountSchema,
@@ -27,11 +28,11 @@ export const PropertyInfoSchema = z.object({
   distanceFromCBD: DistanceFromCBDSchema,
   nearbySchools: NearbySchoolsSchema,
   propertyImage: PropertyImageSchema,
+  propertyTimeline: PropertyTimelineSchema,
   estimatedValue: EstimatedValueRangeSchema,
   similarPropertiesForSale: SimilarPropertiesForSaleSchema,
   similarPropertiesForRent: SimilarPropertiesForRentSchema,
   appraisalSummary: AppraisalSummarySchema,
-
 });
 
 export type PropertyInfo = z.infer<typeof PropertyInfoSchema>;

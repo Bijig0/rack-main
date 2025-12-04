@@ -1,0 +1,127 @@
+:root {
+  --primary-color-main: #204745;
+  --primary-color-light: #2d5f5d;
+  --secondary-color: #ffffff;
+  --dark-color: #252525;
+  --red-color: #ED1C24;
+  --golden-color: #ffc250;
+  --golden-light: #e7f0d3;
+  --text-color: #212529;
+  --text-color-secondary: #6c757d;
+  --color-light: #f1f1f1;
+  --surface-section: #f8f9fa;
+  --surface-card: #ffffff;
+  --surface-overlay: #ffffff;
+  --surface-border: #dee2e6;
+  --focus-ring: 0 0 0 0.2rem rgba(32, 71, 69, 0.2);
+  --gray-color: #636363;
+  --color-blue: #0000e3;
+  --light-blue: #bbd5f2;
+  --light-gray: #a9a9a9;
+  --dark-blue: #0a0a56;
+}
+/* === Background Colors === */
+.bg-primary-color {
+  background-color: var(--primary-color-main);
+}
+.bg-golden-light {
+  background-color: var(--golden-light);
+}
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+.bg-dark-blue{
+  background-color: var(--dark-blue);
+}
+.bg-primary-light {
+  background-color: var(--primary-color-light);
+}
+
+.bg-light-color {
+  background-color: var(--color-light);
+}
+
+.bg-dark {
+  background-color: var(--dark-color);
+}
+.bg-blue {
+  background-color: var(--color-blue);
+}
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-surface-section {
+  background-color: var(--surface-section);
+}
+
+.bg-surface-card {
+  background-color: var(--surface-card) !important;
+}
+.bg-gray {
+  background: var(--gray-color);
+}
+.bg-light-gray {
+  background: var(--light-gray);
+}
+.bg-surface-overlay {
+  background-color: var(--surface-overlay);
+}
+
+/* === Text Colors === */
+.text-primary-color {
+  color: var(--primary-color-main);
+}
+.text-red-color{
+  color: var(--red-color);
+}
+.text-blue {
+  color: var(--color-blue);
+}
+.text-primary-light {
+  color: var(--primary-color-light);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+.text-golden {
+  color: var(--golden-color);
+}
+.text-default {
+  color: var(--text-color);
+}
+.text-dark {
+  color: var(--dark-color);
+}
+.text-gray {
+  color: var(--gray-color);
+}
+
+.text-muted {
+  color: var(--text-color-secondary);
+}
+
+/* === Border Color (optional utility) === */
+.border-surface {
+  border-color: var(--surface-border);
+}
+
+/* === Focus Ring (optional for buttons/inputs) === */
+.focus-ring {
+  box-shadow: var(--focus-ring);
+}
+
+.border-primary {
+  border: 1px solid var(--primary-color-main) !important;
+}
+.border-top-gray {
+  border-top: 1px solid #4d4d4d;
+}
+/* btn */
+.upload-btn {
+  .p-button {
+    background: var(--primary-color-main);
+    border: 0;
+  }
+}

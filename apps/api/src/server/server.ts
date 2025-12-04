@@ -93,7 +93,9 @@ app.post("/api/reports/generatePdf", async (c) => {
     });
 
     console.log(`[SERVER] Created job ${job.id} for address:`, address);
-    console.log(`[SERVER] Job added to queue - waiting for worker to process...`);
+    console.log(
+      `[SERVER] Job added to queue - waiting for worker to process...`
+    );
 
     const statusUrl = `${SERVER_BASE_URL}/api/reports/jobs/${job.id}`;
 
@@ -138,9 +140,7 @@ app.get("/api/reports/jobs/:jobId", async (c) => {
           data: job.returnvalue,
         });
 
-        console.log(
-          `Created rental appraisal record with id: ${id}`
-        );
+        console.log(`Created rental appraisal record with id: ${id}`);
 
         // Update the job data to store the id for subsequent polls
         await job.updateData({

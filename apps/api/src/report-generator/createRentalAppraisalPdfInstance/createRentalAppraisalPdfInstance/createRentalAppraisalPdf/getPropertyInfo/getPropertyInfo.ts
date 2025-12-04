@@ -1,12 +1,15 @@
 import { Effect, pipe } from "effect";
 import { Address } from "../../../../../shared/types";
 import { getAppraisalSummary } from "./getAppraisalSummary/getAppraisalSummary";
+import { getBathroomCount } from "./getBathroomCount/getBathroomCount";
+import { getBedroomCount } from "./getBedroomCount/getBedroomCount";
 import { getCouncil } from "./getCouncil/getCouncil";
 import { getDistanceFromCBD } from "./getDistanceFromCBD/getDistanceFromCBD";
 import { getFloorArea } from "./getFloorArea/getFloorArea";
 import { getLandArea } from "./getLandArea/getLandArea";
 import { getNearbySchools } from "./getNearbySchools/getNearbySchools";
 import { getPropertyImage } from "./getPropertyImage/getPropertyImage";
+import { getPropertyTimeline } from "./getPropertyTimeline/getPropertyTimeline";
 import { getPropertyType } from "./getPropertyType/getPropertyType";
 import { getSimilarPropertiesForRent } from "./getSimilarPropertiesForRent/getSimilarPropertiesForRent";
 import { getSimilarPropertiesForSale } from "./getSimilarPropertiesForSale/getSimilarPropertiesForSale";
@@ -17,8 +20,6 @@ import { scrapeDomainDotCom } from "./utils/scrapers/scrapeDomainDotCom/scrapeDo
 import { scrapePropertyValueDotCom } from "./utils/scrapers/scrapePropertyValueDotCom/scrapePropertyValueDotCom";
 import { scrapeRealEstateDotCom } from "./utils/scrapers/scrapeRealEstateDotCom/scrapePropertyValueDotCom";
 import { PropertyInfo } from "./utils/types";
-import { getBathroomCount } from "./getBathroomCount/getBathroomCount";
-import { getBedroomCount } from "./getBedroomCount/getBedroomCount";
 
 type Args = {
   address: Address;
@@ -107,6 +108,10 @@ const createEffects = ({ address }: Args) => {
     propertyImage: pipe(
       getPropertyImage({ address }),
       Effect.map((r) => r.propertyImage)
+    ),
+    propertyTimeline: pipe(
+      getPropertyTimeline({ address }),
+      Effect.map((r) => r.propertyTimeline)
     ),
     similarPropertiesForSale: pipe(
       getSimilarPropertiesForSale({ address }),

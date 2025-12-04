@@ -1,0 +1,14 @@
+.contact-container {
+  /* height: 80vh; */
+  .contact-form-box {
+    width: 700px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .contact-container {
+  /* height: 80vh; */
+  .contact-form-box {
+    width: 100%;
+  }
+}
+}

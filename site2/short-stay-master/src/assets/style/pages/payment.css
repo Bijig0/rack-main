@@ -1,0 +1,17 @@
+.payment-card {
+  width: 1000px;
+  .title {
+    border-bottom: 1px solid #a9a9a9;
+  }
+  .card-input {
+    position: relative;
+    img {
+      position: absolute;
+      right: 15px;
+      bottom: 22px;
+    }
+  }
+  input {
+    background: #fff !important;
+  }
+}

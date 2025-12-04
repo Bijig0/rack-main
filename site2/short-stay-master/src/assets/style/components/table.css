@@ -1,0 +1,33 @@
+.p-datatable {
+  .p-datatable-thead {
+    tr th {
+      background: #f8f9fa;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark-color);
+    }
+  }
+  .p-datatable-tbody {
+    tr td {
+      color: var(--gray-color);
+      padding: 10px;
+      font-size: 14px;
+    }
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+  }
+}
+.no-border-table,
+.no-border-table .p-datatable-thead > tr > th,
+.no-border-table .p-datatable-tbody > tr > td,
+.no-border-table .p-datatable-tbody > tr,
+.no-border-table .p-datatable-thead > tr {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.no-border-table .p-datatable-tbody > tr:nth-child(even) {
+  background: transparent !important;
+}

@@ -1058,6 +1058,7 @@ export default function Index({ showControls = true }: IndexProps) {
                 }
               }}
               position="fixed"
+              disableVisualIndicators={!showControls}
             />
           </div>
         </div>

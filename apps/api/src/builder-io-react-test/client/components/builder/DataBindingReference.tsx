@@ -13,8 +13,8 @@ import { Check, ChevronDown, ChevronRight, Search, AlertCircle, Edit3, FileCode,
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useGetRentalAppraisalSchema, JsonSchema } from "@/hooks/useGetRentalAppraisalSchema";
 import { useFetchDomBindings, useSaveDomBindings } from "@/hooks/useDomBindingsApi";
-import { DomBindingMapping, ConditionalStyle } from "@/types/domBinding";
-import { ConditionalStyleEditor } from "./ConditionalStyleEditor";
+import { DomBindingMapping, ConditionalStyle, ConditionalAttribute } from "@/types/domBinding";
+import { ConditionalStyleEditor, ListContext } from "./ConditionalStyleEditor";
 import { DomBindingsManager } from "./DomBindingsManager";
 import { BindingVisualIndicators } from "./BindingVisualIndicators";
 import { ElementFirstSelector } from "./ElementFirstSelector";
@@ -39,6 +39,11 @@ interface DataBindingReferenceProps {
    * Position in the editor (default: fixed bottom-right)
    */
   position?: "fixed" | "static" | "relative";
+
+  /**
+   * Disable visual binding indicators (useful for report/PDF mode)
+   */
+  disableVisualIndicators?: boolean;
 }
 
 interface BindingNode {
@@ -51,27 +56,106 @@ interface BindingNode {
 }
 
 /**
- * Unwrap anyOf/oneOf to get the actual schema (handles nullable patterns)
- * Returns the non-null schema from anyOf/oneOf arrays
+ * Check if a schema is "empty" or just a negation (like { not: {} })
  */
-function unwrapNullableSchema(schema: JsonSchema): { schema: JsonSchema; isNullable: boolean } {
+function isEmptyOrNegationSchema(schema: JsonSchema): boolean {
+  if (!schema || typeof schema !== 'object') return true;
+  // { not: {} } is an empty negation - "not anything" means nothing valid
+  if (schema.not !== undefined && Object.keys(schema.not).length === 0) return true;
+  // Empty object with no meaningful properties
+  const keys = Object.keys(schema);
+  if (keys.length === 0) return true;
+  return false;
+}
+
+/**
+ * Check if a schema represents real content (has type, properties, or items)
+ */
+function hasConcreteSchema(schema: JsonSchema): boolean {
+  if (!schema || typeof schema !== 'object') return false;
+  return !!(schema.type || schema.properties || schema.items);
+}
+
+/**
+ * Recursively unwrap anyOf/oneOf to get the actual schema (handles nullable patterns)
+ * Returns the non-null schema from anyOf/oneOf arrays, including deeply nested ones
+ *
+ * Handles complex patterns like:
+ * { "anyOf": [ { "type": "array", "items": { "anyOf": [ { "not": {} }, { "anyOf": [...] } ] } }, { "type": "null" } ] }
+ */
+function unwrapNullableSchema(schema: JsonSchema, depth: number = 0): { schema: JsonSchema; isNullable: boolean } {
+  // Prevent infinite recursion
+  if (depth > 15) return { schema, isNullable: false };
+
   // Handle anyOf pattern: [{ type: "object", ... }, { type: "null" }]
   if (schema.anyOf && Array.isArray(schema.anyOf)) {
-    const nonNullSchema = schema.anyOf.find(
-      (s: JsonSchema) => s.type !== "null" && !(Array.isArray(s.type) && s.type.includes("null"))
+    // Filter out null types and empty/negation schemas
+    const validSchemas = schema.anyOf.filter(
+      (s: JsonSchema) =>
+        s.type !== "null" &&
+        !(Array.isArray(s.type) && s.type.includes("null")) &&
+        !isEmptyOrNegationSchema(s)
     );
-    if (nonNullSchema) {
-      return { schema: nonNullSchema, isNullable: true };
+
+    // First pass: look for schemas that need recursive unwrapping
+    for (const candidate of validSchemas) {
+      // If the candidate itself has anyOf/oneOf, recursively unwrap it
+      if (candidate.anyOf || candidate.oneOf) {
+        const unwrapped = unwrapNullableSchema(candidate, depth + 1);
+        if (hasConcreteSchema(unwrapped.schema)) {
+          return { schema: unwrapped.schema, isNullable: true };
+        }
+      }
+    }
+
+    // Second pass: look for concrete schemas directly
+    for (const candidate of validSchemas) {
+      if (hasConcreteSchema(candidate)) {
+        return { schema: candidate, isNullable: true };
+      }
+    }
+
+    // Fallback: return first valid schema and try unwrapping it
+    if (validSchemas.length > 0) {
+      const firstValid = validSchemas[0];
+      // Try one more unwrap in case it's nested
+      if (firstValid.anyOf || firstValid.oneOf) {
+        return unwrapNullableSchema(firstValid, depth + 1);
+      }
+      return { schema: firstValid, isNullable: true };
     }
   }
 
   // Handle oneOf pattern similarly
   if (schema.oneOf && Array.isArray(schema.oneOf)) {
-    const nonNullSchema = schema.oneOf.find(
-      (s: JsonSchema) => s.type !== "null" && !(Array.isArray(s.type) && s.type.includes("null"))
+    const validSchemas = schema.oneOf.filter(
+      (s: JsonSchema) =>
+        s.type !== "null" &&
+        !(Array.isArray(s.type) && s.type.includes("null")) &&
+        !isEmptyOrNegationSchema(s)
     );
-    if (nonNullSchema) {
-      return { schema: nonNullSchema, isNullable: true };
+
+    for (const candidate of validSchemas) {
+      if (candidate.anyOf || candidate.oneOf) {
+        const unwrapped = unwrapNullableSchema(candidate, depth + 1);
+        if (hasConcreteSchema(unwrapped.schema)) {
+          return { schema: unwrapped.schema, isNullable: true };
+        }
+      }
+    }
+
+    for (const candidate of validSchemas) {
+      if (hasConcreteSchema(candidate)) {
+        return { schema: candidate, isNullable: true };
+      }
+    }
+
+    if (validSchemas.length > 0) {
+      const firstValid = validSchemas[0];
+      if (firstValid.anyOf || firstValid.oneOf) {
+        return unwrapNullableSchema(firstValid, depth + 1);
+      }
+      return { schema: firstValid, isNullable: true };
     }
   }
 
@@ -108,22 +192,27 @@ function extractBindingPathsFromSchema(
     // Unwrap nullable patterns (anyOf, oneOf, type arrays)
     const { schema: unwrappedSchema, isNullable } = unwrapNullableSchema(currentSchema);
 
-    if (unwrappedSchema.type === "array" && unwrappedSchema.items) {
-      // For arrays, show the array itself and example item access
-      nodes.push({
-        path: currentPath,
-        type: isNullable ? "array (nullable)" : "array",
-        isUsed: usedBindings.has(currentPath),
-      });
+    // Check for array - either explicit type or has items
+    const isArraySchema = unwrappedSchema.type === "array" || (unwrappedSchema.items && !unwrappedSchema.properties);
+    // Check for object - either explicit type or has properties
+    const isObjectSchema = unwrappedSchema.type === "object" || unwrappedSchema.properties;
 
+    if (isArraySchema && unwrappedSchema.items) {
       // Unwrap items schema too (in case items use anyOf)
       const { schema: itemSchema } = unwrapNullableSchema(unwrappedSchema.items);
 
       // Show first item access pattern
       const itemPath = `${currentPath}[0]`;
       const childNodes = traverse(itemSchema, itemPath);
-      nodes.push(...childNodes);
-    } else if (unwrappedSchema.type === "object" && unwrappedSchema.properties) {
+
+      // For arrays, show the array itself with item nodes as children
+      nodes.push({
+        path: currentPath,
+        type: isNullable ? "array (nullable)" : "array",
+        isUsed: usedBindings.has(currentPath),
+        children: childNodes.length > 0 ? childNodes : undefined,
+      });
+    } else if (isObjectSchema && unwrappedSchema.properties) {
       // Traverse object properties
       for (const [key, propSchema] of Object.entries(unwrappedSchema.properties)) {
         const newPath = currentPath ? `${currentPath}.${key}` : key;
@@ -131,9 +220,13 @@ function extractBindingPathsFromSchema(
         // Unwrap the property schema
         const { schema: unwrappedPropSchema, isNullable: propIsNullable } = unwrapNullableSchema(propSchema);
 
-        if (unwrappedPropSchema.type === "array" && unwrappedPropSchema.items) {
+        // Check for array/object in property - be more lenient about type detection
+        const propIsArray = unwrappedPropSchema.type === "array" || (unwrappedPropSchema.items && !unwrappedPropSchema.properties);
+        const propIsObject = unwrappedPropSchema.type === "object" || unwrappedPropSchema.properties;
+
+        if (propIsArray && unwrappedPropSchema.items) {
           nodes.push(...traverse(propSchema, newPath));
-        } else if (unwrappedPropSchema.type === "object" && unwrappedPropSchema.properties) {
+        } else if (propIsObject && unwrappedPropSchema.properties) {
           const childNodes = traverse(unwrappedPropSchema, newPath);
           // Extract property names for template binding
           const objectProperties = Object.keys(unwrappedPropSchema.properties);
@@ -209,6 +302,7 @@ export const DataBindingReference = ({
   builderContent,
   hidden = false,
   position = "fixed",
+  disableVisualIndicators = false,
 }: DataBindingReferenceProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showOnlyUsed, setShowOnlyUsed] = useState(false);
@@ -240,7 +334,7 @@ export const DataBindingReference = ({
 
   const [editingConditionalStyles, setEditingConditionalStyles] = useState<DomBindingMapping | null>(null);
   const [activeTab, setActiveTab] = useState<"reference" | "bindings">("reference");
-  const [showVisualIndicators, setShowVisualIndicators] = useState(false);
+  const [showVisualIndicators, setShowVisualIndicators] = useState(true);
   const [incompatibilities, setIncompatibilities] = useState<string[]>([]);
   const [showIncompatibilityModal, setShowIncompatibilityModal] = useState(false);
 
@@ -444,7 +538,23 @@ export const DataBindingReference = ({
   };
 
   // Element-first binding flow handler
-  const handleElementFirstBindingComplete = (domPath: string, dataBinding: string, dataType: string, template?: string) => {
+  const handleElementFirstBindingComplete = (
+    domPath: string,
+    dataBinding: string,
+    dataType: string,
+    template?: string,
+    multiFieldBindings?: Array<{ path: string; alias: string }>,
+    listConfig?: { isListContainer: boolean; listItemPattern?: string }
+  ) => {
+    console.log("🟢 handleElementFirstBindingComplete received:", {
+      domPath,
+      dataBinding,
+      dataType,
+      template,
+      multiFieldBindings,
+      listConfig,
+    });
+
     const newBinding: DomBindingMapping = {
       id: `${Date.now()}-${Math.random()}`,
       path: domPath,
@@ -452,14 +562,38 @@ export const DataBindingReference = ({
       dataType,
       conditionalStyles: [],
       template,
+      multiFieldBindings,
+      isListContainer: listConfig?.isListContainer,
+      listItemPattern: listConfig?.listItemPattern,
     };
+
+    console.log("🟢 New binding object:", newBinding);
 
     setLocalBindings([...localBindings, newBinding]);
     setActiveTab("bindings");
   };
 
+  // State to track list context for the conditional style editor
+  const [editingListContext, setEditingListContext] = useState<ListContext | undefined>(undefined);
+
   const handleEditConditionalStyles = (binding: DomBindingMapping) => {
     setEditingConditionalStyles(binding);
+
+    // Determine if this is a list item binding and compute list context
+    let listContext: ListContext | undefined = undefined;
+
+    if (binding.isListContainer || binding.dataBinding.match(/\[\d+\]/)) {
+      // Extract base path (e.g., "state.schools" from "state.schools[0].rating")
+      const basePathMatch = binding.dataBinding.match(/^(.+?)\[\d+\]/);
+      if (basePathMatch) {
+        listContext = {
+          basePath: basePathMatch[1],
+          itemPath: binding.dataBinding,
+        };
+      }
+    }
+
+    setEditingListContext(listContext);
   };
 
   const handleConditionalStylesChange = (styles: ConditionalStyle[]) => {
@@ -476,6 +610,23 @@ export const DataBindingReference = ({
     setEditingConditionalStyles({
       ...editingConditionalStyles,
       conditionalStyles: styles,
+    });
+  };
+
+  const handleConditionalAttributesChange = (attrs: ConditionalAttribute[]) => {
+    if (!editingConditionalStyles) return;
+
+    setLocalBindings(
+      localBindings.map((b) =>
+        b.id === editingConditionalStyles.id
+          ? { ...b, conditionalAttributes: attrs }
+          : b
+      )
+    );
+
+    setEditingConditionalStyles({
+      ...editingConditionalStyles,
+      conditionalAttributes: attrs,
     });
   };
 
@@ -559,27 +710,55 @@ export const DataBindingReference = ({
   // Minimized view - just a small tab
   if (isMinimized) {
     return (
-      <div
-        className={positionClasses}
-        style={panelStyle}
-        data-binding-panel
-      >
-        <Card className="shadow-2xl">
-          <CardHeader className="p-3">
-            <div className="flex items-center gap-2">
-              <CardTitle className="text-sm">Data Bindings</CardTitle>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setIsMinimized(false)}
-                title="Expand panel"
-              >
-                <Maximize2 className="w-4 h-4" />
-              </Button>
-            </div>
-          </CardHeader>
-        </Card>
-      </div>
+      <>
+        <div
+          className={positionClasses}
+          style={panelStyle}
+          data-binding-panel
+        >
+          <Card className="shadow-2xl">
+            <CardHeader className="p-3">
+              <div className="flex items-center gap-2">
+                <CardTitle className="text-sm">Data Bindings</CardTitle>
+                {!editMode && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setIsMinimized(false)}
+                    title="Expand panel"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                  </Button>
+                )}
+                {editMode && (
+                  <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-700">
+                    Edit Mode Active
+                  </Badge>
+                )}
+              </div>
+            </CardHeader>
+          </Card>
+        </div>
+
+        {/* Element-First Selector (shown when in edit mode) */}
+        {editMode && (
+          <ElementFirstSelector
+            availableBindings={allBindings}
+            existingBindings={localBindings}
+            onBindingComplete={handleElementFirstBindingComplete}
+            onDeleteBinding={(bindingId) => {
+              setLocalBindings(localBindings.filter(b => b.id !== bindingId));
+            }}
+            onExit={() => {
+              setEditMode(false);
+              setIsMinimized(false);
+            }}
+            onSave={handleSaveChanges}
+            hasUnsavedChanges={isDirty}
+            isSaving={saveMutation.isPending}
+          />
+        )}
+      </>
     );
   }
 
@@ -651,7 +830,14 @@ export const DataBindingReference = ({
               <Button
                 variant={editMode ? "default" : "outline"}
                 size="sm"
-                onClick={() => setEditMode(!editMode)}
+                onClick={() => {
+                  const newEditMode = !editMode;
+                  setEditMode(newEditMode);
+                  // Minimize panel when entering edit mode, restore when exiting
+                  if (newEditMode) {
+                    setIsMinimized(true);
+                  }
+                }}
               >
                 {editMode ? (
                   <>
@@ -798,8 +984,18 @@ export const DataBindingReference = ({
       {editMode && (
         <ElementFirstSelector
           availableBindings={allBindings}
+          existingBindings={localBindings}
           onBindingComplete={handleElementFirstBindingComplete}
-          onExit={() => setEditMode(false)}
+          onDeleteBinding={(bindingId) => {
+            setLocalBindings(localBindings.filter(b => b.id !== bindingId));
+          }}
+          onExit={() => {
+            setEditMode(false);
+            setIsMinimized(false);
+          }}
+          onSave={handleSaveChanges}
+          hasUnsavedChanges={isDirty}
+          isSaving={saveMutation.isPending}
         />
       )}
 
@@ -811,15 +1007,21 @@ export const DataBindingReference = ({
             type: b.type,
           }))}
           conditionalStyles={editingConditionalStyles.conditionalStyles || []}
+          conditionalAttributes={editingConditionalStyles.conditionalAttributes || []}
           onChange={handleConditionalStylesChange}
-          onClose={() => setEditingConditionalStyles(null)}
+          onAttributesChange={handleConditionalAttributesChange}
+          onClose={() => {
+            setEditingConditionalStyles(null);
+            setEditingListContext(undefined);
+          }}
+          listContext={editingListContext}
         />
       )}
 
       {/* Visual Binding Indicators */}
       <BindingVisualIndicators
         bindings={localBindings}
-        enabled={showVisualIndicators || editMode}
+        enabled={!disableVisualIndicators && (showVisualIndicators || editMode)}
       />
 
       {/* Incompatibility Warning Modal */}

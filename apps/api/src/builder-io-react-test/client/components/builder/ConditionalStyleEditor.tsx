@@ -9,23 +9,40 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, Trash2, X } from "lucide-react";
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Plus, Trash2, X, Repeat, Image } from "lucide-react";
+import { useState, useMemo } from "react";
 import {
   ConditionalStyle,
+  ConditionalAttribute,
+  AttributeCondition,
   StyleCondition,
   StyleConditionOperator,
 } from "@/types/domBinding";
+
+/** Context for list item bindings */
+export interface ListContext {
+  /** Base path of the list (e.g., "state.schools") */
+  basePath: string;
+  /** Item path pattern (e.g., "state.schools[0]") */
+  itemPath: string;
+}
 
 interface ConditionalStyleEditorProps {
   /** Available data bindings for the "depends on" dropdown */
   availableBindings: Array<{ path: string; type: string }>;
   /** Current conditional styles */
   conditionalStyles: ConditionalStyle[];
+  /** Current conditional attributes (e.g., icon src) */
+  conditionalAttributes?: ConditionalAttribute[];
   /** Callback when styles change */
   onChange: (styles: ConditionalStyle[]) => void;
+  /** Callback when attributes change */
+  onAttributesChange?: (attrs: ConditionalAttribute[]) => void;
   /** Callback to close the editor */
   onClose: () => void;
+  /** If editing a list item, provide the list context */
+  listContext?: ListContext;
 }
 
 const OPERATORS: { value: StyleConditionOperator; label: string }[] = [
@@ -53,10 +70,38 @@ const COMMON_CSS_PROPERTIES = [
 export const ConditionalStyleEditor = ({
   availableBindings,
   conditionalStyles,
+  conditionalAttributes = [],
   onChange,
+  onAttributesChange,
   onClose,
+  listContext,
 }: ConditionalStyleEditorProps) => {
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
+
+  // Separate bindings into "same item" and "external" when in list context
+  const { sameItemBindings, externalBindings } = useMemo(() => {
+    if (!listContext) {
+      return { sameItemBindings: [], externalBindings: availableBindings };
+    }
+
+    const basePath = listContext.basePath;
+    const sameItem = availableBindings.filter((b) =>
+      b.path.startsWith(basePath + "[")
+    );
+    const external = availableBindings.filter(
+      (b) => !b.path.startsWith(basePath + "[")
+    );
+
+    return { sameItemBindings: sameItem, externalBindings: external };
+  }, [availableBindings, listContext]);
+
+  // Helper to format path for display in list context
+  const formatPathForDisplay = (path: string) => {
+    if (listContext && path.startsWith(listContext.basePath + "[")) {
+      return path.replace(listContext.basePath + "[0]", "[item]");
+    }
+    return path;
+  };
 
   const addConditionalStyle = () => {
     onChange([
@@ -148,6 +193,123 @@ export const ConditionalStyleEditor = ({
     });
   };
 
+  // Conditional Attribute handlers
+  const addConditionalAttribute = () => {
+    if (!onAttributesChange) return;
+    onAttributesChange([
+      ...conditionalAttributes,
+      {
+        dependsOn: "",
+        attribute: "src",
+        conditions: [],
+      },
+    ]);
+  };
+
+  const removeConditionalAttribute = (index: number) => {
+    if (!onAttributesChange) return;
+    onAttributesChange(conditionalAttributes.filter((_, i) => i !== index));
+  };
+
+  const updateConditionalAttribute = (index: number, updated: ConditionalAttribute) => {
+    if (!onAttributesChange) return;
+    onAttributesChange(
+      conditionalAttributes.map((attr, i) => (i === index ? updated : attr))
+    );
+  };
+
+  const addAttributeCondition = (attrIndex: number) => {
+    const attr = conditionalAttributes[attrIndex];
+    updateConditionalAttribute(attrIndex, {
+      ...attr,
+      conditions: [
+        ...attr.conditions,
+        {
+          value: "",
+          operator: "equals",
+          attributeValue: "",
+        },
+      ],
+    });
+  };
+
+  const removeAttributeCondition = (attrIndex: number, conditionIndex: number) => {
+    const attr = conditionalAttributes[attrIndex];
+    updateConditionalAttribute(attrIndex, {
+      ...attr,
+      conditions: attr.conditions.filter((_, i) => i !== conditionIndex),
+    });
+  };
+
+  const updateAttributeCondition = (
+    attrIndex: number,
+    conditionIndex: number,
+    updated: AttributeCondition
+  ) => {
+    const attr = conditionalAttributes[attrIndex];
+    updateConditionalAttribute(attrIndex, {
+      ...attr,
+      conditions: attr.conditions.map((cond, i) =>
+        i === conditionIndex ? updated : cond
+      ),
+    });
+  };
+
+  // Render the binding selector with grouped options for list context
+  const renderBindingSelector = (
+    value: string,
+    onValueChange: (value: string) => void,
+    placeholder: string = "Select data binding..."
+  ) => (
+    <Select value={value} onValueChange={onValueChange}>
+      <SelectTrigger>
+        <SelectValue placeholder={placeholder}>
+          {value && formatPathForDisplay(value)}
+        </SelectValue>
+      </SelectTrigger>
+      <SelectContent>
+        {listContext && sameItemBindings.length > 0 && (
+          <>
+            <div className="px-2 py-1 text-xs font-semibold text-purple-700 bg-purple-50">
+              Current Item Properties
+            </div>
+            {sameItemBindings.map((binding) => (
+              <SelectItem key={binding.path} value={binding.path}>
+                <div className="flex items-center gap-2">
+                  <code className="text-xs">
+                    {formatPathForDisplay(binding.path)}
+                  </code>
+                  <Badge variant="outline" className="text-xs">
+                    {binding.type}
+                  </Badge>
+                </div>
+              </SelectItem>
+            ))}
+            <div className="border-t my-1" />
+            <div className="px-2 py-1 text-xs font-semibold text-gray-500">
+              External Data
+            </div>
+          </>
+        )}
+        {!listContext && (
+          <div className="px-2 py-1 text-xs font-semibold text-gray-500">
+            Available Bindings
+          </div>
+        )}
+        {externalBindings.map((binding) => (
+          <SelectItem key={binding.path} value={binding.path}>
+            <div className="flex items-center gap-2">
+              <code className="text-xs">{binding.path}</code>
+              <Badge variant="outline" className="text-xs">
+                {binding.type}
+              </Badge>
+            </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
       <Card className="w-[800px] max-h-[90vh] overflow-auto">
@@ -158,6 +320,20 @@ export const ConditionalStyleEditor = ({
           </Button>
         </CardHeader>
         <CardContent className="space-y-4">
+          {/* Template Mode Banner for List Items */}
+          {listContext && (
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-purple-700">
+                <Repeat className="w-4 h-4" />
+                <span className="text-sm font-semibold">Template Styling Mode</span>
+              </div>
+              <p className="text-xs text-purple-600 mt-1">
+                Styles defined here will apply to <strong>each item</strong> in the list.
+                Conditions like "rating &gt; 4" will evaluate against each item's own data.
+              </p>
+            </div>
+          )}
+
           <div className="text-sm text-gray-600">
             Define styles that change based on other data values. For example,
             change a card's background color based on an easement status.
@@ -169,29 +345,14 @@ export const ConditionalStyleEditor = ({
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <Label>Depends On</Label>
-                    <Select
-                      value={style.dependsOn}
-                      onValueChange={(value) =>
+                    {renderBindingSelector(
+                      style.dependsOn,
+                      (value) =>
                         updateConditionalStyle(styleIndex, {
                           ...style,
                           dependsOn: value,
                         })
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select data binding..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {availableBindings.map((binding) => (
-                          <SelectItem key={binding.path} value={binding.path}>
-                            <code className="text-xs">{binding.path}</code>
-                            <span className="text-xs text-gray-500 ml-2">
-                              ({binding.type})
-                            </span>
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    )}
                   </div>
                   <Button
                     variant="ghost"
@@ -338,6 +499,160 @@ export const ConditionalStyleEditor = ({
             <Plus className="w-4 h-4 mr-2" />
             Add Conditional Style Rule
           </Button>
+
+          {/* Conditional Attributes Section (e.g., icon src) */}
+          {onAttributesChange && (
+            <div className="border-t pt-4 mt-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Image className="w-4 h-4 text-gray-600" />
+                <Label className="text-sm font-semibold">Conditional Icon/Image Source</Label>
+              </div>
+              <p className="text-xs text-gray-500 mb-3">
+                Change image or icon sources based on data values.
+              </p>
+
+              {conditionalAttributes.map((attr, attrIndex) => (
+                <Card key={attrIndex} className="border-2 border-blue-200 mb-3">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1 space-y-2">
+                        <div>
+                          <Label className="text-xs">Depends On</Label>
+                          {renderBindingSelector(
+                            attr.dependsOn,
+                            (value) =>
+                              updateConditionalAttribute(attrIndex, {
+                                ...attr,
+                                dependsOn: value,
+                              })
+                          )}
+                        </div>
+                        <div>
+                          <Label className="text-xs">Attribute</Label>
+                          <Select
+                            value={attr.attribute}
+                            onValueChange={(value) =>
+                              updateConditionalAttribute(attrIndex, {
+                                ...attr,
+                                attribute: value,
+                              })
+                            }
+                          >
+                            <SelectTrigger className="h-8">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="src">src (image source)</SelectItem>
+                              <SelectItem value="href">href (link)</SelectItem>
+                              <SelectItem value="alt">alt (alt text)</SelectItem>
+                              <SelectItem value="title">title</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => removeConditionalAttribute(attrIndex)}
+                        className="ml-2"
+                      >
+                        <Trash2 className="w-4 h-4 text-red-600" />
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    {attr.conditions.map((condition, conditionIndex) => (
+                      <div
+                        key={conditionIndex}
+                        className="border rounded-md p-3 space-y-3 bg-blue-50"
+                      >
+                        <div className="flex items-end gap-2">
+                          <div className="flex-1">
+                            <Label className="text-xs">When value</Label>
+                            <Select
+                              value={condition.operator}
+                              onValueChange={(value) =>
+                                updateAttributeCondition(attrIndex, conditionIndex, {
+                                  ...condition,
+                                  operator: value as StyleConditionOperator,
+                                })
+                              }
+                            >
+                              <SelectTrigger className="h-8">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {OPERATORS.map((op) => (
+                                  <SelectItem key={op.value} value={op.value}>
+                                    {op.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="flex-1">
+                            <Label className="text-xs">Value</Label>
+                            <Input
+                              className="h-8"
+                              value={condition.value}
+                              onChange={(e) =>
+                                updateAttributeCondition(attrIndex, conditionIndex, {
+                                  ...condition,
+                                  value: e.target.value,
+                                })
+                              }
+                              placeholder="Enter value..."
+                            />
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeAttributeCondition(attrIndex, conditionIndex)}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+
+                        <div>
+                          <Label className="text-xs">Set {attr.attribute} to</Label>
+                          <Input
+                            className="h-8"
+                            value={condition.attributeValue}
+                            onChange={(e) =>
+                              updateAttributeCondition(attrIndex, conditionIndex, {
+                                ...condition,
+                                attributeValue: e.target.value,
+                              })
+                            }
+                            placeholder={`Enter ${attr.attribute} value (e.g., /icons/star.svg)`}
+                          />
+                        </div>
+                      </div>
+                    ))}
+
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => addAttributeCondition(attrIndex)}
+                      className="w-full"
+                    >
+                      <Plus className="w-4 h-4 mr-2" />
+                      Add Condition
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+
+              <Button
+                variant="outline"
+                onClick={addConditionalAttribute}
+                className="w-full border-blue-300 text-blue-700 hover:bg-blue-50"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Add Conditional Attribute Rule
+              </Button>
+            </div>
+          )}
 
           <div className="flex justify-end gap-2 pt-4 border-t">
             <Button variant="outline" onClick={onClose}>
