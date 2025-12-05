@@ -72,13 +72,22 @@ export interface DataBindingField {
 }
 
 /**
+ * Type of bindable component
+ */
+export type BindableComponentType = "text" | "list" | "image";
+
+/**
  * Mapping between a DOM element and a data binding
  */
 export interface DomBindingMapping {
   /** Unique identifier */
   id: string;
-  /** CSS selector or DOM path to the element */
+  /** CSS selector or DOM path to the element (legacy approach) */
   path: string;
+  /** Unique bindingId from BindableText/BindableList component (new approach) */
+  bindingId?: string;
+  /** Type of bindable component (text, list, image) */
+  componentType?: BindableComponentType;
   /** Data binding path (e.g., "state.propertyInfo.yearBuilt.value") - for single bindings */
   dataBinding: string;
   /** Type of the data (from JSON schema) */

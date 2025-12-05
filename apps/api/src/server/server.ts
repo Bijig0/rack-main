@@ -1,10 +1,14 @@
 // server.ts
 import { Queue } from "bullmq";
 import { randomUUID } from "crypto";
+import { desc, eq } from "drizzle-orm";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { createMiddleware } from "hono/factory";
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { createRentalAppraisalRecord } from "../db/createRentalAppraisalRecord";
+import { db } from "../db/drizzle";
+import { property, appraisal } from "../db/schema";
 import { RentalAppraisalDataSchema } from "../report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getRentalAppraisalData/schemas";
 import { PDF_BASE_URL, SERVER_BASE_URL, SERVER_PORT } from "../shared/config";
 import { AddressSchema } from "../shared/types";
@@ -20,7 +24,32 @@ app.use(
   })
 );
 
-// Health check endpoint
+// Internal API key validation middleware for /api/* routes
+const validateInternalApiKey = createMiddleware(async (c, next) => {
+  const apiKey = c.req.header("X-Internal-Api-Key");
+  const expectedKey = process.env.INTERNAL_API_KEY;
+
+  // Skip validation if no key is configured (development mode)
+  if (!expectedKey) {
+    console.warn("[SERVER] INTERNAL_API_KEY not configured - skipping auth");
+    return next();
+  }
+
+  if (apiKey !== expectedKey) {
+    console.warn(
+      "[SERVER] Invalid or missing API key from:",
+      c.req.header("X-Forwarded-For") || "unknown"
+    );
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+
+  return next();
+});
+
+// Apply API key validation to all /api/* routes
+app.use("/api/*", validateInternalApiKey);
+
+// Health check endpoint (public, before /api/* middleware)
 app.get("/health", (c) => c.json({ status: "ok" }));
 
 // Helper to parse Redis connection from environment
@@ -65,6 +94,96 @@ app.get("/api/reports/placeholder", async (c) => {
 app.get("/api/reports/schema", async (c) => {
   const jsonSchema = zodToJsonSchema(RentalAppraisalDataSchema);
   return c.json(jsonSchema);
+});
+
+// GET endpoint to list all properties with their latest appraisal status
+app.get("/api/properties", async (c) => {
+  try {
+    const properties = await db
+      .select({
+        id: property.id,
+        addressCommonName: property.addressCommonName,
+        bedroomCount: property.bedroomCount,
+        bathroomCount: property.bathroomCount,
+        propertyType: property.propertyType,
+        landAreaSqm: property.landAreaSqm,
+        propertyImageUrl: property.propertyImageUrl,
+        createdAt: property.createdAt,
+        updatedAt: property.updatedAt,
+      })
+      .from(property)
+      .orderBy(desc(property.createdAt));
+
+    // Get latest appraisal status for each property
+    const propertiesWithStatus = await Promise.all(
+      properties.map(async (prop) => {
+        const latestAppraisal = await db
+          .select({
+            id: appraisal.id,
+            status: appraisal.status,
+            pdfUrl: appraisal.pdfUrl,
+            createdAt: appraisal.createdAt,
+          })
+          .from(appraisal)
+          .where(eq(appraisal.propertyId, prop.id))
+          .orderBy(desc(appraisal.createdAt))
+          .limit(1);
+
+        return {
+          ...prop,
+          latestAppraisal: latestAppraisal[0] || null,
+        };
+      })
+    );
+
+    return c.json({ properties: propertiesWithStatus });
+  } catch (error) {
+    console.error("Error fetching properties:", error);
+    return c.json(
+      {
+        error: "Failed to fetch properties",
+        message: error instanceof Error ? error.message : String(error),
+      },
+      500
+    );
+  }
+});
+
+// GET endpoint to fetch a single property with its appraisals
+app.get("/api/properties/:id", async (c) => {
+  try {
+    const propertyId = c.req.param("id");
+
+    const propertyResult = await db
+      .select()
+      .from(property)
+      .where(eq(property.id, propertyId))
+      .limit(1);
+
+    if (!propertyResult.length) {
+      return c.json({ error: "Property not found" }, 404);
+    }
+
+    const appraisals = await db
+      .select()
+      .from(appraisal)
+      .where(eq(appraisal.propertyId, propertyId))
+      .orderBy(desc(appraisal.createdAt));
+
+    return c.json({
+      property: propertyResult[0],
+      appraisals,
+    });
+  } catch (error) {
+    console.error("Error fetching property:", error);
+    return c.json(
+      {
+        error: "Failed to fetch property",
+        message: error instanceof Error ? error.message : String(error),
+      },
+      500
+    );
+  }
 });
 
 // POST endpoint to generate a PDF report

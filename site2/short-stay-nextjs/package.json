@@ -6,18 +6,23 @@
     "dev": "next dev -p 3050",
     "build": "next build",
     "start": "next start -p 3050",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.38.3",
     "jose": "^6.1.3",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.555.0",
-    "mongoose": "^9.0.0",
     "next": "16.0.7",
     "next-auth": "^4.24.13",
     "nodemailer": "^7.0.11",
+    "postgres": "^3.4.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "validator": "^13.15.23"
@@ -31,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/validator": "^13.15.10",
+    "drizzle-kit": "^0.30.4",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
     "tailwindcss": "^4",

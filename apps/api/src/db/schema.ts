@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, integer, jsonb, index, uuid } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, integer, jsonb, index, uuid, numeric } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 /**
@@ -42,16 +42,54 @@ export const domBindingsRelations = relations(domBindings, ({ one }) => ({
 }));
 
 /**
- * Rental Appraisal Data table - stores report data as JSONB
+ * Property table - core property information for list views and filtering
  */
-export const rentalAppraisalData = pgTable('rental_appraisal_data', {
+export const property = pgTable('property', {
   id: uuid('id').primaryKey().notNull(),
+  // Address info
+  addressCommonName: text('address_common_name').notNull(),
+  // Basic property info
+  bedroomCount: integer('bedroom_count'),
+  bathroomCount: integer('bathroom_count'),
+  propertyType: text('property_type'),
+  landAreaSqm: numeric('land_area_sqm'),
+  // Thumbnail for list view
+  propertyImageUrl: text('property_image_url'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+}, (table) => ({
+  addressIdx: index('idx_property_address').on(table.addressCommonName),
+}));
+
+/**
+ * Appraisal table - stores full report data as JSONB
+ * Linked to property table for core fields
+ */
+export const appraisal = pgTable('appraisal', {
+  id: uuid('id').primaryKey().notNull(),
+  propertyId: uuid('property_id').notNull().references(() => property.id, { onDelete: 'cascade' }),
   data: jsonb('data').notNull(),
   status: text('status').notNull().default('pending'),
   pdfUrl: text('pdf_url'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
-});
+}, (table) => ({
+  propertyIdIdx: index('idx_appraisal_property_id').on(table.propertyId),
+}));
+
+/**
+ * Property <-> Appraisal Relations
+ */
+export const propertyRelations = relations(property, ({ many }) => ({
+  appraisals: many(appraisal),
+}));
+
+export const appraisalRelations = relations(appraisal, ({ one }) => ({
+  property: one(property, {
+    fields: [appraisal.propertyId],
+    references: [property.id],
+  }),
+}));
 
 /**
  * TypeScript types inferred from schema
@@ -60,5 +98,12 @@ export type Pdf = typeof pdf.$inferSelect;
 export type NewPdf = typeof pdf.$inferInsert;
 export type DomBinding = typeof domBindings.$inferSelect;
 export type NewDomBinding = typeof domBindings.$inferInsert;
-export type RentalAppraisalData = typeof rentalAppraisalData.$inferSelect;
-export type NewRentalAppraisalData = typeof rentalAppraisalData.$inferInsert;
+export type Property = typeof property.$inferSelect;
+export type NewProperty = typeof property.$inferInsert;
+export type Appraisal = typeof appraisal.$inferSelect;
+export type NewAppraisal = typeof appraisal.$inferInsert;
+
+// Legacy alias for backward compatibility during migration
+export const rentalAppraisalData = appraisal;
+export type RentalAppraisalData = Appraisal;
+export type NewRentalAppraisalData = NewAppraisal;

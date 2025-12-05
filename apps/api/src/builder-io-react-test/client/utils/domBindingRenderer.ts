@@ -14,6 +14,79 @@ import {
 } from "@/types/domBinding";
 
 /**
+ * Find an element for a binding - supports both bindingId (new) and CSS path (legacy)
+ * @param binding The binding configuration
+ * @param containerElement The container to search within
+ * @returns The found element or null
+ */
+export function findElementForBinding(
+  binding: DomBindingMapping,
+  containerElement: HTMLElement | Document = document
+): HTMLElement | null {
+  // Prefer bindingId if available (new approach with BindableText/BindableList components)
+  if (binding.bindingId) {
+    const element = containerElement.querySelector(
+      `[data-binding-id="${binding.bindingId}"]`
+    ) as HTMLElement;
+    if (element) {
+      return element;
+    }
+    console.warn(`Element not found for bindingId: ${binding.bindingId}`);
+  }
+
+  // Fall back to CSS path selector (legacy approach)
+  if (binding.path) {
+    try {
+      const element = containerElement.querySelector(binding.path) as HTMLElement;
+      if (element) {
+        return element;
+      }
+      console.warn(`Element not found for path: ${binding.path}`);
+    } catch (err) {
+      console.error(`Invalid CSS selector: ${binding.path}`, err);
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Find all bindable elements of a specific type in the document
+ * @param type The bindable type ("text", "list", "image")
+ * @param containerElement The container to search within
+ * @returns Array of found elements
+ */
+export function findBindableElements(
+  type: "text" | "list" | "image" | "all",
+  containerElement: HTMLElement | Document = document
+): HTMLElement[] {
+  const selector = type === "all"
+    ? "[data-bindable]"
+    : `[data-bindable="${type}"]`;
+
+  return Array.from(containerElement.querySelectorAll(selector)) as HTMLElement[];
+}
+
+/**
+ * Get binding info from a bindable element
+ * @param element The element to get info from
+ * @returns Object with bindingId and type, or null if not bindable
+ */
+export function getBindableInfo(element: HTMLElement): {
+  bindingId: string;
+  type: "text" | "list" | "image";
+} | null {
+  const bindingId = element.getAttribute("data-binding-id");
+  const type = element.getAttribute("data-bindable") as "text" | "list" | "image";
+
+  if (!bindingId || !type) {
+    return null;
+  }
+
+  return { bindingId, type };
+}
+
+/**
  * Get a value from a data object using a path string
  * @example getValueFromPath(data, "state.propertyInfo.yearBuilt.value") => 1985
  */
@@ -238,12 +311,10 @@ export function renderBinding(
   containerElement: HTMLElement | Document = document
 ): boolean {
   try {
-    const element = containerElement.querySelector(
-      binding.path
-    ) as HTMLElement;
+    const element = findElementForBinding(binding, containerElement);
 
     if (!element) {
-      console.warn(`Element not found for path: ${binding.path}`);
+      // Warning already logged by findElementForBinding
       return false;
     }
 
@@ -393,12 +464,10 @@ export function renderBindingWithContext(
   containerElement: HTMLElement | Document = document
 ): boolean {
   try {
-    const element = containerElement.querySelector(
-      binding.path
-    ) as HTMLElement;
+    const element = findElementForBinding(binding, containerElement);
 
     if (!element) {
-      console.warn(`Element not found for path: ${binding.path}`);
+      // Warning already logged by findElementForBinding
       return false;
     }
 
@@ -675,6 +744,91 @@ export function renderAllBindings(
   });
 
   return { success, failed };
+}
+
+/**
+ * Result of rendering a single binding
+ */
+export interface BindingRenderResult {
+  binding: DomBindingMapping;
+  success: boolean;
+  error?: string;
+  elementFound: boolean;
+  renderedValue?: string;
+}
+
+/**
+ * Render all bindings to the DOM with detailed results for each binding
+ */
+export function renderAllBindingsWithDetails(
+  bindings: DomBindingMapping[],
+  data: any,
+  containerElement: HTMLElement | Document = document
+): { results: BindingRenderResult[]; success: number; failed: number } {
+  const results: BindingRenderResult[] = [];
+
+  const listBindings = bindings.filter(b => b.isListContainer);
+  const listPaths = listBindings.map(b => b.dataBinding);
+
+  // Filter out bindings that are children of list bindings
+  const nonListBindings = bindings.filter(b => {
+    if (b.isListContainer) return false;
+    for (const listPath of listPaths) {
+      const pattern = new RegExp(`^${listPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\[\\d+\\]`);
+      if (pattern.test(b.dataBinding)) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  // Helper to render and track result
+  const renderAndTrack = (binding: DomBindingMapping) => {
+    try {
+      const element = findElementForBinding(binding, containerElement);
+      const elementFound = !!element;
+
+      if (!elementFound) {
+        const selector = binding.bindingId || binding.path;
+        results.push({
+          binding,
+          success: false,
+          elementFound: false,
+          error: `Element not found: ${selector}`,
+        });
+        return;
+      }
+
+      const success = renderBindingWithContext(binding, data, bindings, containerElement);
+      const renderedValue = element?.textContent?.substring(0, 100) || undefined;
+
+      results.push({
+        binding,
+        success,
+        elementFound: true,
+        renderedValue,
+        error: success ? undefined : 'Render failed',
+      });
+    } catch (err) {
+      results.push({
+        binding,
+        success: false,
+        elementFound: false,
+        error: err instanceof Error ? err.message : String(err),
+      });
+    }
+  };
+
+  // Render list bindings first
+  listBindings.forEach(renderAndTrack);
+
+  // Render non-list bindings
+  nonListBindings.forEach(renderAndTrack);
+
+  const success = results.filter(r => r.success).length;
+  const failed = results.filter(r => !r.success).length;
+
+  return { results, success, failed };
 }
 
 /**
