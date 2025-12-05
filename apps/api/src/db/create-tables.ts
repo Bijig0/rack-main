@@ -49,6 +49,69 @@ async function createTables() {
   `;
   console.log('Created appraisal property_id index');
 
+  // BetterAuth tables
+  // Create user table
+  await sql`
+    CREATE TABLE IF NOT EXISTS "user" (
+      id TEXT PRIMARY KEY NOT NULL,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL UNIQUE,
+      email_verified BOOLEAN NOT NULL DEFAULT FALSE,
+      image TEXT,
+      created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+      updated_at TIMESTAMP DEFAULT NOW() NOT NULL
+    )
+  `;
+  console.log('Created user table');
+
+  // Create session table
+  await sql`
+    CREATE TABLE IF NOT EXISTS "session" (
+      id TEXT PRIMARY KEY NOT NULL,
+      expires_at TIMESTAMP NOT NULL,
+      token TEXT NOT NULL UNIQUE,
+      created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+      updated_at TIMESTAMP DEFAULT NOW() NOT NULL,
+      ip_address TEXT,
+      user_agent TEXT,
+      user_id TEXT NOT NULL REFERENCES "user"(id) ON DELETE CASCADE
+    )
+  `;
+  console.log('Created session table');
+
+  // Create account table
+  await sql`
+    CREATE TABLE IF NOT EXISTS "account" (
+      id TEXT PRIMARY KEY NOT NULL,
+      account_id TEXT NOT NULL,
+      provider_id TEXT NOT NULL,
+      user_id TEXT NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+      access_token TEXT,
+      refresh_token TEXT,
+      id_token TEXT,
+      access_token_expires_at TIMESTAMP,
+      refresh_token_expires_at TIMESTAMP,
+      scope TEXT,
+      password TEXT,
+      created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+      updated_at TIMESTAMP DEFAULT NOW() NOT NULL
+    )
+  `;
+  console.log('Created account table');
+
+  // Create verification table
+  await sql`
+    CREATE TABLE IF NOT EXISTS "verification" (
+      id TEXT PRIMARY KEY NOT NULL,
+      identifier TEXT NOT NULL,
+      value TEXT NOT NULL,
+      expires_at TIMESTAMP NOT NULL,
+      created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+      updated_at TIMESTAMP DEFAULT NOW() NOT NULL
+    )
+  `;
+  console.log('Created verification table');
+
   console.log('Tables created successfully!');
   await sql.end();
   process.exit(0);

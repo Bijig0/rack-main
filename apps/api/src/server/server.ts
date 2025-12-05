@@ -1,20 +1,28 @@
 // server.ts
 import { Queue } from "bullmq";
 import { randomUUID } from "crypto";
-import { desc, eq } from "drizzle-orm";
+// Note: desc, eq from drizzle-orm available when switching from sample data to real DB queries
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { createMiddleware } from "hono/factory";
 import { zodToJsonSchema } from "zod-to-json-schema";
+import { auth } from "../auth/auth";
 import { createRentalAppraisalRecord } from "../db/createRentalAppraisalRecord";
-import { db } from "../db/drizzle";
-import { property, appraisal } from "../db/schema";
+// Note: db from drizzle available when switching from sample data to real DB queries
+// Note: property, appraisal schemas available for real DB queries
 import { RentalAppraisalDataSchema } from "../report-generator/createRentalAppraisalPdfInstance/createRentalAppraisalPdfInstance/createRentalAppraisalPdf/getRentalAppraisalData/schemas";
 import { PDF_BASE_URL, SERVER_BASE_URL, SERVER_PORT } from "../shared/config";
 import { AddressSchema } from "../shared/types";
 import { generateFakeRentalAppraisalData } from "./generateFakeRentalAppraisalData";
+import type { Session } from "../auth/auth";
 
-const app = new Hono();
+// Type for auth context variables
+type AuthVariables = {
+  session: Session["session"];
+  user: Session["user"];
+};
+
+const app = new Hono<{ Variables: AuthVariables }>();
 
 app.use(
   "*",
@@ -51,6 +59,28 @@ app.use("/api/*", validateInternalApiKey);
 
 // Health check endpoint (public, before /api/* middleware)
 app.get("/health", (c) => c.json({ status: "ok" }));
+
+// BetterAuth handler - handles all /api/auth/* routes
+app.on(["POST", "GET"], "/api/auth/**", (c) => {
+  return auth.handler(c.req.raw);
+});
+
+// Auth session middleware for protected routes
+const requireAuth = createMiddleware(async (c, next) => {
+  const session = await auth.api.getSession({
+    headers: c.req.raw.headers,
+  });
+
+  if (!session) {
+    return c.json({ error: "Unauthorized - Please sign in" }, 401);
+  }
+
+  // Attach session to context for use in route handlers
+  c.set("session", session.session);
+  c.set("user", session.user);
+
+  return next();
+});
 
 // Helper to parse Redis connection from environment
 function getRedisConnection() {
@@ -96,98 +126,116 @@ app.get("/api/reports/schema", async (c) => {
   return c.json(jsonSchema);
 });
 
-// GET endpoint to list all properties with their latest appraisal status
-app.get("/api/properties", async (c) => {
-  try {
-    const properties = await db
-      .select({
-        id: property.id,
-        addressCommonName: property.addressCommonName,
-        bedroomCount: property.bedroomCount,
-        bathroomCount: property.bathroomCount,
-        propertyType: property.propertyType,
-        landAreaSqm: property.landAreaSqm,
-        propertyImageUrl: property.propertyImageUrl,
-        createdAt: property.createdAt,
-        updatedAt: property.updatedAt,
-      })
-      .from(property)
-      .orderBy(desc(property.createdAt));
-
-    // Get latest appraisal status for each property
-    const propertiesWithStatus = await Promise.all(
-      properties.map(async (prop) => {
-        const latestAppraisal = await db
-          .select({
-            id: appraisal.id,
-            status: appraisal.status,
-            pdfUrl: appraisal.pdfUrl,
-            createdAt: appraisal.createdAt,
-          })
-          .from(appraisal)
-          .where(eq(appraisal.propertyId, prop.id))
-          .orderBy(desc(appraisal.createdAt))
-          .limit(1);
-
-        return {
-          ...prop,
-          latestAppraisal: latestAppraisal[0] || null,
-        };
-      })
-    );
-
-    return c.json({ properties: propertiesWithStatus });
-  } catch (error) {
-    console.error("Error fetching properties:", error);
-    return c.json(
-      {
-        error: "Failed to fetch properties",
-        message: error instanceof Error ? error.message : String(error),
+// Sample data generator for properties (matches Drizzle schema)
+const generateSampleProperties = () => {
+  const now = new Date().toISOString();
+  return [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      addressCommonName: "42 Wallaby Way, Sydney NSW 2000",
+      bedroomCount: 4,
+      bathroomCount: 2,
+      propertyType: "House",
+      landAreaSqm: "650",
+      propertyImageUrl: null,
+      createdAt: now,
+      updatedAt: now,
+      latestAppraisal: {
+        id: "660e8400-e29b-41d4-a716-446655440001",
+        status: "completed",
+        pdfUrl: "https://example.com/reports/sample-report-1.pdf",
+        createdAt: now,
       },
-      500
-    );
-  }
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      addressCommonName: "15 Collins Street, Melbourne VIC 3000",
+      bedroomCount: 3,
+      bathroomCount: 2,
+      propertyType: "Apartment",
+      landAreaSqm: null,
+      propertyImageUrl: null,
+      createdAt: now,
+      updatedAt: now,
+      latestAppraisal: {
+        id: "660e8400-e29b-41d4-a716-446655440002",
+        status: "pending",
+        pdfUrl: null,
+        createdAt: now,
+      },
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440003",
+      addressCommonName: "88 Queen Street, Brisbane QLD 4000",
+      bedroomCount: 5,
+      bathroomCount: 3,
+      propertyType: "House",
+      landAreaSqm: "820",
+      propertyImageUrl: null,
+      createdAt: now,
+      updatedAt: now,
+      latestAppraisal: null,
+    },
+  ];
+};
+
+// Sample appraisal data generator (matches Drizzle schema)
+const generateSampleAppraisals = (propertyId: string) => {
+  const now = new Date().toISOString();
+  const fakeReportData = generateFakeRentalAppraisalData();
+
+  return [
+    {
+      id: "660e8400-e29b-41d4-a716-446655440001",
+      propertyId,
+      data: fakeReportData,
+      status: "completed",
+      pdfUrl: "https://example.com/reports/sample-report-1.pdf",
+      createdAt: now,
+      updatedAt: now,
+    },
+  ];
+};
+
+// GET endpoint to list all properties with their latest appraisal status (protected)
+app.get("/api/properties", requireAuth, async (c) => {
+  // Return sample data matching Drizzle schema
+  const sampleProperties = generateSampleProperties();
+  // User info available via c.get("user") if needed
+  return c.json({ properties: sampleProperties });
 });
 
-// GET endpoint to fetch a single property with its appraisals
-app.get("/api/properties/:id", async (c) => {
-  try {
-    const propertyId = c.req.param("id");
+// GET endpoint to fetch a single property with its appraisals (protected)
+app.get("/api/properties/:id", requireAuth, async (c) => {
+  const propertyId = c.req.param("id");
+  const sampleProperties = generateSampleProperties();
 
-    const propertyResult = await db
-      .select()
-      .from(property)
-      .where(eq(property.id, propertyId))
-      .limit(1);
+  // Find the property by ID or return the first one as fallback
+  const foundProperty = sampleProperties.find(p => p.id === propertyId) || sampleProperties[0];
 
-    if (!propertyResult.length) {
-      return c.json({ error: "Property not found" }, 404);
-    }
+  // Generate sample appraisals for this property
+  const sampleAppraisals = foundProperty.latestAppraisal
+    ? generateSampleAppraisals(foundProperty.id)
+    : [];
 
-    const appraisals = await db
-      .select()
-      .from(appraisal)
-      .where(eq(appraisal.propertyId, propertyId))
-      .orderBy(desc(appraisal.createdAt));
-
-    return c.json({
-      property: propertyResult[0],
-      appraisals,
-    });
-  } catch (error) {
-    console.error("Error fetching property:", error);
-    return c.json(
-      {
-        error: "Failed to fetch property",
-        message: error instanceof Error ? error.message : String(error),
-      },
-      500
-    );
-  }
+  return c.json({
+    property: {
+      id: foundProperty.id,
+      addressCommonName: foundProperty.addressCommonName,
+      bedroomCount: foundProperty.bedroomCount,
+      bathroomCount: foundProperty.bathroomCount,
+      propertyType: foundProperty.propertyType,
+      landAreaSqm: foundProperty.landAreaSqm,
+      propertyImageUrl: foundProperty.propertyImageUrl,
+      createdAt: foundProperty.createdAt,
+      updatedAt: foundProperty.updatedAt,
+    },
+    appraisals: sampleAppraisals,
+  });
 });
 
-// POST endpoint to generate a PDF report
-app.post("/api/reports/generatePdf", async (c) => {
+// POST endpoint to generate a PDF report (protected)
+app.post("/api/reports/generatePdf", requireAuth, async (c) => {
   try {
     const body = await c.req.json();
 
@@ -235,7 +283,8 @@ app.post("/api/reports/generatePdf", async (c) => {
   }
 });
 
-app.get("/api/reports/jobs/:jobId", async (c) => {
+// GET endpoint to check job status (protected)
+app.get("/api/reports/jobs/:jobId", requireAuth, async (c) => {
   const jobId = c.req.param("jobId");
   const job = await getReportQueue().getJob(jobId);
 
